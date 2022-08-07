@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0 auto; 
+    font-family: var(--fuentePrincipal);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../img/productos/fondo-textura-carrito.jpg");
+}
+li {
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+h1 {
+    font-size: var(--fuenteTitulares);
+    text-align: center;
+    color: var(--colorBlanco);
+    border-bottom: 1px solid rgba(131, 130, 130, 0.774);
+}
+
+h3 {
+    font-size: 28px;
+    font-weight: 500;
+    padding-bottom: 15px;
+    color: var(--colorBlanco);
+}
+.precio {
+    font-size: 20px;
+}
+.descuento {
+        color: var(--descuentos);
+        margin: 10px;
+        font-size: 16px;
+}
+.old{
+    text-decoration:line-through;
+    font-size: 14px;
+    color: rgb(182, 181, 181);
+    display: flex;
+    justify-items: start;
+}

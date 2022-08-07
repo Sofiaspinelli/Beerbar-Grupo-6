@@ -1,0 +1,144 @@
+.header {
+    background-color: #d6651fd1; 
+    width: 98%; 
+    margin: 0 auto;
+    border-radius: 0 0 40px 40px;
+}
+
+.header .logo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 50%;
+    max-width: 200px;
+}
+
+.header img{
+    width: 100%;
+}
+.header button {
+    color: var(--colorBlanco);
+    border: 1px  /* var(--colorNaranja) */;
+    background-color: rgba(255, 255, 255, 0);
+}
+.header .burger {
+    font-size: 30px;
+    display: flex;
+    justify-content: start;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.header .carrito{
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.header .flex {
+    display: flex;
+    padding: 20px 30px 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .buscar{
+    position: relative;
+    padding: 5px;
+    display: none;
+}
+.buscar input{
+    position:absolute;
+    right: -145px;
+    top: -20px;
+    width: 0px;
+    height: 45px;
+    padding: 0 20px;
+    font-size: 20px;
+    color: #000;
+    outline: none;
+    border: 1px solid silver;
+    border-radius: 30px;
+    transition: all 0.8s ease;
+}
+.btn{
+    position: absolute;
+    top: -25px;
+    right: -150px;
+    background: #000;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    color: #ff6200d1;
+    font-size: 20px;
+    border-radius: 28px;
+    cursor: pointer;
+}
+.buscar:hover input{
+    width: 350px;
+}
+.buscar input:focus{
+    width: 350px;
+}
+
+.header .flex .icons{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.header .flex .icons button:last-child{
+    font-size: 40px;
+    margin-left: 20px;
+}
+.header nav {
+    display: none;
+    width: 89%;
+    margin: 0 auto;
+}
+.header nav ul li {
+    margin: 5px;
+    
+}
+
+.header nav a {
+    color: white;
+    text-transform: uppercase;
+    font-size: var(--tamañoFuente);
+    
+}
+@media (min-width:668px) {
+    .header{
+        height: 155px;
+    }
+    .header img  {
+        justify-content: center;
+    }
+    .header .burger{
+        display: none;
+    }
+    .header .buscar{
+        display: block;
+    }
+
+    .header nav {
+        display: flex;
+        justify-content: space-between;
+    }
+    .header nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .header nav ul li {
+        margin: 0 5px;
+    }
+    .header nav ul.user {
+        display: flex;
+        justify-content: end;
+        
+    }
+    .header .t-f{
+        display: none;
+    }
+    }
+    

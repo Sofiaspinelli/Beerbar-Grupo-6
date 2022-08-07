@@ -1,0 +1,107 @@
+.home main {
+    margin: 0 auto;
+    width: 90%;
+}
+.home main .productos {
+    color: var(--colorBlanco);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.home main  .productos article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 10px;
+    width: 300px;
+    height: 430px;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.33);
+    border: 1px;
+    border-radius: 10px;
+}
+.home main .productos article{
+    box-shadow: inset 0px 1px 20px 14px rgb(85, 85, 85)
+}
+.home main  .productos article img {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+.home main .productos article button{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 5px;
+    width: 120px;
+    border: 1px solid var(--colorGris);
+    border-radius: 10px;
+    background-color: rgb(54, 49, 49);
+    color: var(--colorBlanco);
+    font-size: 16px;
+}
+.home main .productos article button a{
+    color: var(--colorBlanco);
+}
+.home main .productos article button:hover{
+    background-color: var(--colorNaranja);
+}
+.home main .productos article .old{
+    text-decoration:line-through;
+    font-size: 16px;
+    color: rgb(182, 181, 181);
+    display: flex;
+    justify-items: start;
+}
+.home main .productos article .precio {
+font-size: 24px;
+}
+.home main .productos article .descuento {
+    color: var(--descuentos);
+    margin: 10px;
+    font-size: 20px;
+}
+.home main .productos article .contenedor {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    width: 80%;
+}
+
+/* Tablet  */
+@media (min-width:460px) {
+    .home main  .productos article {
+        width: 48%;
+        height: 400px;
+        margin: 10px 0;
+    }
+    .home main  .productos article img{
+        width: 80%;
+    }
+}
+
+@media (min-width:769px) {
+    .home main {
+        width: 83%;
+        max-width: 1024px;
+    }
+    .home main  .productos article {
+        max-width: 300px;
+        height: 430px;
+
+    }
+    .home main  .productos article img{
+        width: 80%;
+    }
+    .home main .productos article .old {
+        font-size: 16px;
+    }
+    .home main .productos article .precio{
+        font-size: 24px;
+    }
+    .home main .productos article .descuento {
+        font-size: 20px;
+    }
+}
