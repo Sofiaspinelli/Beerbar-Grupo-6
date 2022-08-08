@@ -102,11 +102,16 @@ main h2{
     margin: 20px 0;
 }
 .main .end button{
-    color: white;
+    color: var(--colorBlanco);
     font-size: 20px;
     padding: 5px;
-    background-color: orange;
+    background-color: var(--colorGris);
     cursor: pointer;
+    
+}
+.main .end button:hover{
+    background-color: var(--colorNaranja);
+    color: var(--colorBlanco);
 }
 .main .end input{
     font-size: 18px;
@@ -146,5 +151,8 @@ main h2{
 .main .precio{
     text-align: center;
     position: inherit;
+}
+.main .end button{
+    color: black;
 }
 }

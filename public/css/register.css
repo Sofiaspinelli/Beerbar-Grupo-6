@@ -22,6 +22,9 @@
 .register header ul li{
     margin-right: 10px;
 }
+.register nav ul li a{
+    color: var(--colorBlanco);
+}
 
 /* main */
 
@@ -29,7 +32,7 @@
    width: 335px;
    margin: 0 auto;
    background-color: rgba(255, 255, 255, 0.178);
-   padding: 20px 20px 0;
+   padding: 20px 20px;
    border: 2px double black;
    border-radius: 20px;
 }

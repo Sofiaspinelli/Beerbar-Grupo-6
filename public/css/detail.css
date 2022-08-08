@@ -49,9 +49,12 @@
     margin-top: 10px;
 }
 .detail main section article .cantidad .button{
-    background-color: var(--colorNaranja);
+    background-color: var(--colorGris);
     width: 35px;
-    font-size: 19px;
+    height: 35px;
+    font-size: 41px;
+    display: flex;
+    align-items: center;
     margin: 0;
     border-radius: 8px 0 0 8px;
 }
@@ -82,9 +85,13 @@
 }
 .detail main button a{
     color: var(--colorBlanco);
+    width: 100%;
+    height: 18px;
 }
-.detail main section article .contenedor button:hover, .detail main button:hover{
+.detail main section article .contenedor button:hover, .detail main button:hover, .detail main button a:hover{
     background-color: var(--colorNaranja);
+    color: var(--colorBlanco);
+    transition: all 0.6s;
 }
 .detail main .suggestion{
     display: flex;
@@ -108,6 +115,11 @@
     padding: 0;
     border: 0;
 }
+.detail main .suggestion article:hover{
+    border: 3px solid var(--colorNaranja);
+    border-radius: 10px;
+    transition: all 0.2s;
+}
 .detail main .suggestion article h3{
     font-weight: 100;
 }
@@ -120,6 +132,15 @@
     color: var(--colorBlanco);
     font-size: 18px;
     margin: 5px 0;
+}
+
+@media (min-width:460px){
+    .detail main section article .contenedor button, .detail main button {
+        color: black;
+    }
+    .detail main button a{
+        color: black;
+    }
 }
 
 @media (min-width:769px){

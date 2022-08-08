@@ -4,6 +4,7 @@ footer {
     border-radius: 40px 40px 0 0;
     width: 98%;
     color: white;
+    max-width: 1550px;
 }
 
 footer section {

@@ -18,38 +18,40 @@
             <div class="logo">
                 <a href="/"><img src="../img/logo/logo-beerbar.png" alt="logo"></a>
             </div>
-            <div class="search">
-                <input type="text" placeholder="buscar productos">
-                <i class="fa-solid fa-magnifying-glass btn"></i>
+            <div class="buscar">
+                <input type="text" placeholder="Birras, comida y más..." required>
+                <div class="btn">
+                    <i class="fa-solid fa-magnifying-glass icon"></i>
+                </div>
             </div>
-            
+    
             <div class="icons">
                 <button class="carrito">
-                    <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a>
                 </button>
                 <button class="burger">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
-
+    
         <nav>
             <ul>
-                <li><a href="/productos">Productos</a></li>
-                <!-- <li><a href="#">Empresa</a></li>
-                <li><a href="#">Ayuda</a></li> -->
+                <li><a href="/products">Productos</a></li>
+                <li><a href="#">Empresa</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="#">Locales</a></li>
             </ul>
             <ul class="user">
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Registro</a></li>
+                <li><a href="/users/login">Login</a></li>
+                <li><a href="/users/register">Registro</a></li>
             </ul>
-
             <!-- <div class="t-f">
                 <button><i class="fa-brands fa-twitter"></i></button>
                 <button><i class="fa-brands fa-facebook-f"></i></button>
             </div> -->
         </nav>
-
+    
     </header>
     <main>
         <h1>Detalle del Producto</h1>
@@ -69,7 +71,7 @@
                 </div>
             </article>
         </section>
-        <button><a href="/">SEGUIR COMPRANDO</a></button>
+        <button><a href="/products">SEGUIR COMPRANDO</a></button>
         <section class="suggestion">
             <div><h3>ACOMPAÑAR CON:</h3></div>
             <article>
