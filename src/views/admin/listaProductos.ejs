@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Administrador'}) %>
+</head>
+<body class="listaProductos">
+    <%- include('../partials/header') %>
+
+    <main>
+        <div class="table-responsive margin">
+            <table class="table">
+                <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Des</th>
+                <th scope="col">Accion</th>
+                
+                </tr>
+                </thead>
+                <tbody>
+                    <% productos.forEach(producto => { %>
+                        <tr>
+        
+                                <th scope="row"><a href="/admin/edit/<%= producto.id %>"><%= producto.id %> </a></th>
+                                <td><a href="/admin/edit/<%= producto.id %>"><%= producto.producto %></a></td>
+                                <td><a href="/admin/edit/<%= producto.id %>"><%= producto.marca %></a></td>
+                                <td><a href="/admin/edit/<%= producto.id %> "><%= producto.stock %></a></td>
+                                <td><a href="/admin/edit/<%= producto.id %> "><%= producto.precio %></a></td>
+                                <td><a href="/admin/edit/<%= producto.id %> "><%= producto.descuento %></a></td>
+                                <td><a href="/admin/edit/<%= producto.id%>"><button><i class="fa-solid fa-trash-can icon"></i></button> <button><i class="fa-solid fa-pen-to-square icon"></i></button></a></td>
+                                <td>
+                                </td>
+                            </tr>
+                            <% }) %> 
+                </tbody>
+            </table>
+        </div>
+    </main>
+    
+    <%- include('../partials/footer') %>
+</body>
+</html>
