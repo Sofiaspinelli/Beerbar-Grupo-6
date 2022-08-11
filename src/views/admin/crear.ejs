@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%-include('../partials/head', {title: 'Agregar producto'})%> 
+
+<body class="add">
+    <%-include('../partials/header')%> 
+    <main>
+        <form action="/admin/crear" method="post">
+            <h1>Nuevo producto<h1>
+            <section>
+                <div>
+                    <label for="selectType">Tipo de producto</label>
+                    <select name="selectType" id="S">
+                        <option selected hidden>seleccionar una opcion</option>
+                        <option value="birra">Birra</option>
+                        <option value="comidas">Comida</option>
+                    </select>
+                    <small>"Obligatorio"</small>
+                </div>
+                <div>
+                    <label for="marca">Producto y Marca</label>
+                    <input type="text" name="marca" placeholder="Producto/marca">
+                    <small>"Obligatorio"</small>
+                </div>
+                <div>
+                    <label for="descripcion">Detalle del producto</label>
+                    <textarea name="descripcion" id="descripcion" cols="30" rows="4">Agregar descripcion</textarea>
+                    <small>"Obligatorio"</small>
+                </div>
+                <div class="file">
+                    <label for="img">Imagen del producto</label>
+                    <input name="img" type="file" id="img" multiple>
+                    <small>"Obligatorio"</small>
+                </div>
+                <div class="p-s">
+                    <div>
+                        <label for="precio">Precio</label>
+                        <input type="number" name="precio" id="precio" placeholder="precio">
+                        <small>"Obligatorio"</small>
+                    </div>
+                    <div>
+                        <label for="descuento">Descuento</label>
+                        <input type="number" name="descuento" id="descuento" placeholder="0">
+                        <small>"Obligatorio"</small>
+                    </div>
+                </div>
+                <div class="stock">
+                    <label for="stock">Stock</label>
+                    <input type="number" name="stock" id="stock" placeholder="1">
+                    <small>"Obligatorio"</small>
+                </div>
+                <div class="botton">
+                    <button type="submit">Añadir Producto</button>
+                    <button type="reset"><a href="#">Cancelar</a></button>
+                </div>
+            </section>
+        </form>
+    </main>
+</body>
+</html>
