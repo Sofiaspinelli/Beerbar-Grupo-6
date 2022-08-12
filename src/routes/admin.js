@@ -1,5 +1,5 @@
 
-const {list, crear, newProducts} = require('../controllers/adminController')
+const {list, crear, newProducts,editar} = require('../controllers/adminController')
 const express = require('express');
 const router = express.Router();
 
@@ -9,6 +9,7 @@ router.get('/list', list);
 // get crear
 router.get('/crear', crear);
 router.post('/crear', newProducts);
-
+router.get('/editar/:id', editar)
 module.exports = router
+
 

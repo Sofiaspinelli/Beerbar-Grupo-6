@@ -1,0 +1,10 @@
+.editar {
+    color: orange;
+    
+}
+
+.editar form{
+    text-align: left;
+    margin: auto;
+    width: 80%;
+}

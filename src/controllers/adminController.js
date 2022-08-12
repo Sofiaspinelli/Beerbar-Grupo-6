@@ -31,5 +31,20 @@ module.exports = {
         guardar(productos);
         /* Redirecciona al detalle del producto recien creado */
         res.redirect(`/products/detail/${productoNuevo.id}`)
-    }
-}
+
+        
+    },
+    editar:(req,res) => {  (editProduct(req, res)) 
+      id = +req.params.id;  
+     let producto = productos.find(elemento => {
+ 
+       if (producto.id === id) {
+        res.render('admin/editar',{producto }); 
+       }
+       else { 
+      return   res.send('Producto no encontrado')}
+     })}}
+
+
+
+  
