@@ -14,7 +14,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    padding-top: 10px;
+    padding: 10px;
     width: 300px;
     height: 430px;
     margin: 10px;
@@ -51,6 +51,7 @@
     color: var(--colorBlanco);
     width: 100%;
     height: 17px;
+    font-size: 20px;
 }
 .home main .productos article button:hover, .home main .productos article button a:hover{
     background-color: var(--colorNaranja);
@@ -91,6 +92,9 @@ font-size: 24px;
     }
     .home main .productos article button a{
         color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -102,6 +106,7 @@ font-size: 24px;
     .home main  .productos article {
         max-width: 300px;
         height: 430px;
+        padding: 10px;
 
     }
     .home main  .productos article img{

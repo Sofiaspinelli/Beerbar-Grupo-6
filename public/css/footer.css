@@ -15,6 +15,9 @@ footer section p {
     font-size: 30px;
     justify-content: space-around;
 }
+footer section a {
+    text-align: center;
+}
 footer section p i {
     padding: 0 10px;
 }
