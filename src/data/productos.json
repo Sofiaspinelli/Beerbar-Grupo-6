@@ -1,5 +1,6 @@
 [
-    {   "id": 1,
+    {
+        "id": 1,
         "producto": "Cerveza",
         "marca": "Ipa",
         "detalle": "El aroma y el sabor son claramente marcados por el lúpulo, siendo los más comunes las variedades resinosas, frutales, herbales, etc",
@@ -11,7 +12,8 @@
             "cerveza-ale-tostada"
         ]
     },
-    {   "id": 2,
+    {
+        "id": 2,
         "producto": "Cerveza",
         "marca": "Münchner Dunkel",
         "detalle": "Este tipo de cervezas tienen un menor rango de aromas y sabores, son claras y ligeras y tienen mucho gas",
@@ -23,7 +25,8 @@
             "cerveza-ale-tostada"
         ]
     },
-    {   "id": 3,
+    {
+        "id": 3,
         "producto": "Cerveza",
         "marca": "Ale tostada",
         "detalle": "Son oscuras, espesas, con poco gas y se encuentran en una variedad de aromas florales y afrutados, así como de sabores",
@@ -35,7 +38,8 @@
             "cerveza-ale-tostada"
         ]
     },
-    {   "id": 4,
+    {
+        "id": 4,
         "producto": "Cerveza",
         "marca": "Ale dorada fuerte",
         "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
@@ -47,7 +51,8 @@
             "cerveza-ale-tostada"
         ]
     },
-    {   "id": 5,
+    {
+        "id": 5,
         "producto": "Cerveza",
         "marca": "Ale dorada fuerte",
         "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
@@ -59,7 +64,8 @@
             "cerveza-ale-tostada"
         ]
     },
-    {   "id": 6,
+    {
+        "id": 6,
         "producto": "Cerveza",
         "marca": "Ale dorada fuerte",
         "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
@@ -71,7 +77,8 @@
             "cerveza-ale-tostada"
         ]
     },
-    {   "id": 7,
+    {
+        "id": 7,
         "producto": "Cerveza",
         "marca": "Ale dorada fuerte",
         "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
@@ -83,7 +90,8 @@
             "cerveza-ale-tostada"
         ]
     },
-    {   "id": 8,
+    {
+        "id": 8,
         "producto": "Cerveza",
         "marca": "Ale dorada fuerte",
         "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
@@ -94,6 +102,17 @@
             "cerveza-ale-tostada1",
             "cerveza-ale-tostada"
         ]
+    },
+    {
+        "id": 9,
+        "tipo": "seleccionar una opcion",
+        "marca": "",
+        "img": [
+            ""
+        ],
+        "descripcion": "Agregar descripcion",
+        "precio": 0,
+        "descuento": 0,
+        "stock": 0
     }
-
 ]

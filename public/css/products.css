@@ -52,6 +52,9 @@
     color: var(--colorBlanco);
     width: 100%;
     height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .products main .productos article button:hover, .products main .productos article button a:hover{
     background-color: var(--colorNaranja);

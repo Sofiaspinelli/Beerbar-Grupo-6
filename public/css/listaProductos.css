@@ -3,13 +3,17 @@
     margin-top: 50px;
 }
 .listaProductos th, a{
-    color: white;
+    color: var(--colorBlanco);
     font-size: 24px;
     width: 200px;
 }
+.listaProductos main section button a{
+    color: black;
+}
 
 .listaProductos a:hover {
-    color: orange;
+    background-color: var(--colorNaranja);
+    color: white;
 }
 .listaProductos td a button {
     border-radius: 50%;
