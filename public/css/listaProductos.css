@@ -1,0 +1,22 @@
+.listaProductos main {
+    margin-top: 50px;
+}
+.listaProductos th, a{
+    color: white;
+    font-size: 24px;
+    width: 200px;
+}
+
+.listaProductos a:hover {
+    color: orange;
+}
+.listaProductos td a button {
+    border-radius: 50%;
+    border: none;
+}
+.listaProductos td a button .icon {
+    border-radius: 50%;
+    color: white;
+    padding: 10px;
+    background-color: var(--colorNaranja);
+}
