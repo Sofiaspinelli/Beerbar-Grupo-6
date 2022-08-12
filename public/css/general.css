@@ -28,7 +28,7 @@ h1 {
 h3 {
     font-size: 28px;
     font-weight: 500;
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
     color: var(--colorBlanco);
 }
 .precio {

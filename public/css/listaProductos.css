@@ -1,0 +1,62 @@
+.listaProductos main {
+    width: 90%;
+    margin-top: 50px;
+}
+.listaProductos th, a{
+    color: var(--colorBlanco);
+    font-size: 24px;
+    width: 200px;
+}
+.listaProductos main section button a{
+    color: black;
+}
+
+.listaProductos main section button a:hover {
+    background-color: var(--colorNaranja);
+    color: white;
+}
+.listaProductos td a button {
+    border-radius: 50%;
+    border: none;
+}
+.listaProductos td a button .icon {
+    border-radius: 50%;
+    color: white;
+    padding: 10px;
+    background-color: var(--colorNaranja);
+}
+
+.listaProductos main section {
+    width: 90%;
+    position: relative;
+    max-width: 1250px;
+    display: flex;
+    justify-content: end;
+    /* align-items: end; */
+    
+}
+
+.listaProductos  .btn-crear  {
+    border-radius: 10px;
+    font-size: 20px;
+    border: 1px;
+    padding: 5px;
+    background-color: var(--colorBlanco);
+
+}
+.listaProductos .btn-crear:hover, div table tbody tr td .edit:hover{
+    background-color: var(--colorNaranja);
+    transition: all 0.6s;
+}
+div table tbody tr td .edit {
+    background-color: var(--colorGris);
+    padding: 7px;
+    border-radius: 50%;
+}
+div table tbody tr td .edit a{
+    color: black;
+}
+div table tbody tr td .edit a:hover{
+    color: var(--colorBlanco);
+    transition: all 0.6s;
+}
