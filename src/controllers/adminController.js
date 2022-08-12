@@ -31,8 +31,6 @@ module.exports = {
         guardar(productos);
         /* Redirecciona al detalle del producto recien creado */
         res.redirect(`/products/detail/${productoNuevo.id}`)
-
-        
     },
     editar:(req,res) => {  (editProduct(req, res)) 
       id = +req.params.id;  
