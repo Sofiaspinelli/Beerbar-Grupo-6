@@ -17,9 +17,9 @@ module.exports = {
             marca: marca,
             img: [img],
             descripcion: descripcion,
-            precio: precio,
-            descuento: descuento,
-            stock: stock,
+            precio: +precio,
+            descuento: +descuento,
+            stock: +stock,
         }
         productos.push(nuevoProducto);
         guardar(productos);
