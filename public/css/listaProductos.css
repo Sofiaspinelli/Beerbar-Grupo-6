@@ -1,4 +1,5 @@
 .listaProductos main {
+    width: 90%;
     margin-top: 50px;
 }
 .listaProductos th, a{
@@ -21,4 +22,18 @@
     background-color: var(--colorNaranja);
 }
 
-
+.listaProductos main section {
+    width: 90%;
+    position: relative;
+    max-width: 1250px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+.listarProductos main section button {
+    position: absolute;
+    left: 40px;
+    border: 1px;
+    border-radius: 10px;
+    padding: 5px;
+}
