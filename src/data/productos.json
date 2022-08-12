@@ -8,8 +8,7 @@
         "precio": 500,
         "descuento": 10,
         "imagenes": [
-            "cerveza-ale-tostada1",
-            "cerveza-ale-tostada"
+            "birra1.jpg"
         ]
     },
     {
@@ -19,10 +18,10 @@
         "detalle": "Este tipo de cervezas tienen un menor rango de aromas y sabores, son claras y ligeras y tienen mucho gas",
         "stock": 5,
         "precio": 1000,
-        "descuento": 10,
+        "descuento": 0,
         "imagenes": [
-            "cerveza-ale-tostada1",
-            "cerveza-ale-tostada"
+            "cerveza-ale-tostada1.jpg",
+            "cerveza-ale-tostada.jpg"
         ]
     },
     {
@@ -32,10 +31,10 @@
         "detalle": "Son oscuras, espesas, con poco gas y se encuentran en una variedad de aromas florales y afrutados, así como de sabores",
         "stock": 14,
         "precio": 500,
-        "descuento": 10,
+        "descuento": 0,
         "imagenes": [
-            "cerveza-ale-tostada1",
-            "cerveza-ale-tostada"
+            "cerveza-ale-tostada1.jpg",
+            "cerveza-ale-tostada.jpg"
         ]
     },
     {
@@ -47,8 +46,8 @@
         "precio": 1900,
         "descuento": 10,
         "imagenes": [
-            "cerveza-ale-tostada1",
-            "cerveza-ale-tostada"
+            "cerveza-ale-tostada1.jpg",
+            "cerveza-ale-tostada.jpg"
         ]
     },
     {
@@ -60,8 +59,8 @@
         "precio": 1900,
         "descuento": 10,
         "imagenes": [
-            "cerveza-ale-tostada1",
-            "cerveza-ale-tostada"
+            "cerveza-ale-tostada1.jpg",
+            "cerveza-ale-tostada.jpg"
         ]
     },
     {
@@ -73,8 +72,8 @@
         "precio": 1900,
         "descuento": 10,
         "imagenes": [
-            "cerveza-ale-tostada1",
-            "cerveza-ale-tostada"
+            "cerveza-ale-tostada1.jpg",
+            "cerveza-ale-tostada.jpg"
         ]
     },
     {
@@ -86,8 +85,8 @@
         "precio": 1900,
         "descuento": 10,
         "imagenes": [
-            "cerveza-ale-tostada1",
-            "cerveza-ale-tostada"
+            "cerveza-ale-tostada1.jpg",
+            "cerveza-ale-tostada.jpg"
         ]
     },
     {
@@ -97,22 +96,34 @@
         "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
         "stock": 10,
         "precio": 1900,
-        "descuento": 10,
+        "descuento": 0,
         "imagenes": [
-            "cerveza-ale-tostada1",
-            "cerveza-ale-tostada"
+            "cerveza-ale-tostada1.jpg",
+            "cerveza-ale-tostada.jpg"
         ]
     },
     {
         "id": 9,
-        "tipo": "seleccionar una opcion",
-        "marca": "",
-        "img": [
+        "producto": "comidas",
+        "marca": "El Milaneso",
+        "imagenes": [
             ""
         ],
-        "descripcion": "Agregar descripcion",
-        "precio": 0,
+        "detalle": "me da fiaca",
+        "precio": 2000000,
         "descuento": 0,
-        "stock": 0
+        "stock": 99
+    },
+    {
+        "id": 10,
+        "producto": "comidas",
+        "marca": "El Milaneso",
+        "imagenes": [
+            "descarga.jpg"
+        ],
+        "detalle": " el mas buscado",
+        "precio": 299999999,
+        "descuento": 50,
+        "stock": 1
     }
 ]

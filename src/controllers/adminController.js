@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
-
 const productos = require('../data/productos.json')
+
 const guardar = (dato) => fs.writeFileSync(path.join(__dirname, '../data/productos.json')
 ,JSON.stringify(dato,null,4),'utf-8')
 
@@ -19,18 +19,18 @@ module.exports = {
         
         let nuevoProducto = {
             id: productos[productos.length - 1].id + 1,
-            tipo: selectType,
-            producto: marca,
-            img: [img],
+            producto: selectType,
+            marca: marca,
             detalle: descripcion,
             precio: +precio,
             descuento: +descuento,
             stock: +stock,
+            imagenes: [img],
         }
         productos.push(nuevoProducto);
         guardar(productos);
         /* Redirecciona al detalle del producto recien creado */
-        res.redirect(`/products/detail/${productoNuevo.id}`)
+        res.redirect(`/products/detail/${nuevoProducto.id}`)
     },
     editar:(req,res) => {  (editProduct(req, res)) 
       id = +req.params.id;  

@@ -7,7 +7,7 @@
     padding: 20px;
     margin: 0 auto;
     border: 3px solid var(--colorNaranja);
-    max-width: 500px;
+    /* max-width: 500px; */
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -138,13 +138,20 @@
     .detail main section article .contenedor button, .detail main button {
         color: black;
     }
+    .detail main section article{
+        max-width: 470px;
+    }
     .detail main button a{
         color: black;
+    }
+    .detail main section article img{
+        max-width: 470px;
     }
 }
 
 @media (min-width:769px){
     .detail main section article{
+        width: 100%;
         max-width: 1000px;
         flex-direction: row;
         justify-content: space-between; 

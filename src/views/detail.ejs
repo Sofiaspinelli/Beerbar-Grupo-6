@@ -20,14 +20,14 @@
         <h1>Detalle del Producto</h1>
         <section>
             <article>
-                <img src="/img/productos/birra1.jpg" alt="">
+                <img src="/img/productos/<%= producto.imagenes[0]%>" alt="">
                 <div class="contenedor">
-                    <h3>Session IPA</h3>
-                    <p>De color brillante y aroma a lúpulos nobles y florales, es un estilo con un amistoso amargor.</p>
+                    <h3><%= producto.marca %></h3>
+                    <p><%= producto.detalle %></p>
                     
                     <h4>Precio:</h4>
-                    <p class="old">$1440</p>
-                    <p class="precio">$1200 <small class="descuento">20%</small><p>
+                    <p class="old">$<%= producto.precio %><p>
+                    <p class="precio">$1200 <small class="descuento"><%= producto.descuento %>%</small><p>
                     
                     <div class="cantidad"><button class="button">+</button><input type="text" placeholder="0"><button class="button">-</button></div>
                     <button>añadir al carrito</button>
