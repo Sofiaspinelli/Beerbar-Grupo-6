@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <main>
+        <h1>Crear producto</h1>
+        <form action="" method="post">
+            <div>
+                <label for="producto">producto</label>
+                <input type="text" name="producto" id="producto" placeholder="Ingresar producto nuevo">
+                <small>"Obligatorio"</small>
+                
+            </div>
+            <div>
+                <label for="descripción">Descripción de producto</label>
+                <textarea name="descripción" name="descripción" id="descripción" placeholder="Ingresar descripción de producto">
+                <small>"Obligatorio"</small>
+                
+            </div>
+            <div>
+               <select name="categoria">
+                   <option value1="bebidas sin alcohol">Bebida sin alcohol</option>
+                   <option value2="cervezas">Cervezas</option>
+                   <option value3="tragos">Tragos</option>
+                   <option value4="comidas">Comidas</option>
+               </select>
+            </div>
+            <div>
+                <label for="precio">Precio</label>
+                <input type="text" name="precio" id="precio" placeholder="Ingresar precio de producto">
+                <small>"Obligatorio"</small>
+            </div>
+            <div>
+                <label for="image">Imagen</label>
+                <input type="image"  placeholder="Ingresar imagen">
+                <small>"Obligatorio"</small>
+            </div>
+            <div>
+                <label for="image">Cargar imagen de producto</label>
+                <input type="file" name="imagen" accept="image/png, .jpeg, .jpg">
+                <input type="submit" value="Enviar imagen">
+            </div>
+          
+                <div>
+                  <button type="submit">Cargar Producto </button>
+            </div>
+        </form>
+    </main>
+    
+
+</body>
+</html>
