@@ -32,6 +32,10 @@ main h2{
     margin-top: 20px;
     position: relative;
 }
+.main .contGen:hover{
+    box-shadow: inset 0px 1px 20px 14px var(--colorNaranja);
+    transition: all 0.8s;
+}
 .main .contGen .contGrid{
     width: 100%;
     display: flex;
