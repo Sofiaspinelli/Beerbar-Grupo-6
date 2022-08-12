@@ -1,0 +1,63 @@
+[
+    {   "id": 1,
+        "producto": "Cerveza",
+        "marca": "Ipa",
+        "detalle": "El aroma y el sabor son claramente marcados por el lúpulo, siendo los más comunes las variedades resinosas, frutales, herbales, etc",
+        "stock": 50,
+        "precio": 500,
+        "descuento": 10,
+        "imagenes": [
+            "cerveza-ale-tostada1",
+            "cerveza-ale-tostada"
+        ]
+    },
+    {   "id": 2,
+        "producto": "Cerveza",
+        "marca": "Münchner Dunkel",
+        "detalle": "Este tipo de cervezas tienen un menor rango de aromas y sabores, son claras y ligeras y tienen mucho gas",
+        "stock": 5,
+        "precio": 1000,
+        "descuento": 10,
+        "imagenes": [
+            "cerveza-ale-tostada1",
+            "cerveza-ale-tostada"
+        ]
+    },
+    {   "id": 3,
+        "producto": "Cerveza",
+        "marca": "Ale tostada",
+        "detalle": "Son oscuras, espesas, con poco gas y se encuentran en una variedad de aromas florales y afrutados, así como de sabores",
+        "stock": 14,
+        "precio": 500,
+        "descuento": 10,
+        "imagenes": [
+            "cerveza-ale-tostada1",
+            "cerveza-ale-tostada"
+        ]
+    },
+    {   "id": 4,
+        "producto": "Cerveza",
+        "marca": "Ale dorada fuerte",
+        "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
+        "stock": 10,
+        "precio": 1900,
+        "descuento": 10,
+        "imagenes": [
+            "cerveza-ale-tostada1",
+            "cerveza-ale-tostada"
+        ]
+    },
+    {   "id": 5,
+        "producto": "Cerveza",
+        "marca": "Ale dorada fuerte",
+        "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
+        "stock": 10,
+        "precio": 1900,
+        "descuento": 10,
+        "imagenes": [
+            "cerveza-ale-tostada1",
+            "cerveza-ale-tostada"
+        ]
+
+     }
+]
