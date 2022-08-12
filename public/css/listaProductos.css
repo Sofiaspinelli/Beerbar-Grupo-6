@@ -28,12 +28,19 @@
     max-width: 1250px;
     display: flex;
     justify-content: end;
-    align-items: end;
+    /* align-items: end; */
+    
 }
-.listarProductos main section button {
-    position: absolute;
-    left: 40px;
-    border: 1px;
+
+.listaProductos  .btn-crear  {
     border-radius: 10px;
+    font-size: 20px;
+    border: 1px;
     padding: 5px;
+    background-color: var(--colorBlanco);
+
 }
+.listaProductos  .btn-crear:hover {
+    background-color: var(--colorNaranja);
+}
+
