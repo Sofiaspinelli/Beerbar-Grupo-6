@@ -69,6 +69,9 @@
     position: absolute;
     top: -25px;
     right: -150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #000;
     width: 55px;
     height: 55px;
@@ -78,6 +81,7 @@
     font-size: 20px;
     border-radius: 28px;
     cursor: pointer;
+    border: 0;
 }
 .buscar:hover input{
     width: 350px;

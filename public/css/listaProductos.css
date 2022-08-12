@@ -11,7 +11,7 @@
     color: black;
 }
 
-.listaProductos a:hover {
+.listaProductos main section button a:hover {
     background-color: var(--colorNaranja);
     color: white;
 }
@@ -44,7 +44,19 @@
     background-color: var(--colorBlanco);
 
 }
-.listaProductos  .btn-crear:hover {
+.listaProductos .btn-crear:hover, div table tbody tr td .edit:hover{
     background-color: var(--colorNaranja);
+    transition: all 0.6s;
 }
-
+div table tbody tr td .edit {
+    background-color: var(--colorGris);
+    padding: 7px;
+    border-radius: 50%;
+}
+div table tbody tr td .edit a{
+    color: black;
+}
+div table tbody tr td .edit a:hover{
+    color: var(--colorBlanco);
+    transition: all 0.6s;
+}

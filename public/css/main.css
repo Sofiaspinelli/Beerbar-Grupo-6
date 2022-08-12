@@ -14,7 +14,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    padding: 10px;
+    /* padding: 10px; */
     width: 300px;
     height: 430px;
     margin: 10px;
@@ -28,12 +28,13 @@
 .home main .productos article:hover{
     box-shadow: inset 0px 1px 20px 14px var(--colorNaranja);
     /* box-shadow: inset 0px 1px 20px 14px #e1dede; */
-    transition: all 0.7s;
+    transition: all 0.6s;
 }
 .home main  .productos article img {
     display: flex;
     justify-content: center;
     width: 80%;
+    margin: 15px 0 0;
     border-radius: 10px;
 }
 .home main .productos article button{
@@ -67,9 +68,11 @@
     color: rgb(182, 181, 181);
     display: flex;
     justify-items: start;
+    margin-bottom: 0;
 }
 .home main .productos article .precio {
-font-size: 24px;
+   font-size: 24px;
+   margin-bottom: 0;
 }
 .home main .productos article .descuento {
     color: var(--descuentos);
@@ -81,6 +84,7 @@ font-size: 24px;
     justify-content: start;
     flex-direction: column;
     width: 80%;
+    height: 90px;
 }
 
 /* Tablet  */
@@ -89,10 +93,10 @@ font-size: 24px;
         width: 48%;
         height: 400px;
         margin: 10px 0;
-        padding: 20px;
+        /* padding: 20px; */
     }
     .home main  .productos article img{
-        width: 200px;
+        min-width: 180px;
     }
     .home main .productos article button a{
         color: black;
@@ -110,7 +114,7 @@ font-size: 24px;
     .home main  .productos article {
         max-width: 300px;
         height: 430px;
-        padding: 10px;
+        /* padding: 10px; */
 
     }
     .home main  .productos article img{

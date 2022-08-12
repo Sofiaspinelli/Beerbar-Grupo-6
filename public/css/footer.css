@@ -24,6 +24,13 @@ footer section a {
 }
 footer section p i {
     padding: 0 10px;
+    color: black;
+    font-size: 30px;
+}
+footer section p i:hover{
+    color: var(--colorBlanco);
+    /* font-size: 40px; */
+    transition: all 0.6s;
 }
 footer section article{
     font-size: 18px;
@@ -40,6 +47,13 @@ footer .contenedor{
 footer .contenedor article{
     margin-top: 5px;
     width: 160px;
+}
+footer .contenedor article a, footer .contenedor_2 article a{
+    color: black;
+}
+footer .contenedor article a:hover, footer .contenedor_2 article a:hover{
+    color: var(--colorBlanco);
+    transition: all 0.6s;
 }
 footer .contenedor_2{
     display:grid;

@@ -20,9 +20,9 @@ module.exports = {
         let nuevoProducto = {
             id: productos[productos.length - 1].id + 1,
             tipo: selectType,
-            marca: marca,
+            producto: marca,
             img: [img],
-            descripcion: descripcion,
+            detalle: descripcion,
             precio: +precio,
             descuento: +descuento,
             stock: +stock,
