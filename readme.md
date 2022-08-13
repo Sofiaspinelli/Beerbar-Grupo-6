@@ -34,4 +34,4 @@ https://trello.com/b/mTHIpN9v/proyecto
 
 ## Logo de la pagina 
 
-![Logo](/Extras/logo/logo-beerbar.png)
+![Logo](/extras/logo/logo-beerbar.png)
