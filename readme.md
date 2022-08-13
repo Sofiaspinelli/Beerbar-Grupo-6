@@ -3,9 +3,10 @@ GRUPO 6: beer&bar
 
 En esta ocasion, les presentamos una pagina ideada para un Restobar (Beer & Bar) para facilitarles los pedidos en el mismo (contamos con carrito de compras para la seleccion de los productos) y en el caso de no asistir al establecimiento, poder hacer el pedido correspondiente para envío desde la comodidad de sus hogares. Desde 2022 colaborando con la revolución de la cerveza artesanal.
 
+## Publico al que apuntamos:
+Publico en general +18 
 
-
-Integrantes:
+## Integrantes:
 
 Sofia Spinelli
 19 años. Estudiante de programacion Full Stack en Digital House y desarrolladora web(html y css).
@@ -27,3 +28,10 @@ Por la navegacion, el estilo de las letras y colores https://www.rabieta.com.ar/
 Por sencilla y concreta, dinamismo en el carrito https://sirhopper.com/
 
 Por su front y bóveda histórica a asimilar https://strange.com.ar/home
+
+## Trello
+https://trello.com/b/mTHIpN9v/proyecto
+
+## Logo de la pagina 
+
+![Logo](/Extras/logo/logo-beerbar.png)
