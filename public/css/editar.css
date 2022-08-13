@@ -2,9 +2,73 @@
     color: orange;
     
 }
+.editar main{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
 
-.editar form{
-    text-align: left;
+.editar main .form{
+    /* text-align: center;
     margin: auto;
+    width: 80%; */
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(120, 120, 120, 0.6);
+    border: 2px double var(--colorNaranja);
+    border-radius: 30px;
+}
+.editar main .form div{
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+.editar main .form div label{
+    font-size: 20px;
+}
+.editar main .form div input{
     width: 80%;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 4px;
+}
+.editar main .form div select{
+    width: 60%;
+    font-size: 24px;
+    border-radius: 10px;
+    padding: 6px;
+    background-color: var(--colorButtom);
+}
+.editar main .form div textarea{
+    width: 70%;
+    border-radius: 10px;
+    font-size: 20px;
+}
+.editar main .form div .file{
+    width: 60%;
+    min-width: 270px;
+    background-color: var(--colorButtom);
+    border: 1px solid  var(--colorButtom);
+} 
+.editar main .form div button{
+    width: 45%;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 6px;
+    background-color: var(--colorButtom);
+}
+.editar main .form div input:hover, .editar main .form div textarea:hover{
+    border: 2px solid var(--colorNaranja);
+}
+.editar main .form div button:hover, .editar main .form div button a:hover, .editar main .form div .file:hover, .editar main .form div select:hover{
+    background-color: var(--colorNaranja);
+    color: var(--colorBlanco);
+    transition: 0.6s;
 }

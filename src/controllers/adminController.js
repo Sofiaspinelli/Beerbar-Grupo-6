@@ -32,16 +32,39 @@ module.exports = {
         /* Redirecciona al detalle del producto recien creado */
         res.redirect(`/products/detail/${nuevoProducto.id}`)
     },
-    editar:(req,res) => {  (editProduct(req, res)) 
-      id = +req.params.id;  
-     let producto = productos.find(elemento => {
- 
-       if (producto.id === id) {
-        res.render('admin/editar',{producto }); 
-       }
-       else { 
-      return   res.send('Producto no encontrado')}
-     })}}
+    editar:(req,res) => {  /* (editProduct(req, res))  */
+        let type = ["birra", "comida"];
+        let id = +req.params.id;  
+        let producto = productos.find(producto => producto.id == id);
+
+        // res.send(producto)
+        if (producto.id === id) {
+            res.render('admin/editar',{producto, type}); 
+        }else { 
+            res.send('Producto no encontrado')
+        };
+    },
+    update: (req, res) => {
+        let id = +req.params.id;
+        let {selectType,marca,img,descripcion,precio,descuento,stock} = req.body
+        
+        productos.forEach(producto => {
+            if (producto.id === id) {
+                producto.producto = selectType
+                producto.marca = marca
+                producto.detalle = descripcion
+                producto.precio = +precio
+                producto.descuento = +descuento
+                producto.stock = +stock
+                producto.imagenes = [img]
+            }
+        });
+        guardar(productos);
+        /* Redirecciona a la lista */
+        return res.redirect('/admin/list');
+        // return res.redirect(`/products/detail/${productos.id}`)
+    }
+}
 
 
 

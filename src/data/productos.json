@@ -65,15 +65,14 @@
     },
     {
         "id": 6,
-        "producto": "Cerveza",
-        "marca": "Ale dorada fuerte",
-        "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
-        "stock": 10,
-        "precio": 1900,
-        "descuento": 10,
+        "producto": "birra",
+        "marca": "editado",
+        "detalle": "probando la funcion de editar, method put",
+        "stock": 8,
+        "precio": 25267788999,
+        "descuento": 60,
         "imagenes": [
-            "cerveza-ale-tostada1.jpg",
-            "cerveza-ale-tostada.jpg"
+            ""
         ]
     },
     {

@@ -1,15 +1,19 @@
 
-const {list, crear, newProducts,editar} = require('../controllers/adminController')
+const {list, crear, newProducts,editar, update} = require('../controllers/adminController')
 const express = require('express');
 const router = express.Router();
 
 /* GET home page. */
 router.get('/list', list);
 
-// get crear
+// get/post crear
 router.get('/crear', crear);
 router.post('/crear', newProducts);
-router.get('/editar/:id', editar)
-module.exports = router
+
+// get/put editar
+router.get('/editar/:id', editar);
+router.put('/editar/:id', update);
+
+module.exports = router;
 
 
