@@ -103,30 +103,6 @@
     },
     {
         "id": 9,
-        "producto": "comidas",
-        "marca": "El Milaneso",
-        "imagenes": [
-            ""
-        ],
-        "detalle": "me da fiaca",
-        "precio": 2000000,
-        "descuento": 0,
-        "stock": 99
-    },
-    {
-        "id": 10,
-        "producto": "comidas",
-        "marca": "El Milaneso",
-        "imagenes": [
-            "descarga.jpg"
-        ],
-        "detalle": " el mas buscado",
-        "precio": 299999999,
-        "descuento": 50,
-        "stock": 1
-    },
-    {
-        "id": 8,
         "producto": "Cerveza",
         "marca": "Ale dorada fuerte",
         "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
