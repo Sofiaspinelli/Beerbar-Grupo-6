@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Iconos -->
+    <script src="https://kit.fontawesome.com/e41faadd8e.js" crossorigin="anonymous"></script>
+    <!--  Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Productos</title>
+</head>
+<body class="products">
+
+    <%- include('./partials/header') %>
+
+    <main>
+        <h1>Productos</h1>
+        <section class="productos">
+        <% for( let i = 0; i < productos.length; i++ ) { %>
+            <article>
+                <img src="/img/productos/<%= productos[i].imagenes[0] %>" alt="">
+                <div class="contenedor">
+                    <h3><%= productos[i].marca %></h3>
+                    <p class="old">$<%= productos[i].descuento !== 0 ? productos[i].precio : null %></p>
+                    <p class="precio">$<%= productos[i].descuento === 0 ? productos[i].precio : (productos[i].precio - (productos[i].precio * productos[i].descuento / 100)) %><small class="descuento"><%= productos[i].descuento %>%</small>
+                    <p>
+                </div>
+                <button><a href="/products/detail/<%= productos[i].id %>">Comprar</a></button>
+            </article>
+        <% } %>
+        </section>
+    </main>
+
+    <%- include('./partials/footer') %>
+
+</body>
+</html>

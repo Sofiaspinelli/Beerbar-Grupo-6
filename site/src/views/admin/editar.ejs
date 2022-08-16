@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Iconos -->
+    <script src="https://kit.fontawesome.com/e41faadd8e.js" crossorigin="anonymous"></script>
+    <!--  Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <title>Editar</title>
+</head>
+
+<body class="editar">
+    <%-include('../partials/header')%> 
+
+    <main>
+        <h1>Editar producto</h1>
+        <form action="/admin/editar/<%= producto.id %>?_method=PUT" method="post" class="form">
+            <div>
+                <label for="marca">Producto</label>
+                <input type="text" name="marca" id="marca" placeholder="Editar producto" value="<%= producto.marca%>" >
+                
+            </div>
+            <div>
+                <label for="descripcion">Descripción de producto</label>
+               <textarea name="descripcion" id="descripcion" cols="30" rows="4" placeholder="Ingresar descripción de producto"><%= producto.detalle%></textarea>
+                <small>"Ingresa una descripción"</small>
+                
+            </div>
+            <div>
+                <label for="selectType">Categoria</label>
+               <select name="selectType">
+                <% type.forEach(select => { %>
+                <option value="<%= select %>" ><%= select %></option>
+                <% }) %>
+               </select>
+            </div>
+
+            <div>
+                <label for="stock">Stock</label>
+                <input type="number" name="stock" id="stock" placeholder="Ingrese el stock" value="<%=producto.stock%>" >
+            </div>
+            <div>
+                <label for="precio">Precio</label>
+                <input type="number" name="precio" id="precio" placeholder="Ingresar precio de producto" value="<%=producto.precio%>" >
+                <small>"Ingrese precio"</small>
+            </div>
+            <div>
+                <label for="descuento">Descuento</label>
+                <input type="number" name="descuento" id="descuento" placeholder="0" value="<%=producto.descuento%>" >
+                <small>"Ingrese precio"</small>
+            </div>
+          
+            <div>
+                <label for="img">Cargar imagen de producto</label>
+                <input class="file" type="file" name="img" accept="image/png, .jpeg, .jpg" width="200%" height="200%" multiple>
+                <!-- <input type="submit" value="Enviar imagen"> -->
+            </div>
+          
+                <div>
+                  <button type="submit">Editar Producto </button>
+            </div>  
+        </form>
+    </main>
+ 
+    <%-include('../partials/footer') %> 
+ 
+</body>
+</html>
