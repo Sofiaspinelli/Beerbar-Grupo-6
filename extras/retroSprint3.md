@@ -10,10 +10,10 @@
 
 
 ## Continuar haciendo
--Consultar ante cualquier duda 
--dailys
--dividir tareas
--continuar trabajando en ramas
+- Consultar ante cualquier duda 
+- dailys
+- dividir tareas
+- continuar trabajando en ramas
 
 ## Hacer menos
 - dejar de lado playground
