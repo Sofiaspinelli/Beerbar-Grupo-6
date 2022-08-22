@@ -71,13 +71,12 @@
     margin-bottom: 0;
 }
 .home main .productos article .precio {
-   font-size: 24px;
+   font-size: 34px;
    margin-bottom: 0;
 }
 .home main .productos article .descuento {
     color: var(--descuentos);
-    margin: 10px;
-    font-size: 20px;
+    font-size: 24px;
 }
 .home main .productos article .contenedor {
     display: flex;
@@ -113,7 +112,7 @@
     }
     .home main  .productos article {
         max-width: 300px;
-        height: 430px;
+        height: 445px;
         /* padding: 10px; */
 
     }
@@ -124,9 +123,11 @@
         font-size: 16px;
     }
     .home main .productos article .precio{
-        font-size: 24px;
+        font-size: 36px;
+ 
     }
     .home main .productos article .descuento {
-        font-size: 20px;
+        font-size: 24px;
+        
     }
 }

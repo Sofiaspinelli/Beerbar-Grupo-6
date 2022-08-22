@@ -32,16 +32,16 @@ h3 {
     color: var(--colorBlanco);
 }
 .precio {
-    font-size: 20px;
+    font-size: 34px;
 }
 .descuento {
         color: var(--descuentos);
-        margin: 10px;
-        font-size: 16px;
+        margin: 3px;
+        font-size: 24px;
 }
 .old{
     text-decoration:line-through;
-    font-size: 14px;
+    font-size: 18px;
     color: rgb(182, 181, 181);
     display: flex;
     justify-items: start;

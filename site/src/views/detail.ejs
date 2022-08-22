@@ -26,9 +26,13 @@
                     <p><%= producto.detalle %></p>
 
                     <h4>Precio:</h4>
-                    <p class="old">$<%= producto.descuento !== 0 ? producto.precio : null %><p>
-                    <p class="precio">$<%= producto.descuento === 0 ? producto.precio : descuentos %>  <small class="descuento"><%= producto.descuento %>%</small><p>
-                    
+                    <% if (producto.descuento > 0) { %>
+                    <p class="old">$<%= producto.precio %> </p>
+                    <p class="precio">$<%= producto.precio - (producto.precio * producto.descuento / 100) %> <small class="descuento"><%= producto.descuento %>%</small>
+                    <p>
+                    <% }else { %>
+                    <p class="precio">$<%= producto.precio %> </p>
+                    <% } %>
                     <div class="cantidad"><button class="button">+</button><input type="text" placeholder="0"><button class="button">-</button></div>
                     <button>añadir al carrito</button>
                 </div>

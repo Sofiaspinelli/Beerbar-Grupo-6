@@ -6,7 +6,9 @@
         "detalle": "El aroma y el sabor son claramente marcados por el lúpulo, siendo los más comunes las variedades resinosas, frutales, herbales, etc",
         "stock": 50,
         "precio": 500,
-        "descuento": 10,
+        "descuento": 15,
+        "vendidos": 10,
+        "categoria": "nuevo",
         "imagenes": [
             "birra1.jpg"
         ]
@@ -16,9 +18,11 @@
         "producto": "Cerveza",
         "marca": "Münchner Dunkel",
         "detalle": "Este tipo de cervezas tienen un menor rango de aromas y sabores, son claras y ligeras y tienen mucho gas",
-        "stock": 5,
+        "stock": 12,
         "precio": 1000,
         "descuento": 0,
+        "vendidos": 10,
+        "categoria": "",
         "imagenes": [
             "cerveza-ale-tostada1.jpg",
             "cerveza-ale-tostada.jpg"
@@ -32,6 +36,8 @@
         "stock": 14,
         "precio": 500,
         "descuento": 0,
+        "vendidos": 10,
+        "categoria": "",
         "imagenes": [
             "cerveza-ale-tostada1.jpg",
             "cerveza-ale-tostada.jpg"
@@ -44,7 +50,9 @@
         "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
         "stock": 10,
         "precio": 1900,
-        "descuento": 10,
+        "descuento": 20,
+        "vendidos": 3,
+        "categoria": "",
         "imagenes": [
             "cerveza-ale-tostada1.jpg",
             "cerveza-ale-tostada.jpg"
@@ -55,9 +63,11 @@
         "producto": "Cerveza",
         "marca": "Ale dorada fuerte",
         "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
-        "stock": 10,
+        "stock": 30,
         "precio": 1900,
-        "descuento": 10,
+        "descuento": 20,
+        "vendidos": 10,
+        "categoria": "nuevo",
         "imagenes": [
             "cerveza-ale-tostada1.jpg",
             "cerveza-ale-tostada.jpg"
@@ -71,6 +81,8 @@
         "stock": 8,
         "precio": 25267788999,
         "descuento": 60,
+        "vendidos": 3,
+        "categoria": "",
         "imagenes": [
             ""
         ]
@@ -80,9 +92,11 @@
         "producto": "Cerveza",
         "marca": "Ale dorada fuerte",
         "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
-        "stock": 10,
+        "stock": 19,
         "precio": 1900,
-        "descuento": 10,
+        "descuento": 15,
+        "vendidos": 10,
+        "categoria": "nuevo",
         "imagenes": [
             "cerveza-ale-tostada1.jpg",
             "cerveza-ale-tostada.jpg"
@@ -93,9 +107,11 @@
         "producto": "Cerveza",
         "marca": "Ale dorada fuerte",
         "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
-        "stock": 10,
+        "stock": 11,
         "precio": 1900,
         "descuento": 0,
+        "vendidos": 10,
+        "categoria": "",
         "imagenes": [
             "cerveza-ale-tostada1.jpg",
             "cerveza-ale-tostada.jpg"
@@ -109,6 +125,8 @@
         "stock": 10,
         "precio": 1900,
         "descuento": 0,
+        "vendidos": 10,
+        "categoria": "",
         "imagenes": [
             "cerveza-ale-tostada1.jpg",
             "cerveza-ale-tostada.jpg"

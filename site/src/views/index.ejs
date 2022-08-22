@@ -7,92 +7,53 @@
 
     <%- include('./partials/header') %>
     <main>
+
         <h1>PROMOCIONES</h1>
+
         <section class="productos">
-        <% for (let i = 0; i < productos.length; i++) { %>
-            <% if (productos[i].descuento != 0 && productos[i].stock >= 1) { %>
+        <% productos.forEach(producto => { %>
+            <% if ((producto.descuento > 10 || producto.categoria === "especial") && (producto.stock - producto.vendidos) >= 1) { %>
                 <article>
-                    <img src="/img/productos/<%= productos[i].imagenes[0] %> " alt="">
+                    <img src="/img/productos/<%= producto.imagenes[0] %> " alt="">
                     <div class="contenedor">
-                        <h3><%= productos[i].marca %> </h3>
-                        <p class="old">$<%= productos[i].precio %> </p>
-                        <p class="precio"><%= productos[i].precio - (productos[i].precio * productos[i].descuento / 100) %><small class="descuento"><%= productos[i].descuento %>%</small>
+                        <h3><%= producto.marca %> </h3>
+                        <% if (producto.descuento > 0) { %>
+                        <p class="old">$<%= producto.precio %> </p>
+                        <p class="precio">$<%= producto.precio - (producto.precio * producto.descuento / 100) %> <small class="descuento"><%= producto.descuento %>%</small>
                         <p>
+                        <% }else { %>
+                        <p class="precio">$<%= producto.precio %> </p>
+                        <% } %>
                     </div>
-                    <button><a href="/products/detail/<%= productos[i].id %>">Comprar</a></button>
+                    <button><a href="/products/detail/<%= producto.id %>">Comprar</a></button>
                 </article> 
             <% } %>       
-        <% } %> 
+        <% }) %> 
         </section>
+
         <h1>PRODUCTOS DESTACADOS</h1>
+
         <section class="productos">
-
-            <article>
-                <img src="/img/productos/birra1.jpg" alt="">
+            <% productos.forEach(producto => { %>
+            <% if (((producto.categoria === "nuevo") || ((producto.vendidos * 100) / producto.stock)  > 70 && producto.vendidos >= 10 ) && (producto.stock - producto.vendidos) >= 1 ) { %>
+             <article>
+                <img src="/img/productos/<%= producto.imagenes[0] %> " alt="imagen del producto">
                 <div class="contenedor">
-                    <h3>Session IPA</h3>
-                    <p class="old">$1440</p>
-                    <p class="precio">$1200 <small class="descuento">20%</small>
+                    <h3><%= producto.marca %> </h3>
+                    <% if (producto.descuento > 0) { %>
+                    <p class="old">$<%= producto.precio %> </p>
+                    <p class="precio">$<%= producto.precio - (producto.precio * producto.descuento / 100) %> <small class="descuento"><%= producto.descuento %>%</small>
                     <p>
+                    <% }else { %>
+                    <p class="precio">$<%= producto.precio %> </p>
+                    <% } %> 
                 </div>
 
                 <button><a href="/detail">Comprar</a></button>
             </article>
-
-            <article>
-                <img src="/img/productos/birra1.jpg" alt="">
-                <div class="contenedor">
-                    <h3>Session IPA</h3>
-                    <p class="old">$1440</p>
-                    <p class="precio">$1200 <small class="descuento">20%</small>
-                    <p>
-                </div>
-                <button><a href="/detail">Comprar</a></button>
-            </article>
-
-            <article>
-                <img src="/img/productos/birra1.jpg" alt="">
-                <div class="contenedor">
-                    <h3>Session IPA</h3>
-                    <p class="old">$1440</p>
-                    <p class="precio">$1200 <small class="descuento">20%</small>
-                    <p>
-                </div>
-                <button><a href="/detail">Comprar</a></button>
-            </article>
-
-            <article>
-                <img src="/img/productos/birra1.jpg" alt="">
-                <div class="contenedor">
-                    <h3>Session IPA</h3>
-                    <p class="old">$1440</p>
-                    <p class="precio">$1200 <small class="descuento">20%</small>
-                    <p>
-                </div>
-                <button><a href="/detail">Comprar</a></button>
-            </article>
-
-            <article>
-                <img src="/img/productos/birra1.jpg" alt="">
-                <div class="contenedor">
-                    <h3>Session IPA</h3>
-                    <p class="old">$1440</p>
-                    <p class="precio">$1200 <small class="descuento">20%</small>
-                    <p>
-                </div>
-                <button><a href="/detail">Comprar</a></button>
-            </article>
-
-            <article>
-                <img src="/img/productos/birra1.jpg" alt="">
-                <div class="contenedor">
-                    <h3>Session IPA</h3>
-                    <p class="old">$1440</p>
-                    <p class="precio">$1200 <small class="descuento">20%</small>
-                    <p>
-                </div>
-                <button><a href="/detail">Comprar</a></button>
-            </article>
+            <% } %>
+            <% }) %>
+            
         </section>
 
     </main>
