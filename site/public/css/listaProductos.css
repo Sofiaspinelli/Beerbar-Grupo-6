@@ -48,6 +48,13 @@
     background-color: var(--colorNaranja);
     transition: all 0.6s;
 }
+.listaProductos div table tr td .trashForm{
+    width: 50px;
+}
+.listaProductos div table tr td .trashForm .trash i{
+    background-color: var(--colorGris);
+    color: black;
+}
 div table tbody tr td .edit {
     background-color: var(--colorGris);
     padding: 7px;
@@ -57,6 +64,11 @@ div table tbody tr td .edit a{
     color: black;
 }
 div table tbody tr td .edit a:hover{
+    color: var(--colorBlanco);
+    transition: all 0.6s;
+}
+.listaProductos div table tr td .trashForm .trash i:hover{
+    background-color: var(--colorNaranja);
     color: var(--colorBlanco);
     transition: all 0.6s;
 }

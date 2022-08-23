@@ -63,6 +63,14 @@ module.exports = {
         /* Redirecciona a la lista */
         return res.redirect('/admin/list');
         // return res.redirect(`/products/detail/${productos.id}`)
+    },
+    destroy: (req, res) => {
+        const id = +req.params.id;
+
+        let eliminarProducto = productos.filter(producto => producto.id !== id);
+        guardar(eliminarProducto);
+
+        res.redirect('/admin/list')
     }
 }
 

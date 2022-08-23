@@ -74,20 +74,6 @@
         ]
     },
     {
-        "id": 6,
-        "producto": "birra",
-        "marca": "editado",
-        "detalle": "probando la funcion de editar, method put",
-        "stock": 8,
-        "precio": 25267788999,
-        "descuento": 60,
-        "vendidos": 3,
-        "categoria": "",
-        "imagenes": [
-            ""
-        ]
-    },
-    {
         "id": 7,
         "producto": "Cerveza",
         "marca": "Ale dorada fuerte",
