@@ -15,7 +15,7 @@ module.exports = {
         res.render('admin/crear')
     },
     newProducts: (req, res) => {
-        let {selectType,marca,img,descripcion,precio,descuento,stock} = req.body
+        let {selectType,marca,img,descripcion,precio,descuento,stock, categoria} = req.body
         
         let nuevoProducto = {
             id: productos[productos.length - 1].id + 1,
@@ -25,6 +25,8 @@ module.exports = {
             precio: +precio,
             descuento: +descuento,
             stock: +stock,
+            vendidos: 0,
+            categoria: categoria,
             imagenes: [img],
         }
         productos.push(nuevoProducto);

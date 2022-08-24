@@ -30,7 +30,9 @@
                 </div>
                 <div class="file">
                     <label for="img">Imagen del producto</label>
-                    <input name="img" type="file" id="img" multiple>
+                    <div class="file-select" id="src-file1" >
+                       <input name="img" type="file" id="img" multiple> 
+                    </div>
                     <small>"Obligatorio"</small>
                 </div>
                 <div class="p-s">
@@ -44,15 +46,26 @@
                         <input type="number" name="descuento" id="descuento" placeholder="0">
                         <small>"Obligatorio"</small>
                     </div>
+                    <div class="stock">
+                        <label for="stock">Stock</label>
+                        <input type="number" name="stock" id="stock" placeholder="1">
+                        <small>"Obligatorio"</small>
+                    </div>
                 </div>
-                <div class="stock">
-                    <label for="stock">Stock</label>
-                    <input type="number" name="stock" id="stock" placeholder="1">
+                
+                <div>
+                    <label for="categoria">Categoria</label>
+                    <select name="categoria" id="categoria">
+                        <option selected hidden>seleccionar una opcion</option>
+                        <option value="nuevo">Nuevo</option>
+                        <option value="Especial">Especial</option>
+                        <option value="">Ninguna</option>
+                    </select>
                     <small>"Obligatorio"</small>
                 </div>
                 <div class="botton">
                     <button type="submit">Añadir Producto</button>
-                    <button type="reset"><a href="#">Cancelar</a></button>
+                    <a href="/admin/list"><button type="button">Cancelar</button></a>
                 </div>
             </section>
         </form>

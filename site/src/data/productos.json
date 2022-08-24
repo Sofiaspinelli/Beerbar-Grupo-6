@@ -117,5 +117,19 @@
             "cerveza-ale-tostada1.jpg",
             "cerveza-ale-tostada.jpg"
         ]
+    },
+    {
+        "id": 10,
+        "producto": "comidas",
+        "marca": "milanesa",
+        "detalle": "delicia",
+        "precio": 500,
+        "descuento": 0,
+        "stock": 20,
+        "vendidos": 0,
+        "categoria": "",
+        "imagenes": [
+            ""
+        ]
     }
 ]
