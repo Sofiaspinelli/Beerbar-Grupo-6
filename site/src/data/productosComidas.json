@@ -1,5 +1,30 @@
 [
     {
-        
+        "id": 1,
+        "producto": "comidas",
+        "marca": "Ipa",
+        "detalle": "El aroma y el sabor son claramente marcados por el lúpulo, siendo los más comunes las variedades resinosas, frutales, herbales, etc",
+        "stock": 50,
+        "precio": 500,
+        "descuento": 15,
+        "vendidos": 10,
+        "categoria": "nuevo",
+        "imagenes": [
+            "birra1.jpg"
+        ]
+    },
+    {
+        "id": 2,
+        "producto": "comidas",
+        "marca": "ccfc",
+        "detalle": "Agregar descripcion",
+        "precio": 2999,
+        "descuento": 199,
+        "stock": 411,
+        "vendidos": 0,
+        "categoria": "Especial",
+        "imagenes": [
+            ""
+        ]
     }
 ]

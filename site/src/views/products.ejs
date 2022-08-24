@@ -32,7 +32,24 @@
                     <p class="precio">$<%= producto.precio %> </p>
                     <% } %>
                 </div>
-                <button><a href="/products/detail/<%= producto.id %>">Comprar</a></button>
+                <button><a href="/products/<%= tipoDeProd[0] %>/<%= producto.id %>">Comprar</a></button>
+            </article>
+        <% }) %>
+
+        <% proComidas.forEach(producto => { %>
+            <article>
+                <img src="/img/productos/<%= producto.imagenes[0] %>" alt="">
+                <div class="contenedor">
+                    <h3><%= producto.marca %></h3>
+                    <% if (producto.descuento > 0) { %>
+                    <p class="old">$<%= producto.precio %> </p>
+                    <p class="precio">$<%= producto.precio - (producto.precio * producto.descuento / 100) %> <small class="descuento"><%= producto.descuento %>%</small>
+                    <p>
+                    <% }else { %>
+                    <p class="precio">$<%= producto.precio %> </p>
+                    <% } %>
+                </div>
+                <button><a href="/products/<%= tipoDeProd[1] %>/<%= producto.id %>">Comprar</a></button>
             </article>
         <% }) %>
         </section>

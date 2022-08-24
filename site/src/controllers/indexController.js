@@ -1,10 +1,14 @@
-let productos = require ('../data/productos.json')
+const productos = require ('../data/productos.json');
+const proComidas = require('../data/productosComidas.json');
 
 module.exports = {
     home : (req , res) => {
+        let tipoDeProd = ["birra", "comidas"]
         res.render ('index',
         {
-            productos
+            productos,
+            proComidas,
+            tipoDeProd
         })
     },
 }

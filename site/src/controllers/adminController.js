@@ -1,9 +1,12 @@
 const fs = require('fs')
 const path = require('path')
-const productos = require('../data/productos.json')
+const productos = require('../data/productos.json');
+const proComidas = require('../data/productosComidas.json');
 
 const guardar = (dato) => fs.writeFileSync(path.join(__dirname, '../data/productos.json')
-,JSON.stringify(dato,null,4),'utf-8')
+,JSON.stringify(dato,null,4),'utf-8');
+const guardar2 = (dato) => fs.writeFileSync(path.join(__dirname, '../data/productosComidas.json')
+,JSON.stringify(dato,null,4),'utf-8');
 
 module.exports = {
     list: (req,res) => {
@@ -15,24 +18,50 @@ module.exports = {
         res.render('admin/crear')
     },
     newProducts: (req, res) => {
-        let {selectType,marca,img,descripcion,precio,descuento,stock, categoria} = req.body
+        let {selectType,marca,img,descripcion,precio,descuento,stock, categoria} = req.body;
+
+        if (selectType === "comidas") {
+            let nuevaComida = {
+                id: proComidas[proComidas.length - 1].id + 1,
+                producto: selectType,
+                marca: marca,
+                detalle: descripcion,
+                precio: +precio,
+                descuento: +descuento,
+                stock: +stock,
+                vendidos: 0,
+                categoria: categoria,
+                imagenes: [img],
+            };
+            proComidas.push(nuevaComida);
+
+            guardar2(proComidas);
+
+            res.redirect(`/products/detail/${nuevaComida.id}`);
+        }else {
+            let nuevoProducto = {
+                id: productos[productos.length - 1].id + 1,
+                producto: selectType,
+                marca: marca,
+                detalle: descripcion,
+                precio: +precio,
+                descuento: +descuento,
+                stock: +stock,
+                vendidos: 0,
+                categoria: categoria,
+                imagenes: [img],
+            };
+            productos.push(nuevoProducto);
+
+            guardar(productos);
+
+            res.redirect(`/products/detail/${nuevoProducto.id}`);
+        };
         
-        let nuevoProducto = {
-            id: productos[productos.length - 1].id + 1,
-            producto: selectType,
-            marca: marca,
-            detalle: descripcion,
-            precio: +precio,
-            descuento: +descuento,
-            stock: +stock,
-            vendidos: 0,
-            categoria: categoria,
-            imagenes: [img],
-        }
-        productos.push(nuevoProducto);
-        guardar(productos);
+        // productos.push(nuevoProducto);
+        // guardar(productos);
         /* Redirecciona al detalle del producto recien creado */
-        res.redirect(`/products/detail/${nuevoProducto.id}`)
+        // res.redirect(`/products/detail/${nuevoProducto.id}`)
     },
     editar:(req,res) => {  /* (editProduct(req, res))  */
         let type = ["birra", "comida"];

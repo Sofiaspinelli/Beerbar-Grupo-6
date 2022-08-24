@@ -20,18 +20,18 @@
         <h1>Detalle del Producto</h1>
         <section>
             <article>
-                <img src="/img/productos/<%= producto.imagenes[0]%>" alt="">
+                <img src="/img/productos/<%= producto.producto === "birra" ? producto.imagenes[0] : comidas.imagenes[0] %>" alt="imagen del producto">
                 <div class="contenedor">
-                    <h3><%= producto.marca %></h3>
-                    <p><%= producto.detalle %></p>
+                    <h3> <%= producto.producto === "birra" ? producto.marca : comidas.marca %></h3>
+                    <p><%= producto.producto === "birra" ? producto.detalle : comidas.detalle %></p>
 
                     <h4>Precio:</h4>
-                    <% if (producto.descuento > 0) { %>
-                    <p class="old">$<%= producto.precio %> </p>
-                    <p class="precio">$<%= producto.precio - (producto.precio * producto.descuento / 100) %> <small class="descuento"><%= producto.descuento %>%</small>
+                    <% if (producto.descuento > 0 || comidas.descuento > 0) { %>
+                    <p class="old">$<%= producto.producto === "birra" ? producto.precio : comidas.precio %> </p>
+                    <p class="precio">$<%= producto.producto === "birra" ? producto.precio - (producto.precio * producto.descuento / 100) : comidas.precio - (comidas.precio * comidas.descuento / 100) %>  %><small class="descuento"><%= producto.producto === "birra" ? producto.descuento : comidas.descuento %>%</small>
                     <p>
                     <% }else { %>
-                    <p class="precio">$<%= producto.precio %> </p>
+                    <p class="precio">$<%= producto.producto === "birra" ? producto.precio : comidas.precio %> </p>
                     <% } %>
                     <div class="cantidad"><button class="button">+</button><input type="text" placeholder="0"><button class="button">-</button></div>
                     <button>añadir al carrito</button>

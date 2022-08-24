@@ -4,7 +4,7 @@ const router = express.Router();
 
 /* GET products page. */
 router.get('/', products);
-router.get('/detail/:id', detail);
+router.get('/:detail/:id', detail);
 router.get('/cart', cart);
 
 module.exports = router;
