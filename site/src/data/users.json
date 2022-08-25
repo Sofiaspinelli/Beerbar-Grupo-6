@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "sofia",
+        "apellido": "spinelli",
+        "email": "sofiaspinelli@gmail.com",
+        "pass": "12345678",
+        "genero": "M",
+        "image": [
+            ""
+        ]
+    },
+    {
+        "id": 2,
+        "image": "avatar-porDefecto.jpg",
+        "rol": "usuario"
+    },
+    {
+        "id": 3,
+        "image": "avatar-porDefecto.jpg",
+        "rol": "usuario"
+    },
+    {
+        "id": 4,
+        "image": "avatar-porDefecto.jpg",
+        "rol": "usuario"
+    },
+    {
+        "id": 5,
+        "image": "avatar-porDefecto.jpg"
+    },
+    {
+        "id": 6,
+        "image": "avatar-porDefecto.jpg"
+    },
+    {
+        "id": 7,
+        "image": "avatar-porDefecto.jpg"
+    },
+    {
+        "id": 8,
+        "image": "avatar-porDefecto.jpg"
+    }
+]
