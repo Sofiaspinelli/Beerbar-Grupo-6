@@ -54,7 +54,7 @@
         <section class="productos">
             <% productos.forEach(producto => { %>
             <% if (((producto.categoria === "nuevo") || ((producto.vendidos * 100) / producto.stock)  > 70 && producto.vendidos >= 10 ) && (producto.stock - producto.vendidos) >= 1 ) { %>
-             <article>
+            <article>
                 <img src="/img/productos/<%= producto.imagenes[0] %> " alt="imagen del producto">
                 <div class="contenedor">
                     <h3><%= producto.marca %> </h3>
@@ -71,8 +71,6 @@
             </article>
             <% } %>
             <% }) %>
-            
-        </section>
 
     </main>
     <%- include('./partials/footer') %>

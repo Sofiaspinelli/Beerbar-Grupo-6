@@ -5,6 +5,7 @@ const proComidas = require('../data/productosComidas.json');
 
 const guardar = (dato) => fs.writeFileSync(path.join(__dirname, '../data/productos.json')
 ,JSON.stringify(dato,null,4),'utf-8');
+
 const guardar2 = (dato) => fs.writeFileSync(path.join(__dirname, '../data/productosComidas.json')
 ,JSON.stringify(dato,null,4),'utf-8');
 
@@ -13,6 +14,7 @@ module.exports = {
         return res.render('admin/listaProductos',{
             productos
         })
+
     },
     crear: (req, res) => {
         res.render('admin/crear')
@@ -104,7 +106,3 @@ module.exports = {
         res.redirect('/admin/list')
     }
 }
-
-
-
-  

@@ -9,6 +9,7 @@ module.exports = {
             productos,
             proComidas,
             tipoDeProd
+
         })
     },
 }

@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "sofia",
+        "apellido": "spinelli",
+        "email": "sofiaspinelli@gmail.com",
+        "pass": "12345678",
+        "genero": "M",
+        "image": [
+            ""
+        ]
+    },
+    {
+        "id": 2,
+        "image": "avatar-porDefecto.jpg",
+        "rol": "usuario"
+    },
+    {
+        "id": 3,
+        "image": "avatar-porDefecto.jpg",
+        "rol": "usuario"
+    },
+    {
+        "id": 4,
+        "image": "avatar-porDefecto.jpg",
+        "rol": "usuario"
+    },
+    {
+        "id": 5,
+        "image": "avatar-porDefecto.jpg"
+    },
+    {
+        "id": 6,
+        "image": "avatar-porDefecto.jpg"
+    },
+    {
+        "id": 7,
+        "image": "avatar-porDefecto.jpg"
+    },
+    {
+        "id": 8,
+        "image": "avatar-porDefecto.jpg"
+    },
+    {
+        "id": 9,
+        "image": "avatar-porDefecto.jpg"
+    },
+    {
+        "id": 10,
+        "image": "foto-perfil.png"
+    },
+    {
+        "id": 11,
+        "name": "name",
+        "apellido": "apellido",
+        "email": "email",
+        "pass": "pass",
+        "genero": "genero",
+        "image": "foto-perfil.png"
+    },
+    {
+        "id": 12,
+        "image": "foto-perfil.png"
+    },
+    {
+        "id": 13,
+        "name": "Martina Franco",
+        "users": "martha",
+        "email": "marttina10@gmail.com",
+        "pass": "44416503",
+        "contact": "1162413603",
+        "image": "foto-perfil.png"
+    }
+]

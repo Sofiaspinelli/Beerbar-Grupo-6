@@ -16,6 +16,7 @@ module.exports = {
         // let descuentos2 = comidas.precio - (comidas.precio * comidas.descuento / 100);
         
         res.render('detail', {producto, comidas, tipoDeProd});
+
     },
     cart : (req, res) => {
         res.render ('cart')
