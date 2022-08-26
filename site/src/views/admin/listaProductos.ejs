@@ -29,16 +29,16 @@
                     <% productos.forEach(producto => { %>
                         <tr>
         
-                                <th scope="row"><a href="/admin/edit/<%= producto.id %>"><%= producto.id %> </a></th>
-                                <td><a href="/admin/edit/<%= producto.id %>"><%= producto.producto %></a></td>
-                                <td><a href="/admin/edit/<%= producto.id %>"><%= producto.marca %></a></td>
-                                <td><a href="/admin/edit/<%= producto.id %> "><%= producto.stock %></a></td>
-                                <td><a href="/admin/edit/<%= producto.id %> "><%= producto.precio %></a></td>
-                                <td><a href="/admin/edit/<%= producto.id %> "><%= producto.descuento %></a></td>
-                                <td><a href="/admin/edit/<%= producto.id%>"><button><i class="fa-solid fa-trash-can icon"></i></button> <button><i class="fa-solid fa-pen-to-square icon"></i></button></a></td>
-                                <td>
-                                </td>
-                            </tr>
+                            <th scope="row"><a href="/admin/edit/<%= producto.id %>"><%= producto.id %> </a></th>
+                            <td><a href="/admin/edit/<%= producto.id %>"><%= producto.producto %></a></td>
+                            <td><a href="/admin/edit/<%= producto.id %>"><%= producto.marca %></a></td>
+                            <td><a href="/admin/edit/<%= producto.id %> "><%= producto.stock %></a></td>
+                            <td><a href="/admin/edit/<%= producto.id %> "><%= producto.precio %></a></td>
+                            <td><a href="/admin/edit/<%= producto.id %> "><%= producto.descuento %></a></td>
+                            <td><a href="/admin/edit/<%= producto.id%>"><button><i class="fa-solid fa-trash-can icon"></i></button> <button><i class="fa-solid fa-pen-to-square icon"></i></button></a></td>
+                            <td>
+                            </td>
+                        </tr>
                             <% }) %> 
                 </tbody>
             </table>

@@ -40,5 +40,35 @@
     {
         "id": 8,
         "image": "avatar-porDefecto.jpg"
+    },
+    {
+        "id": 9,
+        "image": "avatar-porDefecto.jpg"
+    },
+    {
+        "id": 10,
+        "image": "foto-perfil.png"
+    },
+    {
+        "id": 11,
+        "name": "name",
+        "apellido": "apellido",
+        "email": "email",
+        "pass": "pass",
+        "genero": "genero",
+        "image": "foto-perfil.png"
+    },
+    {
+        "id": 12,
+        "image": "foto-perfil.png"
+    },
+    {
+        "id": 13,
+        "name": "Martina Franco",
+        "users": "martha",
+        "email": "marttina10@gmail.com",
+        "pass": "44416503",
+        "contact": "1162413603",
+        "image": "foto-perfil.png"
     }
 ]
