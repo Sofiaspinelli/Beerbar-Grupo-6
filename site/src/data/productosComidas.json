@@ -16,15 +16,15 @@
     {
         "id": 2,
         "producto": "comidas",
-        "marca": "ccfc",
-        "detalle": "Agregar descripcion",
+        "marca": "milanesa con papas",
+        "detalle": "rico",
         "precio": 2999,
-        "descuento": 199,
-        "stock": 411,
+        "descuento": 5,
+        "stock": 1111,
         "vendidos": 0,
         "categoria": "Especial",
         "imagenes": [
-            ""
+            "pngwing.png"
         ]
     }
 ]

@@ -25,7 +25,7 @@
                         <p class="precio">$<%= producto.precio %> </p>
                         <% } %>
                     </div>
-                    <button><a href="/products/<%= tipoDeProd[0] %>/<%= producto.id %>">Comprar</a></button>
+                    <button><a href="/products/birra/<%= producto.id %>">Comprar</a></button>
                 </article> 
             <% } %>       
         <% }) %>
@@ -43,7 +43,7 @@
                         <p class="precio">$<%= producto.precio %> </p>
                         <% } %>
                     </div>
-                    <button><a href="/products/<%= tipoDeProd[1] %>/<%= producto.id %>">Comprar</a></button>
+                    <button><a href="/products/comida/<%= producto.id %>">Comprar</a></button>
                 </article> 
             <% } %>       
         <% }) %> 
@@ -67,7 +67,7 @@
                     <% } %> 
                 </div>
 
-                <button><a href="/products/<%= tipoDeProd[0] %>/<%= producto.id %>">Comprar</a></button>
+                <button><a href="/products/birra/<%= producto.id %>">Comprar</a></button>
             </article>
             <% } %>
             <% }) %>
