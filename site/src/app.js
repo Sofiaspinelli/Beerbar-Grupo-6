@@ -8,7 +8,7 @@ const methodOverride = require('method-override')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products')
-const adminRouter = require('./routes/admin');/*requerí ruta admin*/
+const adminRouter = require('./routes/admin');
 
 const app = express();
 

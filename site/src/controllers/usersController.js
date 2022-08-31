@@ -10,6 +10,11 @@ module.exports = {
             usuarios
         })
     }, 
+    user: (req,res) => {
+        res.render ('user', {
+            usuarios
+        })
+    }, 
     register: (req,res) => {
         res.render ('register', {
             usuarios
