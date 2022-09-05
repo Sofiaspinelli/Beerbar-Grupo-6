@@ -16,7 +16,8 @@ module.exports = {
         res.render('admin/crear')
     },
     newProducts: (req, res) => {
-        let {selectType,marca,descripcion,precio,descuento,stock, categoria} = req.body;
+        const {selectType,marca,descripcion,precio,descuento,stock, categoria} = req.body;
+        const imagen = req.file
 
             let nuevoProducto = {
                 id: productos[productos.length - 1].id + 1,
@@ -28,7 +29,7 @@ module.exports = {
                 stock: +stock,
                 vendidos: 0,
                 categoria: categoria,
-                imagenes: [""],
+                imagen: imagen? imagen.filename : "default-img.png",
             };
             productos.push(nuevoProducto);
 

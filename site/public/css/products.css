@@ -34,6 +34,7 @@
     display: flex;
     justify-content: center;
     width: 80%;
+    max-height: 350px;
     border-radius: 10px;
 }
 .products main .productos article div h3 {
@@ -107,7 +108,7 @@ font-size: 24px;
     }
     .products main  .productos article {
         max-width: 300px;
-        height: 445px;
+        height: 490px;
 
     }
     .products main  .productos article img{

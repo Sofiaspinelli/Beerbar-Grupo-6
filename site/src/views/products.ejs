@@ -19,7 +19,7 @@
         <section class="productos">
             <% productos.forEach(producto => { %>
             <article>
-                <img src="/img/productos/<%= producto.imagenes[0] %>" alt="">
+                <img src="/img/productos/<%= producto.imagen %>" alt="">
                 <div class="contenedor">
                     <h3><%= producto.marca %></h3>
                     <% if (producto.descuento > 0) { %>

@@ -1,6 +1,9 @@
 const {list, crear, newProducts, editar, update, destroy} = require('../controllers/adminController')
 const express = require('express');
+const upload = require('../middlewares/multerProducts')
+
 const router = express.Router();
+
 
 /* GET home page. */
 router.get('/list', list);
@@ -8,7 +11,7 @@ router.get('/list', list);
 
 // get/post crear
 router.get('/crear', crear);
-router.post('/crear', newProducts);
+router.post('/crear', upload.single('img'), newProducts);
 
 // get/put editar
 router.get('/editar/:id', editar);

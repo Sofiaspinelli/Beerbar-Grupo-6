@@ -9,13 +9,10 @@
         "descuento": 20,
         "vendidos": 10,
         "categoria": "nuevo",
-        "imagenes": [
-            "cerveza-ale-tostada1.jpg",
-            "cerveza-ale-tostada.jpg"
-        ]
+        "imagen": "cerveza-ale-tostada1.jpg"
     },
     {
-        "id": 3,
+        "id": 2,
         "producto": "comidas",
         "marca": "Ipa",
         "detalle": "El aroma y el sabor son claramente marcados por el lúpulo, siendo los más comunes las variedades resinosas, frutales, herbales, etc",
@@ -24,22 +21,93 @@
         "descuento": 15,
         "vendidos": 10,
         "categoria": "nuevo",
+        "imagen": "birra1.jpg"
+    },
+    {
+        "id": 3,
+        "producto": "comida",
+        "marca": "milanesa con papas",
+        "detalle": "delicisa milanesa acompañado de las mejores papas",
+        "precio": 1000,
+        "descuento": 10,
+        "stock": 20,
+        "vendidos": 0,
+        "categoria": "Especial",
+        "imagen": "pngwing.png",
         "imagenes": [
-            "birra1.jpg"
+            ""
         ]
     },
     {
         "id": 4,
         "producto": "comidas",
-        "marca": "milanesa con papas",
-        "detalle": "rico",
-        "precio": 2999,
-        "descuento": 5,
-        "stock": 1111,
+        "marca": "Papas fritas",
+        "detalle": "deliciosas papas fritas con  salsa ketchup ",
+        "precio": 400,
+        "descuento": 0,
+        "stock": 20,
         "vendidos": 0,
-        "categoria": "Especial",
-        "imagenes": [
-            "pngwing.png"
-        ]
+        "categoria": "",
+        "imagen": "img-1662397902237.png"
+    },
+    {
+        "id": 5,
+        "producto": "comidas",
+        "marca": "pizza pepperoni",
+        "detalle": "una pizza con base de salsa de tomate, mozzarella y pepperoni",
+        "precio": 900,
+        "descuento": 15,
+        "stock": 25,
+        "vendidos": 0,
+        "categoria": "",
+        "imagen": "img-1662398149075.png"
+    },
+    {
+        "id": 6,
+        "producto": "comidas",
+        "marca": "pizza hawaiana",
+        "detalle": "pizza que contiene una base de queso fundido y tomate que se aliñan con jamón y piña",
+        "precio": 1000,
+        "descuento": 15,
+        "stock": 25,
+        "vendidos": 0,
+        "categoria": "nuevo",
+        "imagen": "img-1662398405777.png"
+    },
+    {
+        "id": 7,
+        "producto": "birra",
+        "marca": "Tuborg Brewery",
+        "detalle": "una cerveza danesa ",
+        "precio": 600,
+        "descuento": 0,
+        "stock": 40,
+        "vendidos": 0,
+        "categoria": "nuevo",
+        "imagen": "img-1662398735848.png"
+    },
+    {
+        "id": 8,
+        "producto": "comidas",
+        "marca": "Hamburguesa con jamón y queso",
+        "detalle": "una deliciosa Hamburguesa con jamón, queso  y tocino para disfrutar",
+        "precio": 500,
+        "descuento": 0,
+        "stock": 20,
+        "vendidos": 0,
+        "categoria": "",
+        "imagen": "img-1662398968782.png"
+    },
+    {
+        "id": 9,
+        "producto": "birra",
+        "marca": " Asahi Breweries",
+        "detalle": "suave y ligero sabor",
+        "precio": 500,
+        "descuento": 10,
+        "stock": 50,
+        "vendidos": 0,
+        "categoria": "",
+        "imagen": "img-1662399126466.png"
     }
 ]
