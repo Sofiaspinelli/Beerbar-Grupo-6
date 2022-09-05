@@ -1,4 +1,4 @@
-const {list, crear, newProducts,editar, update, destroy} = require('../controllers/adminController')
+const {list, crear, newProducts, editar, update, destroy} = require('../controllers/adminController')
 const express = require('express');
 const router = express.Router();
 
