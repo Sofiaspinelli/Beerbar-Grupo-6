@@ -77,14 +77,17 @@
     {
         "id": 7,
         "producto": "birra",
-        "marca": "Tuborg Brewery",
-        "detalle": "una cerveza danesa ",
+        "marca": "",
+        "detalle": "una cerveza danesa",
         "precio": 600,
         "descuento": 0,
         "stock": 40,
         "vendidos": 0,
         "categoria": "nuevo",
-        "imagen": "img-1662398735848.png"
+        "imagen": "img-1662398735848.png",
+        "imagenes": [
+            ""
+        ]
     },
     {
         "id": 8,

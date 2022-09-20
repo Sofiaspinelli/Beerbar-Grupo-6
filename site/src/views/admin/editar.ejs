@@ -22,13 +22,16 @@
             <div>
                 <label for="marca">Producto</label>
                 <input type="text" name="marca" id="marca" placeholder="Editar producto" value="<%= producto.marca%>" >
-                
+                <% if (locals.errors && errors.marca) { %>
+                    <small><%= errors.marca.msg %> </small>
+                  <% } %>
             </div>
             <div>
                 <label for="descripcion">Descripción de producto</label>
                <textarea name="descripcion" id="descripcion" cols="30" rows="4" placeholder="Ingresar descripción de producto"><%= producto.detalle%></textarea>
-                <small>"Ingresa una descripción"</small>
-                
+                <% if (locals.errors && errors.descripcion) { %>
+                    <small><%= errors.descripcion.msg %> </small>
+                  <% } %>
             </div>
             <div>
                 <label for="selectType">Categoria</label>
@@ -37,27 +40,40 @@
                 <option value="<%= select %>" ><%= select %></option>
                 <% }) %>
                </select>
+               <% if (locals.errors && errors.selectType) { %>
+                <small><%= errors.selectType.msg %> </small>
+              <% } %>
             </div>
 
             <div>
                 <label for="stock">Stock</label>
                 <input type="number" name="stock" id="stock" placeholder="Ingrese el stock" value="<%=producto.stock%>" >
+                <% if (locals.errors && errors.stock) { %>
+                    <small><%= errors.stock.msg %> </small>
+                <% } %>
             </div>
             <div>
                 <label for="precio">Precio</label>
                 <input type="number" name="precio" id="precio" placeholder="Ingresar precio de producto" value="<%=producto.precio%>" >
-                <small>"Ingrese precio"</small>
+                <% if (locals.errors && errors.precio) { %>
+                    <small><%= errors.precio.msg %> </small>
+                <% } %>
             </div>
             <div>
                 <label for="descuento">Descuento</label>
                 <input type="number" name="descuento" id="descuento" placeholder="0" value="<%=producto.descuento%>" >
-                <small>"Ingrese precio"</small>
+                <% if (locals.errors && errors.descuento) { %>
+                    <small><%= errors.descuento.msg %> </small>
+                <% } %>
             </div>
           
             <div>
                 <label for="img">Cargar imagen de producto</label>
                 <input class="file" type="file" name="img" accept="image/png, .jpeg, .jpg" width="200%" height="200%" multiple>
                 <!-- <input type="submit" value="Enviar imagen"> -->
+                <% if (locals.errors && errors.img) { %>
+                    <small><%= errors.img.msg %> </small>
+                  <% } %>
             </div>
           
                 <div>
