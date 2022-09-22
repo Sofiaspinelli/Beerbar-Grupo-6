@@ -13,8 +13,11 @@
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+<<<<<<< HEAD
     "express-session": "^1.17.3",
     "express-validation": "^4.1.0",
+=======
+>>>>>>> ec5d02446fc95cbfc57a206051ddac6b749cea73
     "express-validator": "^6.14.2",
     "http-errors": "~1.6.3",
     "method-override": "^3.0.0",

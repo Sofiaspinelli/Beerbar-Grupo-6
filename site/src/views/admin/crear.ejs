@@ -16,40 +16,54 @@
                         <option value="birra">Birra</option>
                         <option value="comidas">Comida</option>
                     </select>
-                    <small>"Obligatorio"</small>
+                    <% if (locals.errors && errors.selectType) { %>
+                        <small><%= errors.selectType.msg %> </small>
+                    <% } %>
                 </div>
                 <div>
-                    <label for="marca">Producto y Marca</label>
-                    <input type="text" name="marca" placeholder="Producto/marca">
-                    <small>"Obligatorio"</small>
+                    <label for="marca">Nombre de Producto/Marca</label>
+                    <input type="text" name="marca" placeholder="Producto/marca" value="<%- locals.old && old.marca ? old.marca : null %>">
+                    <% if (locals.errors && errors.marca) { %>
+                     <small><%= errors.marca.msg %> </small>
+                    <% } %>
                 </div>
                 <div>
                     <label for="descripcion">Detalle del producto</label>
-                    <textarea name="descripcion" id="descripcion" cols="30" rows="4">Agregar descripcion</textarea>
-                    <small>"Obligatorio"</small>
+                    <textarea name="descripcion" id="descripcion" cols="30" rows="4" placeholder="Agregar descripcion"><%- locals.old && old.descripcion ? old.descripcion : null %></textarea>
+                    <% if (locals.errors && errors.descripcion) { %>
+                        <small><%= errors.descripcion.msg %> </small>
+                    <% } %>
                 </div>
                 <div class="file">
                     <label for="img">Imagen del producto</label>
                     <div class="file-select" id="src-file1" >
                        <input name="img" type="file" id="img" multiple> 
                     </div>
-                    <small>"Obligatorio"</small>
+                    <% if (locals.errors && errors.img) { %>
+                     <small><%= errors.img.msg %> </small>
+                    <% } %>
                 </div>
                 <div class="p-s">
                     <div>
                         <label for="precio">Precio</label>
-                        <input type="number" name="precio" id="precio" placeholder="precio">
-                        <small>"Obligatorio"</small>
+                        <input type="number" name="precio" id="precio" placeholder="precio" value="<%- locals.precio && old.precio ? old.marca : null %>">
+                        <% if (locals.errors && errors.precio) { %>
+                          <small><%= errors.precio.msg %> </small>
+                        <% } %>
                     </div>
                     <div>
                         <label for="descuento">Descuento</label>
-                        <input type="number" name="descuento" id="descuento" placeholder="0">
-                        <small>"Obligatorio"</small>
+                        <input type="number" name="descuento" id="descuento" placeholder="descuento" value="<%- locals.descuento && old.descuento ? old.marca : 0 %>">
+                        <% if (locals.errors && errors.descuento) { %>
+                          <small><%= errors.descuento.msg %> </small>
+                        <% } %>
                     </div>
                     <div class="stock">
                         <label for="stock">Stock</label>
-                        <input type="number" name="stock" id="stock" placeholder="1">
-                        <small>"Obligatorio"</small>
+                        <input type="number" name="stock" id="stock" placeholder="stock" value="<%- locals.old && old.stock ? old.stock : null %>">
+                        <% if (locals.errors && errors.stock) { %>
+                          <small><%= errors.stock.msg %> </small>
+                        <% } %>
                     </div>
                 </div>
                 
@@ -61,7 +75,9 @@
                         <option value="Especial">Especial</option>
                         <option value="">Ninguna</option>
                     </select>
-                    <small>"Obligatorio"</small>
+                    <% if (locals.errors && errors.categoria) { %>
+                     <small><%= errors.categoria.msg %> </small>
+                    <% } %>
                 </div>
                 <div class="botton">
                     <button type="submit">Añadir Producto</button>
