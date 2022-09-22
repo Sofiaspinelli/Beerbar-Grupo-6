@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/b19d58878c.js" crossorigin="anonymous"></script>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="register">
+    <header>
+        <div class="logo"><a href="/"><img src="../img/logo/logo-beerbar.png" alt="logo"></a></div>
+
+        <nav>
+            <!-- <ul>
+                <li><a href="/login">Login</a></li>
+            </ul>    -->
+            <ul>
+                <li><a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li><i class="fa-solid fa-bars"></i></li>
+            </ul>   
+        </nav>
+    </header>
+    <main>
+        <h1>Sign-up</h1>
+        <form action="/users/register" method="post" enctype="multipart/form-data">
+        <form action="" method="post">
+            <div class="container">
+                
+                <label for="name">Nombre y apellido</label>
+                <input type="text" name="name" id="name" placeholder="Ingresar nombre completo" value="<%= locals.old && old.name ? old.name : null%>"
+                <% if (locals.errors && errors.name) { %>
+                    <small><%= errors.name.msg %></small>
+                <% } %>
+            </div>
+            <div class="container">
+                <label for="name">Usuario</label>
+                <input type="text" name="users" id="users" placeholder="Ingresar Nombre de Usuario" required>
+                <% if (locals.errors && errors.users) { %>
+                    <small><%= errors.users.msg %></small>
+                <% } %>
+            </div>
+            
+                <div class="container">
+                    <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" placeholder="Ingresar e-mail" value="<%= locals.old && old.email ? old.email : null%>"
+                <% if (locals.errors && errors.email) { %>
+                    <small><%= errors.email.msg %></small>
+                <% } %>
+                </div>
+                
+                <div class="container">
+                <label for="pass">Contraseña</label>
+                <input type="password" name="pass" id="pass" placeholder="Ingresar Contraseña" required>
+                <% if (locals.errors && errors.pass) { %>
+                    <small><%= errors.pass.msg %></small>
+                <% } %>
+            </div>
+            <div class="container">
+                <input type="password" name="pass2" id="pass2" placeholder="Repetir Contraseña" required>
+                <% if (locals.errors && errors.pass2) { %>
+                    <small><%= errors.pass2.msg %></small>
+                <% } %>
+            </div>
+            <div class="container">
+                <label for="contact">Nro de Contacto <p>("No es obligatorio")</p></label>
+                <input type="number" name="contacto" id="contacto" placeholder="Ingresar Nro">
+                
+            </div>
+            <h2 class="bottom">Genero</h2>
+            <div class="bottom">
+                <input type="radio" name="genero" id="F" value="F" <%= locals.old && old.genero==='F' ? "checked" : null%> >
+                <label for="F">Femenino</label>
+                <input type="radio" name="genero" id="M" value="M" <%= locals.old && old.genero==='M' ? "checked" : null%>>
+                <label for="M">Masculino</label>
+                <input type="radio" name="genero" id="SN" value="SN" <%= locals.old && old.genero==='SN' ? "checked" : null%> >
+                <label for="SN">Prefiero no decirlo</label>
+                <% if (locals.errors && errors.genero) { %>
+                    <small><%= errors.genero.msg %></small>
+                <% } %>
+            </div>
+            <div class="container container-img">
+                <label for="image">Subi tu imagen aqui</label>
+                <input type="file" name="image" id="image">
+                <% if (locals.errors && errors.image) { %>
+                    <small><%= errors.image.msg %></small>
+                <% } %>
+            </div>
+
+            <div class="bottom">
+                <input type="checkbox" name="terminos" id="terminos">
+                <label for="terminos">Acepto los terminos y condiciones</label>
+                <% if (locals.errors && errors.terminos) { %>
+                    <small><%= errors.terminos.msg %></small>
+                <% } %>
+            </div>
+
+            <div class="registrarse">
+                <button type="submit"><i class="fa-solid fa-user"></i> sign-up</button>
+            </div>
+            <div class="G">
+                <h4>Registrarse con:</h4>
+                <button type="submit"><i class="fa-brands fa-google"></i></button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
