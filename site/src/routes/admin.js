@@ -16,7 +16,7 @@ router.post('/crear', upload.single('img'), Validacion, newProducts);
 
 // get/put editar
 router.get('/editar/:id', editar);
-router.put('/editar/:id', Validacion, update);
+router.put('/editar/:id', upload.single('img'), Validacion, update);
 
 // delete
 router.delete('/eliminar/:id', destroy)

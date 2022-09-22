@@ -19,7 +19,7 @@ module.exports = {
     newProducts: (req, res) => {
         const {selectType,marca,descripcion,precio,descuento,stock, categoria} = req.body;
         const img = req.file
-
+        // return res.send(img)
         let errors = validationResult(req);
 
         if (req.fileValidationError) {
@@ -49,11 +49,14 @@ module.exports = {
 
             res.redirect(`/products/detail/${nuevoProducto.id}`);
         } else {
-            // let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', 'productos', dato));
+            let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', 'productos', dato));
+
             
-            // if (ruta(req.file.filename) && (req.file.filename !== "default-img.png")) {
-            //     fs.unlinkSync(path.join(__dirname, '..', '..', 'public', 'img', 'productos', req.file.filename));
-            // };
+            if (img) {
+                if (ruta(img.filename) && (img.filename !== "default-img.png")) {
+                    fs.unlinkSync(path.join(__dirname, '../../public/img/productos', img.filename));
+                }
+            }
 
             return res.render('admin/crear', {
                 errors: errors.mapped(),
@@ -78,8 +81,9 @@ module.exports = {
     },
     update: (req, res) => {
         let id = +req.params.id;
-        let {selectType,marca,img,descripcion,precio,descuento,stock} = req.body
-        
+        let {selectType,marca,descripcion,precio,descuento,stock} = req.body
+        const img = req.file
+
         productos.forEach(producto => {
             if (producto.id === id) {
                 producto.producto = selectType
@@ -88,7 +92,7 @@ module.exports = {
                 producto.precio = +precio
                 producto.descuento = +descuento
                 producto.stock = +stock
-                producto.imagenes = [img]
+                producto.imagen = img? img.filename : "default-img.png"
             }
         });
         guardar(productos);
@@ -98,13 +102,13 @@ module.exports = {
     },
     destroy: (req, res) => {
         const id = +req.params.id;
-        // let imagen = productos.imagen
-        // let producto = productos.find(producto => producto.id === id);
-        // let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', 'productos', dato));
-            
-        // if (ruta(imagen) && (imagen !== "default-img.png")) {
-        //         fs.unlinkSync(path.join(__dirname, '..', '..', 'public', 'img', 'productos', imagen));
-        // };
+        let producto = productos.find(producto => producto.id === id);
+        
+        let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', 'productos', dato));
+
+        if (ruta(producto.imagen) && (producto.imagen !== "default-img.png")) {
+            fs.unlinkSync(path.join(__dirname, '../../public/img/productos', producto.imagen));
+        };
 
         let eliminarProducto = productos.filter(producto => producto.id !== id);
         guardar(eliminarProducto);

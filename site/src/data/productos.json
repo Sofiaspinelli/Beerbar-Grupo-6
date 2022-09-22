@@ -75,21 +75,6 @@
         "imagen": "img-1662398405777.png"
     },
     {
-        "id": 7,
-        "producto": "birra",
-        "marca": "",
-        "detalle": "una cerveza danesa",
-        "precio": 600,
-        "descuento": 0,
-        "stock": 40,
-        "vendidos": 0,
-        "categoria": "nuevo",
-        "imagen": "img-1662398735848.png",
-        "imagenes": [
-            ""
-        ]
-    },
-    {
         "id": 8,
         "producto": "comidas",
         "marca": "Hamburguesa con jamón y queso",
