@@ -27,5 +27,32 @@
         "pass": "44416503",
         "contact": "1162413603",
         "image": "foto-perfil.png"
+    },
+    {
+        "id": 4,
+        "name": "Erica",
+        "users": "eri",
+        "email": "sofiaspinelli17@hotmail.com",
+        "pass": "$2a$15$nnn3iPegYHO8njTSdiypa.KgOVS6iKfdqTap2dNHM9GmAnhY/LpsG",
+        "genero": "F",
+        "image": "usuario1663884003449.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Nicolas Decima",
+        "users": "nicolin",
+        "email": "nicolasdecima@gmail.com",
+        "pass": "$2a$15$ZGep4e36MmPMIWEsRU1Jb.bVFG8OxrcgtA0bzDTjhAMWfpOwHRteK",
+        "genero": "M",
+        "image": "usuario1663890378180.jpeg"
+    },
+    {
+        "id": 6,
+        "name": "Erica Aragona",
+        "users": "eriAR",
+        "email": "ericaar@gmail.com",
+        "pass": "$2a$15$bWvBXf2vS.QzcQ4fFpu8iOSa5R6mlnoAh9Xx2LyhqFFv82nawLa6y",
+        "genero": "F",
+        "image": "usuario1663935769625.jpg"
     }
 ]
