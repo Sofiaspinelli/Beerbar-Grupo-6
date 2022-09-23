@@ -1,7 +1,7 @@
 const {list, crear, newProducts, editar, update, destroy} = require('../controllers/adminController')
 const express = require('express');
 const upload = require('../middlewares/multerProducts')
-const Validacion = require('../validaciones/productsValidacion')
+const Validacion = require('../validations/productsValidacion')
 
 const router = express.Router();
 

@@ -23,8 +23,8 @@ module.exports = [
     .isLength({min:8}).withMessage('Debe contener al menos 8 caracteres').bail(),
 
     /*Contacto*/
-    check('contacto')
-    .notEmpty().withMessage('Debe ingresar su numero de contacto'),
+/*     check('contacto')
+    .notEmpty().withMessage('Debe ingresar su numero de contacto'), */
     
     /* Genero */
     check('genero')

@@ -97,5 +97,17 @@
         "vendidos": 0,
         "categoria": "nuevo",
         "imagen": "img-1663891885578.png"
+    },
+    {
+        "id": 12,
+        "producto": "birra",
+        "marca": "Porter",
+        "detalle": "De gran sabor",
+        "precio": 700,
+        "descuento": 10,
+        "stock": 80,
+        "vendidos": 0,
+        "categoria": "seleccionar una opcion",
+        "imagen": "img-1663936270676.png"
     }
 ]

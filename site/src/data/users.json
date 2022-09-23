@@ -54,5 +54,14 @@
         "pass": "$2a$15$bWvBXf2vS.QzcQ4fFpu8iOSa5R6mlnoAh9Xx2LyhqFFv82nawLa6y",
         "genero": "F",
         "image": "usuario1663935769625.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Ignacio",
+        "users": "ignacio",
+        "email": "ignacio@gmail.com",
+        "pass": "$2a$15$nXITX1l0yCHGm9vMqQC0jOP..VOU8auUxYpCQ8KScKR5Cq3CEoH62",
+        "genero": "M",
+        "image": "usuario1663936899345.jpg"
     }
 ]
