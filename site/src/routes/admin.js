@@ -1,7 +1,10 @@
 const {list, crear, newProducts, editar, update, destroy} = require('../controllers/adminController')
 const express = require('express');
-const Validacion = require('../validaciones/productsValidacion')
+
 const adminCheck = require('../middlewares/multerAdmin')
+const upload = require('../middlewares/multerProducts')
+const Validacion = require('../validations/productsValidacion')
+
 const router = express.Router();
 const path = require('path');
 const multer = require('multer');
@@ -26,8 +29,8 @@ router.get('/crear',adminCheck, crear);
 router.post('/crear', upload.single('img'), Validacion, newProducts);
 
 // get/put editar
-router.get('/editar/:id',adminCheck, editar);
-router.put('/editar/:id', Validacion, update);
+router.get('/editar/:id',adminCheck, editar)
+router.put('/editar/:id', upload.single('img'), Validacion, update);
 
 // delete
 router.delete('/eliminar/:id', destroy)

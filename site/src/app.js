@@ -4,8 +4,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override')
-const userLogin = require('./middlewares/loginCheck');
+const session = require('express-session')
 
+const userLogin = require('./middlewares/userLoginCheck')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products')
@@ -23,6 +24,16 @@ app.use(express.urlencoded({ extended: false }));
 
 /* Trabajar con put y delete */
 app.use(methodOverride('_method'))
+app.use(session({
+  secret: "Beerbar"
+}))
+app.use(userLogin)
+
+
+app.use(session({
+  secret: "Beerbar"
+}))
+app.use(userLogin)
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..' , 'public')));
@@ -33,6 +44,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/admin', adminRouter);
+
 
 
 // catch 404 and forward to error handler

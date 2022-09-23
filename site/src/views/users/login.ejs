@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,18 +23,20 @@
     </header>
     <main>
         <h1>Login</h1>
-        <form action="/login" method="post">
+        <form action="/users/login" method="post">
             <div class="container">
                 <label for="user">Usuario</label>
-                <input type="text" name="user" id="user" placeholder="Ingresar Nombre de Usuario">
-                <small>"Obligatorio"</small>
-                <small>"Usuario incorrecto"</small>
+                <input type="email" name="email" id="email" placeholder="Ingresa tu email">
+                <% if (locals.errors && errors.email) { %>
+                    <small><%= errors.email.msg %></small>
+                <% } %>
             </div>
             <div class="container">
                 <label for="pass">Contraseña</label>
                 <input type="password" name="pass" id="pass" placeholder="Ingresar Contraseña">
-                <small>"Obligatorio"</small>
-                <small>"Contraseña incorrecta"</small>
+                <% if (locals.errors && errors.pass) { %>
+                    <small><%= errors.pass.msg %></small>
+                <% } %>
             </div>
             <div class="login_button">
                 <button class="one" type="submit"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
@@ -50,5 +51,6 @@
             </div>
         </form>
     </main>
+    <%- include('../partials/footer') %>
 </body>
 </html>

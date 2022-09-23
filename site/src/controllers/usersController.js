@@ -1,17 +1,44 @@
 const fs = require('fs')
 const path = require('path')
+const { validationResult } = require('express-validator')
+const bcrypt = require('bcryptjs')
 const usuarios = require('../data/users.json')
-const {validationResult} = require('express-validator');
-const bcryptjs = require('bcryptjs');
+const { emitWarning } = require('process')
 const guardar = (dato) => fs.writeFileSync(path.join(__dirname, '../data/users.json')
     , JSON.stringify(dato, null, 4), 'utf-8')
 
 module.exports = {
     login: (req,res) => {
-        res.render ('login', {
+        res.render ('users/login', {
             usuarios
         })
     }, 
+    processLogin: (req,res) => {
+       
+        {
+            let errors = validationResult(req)
+            if (errors.isEmpty()) {
+            
+                const {email} = req.body
+                let usuario = usuarios.find(user => user.email === email)
+    
+                req.session.userLogin = {
+                    id : usuario.id,
+                    nombre : usuario.name,
+                    image : usuario.image,
+                    rol : usuario.rol
+                }
+                return res.redirect('/')
+                
+            } else {
+                /* return res.send(errors.mapped()) */
+                return res.render('users/login', {
+                    errors: errors.mapped(),
+                    old: req.body
+                })
+            }
+        }
+    },
     user: (req,res) => {
         res.render ('user', {
             usuarios
@@ -20,7 +47,7 @@ module.exports = {
     processLogin:(req,res) => {
         let errors = validationResult(req)
         if(errors.isEmpty()){
-           req.cesion.userLogin = {
+           req.session.userLogin = {
                id : usuario.id,
                nombre : usuario.name,
                rol : usuario.rol
@@ -35,7 +62,7 @@ module.exports = {
         }
     },
     register: (req,res) => {
-        res.render ('register', {
+        res.render ('users/register', {
             usuarios
         })
     }, 
@@ -47,10 +74,10 @@ module.exports = {
                 name : name ,
                 users: users,
                 email : email,
-                pass : bcryptjs.hashSync(pass,6),
-                genero : "",
-                contact: "",
-                image: "default-usuario.png",
+                pass :  bcrypt.hashSync(pass, 15),
+                genero : genero,
+                contact: contact,
+                image: req.file ? req.file.filename : "usuario.png",
                 rol : "user",
         }
         usuarios.push(usuarioNuevo)
@@ -59,10 +86,10 @@ module.exports = {
             return res.redirect('/')
     }
     else{
-        let ruta = (dato) => fs.existsSync(path.join(__dirname,'..','..','public','img','user'))
-        if (ruta(req.file.filename) && (req.file.filename !== "default-usuario.png")) {
-            fs.unlinkSync(path.join(__dirname,'..','..','public','img','user',req.file.filename))
-        }
+        let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', dato))
+            if (ruta(req.file.filename) && (req.file.filename !== "usuario.png")) {
+                fs.unlinkSync(path.join(__dirname, '..', '..', 'public', 'img', req.file.filename))
+            }
         return res.render('user/register', {
             errors:mapped(),
             old: req.body
@@ -70,7 +97,7 @@ module.exports = {
     }
 },
      logout: (req,res) => {
-         req.cesion.destroy();
+         req.session.destroy();
          return res.redirect('/')
      },
      editUser: (req, res) => {        

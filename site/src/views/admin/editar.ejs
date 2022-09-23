@@ -18,7 +18,7 @@
 
     <main>
         <h1>Editar producto</h1>
-        <form action="/admin/editar/<%= producto.id %>?_method=PUT" method="post" class="form">
+        <form action="/admin/editar/<%= producto.id %>?_method=PUT" method="post" class="form" enctype="multipart/form-data">
             <div>
                 <label for="marca">Producto</label>
                 <input type="text" name="marca" id="marca" placeholder="Editar producto" value="<%= producto.marca%>" >
