@@ -9,39 +9,44 @@
     <script src="https://kit.fontawesome.com/e41faadd8e.js" crossorigin="anonymous"></script>
     <!--  Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <title>Detalle</title>
+    <title>Usuario</title>
 </head>
 <body class="user">
     <%- include('./partials/header') %>
     <main>
-       <section> <h1>Mi usuario:</h1>  </section> 
+       <section> <h1>Mi usuario: <%= ${locals.userLoginCheck.name + locals.userLoginCheck.apellido}%></h1> </section> 
    <section class="img"> 
-<img src="/img/usuario.png" alt="usuario"> 
- <button>cambiar foto de perfil </button>
+<img src="/img/"<%= locals.userLoginCheck.image  %>  alt=""> 
 </section> 
-  
 
-    <div>
-        <label for="Nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" placeholder="id">  
-    </div>
-    <div>
-        <label for="gmail">Gmail:</label>
-        <input type="text" name="gmail" id="gmail" placeholder="id">  
-    </div>
-    <div>
-        <label for="Nombre">Gustos:</label>
-        <input type="text" name="nombre" id="nombre" placeholder="id">  
-    </div>
-    <div>
-        <label for="Nombre">Ultima visita:</label>  
-    </div>
-   
+<div> 
+    <h2>Mis datos:</h2>
+   <h3> <ul>
+      <li>Nombre<%= locals.userLoginCheck.name%>
+    </li>
+      <li>
+        Apellido<%= locals.userLogin.apellido %>
+      </li>
+      <li>
+          Email<%= locals.userLoginCheck.email %>
+        </li>
+        <li>
+            Genero<%= locals.userLoginCheck.genero %>
+          </li>
+          
+          <li>
+            Contraseña<%= locals.userLoginCheck.pass %>
+          </li>
+    </ul></h3>
+</div>
+
+<form action="/usuario/logot?_method=DELETE" method="post"> 
+ <button type="submit">Cerrar sesión</button> </form>
+
+</main>
     
-        
-    </main>
-
     <%- include('./partials/footer') %>
     
 </body>
 </html>
+

@@ -20,7 +20,7 @@
 .user main h1{
     font-size: 200%;
     background-color: var(--colorNaranja);
-    width: 18%;
+    width: auto;
     color: black;
     position: relative;
     top: 40px; 
@@ -33,19 +33,6 @@ justify-content: start;
 height: 200%;
 }
 .user main div{
-    width: 90%;
     position: relative;
-    display: flex;
-    bottom: 120px;
-    text-align: center;
-}
-.user main div label{
-    font-size: 200%;
-}
-.user div input{
-    font-size: 24px;
-    padding: 0.5%;
-    background-color: transparent;
-    margin: 2px;
-    
+    margin-right: 90px;
 }

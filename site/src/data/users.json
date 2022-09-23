@@ -6,9 +6,9 @@
         "email": "sofiaspinelli@gmail.com",
         "pass": "12345678",
         "genero": "M",
-        "image": [
-            ""
-        ]
+        "image": "foto-perfil.png",
+        "rol" : "admin"
+        
     },
     {
         "id": 2,
@@ -17,7 +17,8 @@
         "email": "email",
         "pass": "pass",
         "genero": "genero",
-        "image": "foto-perfil.png"
+        "image": "foto-perfil.png",
+        "rol" : "user"
     },
     {
         "id": 3,
@@ -26,6 +27,17 @@
         "email": "marttina10@gmail.com",
         "pass": "44416503",
         "contact": "1162413603",
-        "image": "foto-perfil.png"
+        "image": "foto-perfil.png",
+        "rol" : "user"
+    },
+    {
+        "id": 4,
+        "name": "Kevin Riveros",
+        "users": "kevin",
+        "email": "777kr2000@gmail.com",
+        "pass": "1234",
+        "contact": "",
+        "image": "foto-perfil.png",
+        "rol" : "user"
     }
 ]

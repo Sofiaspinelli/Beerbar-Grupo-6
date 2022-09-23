@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Iconos -->
+    <script src="https://kit.fontawesome.com/e41faadd8e.js" crossorigin="anonymous"></script>
+    <!--  Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Editar perfil</title>
+</head>
+<body class="user">
+    <%- include('./partials/header') %>
+    <main>
+        <form action="/user/editarUser/<%= locals.userLogin.id %>?_method=put" method="post"> 
+            <div>
+              <img src="/img/usuario/<%= locals.userLogin.image %>" alt="">
+                <label>Cambiar foto de perfil</label>
+                <input type="file" name="image" id="file" accept="/image*" value="<%= locals.old && old.image ? old.name: null %>" >
+            </div>
+                  <ul>
+                    <li>Editar nombre
+                      <input type="text" name="name" id="name" value="<%=locals.old && old.name ?old.name: null %><%= locals.userLogin.name %>">
+               </li>
+               <li>Editar apellido
+                <input type="text" name="apellido" id="apellido" value="<%=locals.old && old.apellido ?old.apellido: null %><%= locals.userLogin.apellido %>">
+         </li>
+                    <li> Email(gmail de registro no se podra cambiar)
+                      <input type="email" id="email" name="email" value="<%= locals.userLogin.email %> ">
+                    </li>
+                    <li>Genero
+                      <input type="genero" id="genero" name="genero" value="<%= locals.userLogin.genero%> ">
+                    </li>
+    
+              </div>
+                      <div>
+                        <input type="password" name="pass" id="pass" value="<%= locals.userLogin.old && old.pass ? old.pass: null %>" placeholder="Ingrese nueva contraseña">
+                        <% if (locals.errors && errors.pass) { %>
+                          <%= errors.pass.msg %> 
+                        <% } %>  
+                        <input type="password" name="pass2" id="pass2" value="<%= locals.userLogin.old && old.pass2 ? old.pass2: null %>" placeholder="Confirme su contraseña" >
+                        <% if (locals.errors && errors.pass2) { %>
+                           <%= errors.pass2.msg %>
+                        <% } %>  
+                    </div>
+                    <div>
+                        <button type="submit">Actualizar datos</button>
+                    </div>
+
+</main>
+    
+    <%- include('./partials/footer') %>
+    
+        </form>
+
+      </main>

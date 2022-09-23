@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override')
+const userLogin = require('./middlewares/loginCheck');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -25,6 +26,7 @@ app.use(methodOverride('_method'))
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..' , 'public')));
+app.use(userLogin)
 
 /* Rutas */
 app.use('/', indexRouter);
