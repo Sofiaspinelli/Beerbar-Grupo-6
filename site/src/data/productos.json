@@ -97,5 +97,29 @@
         "vendidos": 0,
         "categoria": "",
         "imagen": "img-1662399126466.png"
+    },
+    {
+        "id": 10,
+        "producto": "seleccionar una opcion",
+        "marca": "cheetos",
+        "detalle": "lo mejorcito pibe, compraaa",
+        "precio": 200,
+        "descuento": 0,
+        "stock": 411,
+        "vendidos": 0,
+        "categoria": "",
+        "imagen": "img-1663891684071.png"
+    },
+    {
+        "id": 11,
+        "producto": "comidas",
+        "marca": "papas",
+        "detalle": "ricooo y ya, solo gosalo",
+        "precio": 190,
+        "descuento": 0,
+        "stock": 100,
+        "vendidos": 0,
+        "categoria": "nuevo",
+        "imagen": "img-1663891885578.png"
     }
 ]

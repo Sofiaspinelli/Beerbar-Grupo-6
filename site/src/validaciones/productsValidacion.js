@@ -9,7 +9,7 @@ module.exports = [
     body('descripcion').trim().notEmpty().withMessage('Ingrese una brebe descripcion del producto').bail()
     .isLength({min:12}).withMessage('La descipcion es muy corta'),
     
-    body('img').trim().notEmpty().withMessage('Ingrese una imagen del producto'),
+    // body('img').trim().notEmpty().withMessage('Ingrese una imagen del producto'),
 
     body('precio').trim().notEmpty().withMessage('Este campo es obligatorio').bail()
     .isInt().withMessage('Solo se aceptan numeros'),
