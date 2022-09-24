@@ -28,6 +28,10 @@ module.exports = {
                     image : usuario.image,
                     rol : usuario.rol
                 }
+        /* COOKIE */
+                if (req.body.recordame != undefined) {
+                    res.cookie('recordame', usuario.email, { maxAge: 3600000})
+                }
                 return res.redirect('/')
                 
             } else {

@@ -12,6 +12,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products')
 const adminRouter = require('./routes/admin');
+const remindMiddleware = require('./middlewares/remindMiddleware');
 
 const app = express();
 
@@ -27,10 +28,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'))
 
 
-app.use(session({
-  secret: "Beerbar"
-}))
+app.use(session({secret: "Beerbar"}));
 app.use(userLogin)
+app.use(remindMiddleware);
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..' , 'public')));
