@@ -8,7 +8,7 @@
         "descuento": 10,
         "stock": 20,
         "vendidos": 0,
-        "categoria": "Especial",
+        "categoria": "especial",
         "imagen": "pngwing.png",
         "imagenes": [
             ""
@@ -76,7 +76,7 @@
     },
     {
         "id": 10,
-        "producto": "seleccionar una opcion",
+        "producto": "comida",
         "marca": "cheetos",
         "detalle": "lo mejorcito pibe, compraaa",
         "precio": 200,
@@ -84,7 +84,7 @@
         "stock": 411,
         "vendidos": 0,
         "categoria": "",
-        "imagen": "img-1663891684071.png"
+        "imagen": "img-1664059295903.png"
     },
     {
         "id": 11,
@@ -109,5 +109,17 @@
         "vendidos": 0,
         "categoria": "seleccionar una opcion",
         "imagen": "img-1663936270676.png"
+    },
+    {
+        "id": 13,
+        "producto": "comidas",
+        "marca": "pollo",
+        "detalle": "delicioso pollo",
+        "precio": 1200,
+        "descuento": 0,
+        "stock": 30,
+        "vendidos": 0,
+        "categoria": "nuevo",
+        "imagen": "img-1664060415882.png"
     }
 ]
