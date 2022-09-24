@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="/css/styles.css">
     <!-- Iconos -->
     <script src="https://kit.fontawesome.com/e41faadd8e.js" crossorigin="anonymous"></script>
@@ -13,22 +12,24 @@
     <title>Detalle</title>
 </head>
 <body class="detail">
-
     <%- include('./partials/header') %>
-
     <main>
         <h1>Detalle del Producto</h1>
         <section>
-            <article>
-                <img src="/img/productos/<%= producto.imagenes[0]%>" alt="">
+             <article>
+                <img src="/img/productos/<%= producto.imagen %>" alt="imagen del producto">
                 <div class="contenedor">
-                    <h3><%= producto.marca %></h3>
+                    <h3> <%= producto.marca %></h3>
                     <p><%= producto.detalle %></p>
 
                     <h4>Precio:</h4>
-                    <p class="old">$<%= producto.descuento !== 0 ? producto.precio : null %><p>
-                    <p class="precio">$<%= producto.descuento === 0 ? producto.precio : descuentos %>  <small class="descuento"><%= producto.descuento %>%</small><p>
-                    
+                    <% if (producto.descuento > 0) { %>
+                    <p class="old">$<%= producto.precio %> </p>
+                    <p class="precio">$<%= producto.precio - (producto.precio * producto.descuento / 100) %><small class="descuento"><%= producto.descuento %>%</small>
+                    <p>
+                    <% }else { %>
+                    <p class="precio">$<%= producto.precio %> </p>
+                    <% } %>
                     <div class="cantidad"><button class="button">+</button><input type="text" placeholder="0"><button class="button">-</button></div>
                     <button>añadir al carrito</button>
                 </div>

@@ -14,11 +14,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    /* padding: 10px; */
     width: 300px;
     height: 430px;
     margin: 10px;
-    background-color: rgba(255, 255, 255, 0.33);
+    background-color: hsla(0, 0%, 0%, 0.4);
     border: 1px;
     border-radius: 10px;
 }
@@ -34,6 +33,7 @@
     display: flex;
     justify-content: center;
     width: 80%;
+    max-height: 350px;
     margin: 15px 0 0;
     border-radius: 10px;
 }
@@ -71,13 +71,12 @@
     margin-bottom: 0;
 }
 .home main .productos article .precio {
-   font-size: 24px;
+   font-size: 34px;
    margin-bottom: 0;
 }
 .home main .productos article .descuento {
     color: var(--descuentos);
-    margin: 10px;
-    font-size: 20px;
+    font-size: 24px;
 }
 .home main .productos article .contenedor {
     display: flex;
@@ -113,7 +112,7 @@
     }
     .home main  .productos article {
         max-width: 300px;
-        height: 430px;
+        height: 490px;
         /* padding: 10px; */
 
     }
@@ -124,9 +123,11 @@
         font-size: 16px;
     }
     .home main .productos article .precio{
-        font-size: 24px;
+        font-size: 36px;
+ 
     }
     .home main .productos article .descuento {
-        font-size: 20px;
+        font-size: 24px;
+        
     }
 }

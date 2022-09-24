@@ -1,0 +1,51 @@
+.user main{
+    margin-top: 10px;
+    background-color: var(--colorGrisClaro) ;
+}
+.user .img{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    bottom: 100px;
+    right: 5%;
+    text-align: center;
+}
+.user section button{
+    position: relative;
+    height: 35%;
+    border-radius: 15%;
+    background-color: var(--colorNaranja);
+    border-color: black;
+}
+.user main h1{
+    font-size: 200%;
+    background-color: var(--colorNaranja);
+    width: 18%;
+    color: black;
+    position: relative;
+    top: 40px; 
+}
+.user main section{
+width: 90%;
+position: relative;
+display: flex;
+justify-content: start;
+height: 200%;
+}
+.user main div{
+    width: 90%;
+    position: relative;
+    display: flex;
+    bottom: 120px;
+    text-align: center;
+}
+.user main div label{
+    font-size: 200%;
+}
+.user div input{
+    font-size: 24px;
+    padding: 0.5%;
+    background-color: transparent;
+    margin: 2px;
+    
+}

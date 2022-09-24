@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Iconos -->
+    <script src="https://kit.fontawesome.com/e41faadd8e.js" crossorigin="anonymous"></script>
+    <!--  Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Detalle</title>
+</head>
+<body class="user">
+    <%- include('./partials/header') %>
+    <main>
+       <section> <h1>Mi usuario:</h1>  </section> 
+   <section class="img"> 
+<img src="/img/usuario.png" alt="usuario"> 
+ <button>cambiar foto de perfil </button>
+</section> 
+  
+
+    <div>
+        <label for="Nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" placeholder="id">  
+    </div>
+    <div>
+        <label for="gmail">Gmail:</label>
+        <input type="text" name="gmail" id="gmail" placeholder="id">  
+    </div>
+    <div>
+        <label for="Nombre">Gustos:</label>
+        <input type="text" name="nombre" id="nombre" placeholder="id">  
+    </div>
+    <div>
+        <label for="Nombre">Ultima visita:</label>  
+    </div>
+   
+    
+        
+    </main>
+
+    <%- include('./partials/footer') %>
+    
+</body>
+</html>

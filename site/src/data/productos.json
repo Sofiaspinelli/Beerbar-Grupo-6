@@ -1,128 +1,113 @@
 [
     {
-        "id": 1,
-        "producto": "Cerveza",
-        "marca": "Ipa",
-        "detalle": "El aroma y el sabor son claramente marcados por el lúpulo, siendo los más comunes las variedades resinosas, frutales, herbales, etc",
-        "stock": 50,
-        "precio": 500,
-        "descuento": 10,
-        "imagenes": [
-            "birra1.jpg"
-        ]
-    },
-    {
-        "id": 2,
-        "producto": "Cerveza",
-        "marca": "Münchner Dunkel",
-        "detalle": "Este tipo de cervezas tienen un menor rango de aromas y sabores, son claras y ligeras y tienen mucho gas",
-        "stock": 5,
-        "precio": 1000,
-        "descuento": 0,
-        "imagenes": [
-            "cerveza-ale-tostada1.jpg",
-            "cerveza-ale-tostada.jpg"
-        ]
-    },
-    {
         "id": 3,
-        "producto": "Cerveza",
-        "marca": "Ale tostada",
-        "detalle": "Son oscuras, espesas, con poco gas y se encuentran en una variedad de aromas florales y afrutados, así como de sabores",
-        "stock": 14,
-        "precio": 500,
-        "descuento": 0,
+        "producto": "comida",
+        "marca": "milanesa con papas",
+        "detalle": "delicisa milanesa acompañado de las mejores papas",
+        "precio": 1000,
+        "descuento": 10,
+        "stock": 20,
+        "vendidos": 0,
+        "categoria": "Especial",
+        "imagen": "pngwing.png",
         "imagenes": [
-            "cerveza-ale-tostada1.jpg",
-            "cerveza-ale-tostada.jpg"
+            ""
         ]
     },
     {
         "id": 4,
-        "producto": "Cerveza",
-        "marca": "Ale dorada fuerte",
-        "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
-        "stock": 10,
-        "precio": 1900,
-        "descuento": 10,
-        "imagenes": [
-            "cerveza-ale-tostada1.jpg",
-            "cerveza-ale-tostada.jpg"
-        ]
+        "producto": "comidas",
+        "marca": "Papas fritas",
+        "detalle": "deliciosas papas fritas con  salsa ketchup ",
+        "precio": 400,
+        "descuento": 0,
+        "stock": 20,
+        "vendidos": 0,
+        "categoria": "",
+        "imagen": "img-1662397902237.png"
     },
     {
         "id": 5,
-        "producto": "Cerveza",
-        "marca": "Ale dorada fuerte",
-        "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
-        "stock": 10,
-        "precio": 1900,
-        "descuento": 10,
-        "imagenes": [
-            "cerveza-ale-tostada1.jpg",
-            "cerveza-ale-tostada.jpg"
-        ]
+        "producto": "comidas",
+        "marca": "pizza pepperoni",
+        "detalle": "una pizza con base de salsa de tomate, mozzarella y pepperoni",
+        "precio": 900,
+        "descuento": 15,
+        "stock": 25,
+        "vendidos": 0,
+        "categoria": "",
+        "imagen": "img-1662398149075.png"
     },
     {
         "id": 6,
-        "producto": "birra",
-        "marca": "editado",
-        "detalle": "probando la funcion de editar, method put",
-        "stock": 8,
-        "precio": 25267788999,
-        "descuento": 60,
-        "imagenes": [
-            ""
-        ]
-    },
-    {
-        "id": 7,
-        "producto": "Cerveza",
-        "marca": "Ale dorada fuerte",
-        "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
-        "stock": 10,
-        "precio": 1900,
-        "descuento": 10,
-        "imagenes": [
-            "cerveza-ale-tostada1.jpg",
-            "cerveza-ale-tostada.jpg"
-        ]
+        "producto": "comidas",
+        "marca": "pizza hawaiana",
+        "detalle": "pizza que contiene una base de queso fundido y tomate que se aliñan con jamón y piña",
+        "precio": 1000,
+        "descuento": 15,
+        "stock": 25,
+        "vendidos": 0,
+        "categoria": "nuevo",
+        "imagen": "img-1662398405777.png"
     },
     {
         "id": 8,
-        "producto": "Cerveza",
-        "marca": "Ale dorada fuerte",
-        "detalle": "Espesas, con poco gas y se encuentran en una variedad de aromas florales",
-        "stock": 10,
-        "precio": 1900,
+        "producto": "comidas",
+        "marca": "Hamburguesa con jamón y queso",
+        "detalle": "una deliciosa Hamburguesa con jamón, queso  y tocino para disfrutar",
+        "precio": 500,
         "descuento": 0,
-        "imagenes": [
-            "cerveza-ale-tostada1.jpg",
-            "cerveza-ale-tostada.jpg"
-        ]
+        "stock": 20,
+        "vendidos": 0,
+        "categoria": "",
+        "imagen": "img-1662398968782.png"
     },
     {
         "id": 9,
-        "producto": "comidas",
-        "marca": "El Milaneso",
-        "imagenes": [
-            ""
-        ],
-        "detalle": "me da fiaca",
-        "precio": 2000000,
-        "descuento": 0,
-        "stock": 99
+        "producto": "birra",
+        "marca": " Asahi Breweries",
+        "detalle": "suave y ligero sabor",
+        "precio": 500,
+        "descuento": 10,
+        "stock": 50,
+        "vendidos": 0,
+        "categoria": "",
+        "imagen": "img-1662399126466.png"
     },
     {
         "id": 10,
+        "producto": "seleccionar una opcion",
+        "marca": "cheetos",
+        "detalle": "lo mejorcito pibe, compraaa",
+        "precio": 200,
+        "descuento": 0,
+        "stock": 411,
+        "vendidos": 0,
+        "categoria": "",
+        "imagen": "img-1663891684071.png"
+    },
+    {
+        "id": 11,
         "producto": "comidas",
-        "marca": "El Milaneso",
-        "imagenes": [
-            "descarga.jpg"
-        ],
-        "detalle": " el mas buscado",
-        "precio": 299999999,
-        "descuento": 50,
-        "stock": 1
+        "marca": "papas",
+        "detalle": "ricooo y ya, solo gosalo",
+        "precio": 190,
+        "descuento": 0,
+        "stock": 100,
+        "vendidos": 0,
+        "categoria": "nuevo",
+        "imagen": "img-1663891885578.png"
+    },
+    {
+        "id": 12,
+        "producto": "birra",
+        "marca": "Porter",
+        "detalle": "De gran sabor",
+        "precio": 700,
+        "descuento": 10,
+        "stock": 80,
+        "vendidos": 0,
+        "categoria": "seleccionar una opcion",
+        "imagen": "img-1663936270676.png"
     }
 ]

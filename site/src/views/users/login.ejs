@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/b19d58878c.js" crossorigin="anonymous"></script>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="login">
+    <header>
+        <div class="logo"><a href="/"><img src="../img/logo/logo-beerbar.png" alt="logo"></a></div>
+        
+        <nav>   
+            <ul>
+                <li><a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li><i class="fa-solid fa-bars"></i></li>
+            </ul>  
+        </nav>
+    </header>
+    <main>
+        <h1>Login</h1>
+        <form action="/users/login" method="post">
+            <div class="container">
+                <label for="user">Usuario</label>
+                <input type="email" name="email" id="email" placeholder="Ingresa tu email">
+                <% if (locals.errors && errors.email) { %>
+                    <small><%= errors.email.msg %></small>
+                <% } %>
+            </div>
+            <div class="container">
+                <label for="pass">Contraseña</label>
+                <input type="password" name="pass" id="pass" placeholder="Ingresar Contraseña">
+                <% if (locals.errors && errors.pass) { %>
+                    <small><%= errors.pass.msg %></small>
+                <% } %>
+            </div>
+            <div>
+                <label for="recordame"></label>
+                <input type="checkbox" name="recordame">
+            </div>
+            <div class="login_button">
+                <button class="one" type="submit"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
+                <button type="submit"><a href="/register"><i class="fa-solid fa-user"></i>sign-up</a></button>
+            </div>
+            <div class="extra">
+                <div>
+                    <input type="checkbox" name="save" id="save" value="save">
+                    <label for="save">recordarme</label>
+                </div>
+                <a href="*">Olvide mi cintraseña</a>
+            </div>
+        </form>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>

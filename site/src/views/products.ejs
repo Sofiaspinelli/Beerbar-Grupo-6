@@ -13,25 +13,28 @@
     <title>Productos</title>
 </head>
 <body class="products">
-
     <%- include('./partials/header') %>
-
     <main>
         <h1>Productos</h1>
         <section class="productos">
-        <% for( let i = 0; i < productos.length; i++ ) { %>
+            <% productos.forEach(producto => { %>
             <article>
-                <img src="/img/productos/<%= productos[i].imagenes[0] %>" alt="">
+                <img src="/img/productos/<%= producto.imagen %>" alt="">
                 <div class="contenedor">
-                    <h3><%= productos[i].marca %></h3>
-                    <p class="old">$<%= productos[i].descuento !== 0 ? productos[i].precio : null %></p>
-                    <p class="precio">$<%= productos[i].descuento === 0 ? productos[i].precio : (productos[i].precio - (productos[i].precio * productos[i].descuento / 100)) %><small class="descuento"><%= productos[i].descuento %>%</small>
+                    <h3><%= producto.marca %></h3>
+                    <% if (producto.descuento > 0) { %>
+                    <p class="old">$<%= producto.precio %> </p>
+                    <p class="precio">$<%= producto.precio - (producto.precio * producto.descuento / 100) %> <small class="descuento"><%= producto.descuento %>%</small>
                     <p>
+                    <% }else { %>
+                    <p class="precio">$<%= producto.precio %> </p>
+                    <% } %>
                 </div>
-                <button><a href="/products/detail/<%= productos[i].id %>">Comprar</a></button>
+                <button><a href="/products/detail/<%= producto.id %>">Comprar</a></button>
             </article>
-        <% } %>
+            <% }) %>
         </section>
+            
     </main>
 
     <%- include('./partials/footer') %>

@@ -1,36 +1,71 @@
 const fs = require('fs')
 const path = require('path')
-const productos = require('../data/productos.json')
+const productos = require('../data/productos.json');
+const {validationResult} = require('express-validator')
 
 const guardar = (dato) => fs.writeFileSync(path.join(__dirname, '../data/productos.json')
-,JSON.stringify(dato,null,4),'utf-8')
+,JSON.stringify(dato,null,4),'utf-8');
 
 module.exports = {
     list: (req,res) => {
         return res.render('admin/listaProductos',{
             productos
         })
+
     },
     crear: (req, res) => {
         res.render('admin/crear')
     },
     newProducts: (req, res) => {
-        let {selectType,marca,img,descripcion,precio,descuento,stock} = req.body
-        
-        let nuevoProducto = {
-            id: productos[productos.length - 1].id + 1,
-            producto: selectType,
-            marca: marca,
-            detalle: descripcion,
-            precio: +precio,
-            descuento: +descuento,
-            stock: +stock,
-            imagenes: [img],
+        const {selectType,marca,descripcion,precio,descuento,stock, categoria} = req.body;
+        const img = req.file
+        // return res.send(img)
+        let errors = validationResult(req);
+
+        if (req.fileValidationError) {
+            let imagen = {
+                param: 'img',
+                msg: req.fileValidationError,
+            };
+            errors.errors.push(imagen);
+        };
+
+        if (errors.isEmpty()) {
+            let nuevoProducto = {
+                id: productos[productos.length - 1].id + 1,
+                producto: selectType,
+                marca: marca,
+                detalle: descripcion,
+                precio: +precio,
+                descuento: +descuento,
+                stock: +stock,
+                vendidos: 0,
+                categoria: categoria,
+                imagen: img? img.filename : "default-img.png",
+            };
+            productos.push(nuevoProducto);
+
+            guardar(productos);
+
+            res.redirect(`/products/detail/${nuevoProducto.id}`);
+        } else {
+            let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', 'productos', dato));
+
+            
+            if (img) {
+                if (ruta(img.filename) && (img.filename !== "default-img.png")) {
+                    fs.unlinkSync(path.join(__dirname, '../../public/img/productos', img.filename));
+                }
+            }
+
+            return res.render('admin/crear', {
+                errors: errors.mapped(),
+                old: req.body
+            });
         }
-        productos.push(nuevoProducto);
-        guardar(productos);
+            
+        
         /* Redirecciona al detalle del producto recien creado */
-        res.redirect(`/products/detail/${nuevoProducto.id}`)
     },
     editar:(req,res) => {  /* (editProduct(req, res))  */
         let type = ["birra", "comida"];
@@ -46,8 +81,9 @@ module.exports = {
     },
     update: (req, res) => {
         let id = +req.params.id;
-        let {selectType,marca,img,descripcion,precio,descuento,stock} = req.body
-        
+        let {selectType,marca,descripcion,precio,descuento,stock} = req.body
+        const img = req.file
+
         productos.forEach(producto => {
             if (producto.id === id) {
                 producto.producto = selectType
@@ -56,16 +92,27 @@ module.exports = {
                 producto.precio = +precio
                 producto.descuento = +descuento
                 producto.stock = +stock
-                producto.imagenes = [img]
+                producto.imagen = img? img.filename : "default-img.png"
             }
         });
         guardar(productos);
         /* Redirecciona a la lista */
         return res.redirect('/admin/list');
         // return res.redirect(`/products/detail/${productos.id}`)
+    },
+    destroy: (req, res) => {
+        const id = +req.params.id;
+        let producto = productos.find(producto => producto.id === id);
+        
+        let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', 'productos', dato));
+
+        if (ruta(producto.imagen) && (producto.imagen !== "default-img.png")) {
+            fs.unlinkSync(path.join(__dirname, '../../public/img/productos', producto.imagen));
+        };
+
+        let eliminarProducto = productos.filter(producto => producto.id !== id);
+        guardar(eliminarProducto);
+
+        res.redirect('/admin/list');
     }
 }
-
-
-
-  

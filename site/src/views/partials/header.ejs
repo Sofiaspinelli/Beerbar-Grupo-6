@@ -28,9 +28,16 @@
             <li><a href="/admin/list">Admin</a></li>
         </ul>
         <ul class="user">
+            
+            <% if (locals.userLogin) { %>
+            <li><a href="/users/user">Bienvenido <%= locals.userLogin.nombre %></a></li>
+            <% } else { %>
             <li><a href="/users/login">Login</a></li>
             <li><a href="/users/register">Registro</a></li>
+            <% } %>
         </ul>
+
+        
         <!-- <div class="t-f">
             <button><i class="fa-brands fa-twitter"></i></button>
             <button><i class="fa-brands fa-facebook-f"></i></button>
