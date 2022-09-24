@@ -28,7 +28,7 @@ module.exports = {
                     image : usuario.image,
                     rol : usuario.rol
                 }
-                return res.send(req.body)
+                return res.redirect('/')
                 
             } else {
                 /* return res.send(errors.mapped()) */
@@ -52,7 +52,7 @@ module.exports = {
     processRegister: (req,res) => { 
         let errors = validationResult(req)
 
-       
+       /* return res.send(errors.mapped()) */
         if (req.fileValidationError) {
             let imagen = {
                 param: 'image',
