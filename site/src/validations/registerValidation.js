@@ -7,7 +7,7 @@ module.exports = [
     .isLength({min:2}).withMessage('Debe contener al menos 2 caracteres'),
 
         /* Nombre de usuario */
-        check('user').trim()
+        check('users').trim()
         .notEmpty().withMessage('Debe ingresar su nombre de @usuario').bail()
         .isLength({min:2}).withMessage('Debe contener al menos 2 caracteres'),
 
@@ -17,7 +17,7 @@ module.exports = [
     .isEmail().withMessage('Debe ingresar un email valido'),
 
     /* Contraseña */
-    check('pass')
+    check('pass').trim()
     .isLength({min:8}).withMessage('Debe contener al menos 8 caracteres'),
     check('pass2')
     .isLength({min:8}).withMessage('Debe contener al menos 8 caracteres').bail(),
@@ -27,14 +27,14 @@ module.exports = [
     .notEmpty().withMessage('Debe ingresar su numero de contacto'), */
     
     /* Genero */
-    check('genero')
+    check('genero').trim()
     .notEmpty().withMessage('Debe ingresar su Genero'),
 
     /* terminos */
-    check('terminos')
+    check('terminos').trim()
     .notEmpty().withMessage('Debe Aceptar nuestros terminos y condiciones'),
 
-    body('pass2')
+    body('pass2').trim()
     .custom((value,{req}) => value !== req.body.pass ? false : true)
     .withMessage('Las contraseñas no coinciden')
 ]

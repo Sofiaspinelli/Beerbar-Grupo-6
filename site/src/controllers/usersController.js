@@ -15,11 +15,11 @@ module.exports = {
     }, 
     processLogin: (req,res) => {
        
-        {
+        
             let errors = validationResult(req)
             if (errors.isEmpty()) {
             
-                const {email} = req.body
+                const {email, recordarme} = req.body
                 let usuario = usuarios.find(user => user.email === email)
     
                 req.session.userLogin = {
@@ -29,8 +29,8 @@ module.exports = {
                     rol : usuario.rol
                 }
         /* COOKIE */
-                if (req.body.recordame != undefined) {
-                    res.cookie('recordame', usuario.email, { maxAge: 3600000})
+                if (recordarme) {
+                    res.cookie('recordame', /* usuarios.email, */req.session.userLogin, { maxAge: 3600000})
                 }
                 return res.redirect('/')
                 
@@ -41,46 +41,56 @@ module.exports = {
                     old: req.body
                 })
             }
-        }
+        
     },
     user: (req,res) => {
         res.render ('users/user', {
             usuarios
         })
     }, 
-    processLogin:(req,res) => {
-        let errors = validationResult(req)
-        if(errors.isEmpty()){
-           req.session.userLogin = {
-               id : usuarios.id,
-               nombre : usuarios.name,
-               rol : usuarios.rol
-           }
-           return res.redirect('/users/profile')
-        } 
-        else{
-            return res.render('login', {
-                errors: errors.mapped(),
-                old: req.body
-            })
-        }
-    },
+    // processLogin:(req,res) => {
+    //     let errors = validationResult(req)
+    //     // return res.send(req.body)
+    //     if(errors.isEmpty()){
+
+    //         const {email,recordarme} = req.body
+    //         let usuario = usuarios.find(user => user.email === email)
+
+    //        req.session.userLogin = {
+    //            id : usuarios.id,
+    //            nombre : usuarios.name,
+    //            imagen : usuarios.image,
+    //            email : usuarios.email,
+    //            pass : usuarios.pass,
+    //            genero : usuarios.genero,
+    //            rol : usuarios.rol
+    //        }
+    //        return res.redirect('/')
+    //     } 
+    //     else{
+    //         return res.render('login', {
+    //             errors: errors.mapped(),
+    //             old: req.body
+    //         })
+    //     }
+    // },
     register: (req,res) => {
         res.render ('users/register', {
             usuarios
         })
     }, 
     processRegister:(req,res) => {
+
         let errors = validationResult(req)
 
         if (errors.isEmpty()) {
-            let {name, users,email,pass,genero, contact, image, rol} = req.body
+            let {name, users,email,pass,genero, contact} = req.body
             let usuarioNuevo = {
                 id:usuarios[usuarios.length - 1].id + 1,
-                name : name ,
+                name : name,
                 users: users,
                 email : email,
-                pass :  bcrypt.hashSync(pass, 15),
+                pass :  bcrypt.hashSync(pass, 12),
                 genero : genero,
                 contact: contact,
                 image: req.file ? req.file.filename : "usuario.png",

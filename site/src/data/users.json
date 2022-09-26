@@ -7,8 +7,7 @@
         "pass": "12345678",
         "genero": "M",
         "image": "foto-perfil.png",
-        "rol" : "admin"
-        
+        "rol": "admin"
     },
     {
         "id": 2,
@@ -18,7 +17,7 @@
         "pass": "pass",
         "genero": "genero",
         "image": "foto-perfil.png",
-        "rol" : "user"
+        "rol": "user"
     },
     {
         "id": 3,
@@ -73,5 +72,15 @@
         "pass": "$2a$15$5LlN9Ocm./.76bLWwdIw2eRS7iQKNtnh9glzdw/61tTpqYGdwpEMe",
         "genero": "M",
         "image": "usuario1664046378477.jpg"
+    },
+    {
+        "id": 9,
+        "name": "juan",
+        "users": "juan",
+        "email": "juan@gmail.com",
+        "pass": "$2a$12$QVfNGZDfTDJR4I7YHXbkHOX4jLHx/pQv6P0IyQsXQTVol7TDL5rOK",
+        "genero": "F",
+        "image": "usuario.png",
+        "rol": "user"
     }
 ]

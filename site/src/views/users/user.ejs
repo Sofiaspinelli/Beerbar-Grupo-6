@@ -14,9 +14,9 @@
 <body class="user">
     <%- include('../partials/header') %>
     <main>
-       <section> <h1>Mi usuario: <%= `${locals.userLogin.nombre + locals.userLogin.apellido}`%></h1> </section> 
+       <section> <h1>Mi usuario: <%= locals.userLogin.nombre %></h1> </section> 
    <section class="img"> 
-<img src="../img/<%= locals.userLogin.image %>" alt=""> 
+    <img src="../img/<%= locals.userLogin.image %>" alt=""> 
 </section> 
 
 <div> 
@@ -25,18 +25,17 @@
       <li>Nombre<%= locals.userLogin.nombre%>
     </li>
       <li>
-        Apellido<%= locals.userLogin.apellido %>
+        Apellido
       </li>
       <li>
-          Email<%= locals.userLogin.email %>
+          Email
         </li>
         <li>
             Genero<%= locals.userLogin.genero %>
           </li>
           
           <li>
-            Contraseña<%= locals.userLogin.pass %>
-          </li>
+            Contraseña
     </ul></h3>
 </div>
 

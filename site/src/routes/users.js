@@ -11,7 +11,7 @@ const cargarAvatar = require('../middlewares/multerUser')
 
 /* GET users listing. */
 router.get('/register',registerValidator, register);
-router.post('/register' ,registerValidator, processRegister)
+router.post('/register' ,upload.single('image'),registerValidator, processRegister)
 
 router.get('/login', login);
 router.post('/user', loginValidator, processLogin)
