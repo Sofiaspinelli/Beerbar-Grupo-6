@@ -1,7 +1,11 @@
+const fs = require('fs');
+const path = require('path');
+const usuario = require('../data/users.json')
+
 function remindMiddleware(req, res, next) {
     next();
   if (req.cookies.recordame != undefined && req.session.userLogin == undefined){
-         let usersJSON = fs.readFileSync('users.json', {
+         let usersJSON = fs.readFileSync(path.join(__dirname, '../data/users.json'), {
           encoding: 'utf-8'});
           let users;
           if (usersJSON == "") {

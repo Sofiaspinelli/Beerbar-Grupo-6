@@ -82,7 +82,7 @@ module.exports = {
     processRegister:(req,res) => {
 
         let errors = validationResult(req)
-
+        // return res.send(req.file)
         if (errors.isEmpty()) {
             let {name, users,email,pass,genero, contact} = req.body
             let usuarioNuevo = {
@@ -93,7 +93,7 @@ module.exports = {
                 pass :  bcrypt.hashSync(pass, 12),
                 genero : genero,
                 contact: contact,
-                image: req.file ? req.file.filename : "usuario.png",
+                image: req.file && req.file.size > 1 ? req.file.filename : "usuario.png",
                 rol : "user",
         }
         usuarios.push(usuarioNuevo)

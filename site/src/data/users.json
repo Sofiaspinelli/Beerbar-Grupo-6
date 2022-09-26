@@ -71,7 +71,7 @@
         "email": "xx@gmail.com",
         "pass": "$2a$15$5LlN9Ocm./.76bLWwdIw2eRS7iQKNtnh9glzdw/61tTpqYGdwpEMe",
         "genero": "M",
-        "image": "usuario1664046378477.jpg"
+        "image": "usuario.png"
     },
     {
         "id": 9,
@@ -91,6 +91,16 @@
         "pass": "$2a$12$mRNCm07oroFlln2wIroEgu7e/.wtmZJ1X.zSICgExITrNZq65sKGm",
         "genero": "F",
         "image": "usuario1664226316211.jpg",
+        "rol": "user"
+    },
+    {
+        "id": 11,
+        "name": "Ger",
+        "users": "pepe",
+        "email": "gg@gmail.com",
+        "pass": "$2a$12$QJPT4TqcYgj1Nk4IpS.OAeWi4X99hsxeViFIY.R7g.D9hASOu2pPW",
+        "genero": "SN",
+        "image": "usuario1664228786745.png",
         "rol": "user"
     }
 ]
