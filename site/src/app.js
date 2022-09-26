@@ -31,8 +31,7 @@ app.use(session({
 app.use(userLogin)
 
 
-app.use(session({secret: "Beerbar"}));
-app.use(userLogin)
+
 app.use(remindMiddleware);
 
 app.use(cookieParser());

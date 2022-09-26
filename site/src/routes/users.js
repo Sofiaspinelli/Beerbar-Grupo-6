@@ -7,7 +7,7 @@ const registerValidator = require('../validations/registerValidation')
 const loginValidator = require('../validations/loginValidation')
 const upload = require('../middlewares/multerUsuarios')
 const cargarAvatar = require('../middlewares/multerUser')
-const userLoginCheck = require('../middlewares/userLoginCheck')
+
 
 /* GET users listing. */
 router.get('/register',registerValidator, register);
@@ -26,7 +26,7 @@ router.get('/user', function(req,res){
     else{ res.send('user:' + req.session.userLogin)}
 })
 
-router.get('/profile', userLoginCheck, user);
+router.get('/profile', user);
 router.delete('/user', logout);
 
 router.get('/editarUser/:id',editUser);

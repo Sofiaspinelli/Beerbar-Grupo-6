@@ -14,33 +14,33 @@
 <body class="user">
     <%- include('../partials/header') %>
     <main>
-       <section> <h1>Mi usuario: <%= `${locals.userLoginCheck.name + locals.userLoginCheck.apellido}`%></h1> </section> 
+       <section> <h1>Mi usuario: <%= `${locals.userLogin.nombre + locals.userLogin.apellido}`%></h1> </section> 
    <section class="img"> 
-<img src="/img/"<%= locals.userLoginCheck.image %>  alt=""> 
+<img src="../img/<%= locals.userLogin.image %>" alt=""> 
 </section> 
 
 <div> 
     <h2>Mis datos:</h2>
    <h3> <ul>
-      <li>Nombre<%= locals.userLoginCheck.name%>
+      <li>Nombre<%= locals.userLogin.nombre%>
     </li>
       <li>
         Apellido<%= locals.userLogin.apellido %>
       </li>
       <li>
-          Email<%= locals.userLoginCheck.email %>
+          Email<%= locals.userLogin.email %>
         </li>
         <li>
-            Genero<%= locals.userLoginCheck.genero %>
+            Genero<%= locals.userLogin.genero %>
           </li>
           
           <li>
-            Contraseña<%= locals.userLoginCheck.pass %>
+            Contraseña<%= locals.userLogin.pass %>
           </li>
     </ul></h3>
 </div>
 
-<form action="/users/userd/logot?_method=DELETE" method="post"> 
+<form action="/users/user/logot?_method=DELETE" method="post"> 
  <button type="submit">Cerrar sesión</button> </form>
 
 </main>
