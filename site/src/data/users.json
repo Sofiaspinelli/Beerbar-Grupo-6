@@ -64,5 +64,14 @@
         "pass": "$2a$15$nXITX1l0yCHGm9vMqQC0jOP..VOU8auUxYpCQ8KScKR5Cq3CEoH62",
         "genero": "M",
         "image": "usuario1663936899345.jpg"
+    },
+    {
+        "id": 8,
+        "name": "German",
+        "users": "german ",
+        "email": "xx@gmail.com",
+        "pass": "$2a$15$5LlN9Ocm./.76bLWwdIw2eRS7iQKNtnh9glzdw/61tTpqYGdwpEMe",
+        "genero": "M",
+        "image": "usuario1664046378477.jpg"
     }
 ]
