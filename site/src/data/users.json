@@ -82,5 +82,15 @@
         "genero": "F",
         "image": "usuario.png",
         "rol": "user"
+    },
+    {
+        "id": 10,
+        "name": "Erica",
+        "users": "eri",
+        "email": "sofiaspinelli17@hotmail.com",
+        "pass": "$2a$12$mRNCm07oroFlln2wIroEgu7e/.wtmZJ1X.zSICgExITrNZq65sKGm",
+        "genero": "F",
+        "image": "usuario1664226316211.jpg",
+        "rol": "user"
     }
 ]
