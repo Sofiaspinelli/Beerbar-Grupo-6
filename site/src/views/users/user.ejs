@@ -12,11 +12,11 @@
     <title>Usuario</title>
 </head>
 <body class="user">
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
     <main>
-       <section> <h1>Mi usuario: <%= ${locals.userLoginCheck.name + locals.userLoginCheck.apellido}%></h1> </section> 
+       <section> <h1>Mi usuario: <%= `${locals.userLoginCheck.name + locals.userLoginCheck.apellido}`%></h1> </section> 
    <section class="img"> 
-<img src="/img/"<%= locals.userLoginCheck.image  %>  alt=""> 
+<img src="/img/"<%= locals.userLoginCheck.image %>  alt=""> 
 </section> 
 
 <div> 
@@ -45,7 +45,7 @@
 
 </main>
     
-    <%- include('./partials/footer') %>
+    <%- include('../partials/footer') %>
     
 </body>
 </html>

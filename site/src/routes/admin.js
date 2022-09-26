@@ -3,22 +3,24 @@ const express = require('express');
 
 const adminCheck = require('../middlewares/multerAdmin')
 const upload = require('../middlewares/multerProducts')
+
 const Validacion = require('../validations/productsValidacion')
 
 const router = express.Router();
 const path = require('path');
 const multer = require('multer');
-const storage = multer.diskStorage({
-    destination: (req,file,callback) => {
-        callback(null, './public/img')
-    },
-        filename: (req,file,callback) => {
-            callback(null,'img-' + Date.now() + path.extname(file.originalname))
-        }
-})
-const upload = multer({
-    storage
-})
+
+// const storage = multer.diskStorage({
+//     destination: (req,file,callback) => {
+//         callback(null, './public/img')
+//     },
+//         filename: (req,file,callback) => {
+//             callback(null,'img-' + Date.now() + path.extname(file.originalname))
+//         }
+// })
+// const upload = multer({
+//     storage
+// })
 
 /* GET home page. */
 router.get('/list',adminCheck, list);

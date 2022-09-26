@@ -37,7 +37,7 @@ app.use(remindMiddleware);
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..' , 'public')));
-app.use(userLogin)
+
 
 /* Rutas */
 app.use('/', indexRouter);

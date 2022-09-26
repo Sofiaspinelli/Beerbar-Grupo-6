@@ -44,7 +44,7 @@ module.exports = {
         }
     },
     user: (req,res) => {
-        res.render ('user', {
+        res.render ('users/user', {
             usuarios
         })
     }, 
@@ -52,11 +52,11 @@ module.exports = {
         let errors = validationResult(req)
         if(errors.isEmpty()){
            req.session.userLogin = {
-               id : usuario.id,
-               nombre : usuario.name,
-               rol : usuario.rol
+               id : usuarios.id,
+               nombre : usuarios.name,
+               rol : usuarios.rol
            }
-           return res.redirect('/user/profile')
+           return res.redirect('/users/profile')
         } 
         else{
             return res.render('login', {
@@ -71,6 +71,8 @@ module.exports = {
         })
     }, 
     processRegister:(req,res) => {
+        let errors = validationResult(req)
+
         if (errors.isEmpty()) {
             let {name, users,email,pass,genero, contact, image, rol} = req.body
             let usuarioNuevo = {
@@ -91,11 +93,14 @@ module.exports = {
     }
     else{
         let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', dato))
+        if(req.file){
             if (ruta(req.file.filename) && (req.file.filename !== "usuario.png")) {
                 fs.unlinkSync(path.join(__dirname, '..', '..', 'public', 'img', req.file.filename))
             }
-        return res.render('user/register', {
-            errors:mapped(),
+        }
+            
+        return res.render('users/register', {
+            errors: errors.mapped(),
             old: req.body
         })
     }

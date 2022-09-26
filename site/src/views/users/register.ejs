@@ -29,14 +29,14 @@
             <div class="container">
                 
                 <label for="name">Nombre y apellido</label>
-                <input type="text" name="name" id="name" placeholder="Ingresar nombre completo" value="<%= locals.old && old.name ? old.name : null%>"
+                <input type="text" name="name" id="name" placeholder="Ingresar nombre completo" value="<%= locals.old && old.name ? old.name : null%>">
                 <% if (locals.errors && errors.name) { %>
                     <small><%= errors.name.msg %></small>
                 <% } %>
             </div>
             <div class="container">
                 <label for="name">Usuario</label>
-                <input type="text" name="users" id="users" placeholder="Ingresar Nombre de Usuario" required>
+                <input type="text" name="users" id="users" placeholder="Ingresar Nombre de Usuario" >
                 <% if (locals.errors && errors.users) { %>
                     <small><%= errors.users.msg %></small>
                 <% } %>
@@ -44,7 +44,7 @@
             
                 <div class="container">
                     <label for="email">E-mail</label>
-                <input type="email" name="email" id="email" placeholder="Ingresar e-mail" value="<%= locals.old && old.email ? old.email : null%>"
+                <input type="email" name="email" id="email" placeholder="Ingresar e-mail" value="<%= locals.old && old.email ? old.email : null%>">
                 <% if (locals.errors && errors.email) { %>
                     <small><%= errors.email.msg %></small>
                 <% } %>
@@ -52,13 +52,13 @@
                 
                 <div class="container">
                 <label for="pass">Contraseña</label>
-                <input type="password" name="pass" id="pass" placeholder="Ingresar Contraseña" required>
+                <input type="password" name="pass" id="pass" placeholder="Ingresar Contraseña" >
                 <% if (locals.errors && errors.pass) { %>
                     <small><%= errors.pass.msg %></small>
                 <% } %>
             </div>
             <div class="container">
-                <input type="password" name="pass2" id="pass2" placeholder="Repetir Contraseña" required>
+                <input type="password" name="pass2" id="pass2" placeholder="Repetir Contraseña" >
                 <% if (locals.errors && errors.pass2) { %>
                     <small><%= errors.pass2.msg %></small>
                 <% } %>
