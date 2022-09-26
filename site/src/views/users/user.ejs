@@ -21,22 +21,22 @@
 
 <div> 
     <h2>Mis datos:</h2>
-   <h3> <ul>
-      <li>Nombre<%= locals.userLogin.nombre%>
+    <ul>
+      <li>Nombre:<%= locals.userLogin.nombre%>
     </li>
       <li>
-        Apellido
+        Apellido:
       </li>
       <li>
-          Email
+          Email:
         </li>
         <li>
-            Genero<%= locals.userLogin.genero %>
+            Genero:<%= locals.userLogin.genero %>
           </li>
           
           <li>
-            Contraseña
-    </ul></h3>
+            Contraseña: 
+    </ul>
 </div>
 
 <form action="/users/user/logot?_method=DELETE" method="post"> 
