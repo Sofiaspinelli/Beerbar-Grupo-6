@@ -14,7 +14,7 @@
 <body class="user">
     <%- include('./partials/header') %>
     <main>
-        <form action="/user/editarUser/<%= locals.userLogin.id %>?_method=put" method="post"> 
+        <form action="/users/editarUser/<%= locals.userLogin.id %>?_method=put" method="post"> 
             <div>
               <img src="/img/usuario/<%= locals.userLogin.image %>" alt="">
                 <label>Cambiar foto de perfil</label>

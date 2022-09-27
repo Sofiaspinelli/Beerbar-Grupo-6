@@ -166,10 +166,9 @@ module.exports = {
                 old: req.body
             })}
             return res.send(image)
-
     },
         update: (req, res) => {
-        let id = +req.body.id;
+        let id = +req.params.body;
         let {name, users,email,pass,genero, contact, image, rol} = req.body
         
         usuarios.forEach(usuario => {

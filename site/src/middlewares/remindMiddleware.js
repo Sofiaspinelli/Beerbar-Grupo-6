@@ -2,6 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const usuario = require('../data/users.json')
 
+<<<<<<< HEAD
+=======
+// 'users.json'
+
+>>>>>>> 19acf6b6a27aae396e9b6aafbdd972878f7c7079
 function remindMiddleware(req, res, next) {
     next();
   if (req.cookies.recordame != undefined && req.session.userLogin == undefined){

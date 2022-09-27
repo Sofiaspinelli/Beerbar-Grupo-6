@@ -1,5 +1,6 @@
 const path = require('path')
 const multer = require('multer')
+const usuario = require('../data/users.json')
 
 const storage = multer.diskStorage({
     destination: (req,file,callback) => {
