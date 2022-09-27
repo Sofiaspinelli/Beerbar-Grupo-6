@@ -25,10 +25,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 /* Trabajar con put y delete */
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
+
 app.use(session({
-  secret: "Beerbar"
-}))
+   secret: 'Berbar',
+   resave: true, 
+  saveUninitialized: true,
+  maxAge: 3600000 }));
 app.use(userLogin)
 
 

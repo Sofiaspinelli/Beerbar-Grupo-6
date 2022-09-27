@@ -102,5 +102,35 @@
         "genero": "SN",
         "image": "usuario1664228786745.png",
         "rol": "user"
+    },
+    {
+        "id": 12,
+        "name": "Kevin Riveros",
+        "users": "kevin",
+        "email": "777kr2000@gmail.com",
+        "pass": "$2a$12$aNayMRRR5twXPDXDm4/xRO8NaZUDMFLHHlDeDgi/cRT.g05qGZb.i",
+        "genero": "M",
+        "image": "usuario.png",
+        "rol": "user"
+    },
+    {
+        "id": 13,
+        "name": "Kevin Riveros",
+        "users": "kevin",
+        "email": "777kr2000@gmail.com",
+        "pass": "$2a$12$OL03gliS4p72/fqUub5jgOcVzu76IDQt.nCfgWlxsKxTCIqF72HlO",
+        "genero": "M",
+        "image": "usuario.png",
+        "rol": "user"
+    },
+    {
+        "id": 14,
+        "name": "Kevin Riveros",
+        "users": "kevin",
+        "email": "777kr2000@gmail.com",
+        "pass": "$2a$12$lIRzty5nDqsrWZl6nP.6RugFXhUTjK1s4H8lwZwe440WYQQPS7JRC",
+        "genero": "M",
+        "image": "usuario.png",
+        "rol": "user"
     }
 ]

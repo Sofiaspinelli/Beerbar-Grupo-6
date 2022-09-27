@@ -25,7 +25,10 @@ module.exports = {
                 req.session.userLogin = {
                     id : usuario.id,
                     nombre : usuario.name,
+                    email : usuario.name,
                     image : usuario.image,
+                    genero : usuario.genero,
+                    contacto : usuario.contact,
                     rol : usuario.rol
                 }
         /* COOKIE */
@@ -82,6 +85,13 @@ module.exports = {
     processRegister:(req,res) => {
 
         let errors = validationResult(req)
+        if (req.fileValidationError) {
+            let image = {
+                param: 'image',
+                msg: req.fileValidationError
+            }
+            errors.errors.push(image)
+        }
         // return res.send(req.file)
         if (errors.isEmpty()) {
             let {name, users,email,pass,genero, contact} = req.body
@@ -117,6 +127,9 @@ module.exports = {
 },
      logout: (req,res) => {
          req.session.destroy();
+         if(req.cookie.recordarme){
+             res.cookie('recordarme')
+         }
          return res.redirect('/')
      },
      editUser: (req, res) => {        
@@ -137,7 +150,7 @@ module.exports = {
             usuarios.forEach(usuario => {
                 if (usuario.id === id) {
                     usuario.name = name
-                    usuario.apellido = apellido
+                    usuario.users = user
                     usuario.email = email
                     usuario.pass = pass.bcryptjs
                     usuario.genero = genero
@@ -152,26 +165,9 @@ module.exports = {
                 errors: errors.mapped(),
                 old: req.body
             })}
+            return res.send(image)
 
     },
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
         update: (req, res) => {
         let id = +req.body.id;
         let {name, users,email,pass,genero, contact, image, rol} = req.body

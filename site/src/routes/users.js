@@ -7,6 +7,7 @@ const registerValidator = require('../validations/registerValidation')
 const loginValidator = require('../validations/loginValidation')
 const upload = require('../middlewares/multerUsuarios')
 const cargarAvatar = require('../middlewares/multerUser')
+const usersController = require('../controllers/usersController')
 
 
 /* GET users listing. */
@@ -14,7 +15,7 @@ router.get('/register',registerValidator, register);
 router.post('/register' ,upload.single('image'),registerValidator, processRegister)
 
 router.get('/login', login);
-router.post('/user', loginValidator, processLogin)
+router.post('/login', loginValidator, processLogin)
 
 // router.get('/register', register);
 // router.post('/register',upload.single('image'), processRegister, registerValidator)
@@ -27,7 +28,7 @@ router.get('/user', function(req,res){
 })
 
 router.get('/profile', user);
-router.delete('/user', logout);
+router.delete('/logout', logout);
 
 router.get('/editarUser/:id',editUser);
 router.put('/editarUser/:id',cargarAvatar.single('image'),editar);
