@@ -2,9 +2,9 @@
     margin-top: 10px;
     background-color: var(--colorGrisClaro) ;
 }
-.user .img{
-    width: 200px;
-    height: 200px;
+.user img{
+    width: 100px;
+    height: 100px;
     position: relative;
     bottom: 100px;
     right: 5%;

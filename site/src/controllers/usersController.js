@@ -25,7 +25,7 @@ module.exports = {
                 req.session.userLogin = {
                     id : usuario.id,
                     nombre : usuario.name,
-                    email : usuario.name,
+                    email : usuario.email,
                     image : usuario.image,
                     genero : usuario.genero,
                     contacto : usuario.contact,
@@ -127,8 +127,8 @@ module.exports = {
 },
      logout: (req,res) => {
          req.session.destroy();
-         if(req.cookie.recordarme){
-             res.cookie('recordarme')
+         if(req.cookies.recordame){
+             res.cookie('recordame', "",{maxAge: -1 })
          }
          return res.redirect('/')
      },
@@ -138,7 +138,7 @@ module.exports = {
     editar: (req, res) => {
 
         let id = +req.params.id
-        let {name, apellido,email,pass,genero, contact, image, rol} = req.body
+        let {name,user,email,pass,genero, contact, rol} = req.body
          let errors = validationResult(req)
         if (req.fileValidationError) {
             let image = {
@@ -155,7 +155,7 @@ module.exports = {
                     usuario.pass = pass.bcryptjs
                     usuario.genero = genero
                     usuario.contact = contact
-                    usuario.image = req.file ? req.file.filename : image
+                    usuario.image = req.file ? req.file.filename : 'usuario.png'
                     usuario.rol = rol
                 }})
                 guardar(usuarios)
@@ -166,26 +166,6 @@ module.exports = {
                 old: req.body
             })}
             return res.send(image)
-    },
-        update: (req, res) => {
-        let id = +req.params.body;
-        let {name, users,email,pass,genero, contact, image, rol} = req.body
-        
-        usuarios.forEach(usuario => {
-            if (usuario.id === id) {
-                usuario.name = name
-                usuario. users = users
-                usuario.email = email
-                usuario.pass = pass.bcrypt
-                usuario.genero = genero
-                usuario.contact = contact
-                usuario.image = image
-                usuario.rol = rol
-            }
-        });
-        guardar(usuarios);
-      
-        return res.redirect('/user/profile');
-    },
+    }
 
     }

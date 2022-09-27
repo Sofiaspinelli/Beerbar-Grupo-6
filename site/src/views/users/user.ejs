@@ -25,7 +25,7 @@
       <li>Nombre:<%= locals.userLogin.nombre%>
     </li>
       <li>
-        Usuario:<%= locals.userLogin.user%>
+        Usuario:<%= locals.userLogin.users%>
       </li>
       <li>
           Email:<%= locals.userLogin.email%>
@@ -40,11 +40,10 @@
     </ul>
 </div>
 <div class="botones">
-<form action="/users/user/logot?_method=DELETE" method="post"> 
+<form action="/users/logout?_method=DELETE" method="post"> 
  <button class="boton" type="submit">Cerrar sesión</button> </form>
 
- <form action="/users/user/logot?_method=PUT" method="post"> 
-  <button class="boton" type="submit"><a href="/users/editarUser/<%= locals.userLogin.id %>"></a>Editar Usuario </button> </form>
+  <button class="boton" type="submit"><a href="/editarUser/<%= locals.userLogin.id %>"></a>Editar Usuario </button> 
 </div>
 </main>
     

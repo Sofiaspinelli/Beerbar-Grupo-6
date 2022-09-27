@@ -2,12 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const usuario = require('../data/users.json')
 
-<<<<<<< HEAD
-=======
-// 'users.json'
-
->>>>>>> 19acf6b6a27aae396e9b6aafbdd972878f7c7079
-function remindMiddleware(req, res, next) {
+/* function remindMiddleware(req, res, next) {
     next();
   if (req.cookies.recordame != undefined && req.session.userLogin == undefined){
          let usersJSON = fs.readFileSync(path.join(__dirname, '../data/users.json'), {
@@ -25,9 +20,17 @@ function remindMiddleware(req, res, next) {
                 break;
             }
           }
-          req.session.userLogin = usuario;
+          req.session.userLogin = users;
   }
 
-}
+} */
 
-module.exports = remindMiddleware
+/* module.exports = remindMiddleware */
+
+
+module.exports = (req,res,next) => {
+  if (req.cookies.recordarme) {
+      req.session.userLogin = req.cookies.recordarme
+  }
+  next()
+}
