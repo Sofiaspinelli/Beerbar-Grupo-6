@@ -66,22 +66,13 @@
     },
     {
         "id": 8,
-        "name": "German",
-        "users": "german ",
+        "name": "juancho",
+        "users": "pancho",
         "email": "xx@gmail.com",
-        "pass": "$2a$15$5LlN9Ocm./.76bLWwdIw2eRS7iQKNtnh9glzdw/61tTpqYGdwpEMe",
-        "genero": "M",
-        "image": "usuario.png"
-    },
-    {
-        "id": 9,
-        "name": "juan",
-        "users": "juan",
-        "email": "juan@gmail.com",
-        "pass": "$2a$12$QVfNGZDfTDJR4I7YHXbkHOX4jLHx/pQv6P0IyQsXQTVol7TDL5rOK",
-        "genero": "F",
+        "pass": "$2a$12$MLqlgZd1HOlB0so8EGuHaOMi2CqwiwbLZIi.Hij9yigYsgZHyRtmm",
+        "genero": "f",
         "image": "usuario.png",
-        "rol": "user"
+        "contact": null
     },
     {
         "id": 10,
@@ -97,7 +88,7 @@
         "id": 11,
         "name": "Ger",
         "users": "pepe",
-        "email": "gg@gmail.com",
+        "email": "ggg@gmail.com",
         "pass": "$2a$12$QJPT4TqcYgj1Nk4IpS.OAeWi4X99hsxeViFIY.R7g.D9hASOu2pPW",
         "genero": "SN",
         "image": "usuario1664228786745.png",
@@ -112,5 +103,15 @@
         "genero": "M",
         "image": "usuario1664394496425.png",
         "rol": "user"
+    },
+    {
+        "id": 13,
+        "name": "German",
+        "users": "ger",
+        "email": "gg@gmail.com",
+        "pass": "$2a$12$IVL3rV6JJKtU4cnpE/gZH.WEzp9VNaq5VX9lH27Ct3iyKEsTWIYsq",
+        "genero": "m",
+        "image": "usuario.png",
+        "contact": null
     }
 ]

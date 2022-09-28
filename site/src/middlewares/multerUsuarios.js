@@ -4,7 +4,7 @@ const usuario = require('../data/users.json')
 
 const storage = multer.diskStorage({
     destination: (req,file,callback) => {
-        callback(null,'./public/img')
+        callback(null,'./public/img/usuarios')
     },
     filename:(req,file,callback) => {
         callback(null,'usuario' + Date.now() + path.extname(file.originalname))

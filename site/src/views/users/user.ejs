@@ -16,23 +16,23 @@
     <main>
        <section> <h1>Mi usuario: <%= locals.userLogin.nombre %></h1> </section> 
    <section class="img"> 
-    <img class="avatar" src="../img/<%= locals.userLogin.image %>" alt=""> 
+    <img class="avatar" src="../img/usuarios/<%= locals.userLogin.image %>" alt=""> 
 </section> 
 
 <div class="datos"> 
     <h2>Mis datos:</h2>
     <ul class="lista"> <h3>
-      <li>Nombre:<%= locals.userLogin.nombre%>
+      <li>Nombre: <%= locals.userLogin.nombre%>
     </li>
       <li>
-        Usuario:<%= locals.userLogin.users%>
+        Usuario: <%= locals.userLogin.users%>
       </li>
       <li>
-          Email:<%= locals.userLogin.email%>
+          Email: <%= locals.userLogin.email%>
         </li>
         Contacto:
         <li>
-            Genero:<%= locals.userLogin.genero %>
+            Genero: <%= locals.userLogin.genero %>
           </li>
           
           <li>

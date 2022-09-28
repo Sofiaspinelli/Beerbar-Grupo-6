@@ -140,7 +140,7 @@ module.exports = {
     editar: (req, res) => {
 
         let id = +req.params.id
-        let {name,users,email,pass,genero, contact, rol} = req.body
+        let {name,user,email,pass,genero, contact, rol} = req.body
          let errors = validationResult(req)
         if (req.fileValidationError) {
             let image = {
@@ -152,16 +152,16 @@ module.exports = {
             usuarios.forEach(usuario => {
                 if (usuario.id === id) {
                     usuario.name = name
-                    usuario.users = users
+                    usuario.users = user
                     usuario.email = email
-                    usuario.pass = pass.bcryptjs
+                    usuario.pass = bcrypt.hashSync(pass, 12),
                     usuario.genero = genero
                     usuario.contact = +contact
                     usuario.image = req.file ? req.file.filename : 'usuario.png'
                     usuario.rol = rol
                 }})
                 guardar(usuarios)
-            return res.redirect('users/user')
+            return res.redirect('/')
         } /* else {
             return res.render('users/editarUser', {
                 errors: errors.mapped(),
