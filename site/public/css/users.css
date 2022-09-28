@@ -1,69 +1,29 @@
-.user main{
-    margin-top: 10px;
-    background-color: var(--colorGrisClaro) ;
+.avatar{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+
 }
-.user img{
-    width: 100px;
-    height: 100px;
-    position: relative;
-    bottom: 100px;
-    right: 5%;
-    text-align: center;
+main{
+    background-color: var(--colorGrisClaro);
+    margin: 10px auto;
 }
-.user section button{
-    position: relative;
-    height: 35%;
-    border-radius: 15%;
-    background-color: var(--colorNaranja);
-    border-color: black;
+.lista{
+    background-color: var(--colorNaranja) ;
+    padding: 20px;
+    border-radius: 10%;
 }
-.user main h1{
-    font-size: 200%;
-    background-color: var(--colorNaranja);
-    width: auto;
-    color: black;
-    position: relative;
-    top: 40px; 
+.boton{
+    font-size: 30px;
+    margin: 3px;
+    padding: 2px;
 }
-.user main section{
-width: 90%;
-position: relative;
-display: flex;
-justify-content: start;
-height: 200%;
-}
-.user main section{
+.botones{
     display: flex;
-    align-items: center;
-    border-radius: 20px;
-    margin-right: 90px;
-}
-.user h2{
-    font-size: 200%;
-}
-.user h3{
-    font-size: 150%;
-    color: black;
-}
-.user div.datos{
-    display: flex;
-    align-items: center;
-    border-radius: 20px;
-    margin-right: 90px;
-    padding: 60px;
-    margin: 0 auto;
-    border: 3px solid var(--colorNaranja);
-    flex-wrap: wrap;
-    flex-direction: column;
+    text-align: start;
+    margin: 5px;
     margin-bottom: 10px;
-    position: relative;
-    bottom: 100px;
-    right: 200px;
 }
-.user div.botones{
-    position: relative;
-    border-radius: 15%; 
-    bottom: 20px;
-    right: 300px;
-    font-size: 40px;
+.datos{
+    margin: 0 auto;
 }

@@ -12,12 +12,12 @@
     <title>Editar perfil</title>
 </head>
 <body class="user">
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
     <main>
         <form action="/users/editarUser/<%= locals.userLogin.id %>?_method=PUT" method="post" enctype="multipart/form-data"> 
             <div>
-              <img src="/img/usuario/<%= locals.userLogin.image %>" alt="">
-                <label>Cambiar foto de perfil</label>
+              <img class="avatar" src="/img/usuario/<%= locals.userLogin.image %>" alt="">
+                <label> foto de perfil</label>
                 <input type="file" name="image" id="file" accept="/image" value="<%= locals.old && old.image ? old.name: null %>" >
             </div>
                   <ul>
@@ -46,12 +46,12 @@
                         <% } %>  
                     </div>
                     <div>
-                        <button type="submit">Actualizar datos</button>
+                        <button class="actualizar" type="submit">Actualizar datos</button>
                     </div>
 
 </main>
     
-    <%- include('./partials/footer') %>
+    <%- include('../partials/footer') %>
     
         </form>
 

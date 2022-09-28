@@ -16,12 +16,12 @@
     <main>
        <section> <h1>Mi usuario: <%= locals.userLogin.nombre %></h1> </section> 
    <section class="img"> 
-    <img src="../img/<%= locals.userLogin.image %>" alt=""> 
+    <img class="avatar" src="../img/<%= locals.userLogin.image %>" alt=""> 
 </section> 
 
 <div class="datos"> 
     <h2>Mis datos:</h2>
-    <ul> <h3>
+    <ul class="lista"> <h3>
       <li>Nombre:<%= locals.userLogin.nombre%>
     </li>
       <li>
@@ -39,13 +39,13 @@
             Contraseña: </h3>
     </ul>
 </div>
-<div class="botones">
+<div class="botones" >
 <form action="/users/logout?_method=DELETE" method="post"> 
  <button class="boton" type="submit">Cerrar sesión</button> </form>
 
   
-  <a href="/editarUser/<%= locals.userLogin.id %>">
-    <button>Editar Usuario</button>
+  <a href="/users/editarUser/<%= locals.userLogin.id %>">
+    <button class="boton">Editar Usuario</button>
   </a>
 </div>
 </main>

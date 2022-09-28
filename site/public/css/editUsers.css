@@ -1,0 +1,21 @@
+.avatar{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+
+}
+main{
+    background-color: var(--colorGrisClaro);
+    margin: 10px auto;
+}
+ul{
+    font-size: 30px;
+}
+.actualizar{
+    width: 120px;
+    padding: 3px auto;
+    border-color: var(--colorNaranja);
+    border-radius: 20%;
+    border-width: 3px;
+    background-color: white;
+}

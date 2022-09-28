@@ -133,12 +133,14 @@ module.exports = {
          return res.redirect('/')
      },
      editUser: (req, res) => {        
-        return res.render('users/editarUser')
+        return res.render('users/editarUser',{
+            usuarios
+        })
     },
     editar: (req, res) => {
 
         let id = +req.params.id
-        let {name,user,email,pass,genero, contact, rol} = req.body
+        let {name,users,email,pass,genero, contact, rol} = req.body
          let errors = validationResult(req)
         if (req.fileValidationError) {
             let image = {
@@ -150,22 +152,22 @@ module.exports = {
             usuarios.forEach(usuario => {
                 if (usuario.id === id) {
                     usuario.name = name
-                    usuario.users = user
+                    usuario.users = users
                     usuario.email = email
                     usuario.pass = pass.bcryptjs
                     usuario.genero = genero
-                    usuario.contact = contact
+                    usuario.contact = +contact
                     usuario.image = req.file ? req.file.filename : 'usuario.png'
                     usuario.rol = rol
                 }})
                 guardar(usuarios)
-            return res.redirect('/')
-        } else {
+            return res.redirect('users/user')
+        } /* else {
             return res.render('users/editarUser', {
                 errors: errors.mapped(),
                 old: req.body
-            })}
-            return res.send(image)
+            })} */
+          
     }
 
     }
