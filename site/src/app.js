@@ -12,8 +12,8 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products')
 const adminRouter = require('./routes/admin');
-const remindMiddleware = require('./middlewares/remindMiddleware');
-
+/* const remindMiddleware = require('./middlewares/remindMiddleware');
+ */ /* No hacia falta el requerir ni el uso de app.use, de eso se encarga el cookie.cookieParser */
 const app = express();
 
 // view engine setup
@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 app.use(session({
-   secret: 'Berbar',
+   secret: 'Beerbar',
    resave: true, 
   saveUninitialized: true,
   maxAge: 3600000 }));
@@ -36,7 +36,7 @@ app.use(userLogin)
 
 
 
-app.use(remindMiddleware);
+/* app.use(remindMiddleware); */
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..' , 'public')));

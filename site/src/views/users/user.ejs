@@ -43,7 +43,10 @@
 <form action="/users/logout?_method=DELETE" method="post"> 
  <button class="boton" type="submit">Cerrar sesión</button> </form>
 
-  <button class="boton" type="submit"><a href="/editarUser/<%= locals.userLogin.id %>"></a>Editar Usuario </button> 
+  
+  <a href="/editarUser/<%= locals.userLogin.id %>">
+    <button>Editar Usuario</button>
+  </a>
 </div>
 </main>
     

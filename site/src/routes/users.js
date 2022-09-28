@@ -2,7 +2,6 @@ const express = require('express');
 const {login,register, processLogin, processRegister, logout, user, editar, editUser} =require ('../controllers/usersController');
 const router = express.Router();
 const { Router } = require('express');
-
 const registerValidator = require('../validations/registerValidation')
 const loginValidator = require('../validations/loginValidation')
 const upload = require('../middlewares/multerUsuarios')
@@ -11,11 +10,11 @@ const usersController = require('../controllers/usersController')
 
 
 /* GET users listing. */
-router.get('/register',registerValidator, register);
-router.post('/register' ,upload.single('image'),registerValidator, processRegister)
+router.get('/register', register);
+router.post('/register' ,upload.single('image'),registerValidator, processRegister);
 
 router.get('/login', login);
-router.post('/login', loginValidator, processLogin)
+router.post('/login', loginValidator, processLogin);
 
 // router.get('/register', register);
 // router.post('/register',upload.single('image'), processRegister, registerValidator)

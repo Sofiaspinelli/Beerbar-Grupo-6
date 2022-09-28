@@ -33,7 +33,7 @@ module.exports = {
                 }
         /* COOKIE */
                 if (recordarme) {
-                    res.cookie('recordame', /* usuarios.email, */req.session.userLogin, { maxAge: 3600000})
+                    res.cookie('Beerbar', /* usuarios.email, */req.session.userLogin, { maxAge: 3600000})
                 }
                 return res.redirect('/')
                 
@@ -127,13 +127,13 @@ module.exports = {
 },
      logout: (req,res) => {
          req.session.destroy();
-         if(req.cookies.recordame){
-             res.cookie('recordame', "",{maxAge: -1 })
+         if(req.cookies.recordarme){
+             res.cookie('Beerbar', "",{maxAge: -1 })
          }
          return res.redirect('/')
      },
      editUser: (req, res) => {        
-        return res.render('editarUser')
+        return res.render('users/editarUser')
     },
     editar: (req, res) => {
 
@@ -161,7 +161,7 @@ module.exports = {
                 guardar(usuarios)
             return res.redirect('/')
         } else {
-            return res.render('editarUser', {
+            return res.render('users/editarUser', {
                 errors: errors.mapped(),
                 old: req.body
             })}
