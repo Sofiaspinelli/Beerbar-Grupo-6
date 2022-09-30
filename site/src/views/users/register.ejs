@@ -36,7 +36,7 @@
             </div>
             <div class="container">
                 <label for="name">Usuario</label>
-                <input type="text" name="users" id="users" placeholder="Ingresar Nombre de Usuario" >
+                <input type="text" name="users" id="users" placeholder="Ingresar Nombre de Usuario" value="<%= locals.old && old.users ? old.users : null%>">
                 <% if (locals.errors && errors.users) { %>
                     <small><%= errors.users.msg %></small>
                 <% } %>
@@ -66,22 +66,27 @@
             <div class="container">
                 <label for="contact">Nro de Contacto <p>("No es obligatorio")</p></label>
                 <input type="number" name="contacto" id="contacto" placeholder="Ingresar Nro">
-                
+                <% if (locals.errors && errors.contacto) { %>
+                    <small><%= errors.contacto.msg %></small>
+                <% } %>
             </div>
             <h2 class="bottom">Genero</h2>
             <div class="bottom">
                 <input type="radio" name="genero" id="F" value="F" <%= locals.old && old.genero==='F' ? "checked" : null%> >
                 <label for="F">Femenino</label>
+                
                 <input type="radio" name="genero" id="M" value="M" <%= locals.old && old.genero==='M' ? "checked" : null%>>
                 <label for="M">Masculino</label>
+                
                 <input type="radio" name="genero" id="SN" value="SN" <%= locals.old && old.genero==='SN' ? "checked" : null%> >
-                <label for="SN">Prefiero no decirlo</label>
+                <label for="SN">Prefiero no decirlo</label> 
+                <br>
                 <% if (locals.errors && errors.genero) { %>
                     <small><%= errors.genero.msg %></small>
                 <% } %>
             </div>
-            <div class="container container-img">
-                <label for="image">Subi tu imagen aqui</label>
+            <div class="container-img">
+                <label for="ima">Subi tu imagen aqui</label>
                 <input type="file" name="image" id="image">
                 <% if (locals.errors && errors.image) { %>
                     <small><%= errors.image.msg %></small>
@@ -89,8 +94,10 @@
             </div>
 
             <div class="bottom">
-                <input type="checkbox" name="terminos" id="terminos">
-                <label for="terminos">Acepto los terminos y condiciones</label>
+                <div>
+                    <input type="checkbox" name="terminos" id="terminos">
+                    <label for="terminos">Acepto los terminos y condiciones</label>
+                </div>
                 <% if (locals.errors && errors.terminos) { %>
                     <small><%= errors.terminos.msg %></small>
                 <% } %>

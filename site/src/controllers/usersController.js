@@ -51,32 +51,6 @@ module.exports = {
             usuarios
         })
     }, 
-    // processLogin:(req,res) => {
-    //     let errors = validationResult(req)
-    //     // return res.send(req.body)
-    //     if(errors.isEmpty()){
-
-    //         const {email,recordarme} = req.body
-    //         let usuario = usuarios.find(user => user.email === email)
-
-    //        req.session.userLogin = {
-    //            id : usuarios.id,
-    //            nombre : usuarios.name,
-    //            imagen : usuarios.image,
-    //            email : usuarios.email,
-    //            pass : usuarios.pass,
-    //            genero : usuarios.genero,
-    //            rol : usuarios.rol
-    //        }
-    //        return res.redirect('/')
-    //     } 
-    //     else{
-    //         return res.render('login', {
-    //             errors: errors.mapped(),
-    //             old: req.body
-    //         })
-    //     }
-    // },
     register: (req,res) => {
         res.render ('users/register', {
             usuarios
@@ -94,7 +68,7 @@ module.exports = {
         }
         // return res.send(req.file)
         if (errors.isEmpty()) {
-            let {name, users,email,pass,genero, contact} = req.body
+            let {name, users,email,pass,genero, contacto} = req.body
             let usuarioNuevo = {
                 id:usuarios[usuarios.length - 1].id + 1,
                 name : name,
@@ -102,7 +76,7 @@ module.exports = {
                 email : email,
                 pass :  bcrypt.hashSync(pass, 12),
                 genero : genero,
-                contact: contact,
+                contact: contacto,
                 image: req.file && req.file.size > 1 ? req.file.filename : "usuario.png",
                 rol : "user",
         }
@@ -112,7 +86,7 @@ module.exports = {
             return res.redirect('/')
     }
     else{
-        let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', dato))
+        let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', 'usuarios', dato))
         if(req.file){
             if (ruta(req.file.filename) && (req.file.filename !== "usuario.png")) {
                 fs.unlinkSync(path.join(__dirname, '..', '..', 'public', 'img', req.file.filename))
@@ -127,7 +101,7 @@ module.exports = {
 },
      logout: (req,res) => {
          req.session.destroy();
-         if(req.cookies.recordarme){
+         if(req.cookies.Beerbar){
              res.cookie('Beerbar', "",{maxAge: -1 })
          }
          return res.redirect('/')

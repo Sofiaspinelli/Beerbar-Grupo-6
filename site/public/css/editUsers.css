@@ -4,7 +4,7 @@
     border-radius: 50%;
 
 }
-main{
+.user main{
     background-color: var(--colorGrisClaro);
     margin: 10px auto;
 }

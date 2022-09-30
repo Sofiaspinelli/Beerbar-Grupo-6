@@ -1,6 +1,9 @@
 .home main {
     margin: 0 auto;
+    padding: 0 0 15px;
+    background-color: rgba(0, 0, 0, 0.5);
     width: 90%;
+    min-width: 350px;
 }
 .home main .productos {
     color: var(--colorBlanco);

@@ -113,5 +113,16 @@
         "genero": "m",
         "image": "usuario.png",
         "contact": null
+    },
+    {
+        "id": 14,
+        "name": "cachinfla",
+        "users": "pepito",
+        "email": "pepi@gmail.com",
+        "pass": "$2a$12$U2ouX9qaPNle0wNb31Lj1.n04ybfoW6OekIusd8d9B.2F2UjnAfwq",
+        "genero": "M",
+        "contact": "1123230022",
+        "image": "usuario1664496922033.jpg",
+        "rol": "user"
     }
 ]

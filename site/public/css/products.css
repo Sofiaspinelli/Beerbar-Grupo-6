@@ -1,6 +1,9 @@
 .products main {
     margin: 0 auto;
+    padding: 0 0 15px;
     width: 90%;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-width: 360;
 }
 .products main .productos {
     color: var(--colorBlanco);

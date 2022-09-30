@@ -20,11 +20,12 @@ module.exports = [
     check('pass').trim()
     .isLength({min:8}).withMessage('Debe contener al menos 8 caracteres'),
     check('pass2')
-    .isLength({min:8}).withMessage('Debe contener al menos 8 caracteres').bail(),
+    .isLength({min:8}).withMessage('Debe contener al menos 8 caracteres'),
 
     /*Contacto*/
-/*     check('contacto')
-    .notEmpty().withMessage('Debe ingresar su numero de contacto'), */
+    check('contacto').trim()
+    .isNumeric().withMessage('Debe ingresar un numero valido').bail()
+    .isLength({min:10, max: 10}).withMessage('Debe ingresar un numero valido'),
     
     /* Genero */
     check('genero').trim()
