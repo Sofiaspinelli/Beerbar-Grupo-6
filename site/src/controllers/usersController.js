@@ -106,9 +106,11 @@ module.exports = {
          }
          return res.redirect('/')
      },
-     editUser: (req, res) => {        
+     editUser: (req, res) => {
+        let id = req.params.id 
+        let usuario = usuarios.find(usuario => usuario.id === id)       
         return res.render('users/editarUser',{
-            usuarios
+            usuarios, usuario
         })
     },
     editar: (req, res) => {

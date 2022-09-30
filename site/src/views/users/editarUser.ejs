@@ -18,14 +18,14 @@
             <div>
               <img class="avatar" src="/img/usuario/<%= locals.userLogin.image %>" alt="">
                 <label> foto de perfil</label>
-                <input type="file" name="image" id="file" accept="/image" value="<%= locals.old && old.image ? old.name: null %>" >
+                <input type="file" name="image" id="file" accept="/image" value="<%= locals.old && old.image ? old.name: locals.userLogin.image %>" >
             </div>
                   <ul>
                     <li>Editar nombre
-                      <input type="text" name="name" id="name" value="<%=locals.old && old.name ?old.name: null %>">
+                      <input type="text" name="name" id="name" value="<%=locals.old && old.name ? old.name : locals.userLogin.nombre %>">
                </li>
                <li>Editar Usuario
-                <input type="text" name="user" id="user value="<%=locals.old && old.user?old.user: null %><%= locals.userLogin.user %>>
+                <input type="text" name="user" id="user" value="<%=locals.old && old.user ? old.user : locals.userLogin === usuario ? usuario.users : null %>">
          </li>
                     <li> Email(gmail de registro no se podra cambiar)
                       <input type="email" id="email" name="email" value="<%= locals.userLogin.email %> ">
@@ -36,11 +36,11 @@
     
               </div>
                       <div>
-                        <input type="password" name="pass" id="pass" value="<%= locals.userLogin.old && old.pass ? old.pass: null %>" placeholder="Ingrese nueva contraseña">
+                        <input type="password" name="pass" id="pass" value="" placeholder="Ingrese nueva contraseña">
                         <% if (locals.errors && errors.pass) { %>
                           <%= errors.pass.msg %> 
                         <% } %>  
-                        <input type="password" name="pass2" id="pass2" value="<%= locals.userLogin.old && old.pass2 ? old.pass2: null %>" placeholder="Confirme su contraseña" >
+                        <input type="password" name="pass2" id="pass2" value="" placeholder="Confirme su contraseña" >
                         <% if (locals.errors && errors.pass2) { %>
                            <%= errors.pass2.msg %>
                         <% } %>  

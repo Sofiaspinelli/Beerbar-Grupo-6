@@ -1,4 +1,6 @@
 const productos = require('../data/productos.json');
+const usuarios = require('../data/users.json');
+
 
 module.exports = {
     products : (req, res) => {
@@ -16,6 +18,6 @@ module.exports = {
 
     },
     cart : (req, res) => {
-        res.render ('cart')
+            res.render('cart')
     }
 }
