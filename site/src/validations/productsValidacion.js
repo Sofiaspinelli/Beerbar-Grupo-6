@@ -1,7 +1,15 @@
 const {check, body} = require('express-validator');
 
 module.exports = [
-    body('selectType').trim().notEmpty().withMessage('Debe selecionar una opcion'),
+    body('selectType').trim().notEmpty().withMessage('Debe selecionar una opcion').bail()
+    .custom( (value, {req})=> {
+        if (value != "null") {
+            return true
+        }else {
+            return false
+        }
+    }
+    ).withMessage('Debe selecionar una opcion'),
     
     body('marca').trim().notEmpty().withMessage('Este campo es obligatorio').bail()
     .isLength({min:5}).withMessage('Minimo de 6 caracteres'),
@@ -12,7 +20,7 @@ module.exports = [
     body('precio').trim().notEmpty().withMessage('Este campo es obligatorio').bail()
     .isInt().withMessage('Solo se aceptan numeros').bail()
     .custom( (value, {req})=> {
-        if (value > 100 && value < 3000) {
+        if (value > 200 && value < 4000) {
             return true
         }else {
             return false
@@ -40,5 +48,15 @@ module.exports = [
             return false
         }
     }
-    ).withMessage('ingresar stock mayor que 0')
+    ).withMessage('ingresar stock mayor que 0'),
+
+    body('categoria').trim().notEmpty().withMessage('Debe selecionar una opcion').bail()
+    .custom( (value, {req})=> {
+        if (value != "undefined") {
+            return true
+        }else {
+            return false
+        }
+    }
+    ).withMessage('Debe selecionar una opcion'),
 ]
