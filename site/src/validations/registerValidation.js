@@ -24,7 +24,7 @@ module.exports = [
 
     /*Contacto*/
     check('contacto').trim()
-    .isNumeric().withMessage('Debe ingresar un numero valido').bail()
+    .isInt().withMessage('Debe ingresar un numero valido').bail()
     .isLength({min:10, max: 10}).withMessage('Debe ingresar un numero valido'),
     
     /* Genero */

@@ -13,8 +13,8 @@
                     <label for="selectType">Tipo de producto</label>
                     <select name="selectType" id="S">
                         <option selected hidden>seleccionar una opcion</option>
-                        <option value="birra">Birra</option>
-                        <option value="comidas">Comida</option>
+                        <option value="Birra" <%=locals.old && old.selectType === "Birra" ? "selected" : null %> >Birra</option>
+                        <option value="Comida" <%=locals.old && old.selectType === "Comida" ? "selected" : null %> >Comida</option>
                     </select>
                     <% if (locals.errors && errors.selectType) { %>
                         <small><%= errors.selectType.msg %> </small>
@@ -46,14 +46,14 @@
                 <div class="p-s">
                     <div>
                         <label for="precio">Precio</label>
-                        <input type="number" name="precio" id="precio" placeholder="precio" value="<%- locals.precio && old.precio ? old.marca : null %>">
+                        <input type="number" name="precio" id="precio" placeholder="precio" value="<%- locals.precio && old.precio ? old.precio : null %>">
                         <% if (locals.errors && errors.precio) { %>
                           <small><%= errors.precio.msg %> </small>
                         <% } %>
                     </div>
                     <div>
                         <label for="descuento">Descuento</label>
-                        <input type="number" name="descuento" id="descuento" placeholder="descuento" value="<%- locals.descuento && old.descuento ? old.marca : 0 %>">
+                        <input type="number" name="descuento" id="descuento" placeholder="descuento" value="<%- locals.descuento && old.descuento ? old.descuento : 0 %>">
                         <% if (locals.errors && errors.descuento) { %>
                           <small><%= errors.descuento.msg %> </small>
                         <% } %>
@@ -71,9 +71,9 @@
                     <label for="categoria">Categoria</label>
                     <select name="categoria" id="categoria">
                         <option selected hidden>seleccionar una opcion</option>
-                        <option value="nuevo">Nuevo</option>
-                        <option value="especial">Especial</option>
-                        <option value="">Ninguna</option>
+                        <option value="nuevo" <%=locals.old && old.categoria === "nuevo" ? "selected" : null %> >Nuevo</option>
+                        <option value="especial" <%=locals.old && old.categoria === "especial" ? "selected" : null %> >Especial</option>
+                        <option value="" <%=locals.old && old.categoria === "" ? "selected" : null %>>Ninguna</option>
                     </select>
                     <% if (locals.errors && errors.categoria) { %>
                      <small><%= errors.categoria.msg %> </small>

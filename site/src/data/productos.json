@@ -1,7 +1,7 @@
 [
     {
         "id": 3,
-        "producto": "comida",
+        "producto": "Comida",
         "marca": "milanesa con papas",
         "detalle": "delicisa milanesa acompañado de las mejores papas",
         "precio": 1000,
@@ -16,7 +16,7 @@
     },
     {
         "id": 4,
-        "producto": "comidas",
+        "producto": "Comida",
         "marca": "Papas fritas",
         "detalle": "deliciosas papas fritas con  salsa ketchup ",
         "precio": 400,
@@ -28,7 +28,7 @@
     },
     {
         "id": 5,
-        "producto": "comidas",
+        "producto": "Comida",
         "marca": "pizza pepperoni",
         "detalle": "una pizza con base de salsa de tomate, mozzarella y pepperoni",
         "precio": 900,
@@ -40,7 +40,7 @@
     },
     {
         "id": 6,
-        "producto": "comidas",
+        "producto": "Comida",
         "marca": "pizza hawaiana",
         "detalle": "pizza que contiene una base de queso fundido y tomate que se aliñan con jamón y piña",
         "precio": 1000,
@@ -52,7 +52,7 @@
     },
     {
         "id": 8,
-        "producto": "comidas",
+        "producto": "Comida",
         "marca": "Hamburguesa con jamón y queso",
         "detalle": "una deliciosa Hamburguesa con jamón, queso  y tocino para disfrutar",
         "precio": 500,
@@ -64,7 +64,7 @@
     },
     {
         "id": 9,
-        "producto": "birra",
+        "producto": "Birra",
         "marca": " Asahi Breweries",
         "detalle": "suave y ligero sabor",
         "precio": 500,
@@ -76,7 +76,7 @@
     },
     {
         "id": 10,
-        "producto": "comida",
+        "producto": "Comida",
         "marca": "cheetos",
         "detalle": "lo mejorcito pibe, compraaa",
         "precio": 200,
@@ -88,7 +88,7 @@
     },
     {
         "id": 11,
-        "producto": "comidas",
+        "producto": "Comida",
         "marca": "papas",
         "detalle": "ricooo y ya, solo gosalo",
         "precio": 190,
@@ -100,7 +100,7 @@
     },
     {
         "id": 12,
-        "producto": "birra",
+        "producto": "Birra",
         "marca": "Porter",
         "detalle": "De gran sabor",
         "precio": 700,
@@ -112,7 +112,7 @@
     },
     {
         "id": 13,
-        "producto": "comidas",
+        "producto": "Comida",
         "marca": "pollo",
         "detalle": "delicioso pollo",
         "precio": 1200,
