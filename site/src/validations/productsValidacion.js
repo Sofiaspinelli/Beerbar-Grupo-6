@@ -10,10 +10,35 @@ module.exports = [
     .isLength({min:12}).withMessage('La descipcion es muy corta'),
 
     body('precio').trim().notEmpty().withMessage('Este campo es obligatorio').bail()
-    .isInt().withMessage('Solo se aceptan numeros'),
+    .isInt().withMessage('Solo se aceptan numeros').bail()
+    .custom( (value, {req})=> {
+        if (value > 100 && value < 3000) {
+            return true
+        }else {
+            return false
+        }
+    }
+    ).withMessage('ingresar precio mayor a 100'),
 
-    body('descuento').isInt().withMessage('Solo se aceptan numeros'),
+    body('descuento').isInt().withMessage('Solo se aceptan numeros').bail()
+    .custom( (value, {req})=> { 
+        if (value >= 0 && value < 90) {
+            return true
+        }else {
+            return false
+        }
+    }
+    ).withMessage('solo permitido descuento del 0 al 90%'),
 
     body('stock').trim().notEmpty().withMessage('Este campo es obligatorio').bail()
-    .isInt().withMessage('Solo se aceptan numeros')
+    .isInt().withMessage('Solo se aceptan numeros').bail()
+    .custom( (value, {req})=> {
+        let {stock} = req.body
+        if (value > 0 && value < 500) {
+            return true
+        }else {
+            return false
+        }
+    }
+    ).withMessage('ingresar stock mayor que 0')
 ]
