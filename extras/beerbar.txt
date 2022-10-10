@@ -1,0 +1,173 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema beerbar
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema beerbar
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `beerbar` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `beerbar` ;
+
+-- -----------------------------------------------------
+-- Table `beerbar`.`avatars`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `beerbar`.`avatars` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(150) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `beerbar`.`categories`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `beerbar`.`categories` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `beerbar`.`types`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `beerbar`.`types` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `beerbar`.`products`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `beerbar`.`products` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  `marca` VARCHAR(45) NOT NULL,
+  `type_id` INT UNSIGNED NOT NULL,
+  `detalle` VARCHAR(600) NOT NULL,
+  `categoria_id` INT UNSIGNED NOT NULL,
+  `precio` INT UNSIGNED NOT NULL,
+  `descuento` INT UNSIGNED NOT NULL,
+  `stock` INT UNSIGNED NOT NULL,
+  `vendidos` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `idproductos_UNIQUE` (`id` ASC) VISIBLE,
+  INDEX `fk_productos_type_idx` (`type_id` ASC) VISIBLE,
+  INDEX `fk_productos_categoria1_idx` (`categoria_id` ASC) VISIBLE,
+  CONSTRAINT `fk_productos_categoria1`
+    FOREIGN KEY (`categoria_id`)
+    REFERENCES `beerbar`.`categories` (`id`),
+  CONSTRAINT `fk_productos_type`
+    FOREIGN KEY (`type_id`)
+    REFERENCES `beerbar`.`types` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `beerbar`.`roles`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `beerbar`.`roles` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `beerbar`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `beerbar`.`users` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  `apellido` VARCHAR(50) NOT NULL,
+  `email` VARCHAR(150) NOT NULL,
+  `pass` VARCHAR(300) NOT NULL,
+  `genero` VARCHAR(45) NOT NULL,
+  `contacto` INT NOT NULL,
+  `avatars_id` INT UNSIGNED NOT NULL,
+  `roles_id` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  INDEX `fk_users_avatars1_idx` (`avatars_id` ASC) VISIBLE,
+  INDEX `fk_users_roles1_idx` (`roles_id` ASC) VISIBLE,
+  CONSTRAINT `fk_users_avatars1`
+    FOREIGN KEY (`avatars_id`)
+    REFERENCES `beerbar`.`avatars` (`id`),
+  CONSTRAINT `fk_users_roles1`
+    FOREIGN KEY (`roles_id`)
+    REFERENCES `beerbar`.`roles` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `beerbar`.`carts`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `beerbar`.`carts` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `users_id` INT UNSIGNED NOT NULL,
+  `products_id` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `idcarts_UNIQUE` (`id` ASC) VISIBLE,
+  INDEX `fk_carts_products1_idx` (`products_id` ASC) VISIBLE,
+  INDEX `fk_carts_users1_idx` (`users_id` ASC) VISIBLE,
+  CONSTRAINT `fk_carts_products1`
+    FOREIGN KEY (`products_id`)
+    REFERENCES `beerbar`.`products` (`id`),
+  CONSTRAINT `fk_carts_users1`
+    FOREIGN KEY (`users_id`)
+    REFERENCES `beerbar`.`users` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `beerbar`.`images`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `beerbar`.`images` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(150) NOT NULL,
+  `products_id` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  INDEX `fk_images_products1_idx` (`products_id` ASC) VISIBLE,
+  CONSTRAINT `fk_images_products1`
+    FOREIGN KEY (`products_id`)
+    REFERENCES `beerbar`.`products` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
