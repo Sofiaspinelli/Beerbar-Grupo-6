@@ -1,21 +1,23 @@
+require('dotenv').config();
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override')
-const session = require('express-session')
+const session = require('express-session');
+const testConnection = require('../utils/dbconnectiontest');
 
 
-const userLogin = require('./middlewares/userLoginCheck')
+const userLogin = require('./middlewares/userLoginCheck');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const productsRouter = require('./routes/products')
+const productsRouter = require('./routes/products');
 const adminRouter = require('./routes/admin');
 /* const remindMiddleware = require('./middlewares/remindMiddleware');
  */ /* No hacia falta el requerir ni el uso de app.use, de eso se encarga el cookie.cookieParser */
 const app = express();
-
+testConnection();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
