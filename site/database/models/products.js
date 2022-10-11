@@ -1,43 +1,47 @@
 'use strict';
 const {
-    Model, DataTypes
+  Model
 } = require('sequelize');
-
 module.exports = (sequelize, DataTypes) => {
-    class Products extends Model {
-        static associate(models) {
-            Products.belongsTo(models.Categories,{
-              as: 'category',
-              foreignKey: 'categoria_Id'
-            }),
-            Products.belongsTo(models.Types,{
-              as: 'tipos',
-              foreignKey: 'type_Id'
-            }),
-            Products.hasMany(models.Images,{
-              as: 'imagenes',
-              foreignKey: 'products_Id',
-              onDelete:'cascade'
-            })
-            Products.hasMany(models.Carts,{
-              as: 'carritoProducts',
-              foreignKey: 'products_Id',
-            })
-          }
+  class products extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      products.belongsTo(models.categories,{
+        as: 'category',
+        foreignKey: 'categoria_Id'
+      }),
+      products.belongsTo(models.types,{
+        as: 'tipos',
+        foreignKey: 'type_Id'
+      }),
+      products.hasMany(models.images,{
+        as: 'imagenes',
+        foreignKey: 'products_Id',
+        onDelete:'cascade'
+      })
+      products.hasMany(models.carts,{
+        as: 'carritoProducts',
+        foreignKey: 'products_Id',
+      })
     }
-
-    Products.init({
-        nombre: DataTypes.STRING,
-        marca: DataTypes.STRING,
-        type_id: DataTypes.INTEGER,
-        detalle: DataTypes.STRING,
-        categoria_id: DataTypes.INTEGER,
-        precio: DataTypes.INTEGER,
-        descuento: DataTypes.INTEGER,
-        stock: DataTypes.INTEGER,
-        vendidos: DataTypes.INTEGER,
-    },{
-        sequelize, modelName: 'Products'
-    })
-    return Products;
-}
+  }
+  products.init({
+    nombre: DataTypes.STRING,
+    marca: DataTypes.STRING,
+    type_id: DataTypes.INTEGER,
+    detalle: DataTypes.STRING,
+    categoria_id: DataTypes.INTEGER,
+    precio: DataTypes.INTEGER,
+    descuento: DataTypes.INTEGER,
+    stock: DataTypes.INTEGER,
+    vendidos: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'products',
+  });
+  return products;
+};

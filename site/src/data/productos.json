@@ -9,10 +9,7 @@
         "stock": 20,
         "vendidos": 0,
         "categoria": "especial",
-        "imagen": "pngwing.png",
-        "imagenes": [
-            ""
-        ]
+        "imagen": "pngwing.png"
     },
     {
         "id": 4,
