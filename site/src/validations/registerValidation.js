@@ -7,8 +7,8 @@ module.exports = [
     .isLength({min:2}).withMessage('Debe contener al menos 2 caracteres'),
 
         /* Nombre de usuario */
-        check('users').trim()
-        .notEmpty().withMessage('Debe ingresar su nombre de @usuario').bail()
+        check('apellido').trim()
+        .notEmpty().withMessage('Debe ingresar su apellido').bail()
         .isLength({min:2}).withMessage('Debe contener al menos 2 caracteres'),
 
     /* Email */

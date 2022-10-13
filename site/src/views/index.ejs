@@ -11,12 +11,12 @@
         <h1>PROMOCIONES</h1>
 
         <section class="productos">
-        <% productos.forEach(producto => { %>
-            <% if ((producto.descuento > 10 || producto.categoria === "especial") && (producto.stock - producto.vendidos) >= 1) { %>
+        <% products.forEach(producto => { %>
+            <% if ((producto.descuento > 10 || producto.category.name === "especial") && (producto.stock - producto.vendidos) >= 1) { %>
                 <article>
-                    <img src="/img/productos/<%= producto.imagen %> " alt="">
+                    <img src="/img/productos/<%= producto.imagenes[0].name %> " alt="">
                     <div class="contenedor">
-                        <h3><%= producto.marca %> </h3>
+                        <h3><%= producto.nombre %> </h3>
                         <% if (producto.descuento > 0) { %>
                         <p class="old">$<%= producto.precio %> </p>
                         <p class="precio">$<%= producto.precio - (producto.precio * producto.descuento / 100) %> <small class="descuento"><%= producto.descuento %>%</small>
@@ -34,12 +34,12 @@
         <h1>PRODUCTOS DESTACADOS</h1>
 
         <section class="productos">
-            <% productos.forEach(producto => { %>
-            <% if (((producto.categoria === "nuevo") || ((producto.vendidos * 100) / producto.stock)  > 70 && producto.vendidos >= 10 ) && (producto.stock - producto.vendidos) >= 1 ) { %>
+            <% products.forEach(producto => { %>
+            <% if (((producto.category.name === "nuevo") || ((producto.vendidos * 100) / producto.stock)  > 70 && producto.vendidos >= 10 ) && (producto.stock - producto.vendidos) >= 1 ) { %>
             <article>
-                <img src="/img/productos/<%= producto.imagen %> " alt="imagen del producto">
+                <img src="/img/productos/<%= producto.imagenes[0].name %> " alt="imagen del producto">
                 <div class="contenedor">
-                    <h3><%= producto.marca %> </h3>
+                    <h3><%= producto.nombre %> </h3>
                     <% if (producto.descuento > 0) { %>
                     <p class="old">$<%= producto.precio %> </p>
                     <p class="precio">$<%= producto.precio - (producto.precio * producto.descuento / 100) %> <small class="descuento"><%= producto.descuento %>%</small>

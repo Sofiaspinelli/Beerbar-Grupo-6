@@ -28,15 +28,15 @@
         <form action="/users/register" method="post" enctype="multipart/form-data">
             <div class="container">
                 
-                <label for="name">Nombre y apellido</label>
-                <input type="text" name="name" id="name" placeholder="Ingresar nombre completo" value="<%= locals.old && old.name ? old.name : null%>">
+                <label for="name">Nombre</label>
+                <input type="text" name="name" id="name" placeholder="Ingresar nombre" value="<%= locals.old && old.name ? old.name : null%>">
                 <% if (locals.errors && errors.name) { %>
                     <small><%= errors.name.msg %></small>
                 <% } %>
             </div>
             <div class="container">
-                <label for="name">Usuario</label>
-                <input type="text" name="users" id="users" placeholder="Ingresar Nombre de Usuario" value="<%= locals.old && old.users ? old.users : null%>">
+                <label for="apellido">Apellido</label>
+                <input type="text" name="apellido" id="apellido" placeholder="Ingresar su apellido" value="<%= locals.old && old.apellido ? old.apellido : null%>">
                 <% if (locals.errors && errors.users) { %>
                     <small><%= errors.users.msg %></small>
                 <% } %>

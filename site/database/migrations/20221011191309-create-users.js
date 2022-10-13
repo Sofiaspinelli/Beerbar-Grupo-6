@@ -27,9 +27,7 @@ module.exports = {
       contacto: {
         type: Sequelize.INTEGER
       },
-      avatars_id: {
-        type: Sequelize.INTEGER
-      },
+      
       roles_id: {
         type: Sequelize.INTEGER
       },
@@ -47,3 +45,7 @@ module.exports = {
     await queryInterface.dropTable('users');
   }
 };
+
+/* avatars_id: {
+        type: Sequelize.INTEGER
+      }, */

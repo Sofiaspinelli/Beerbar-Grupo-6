@@ -2,16 +2,25 @@ const fs = require('fs')
 const path = require('path')
 const { validationResult } = require('express-validator')
 const bcrypt = require('bcryptjs')
-const usuarios = require('../data/users.json')
+// const usuarios = require('../data/users.json')
+const db = require('../../database/models');
+
 const { emitWarning } = require('process')
 const guardar = (dato) => fs.writeFileSync(path.join(__dirname, '../data/users.json')
     , JSON.stringify(dato, null, 4), 'utf-8')
 
 module.exports = {
     login: (req,res) => {
-        res.render ('users/login', {
+        db.users.findAll({
+            include: ['rol','imagenesAvatar']
+        })
+        .then(usuarios => {
+            res.render ('users/login', {
             usuarios
         })
+        })
+        .catch(errors => console.log('Se produjo un error', errors))
+        
     }, 
     processLogin: (req,res) => {
        
@@ -47,14 +56,28 @@ module.exports = {
         
     },
     user: (req,res) => {
-        res.render ('users/user', {
+        db.users.findAll({
+            include: ['rol','imagenesAvatar']
+        })
+        .then(usuarios => {
+            res.render ('users/user', {
             usuarios
         })
+        })
+        .catch(errors => console.log('Se produjo un error', errors))
+        
     }, 
     register: (req,res) => {
-        res.render ('users/register', {
+        db.users.findAll({
+            include: ['rol','imagenesAvatar']
+        })
+        .then(usuarios => {
+            res.render ('users/register', {
             usuarios
         })
+        })
+        .catch(errors => console.log('Se produjo un error', errors))
+        
     }, 
     processRegister:(req,res) => {
 
@@ -68,22 +91,55 @@ module.exports = {
         }
         // return res.send(req.file)
         if (errors.isEmpty()) {
-            let {name, users,email,pass,genero, contacto} = req.body
-            let usuarioNuevo = {
-                id:usuarios[usuarios.length - 1].id + 1,
-                name : name,
-                users: users,
-                email : email,
-                pass :  bcrypt.hashSync(pass, 12),
-                genero : genero,
-                contact: contacto,
-                image: req.file && req.file.size > 1 ? req.file.filename : "usuario.png",
-                rol : "user",
-        }
-        usuarios.push(usuarioNuevo)
-            guardar(usuarios)
-
-            return res.redirect('/')
+            let {name, apellido,email,pass,genero, contacto} = req.body
+            // return res.status(200).send(req.body)
+        db.users.create({
+            nombre: name,
+            apellido: apellido,
+            genero: genero,
+            email: email,
+            pass: bcrypt.hashSync(pass, 12),
+            contacto: +contacto,
+            roles_id: 2,
+            // avatars_id: 1,
+            // createdAt: "2022-10-13 00:01:08",
+            // updatedAt: "2022-10-13 00:01:08"
+        })
+        .then(usuarioNuevo => {
+            // return res.status(200).json(usuarioNuevo)
+            if (req.file) {
+                let imagen = {
+                    name: req.file.filename,
+                    users_id: usuarioNuevo.id
+                }
+                db.avatars.create(imagen)
+                .then(img => {
+                    req.session.userLogin = {
+                        id: usuarioNuevo.id,
+                        nombre: usuarioNuevo.nombre,
+                        rol: usuarioNuevo.roles_id,
+                        imagen: img.name
+                        }
+                    return res.redirect('/')
+                })
+            }else{
+                    db.avatars.create({
+                        name: "usuario.png",
+                        users_id: usuarioNuevo.id
+                    })
+                    .then(img => {  
+                        req.session.userLogin = {
+                            id: usuarioNuevo.id,
+                            nombre: usuarioNuevo.nombre,
+                            rol: usuarioNuevo.roles_id,
+                            imagen: img.name
+                            }  
+                        return res.redirect('/')
+                    })
+            }
+                           
+        })
+        .catch(error => console.log('Se a producido un error', error))         
     }
     else{
         let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', 'usuarios', dato))
@@ -98,6 +154,19 @@ module.exports = {
             old: req.body
         })
     }
+     //     let usuarioNuevo = {
+        //         id:usuarios[usuarios.length - 1].id + 1,
+        //         name : name,
+        //         users: users,
+        //         email : email,
+        //         pass :  bcrypt.hashSync(pass, 12),
+        //         genero : genero,
+        //         contact: contacto,
+        //         image: req.file && req.file.size > 1 ? req.file.filename : "usuario.png",
+        //         rol : "user",
+        // }
+        // usuarios.push(usuarioNuevo)
+            // guardar(usuarios)
 },
      logout: (req,res) => {
          req.session.destroy();

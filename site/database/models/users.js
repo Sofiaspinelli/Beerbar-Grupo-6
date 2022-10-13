@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
         as: 'rol',
         foreignKey: 'roles_Id'
       }),
-      users.belongsTo(models.avatars,{
+      users.hasMany(models.avatars,{
         as: 'imagenesAvatar',
-        foreignKey: 'avatars_Id'
+        foreignKey: 'users_Id'
       }),
       users.hasMany(models.carts,{
           as: 'carritoUsers',
@@ -31,11 +31,12 @@ module.exports = (sequelize, DataTypes) => {
     pass: DataTypes.STRING,
     genero: DataTypes.STRING,
     contacto: DataTypes.INTEGER,
-    avatars_id: DataTypes.INTEGER,
     roles_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'users',
+    timestamps: true
   });
   return users;
 };
+/* avatars_id: DataTypes.INTEGER, */

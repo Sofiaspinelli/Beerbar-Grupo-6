@@ -10,18 +10,20 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-        avatars.hasMany(models.users,{
+        avatars.belongsTo(models.users,{
           as: 'imagenesAvatar',
-          foreignKey: 'avatars_Id'
+          foreignKey: 'users_Id'
         })
     }
     
   }
   avatars.init({
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    users_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'avatars',
+    timestamps: true
   });
   return avatars;
 };
