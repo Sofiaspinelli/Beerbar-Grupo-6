@@ -1,6 +1,6 @@
 [
     {
-        "id": 3,
+        "id": 1,
         "producto": "Comida",
         "marca": "milanesa con papas",
         "detalle": "delicisa milanesa acompañado de las mejores papas",
@@ -12,7 +12,7 @@
         "imagen": "pngwing.png"
     },
     {
-        "id": 4,
+        "id": 2,
         "producto": "Comida",
         "marca": "Papas fritas",
         "detalle": "deliciosas papas fritas con  salsa ketchup ",
@@ -24,7 +24,7 @@
         "imagen": "img-1662397902237.png"
     },
     {
-        "id": 5,
+        "id": 3,
         "producto": "Comida",
         "marca": "pizza pepperoni",
         "detalle": "una pizza con base de salsa de tomate, mozzarella y pepperoni",
@@ -36,7 +36,7 @@
         "imagen": "img-1662398149075.png"
     },
     {
-        "id": 6,
+        "id": 4,
         "producto": "Comida",
         "marca": "pizza hawaiana",
         "detalle": "pizza que contiene una base de queso fundido y tomate que se aliñan con jamón y piña",
@@ -48,7 +48,7 @@
         "imagen": "img-1662398405777.png"
     },
     {
-        "id": 8,
+        "id": 5,
         "producto": "Comida",
         "marca": "Hamburguesa con jamón y queso",
         "detalle": "una deliciosa Hamburguesa con jamón, queso  y tocino para disfrutar",
@@ -60,7 +60,7 @@
         "imagen": "img-1662398968782.png"
     },
     {
-        "id": 9,
+        "id": 6,
         "producto": "Birra",
         "marca": " Asahi Breweries",
         "detalle": "suave y ligero sabor",
@@ -72,8 +72,8 @@
         "imagen": "img-1662399126466.png"
     },
     {
-        "id": 10,
-        "producto": "Comida",
+        "id": 7,
+        "producto": "Aperitivos",
         "marca": "cheetos",
         "detalle": "lo mejorcito pibe, compraaa",
         "precio": 200,
@@ -84,7 +84,7 @@
         "imagen": "img-1664059295903.png"
     },
     {
-        "id": 11,
+        "id": 8,
         "producto": "Comida",
         "marca": "papas",
         "detalle": "ricooo y ya, solo gosalo",
@@ -96,7 +96,7 @@
         "imagen": "img-1663891885578.png"
     },
     {
-        "id": 12,
+        "id": 9,
         "producto": "Birra",
         "marca": "Porter",
         "detalle": "De gran sabor",
@@ -108,7 +108,7 @@
         "imagen": "img-1663936270676.png"
     },
     {
-        "id": 13,
+        "id": 10,
         "producto": "Comida",
         "marca": "pollo",
         "detalle": "delicioso pollo",
