@@ -12,20 +12,20 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       products.belongsTo(models.categories,{
         as: 'category',
-        foreignKey: 'categoria_Id'
+        foreignKey: 'categoria_id'
       }),
       products.belongsTo(models.types,{
         as: 'tipos',
-        foreignKey: 'type_Id'
+        foreignKey: 'type_id'
       }),
       products.hasMany(models.images,{
         as: 'imagenes',
-        foreignKey: 'products_Id',
+        foreignKey: 'products_id',
         onDelete:'cascade'
       })
       products.hasMany(models.carts,{
         as: 'carritoProducts',
-        foreignKey: 'products_Id',
+        foreignKey: 'products_id',
       })
     }
   }

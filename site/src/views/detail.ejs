@@ -17,18 +17,18 @@
         <h1>Detalle del Producto</h1>
         <section>
              <article>
-                <img src="/img/productos/<%= producto.imagen %>" alt="imagen del producto">
+                <img src="/img/productos/<%= products.imagenes[0].name %>" alt="imagen del producto">
                 <div class="contenedor">
-                    <h3> <%= producto.marca %></h3>
-                    <p><%= producto.detalle %></p>
+                    <h3> <%= products.nombre %></h3>
+                    <p><%= products.detalle %></p>
 
                     <h4>Precio:</h4>
-                    <% if (producto.descuento > 0) { %>
-                    <p class="old">$<%= producto.precio %> </p>
-                    <p class="precio">$<%= producto.precio - (producto.precio * producto.descuento / 100) %><small class="descuento"><%= producto.descuento %>%</small>
+                    <% if (products.descuento > 0) { %>
+                    <p class="old">$<%= products.precio %> </p>
+                    <p class="precio">$<%= products.precio - (products.precio * products.descuento / 100) %><small class="descuento"><%= products.descuento %>%</small>
                     <p>
                     <% }else { %>
-                    <p class="precio">$<%= producto.precio %> </p>
+                    <p class="precio">$<%= products.precio %> </p>
                     <% } %>
                     <div class="cantidad"><button class="button">+</button><input type="text" placeholder="0"><button class="button">-</button></div>
                     <button>añadir al carrito</button>

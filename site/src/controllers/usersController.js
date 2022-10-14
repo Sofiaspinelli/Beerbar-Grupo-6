@@ -29,23 +29,34 @@ module.exports = {
             if (errors.isEmpty()) {
             
                 const {email, recordarme} = req.body
-                let usuario = usuarios.find(user => user.email === email)
-    
-                req.session.userLogin = {
+                // let usuario = usuarios.find(user => user.email === email)
+                db.users.findOne({
+                    where: {
+                        email: email
+                    },
+                    include: [{
+                        all: true
+                    }]
+                })
+                .then(usuario => {
+                //    return res.status(200).json(usuario)
+                    req.session.userLogin = {
                     id : usuario.id,
-                    nombre : usuario.name,
-                    email : usuario.email,
-                    image : usuario.image,
-                    genero : usuario.genero,
-                    contacto : usuario.contact,
-                    rol : usuario.rol
+                    nombre : usuario.nombre,
+                    apellido : usuario.apellido,
+                    image : usuario.imagenesAvatar[0].name,
+                    rol : usuario.roles_id
                 }
-        /* COOKIE */
+            
+                /* COOKIE */
                 if (recordarme) {
                     res.cookie('Beerbar', /* usuarios.email, */req.session.userLogin, { maxAge: 3600000})
                 }
+
                 return res.redirect('/')
-                
+                })
+                .catch(errors => res.status(500).send(errors))
+
             } else {
                 /* return res.send(errors.mapped()) */
                 return res.render('users/login', {
@@ -117,6 +128,7 @@ module.exports = {
                     req.session.userLogin = {
                         id: usuarioNuevo.id,
                         nombre: usuarioNuevo.nombre,
+                        apellido: usuarioNuevo.apellido,
                         rol: usuarioNuevo.roles_id,
                         imagen: img.name
                         }
@@ -131,6 +143,7 @@ module.exports = {
                         req.session.userLogin = {
                             id: usuarioNuevo.id,
                             nombre: usuarioNuevo.nombre,
+                            apellido: usuarioNuevo.apellido,
                             rol: usuarioNuevo.roles_id,
                             imagen: img.name
                             }  
@@ -177,15 +190,25 @@ module.exports = {
      },
      editUser: (req, res) => {
         let id = req.params.id 
-        let usuario = usuarios.find(usuario => usuario.id === id)       
-        return res.render('users/editarUser',{
-            usuarios, usuario
+        // let usuario = usuarios.find(usuario => usuario.id === id) 
+        db.users.findOne({
+            where: {
+                id: id
+            }
         })
+        .then(usuario => {
+            return res.render('users/editarUser',{
+            usuario
+        })
+        })
+        .catch(errors => res.status(500).send(errors))
+        
     },
     editar: (req, res) => {
 
         let id = +req.params.id
-        let {name,user,email,pass,genero, contact, rol} = req.body
+        let {name,apellido,email,pass,genero, contact, rol} = req.body
+
          let errors = validationResult(req)
         if (req.fileValidationError) {
             let image = {
@@ -194,19 +217,25 @@ module.exports = {
             }
             errors.errors.push(image)}
         if (errors.isEmpty()) {
-            usuarios.forEach(usuario => {
-                if (usuario.id === id) {
-                    usuario.name = name
-                    usuario.users = user
-                    usuario.email = email
-                    usuario.pass = bcrypt.hashSync(pass, 12),
-                    usuario.genero = genero
-                    usuario.contact = +contact
-                    usuario.image = req.file ? req.file.filename : 'usuario.png'
-                    usuario.rol = rol
-                }})
-                guardar(usuarios)
-            return res.redirect('/')
+            let user = db.users.findOne({
+                where: {
+                    id: id
+                }
+            })
+            let userUpdate = db.users.update({
+                nombre : name,
+                apellido : apellido,
+                genero : genero,
+                image : req.file ? req.file.filename : 'usuario.png'
+            },{ where: {id: id}})
+
+            Promise.all([user, userUpdate])
+            .then(([user, userUpdate]) => { 
+                return res.redirect('/')
+            })
+            .catch(errors => {
+                return res.status(500).send(errors)
+            })  
         } /* else {
             return res.render('users/editarUser', {
                 errors: errors.mapped(),

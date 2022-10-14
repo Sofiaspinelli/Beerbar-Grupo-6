@@ -12,15 +12,15 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       users.belongsTo(models.roles,{
         as: 'rol',
-        foreignKey: 'roles_Id'
+        foreignKey: 'roles_id'
       }),
       users.hasMany(models.avatars,{
         as: 'imagenesAvatar',
-        foreignKey: 'users_Id'
+        foreignKey: 'users_id'
       }),
       users.hasMany(models.carts,{
           as: 'carritoUsers',
-          foreignKey: 'carts_Id',
+          foreignKey: 'users_id',
         })
     }
   }

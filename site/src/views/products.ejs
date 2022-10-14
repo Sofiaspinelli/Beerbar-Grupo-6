@@ -17,11 +17,11 @@
     <main>
         <h1>Productos</h1>
         <section class="productos">
-            <% productos.forEach(producto => { %>
+            <% products.forEach(producto => { %>
             <article>
-                <img src="/img/productos/<%= producto.imagen %>" alt="">
+                <img src="/img/productos/<%= producto.imagenes[0].name %>" alt="">
                 <div class="contenedor">
-                    <h3><%= producto.marca %></h3>
+                    <h3><%= producto.nombre %></h3>
                     <% if (producto.descuento > 0) { %>
                     <p class="old">$<%= producto.precio %> </p>
                     <p class="precio">$<%= producto.precio - (producto.precio * producto.descuento / 100) %> <small class="descuento"><%= producto.descuento %>%</small>

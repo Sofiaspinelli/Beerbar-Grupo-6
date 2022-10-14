@@ -26,16 +26,10 @@
           Nombre: <%= locals.userLogin.nombre%>
         </li>
         <li>
-          Usuario: <%= locals.userLogin.users%>
+          Usuario: <%= locals.userLogin.apellido%>
         </li>
         <li>
-          Email: <%= locals.userLogin.email%>
-        </li>
-        <li>
-            Contacto: <%= locals.userLogin.contacto%>
-        </li>
-        <li>
-          Genero: <%= locals.userLogin.genero %>
+          Rol: <%= locals.userLogin.rol === 1? 'Usuario' : 'Administrador' %>
         </li>  
     </ul>
 </div>
