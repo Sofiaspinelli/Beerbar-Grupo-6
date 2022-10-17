@@ -1,7 +1,8 @@
 const fs = require('fs')
 const path = require('path')
 const productos = require('../data/productos.json');
-const {validationResult} = require('express-validator')
+const db = require('../../database/models');
+const {validationResult} = require('express-validator');
 
 const guardar = (dato) => fs.writeFileSync(path.join(__dirname, '../data/productos.json')
 ,JSON.stringify(dato,null,4),'utf-8');
@@ -17,9 +18,9 @@ module.exports = {
         res.render('admin/crear')
     },
     newProducts: (req, res) => {
-        const {selectType,marca,descripcion,precio,descuento,stock, categoria} = req.body;
+        const {selectType,nombre,marca,descripcion,precio,descuento,stock, categoria} = req.body;
         const img = req.file
-        // return res.send(img)
+        // return res.status(200).send(req.body)
         let errors = validationResult(req);
 
         if (req.fileValidationError) {
@@ -31,26 +32,42 @@ module.exports = {
         };
 
         if (errors.isEmpty()) {
-            let nuevoProducto = {
-                id: productos[productos.length - 1].id + 1,
-                producto: selectType,
+            db.products.create({
+                type_id: +selectType,
+                nombre: nombre,
                 marca: marca,
                 detalle: descripcion,
                 precio: +precio,
                 descuento: +descuento,
                 stock: +stock,
                 vendidos: 0,
-                categoria: categoria,
-                imagen: img? img.filename : "default-img.png",
-            };
-            productos.push(nuevoProducto);
-
-            guardar(productos);
-
-            res.redirect(`/products/detail/${nuevoProducto.id}`);
+                categoria_id: +categoria,
+            })
+            .then(product => {
+                if (img) {
+                    let imagen = {
+                        name: img.filename,
+                        products_id: product.id
+                    }
+                    db.images.create(imagen)
+                    .then(img => {
+                        res.redirect(`/products/detail/${product.id}`);
+                    })
+                } else {
+                    db.images.create({
+                        name: "default-img.png",
+                        products_id: product.id
+                    })
+                    .then(img => {
+                        res.redirect(`/products/detail/${product.id}`);
+                    })
+                }
+               
+            })
+            .catch(errors => res.status(500).send(errors));
+        
         } else {
             let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', 'productos', dato));
-
             
             if (img) {
                 if (ruta(img.filename) && (img.filename !== "default-img.png")) {
@@ -64,8 +81,22 @@ module.exports = {
             });
         }
             
-        
-        /* Redirecciona al detalle del producto recien creado */
+       /* let nuevoProducto = {
+                id: productos[productos.length - 1].id + 1,
+                producto: selectType,
+                marca: marca,
+                detalle: descripcion,
+                precio: +precio,
+                descuento: +descuento,
+                stock: +stock,
+                vendidos: 0,
+                categoria: categoria,
+                imagen: img? img.filename : "default-img.png",
+            };
+            productos.push(nuevoProducto);
+
+            guardar(productos); */ 
+       
     },
     editar:(req,res) => {  /* (editProduct(req, res))  */
         let type = ["birra", "comida"];

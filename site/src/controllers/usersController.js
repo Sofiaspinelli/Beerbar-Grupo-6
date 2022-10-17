@@ -135,20 +135,20 @@ module.exports = {
                     return res.redirect('/')
                 })
             }else{
-                    db.avatars.create({
-                        name: "usuario.png",
-                        users_id: usuarioNuevo.id
-                    })
-                    .then(img => {  
-                        req.session.userLogin = {
-                            id: usuarioNuevo.id,
-                            nombre: usuarioNuevo.nombre,
-                            apellido: usuarioNuevo.apellido,
-                            rol: usuarioNuevo.roles_id,
-                            imagen: img.name
-                            }  
-                        return res.redirect('/')
-                    })
+                db.avatars.create({
+                    name: "usuario.png",
+                    users_id: usuarioNuevo.id
+                })
+                .then(img => {  
+                    req.session.userLogin = {
+                        id: usuarioNuevo.id,
+                        nombre: usuarioNuevo.nombre,
+                        apellido: usuarioNuevo.apellido,
+                        rol: usuarioNuevo.roles_id,
+                        imagen: img.name
+                        }  
+                    return res.redirect('/')
+                })
             }
                            
         })

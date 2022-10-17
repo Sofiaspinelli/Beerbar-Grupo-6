@@ -11,8 +11,10 @@ module.exports = [
     }
     ).withMessage('Debe selecionar una opcion'),
     
-    body('marca').trim().notEmpty().withMessage('Este campo es obligatorio').bail()
+    body('nombre').trim().notEmpty().withMessage('Este campo es obligatorio').bail()
     .isLength({min:5}).withMessage('Minimo de 6 caracteres'),
+
+    // body('marca').trim().isLength({min:2}).withMessage('Minimo de 2 caracteres'),
    
     body('descripcion').trim().notEmpty().withMessage('Ingrese una brebe descripcion del producto').bail()
     .isLength({min:12}).withMessage('La descipcion es muy corta'),
