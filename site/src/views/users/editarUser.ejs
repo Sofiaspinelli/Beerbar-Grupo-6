@@ -11,40 +11,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>Editar perfil</title>
 </head>
-<body class="user">
+<body class="edituser">
     <%- include('../partials/header') %>
     <main>
         <form action="/users/editarUser/<%= locals.userLogin.id %>?_method=PUT" method="post" enctype="multipart/form-data"> 
             
-          <section class="img"> 
-            <img class="avatar" src="../img/usuarios/<%= locals.userLogin.image %>" alt=""> 
-          </section>
-            <div> 
+          <section class="section">
+
+            <article class="datosAEditar">
+
+              <div class="img">
                 <label> foto de perfil</label>
+                <img class="avatar" src="../img/usuarios/<%= locals.userLogin.image === usuario.imagenesAvatar[0].name ? usuario.imagenesAvatar[0].name : null %>" alt="">
                 <input type="file" name="image" id="file" accept="/image" value="<%= locals.old && old.image ? old.name: locals.userLogin.image %>" >
-            </div>
-                  <ul>
-                    <li>Editar nombre
-                      <input type="text" name="name" id="name" value="<%=locals.old && old.name ? old.name : locals.userLogin.nombre %>">
-               </li>
-               <li>Editar apellido
+              </div>
+
+              <div>
+                <label for="name">Editar nombre</label>
+                <input type="text" name="name" id="name" value="<%=locals.old && old.name ? old.name : locals.userLogin.nombre %>">
+              </div>
+
+              <div>
+                <label for="apellido">Editar apellido</label> 
                 <input type="text" name="apellido" id="apellido" value="<%=locals.old && old.apellido ? old.apellido : locals.userLogin.apellido %>">
-         </li>
+              </div>
          <!-- recordatorio para crear validacion -->
               <div>     
-                    <li>Genero
-                      <input type="genero" id="genero" name="genero" value="<%= locals.userLogin.genero%> ">
-                    </li>
+                <label for="genero">Editar Genero</label>
+                <!-- <input type="genero" id="genero" name="genero" value="<%= locals.userLogin.genero%> "> -->
+              <section class="genre">
+                <article>
+                  <input type="radio" name="genero" id="F" value="F" <%= locals.old && old.genero==='F' ? "checked" : null%> >
+                  <label for="F">Femenino</label>
+                </article>
+                <article>
+                  <input type="radio" name="genero" id="M" value="M" <%= locals.old && old.genero==='M' ? "checked" : null%>>
+                  <label for="M">Masculino</label>
+                </article>
+                <article>
+                  <input type="radio" name="genero" id="SN" value="SN" <%= locals.old && old.genero==='SN' ? "checked" : null%> >
+                  <label for="SN">Otro</label>
+                </article>
+              </section>
               </div>
-                     
-                    <div>
-                        <button class="actualizar" type="submit">Actualizar datos</button>
-                    </div>
 
-</main>
+            </article>
+      
+              <div>
+                <button class="actualizar" type="submit">Actualizar datos</button>
+              </div>
+          </section>
+      </form>
+    </main>
     
     <%- include('../partials/footer') %>
     
-        </form>
-
-      </main>
+</body>
+ </html>

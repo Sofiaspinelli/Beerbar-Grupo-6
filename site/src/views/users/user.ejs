@@ -14,34 +14,40 @@
 <body class="user">
     <%- include('../partials/header') %>
     <main>
-       <section> <h1>Mi usuario: <%= locals.userLogin.nombre %></h1> </section> 
-   <section class="img"> 
-    <img class="avatar" src="../img/usuarios/<%= locals.userLogin.image %>" alt=""> 
-</section> 
 
-<div class="datos"> 
-    <h2>Mis datos:</h2>
-    <ul class="lista"> <h3>
-        <li>
-          Nombre: <%= locals.userLogin.nombre%>
-        </li>
-        <li>
-          Usuario: <%= locals.userLogin.apellido%>
-        </li>
-        <li>
-          Rol: <%= locals.userLogin.rol === 1? 'Usuario' : 'Administrador' %>
-        </li>  
-    </ul>
-</div>
-<div class="botones" >
-<form action="/users/logout?_method=DELETE" method="post"> 
- <button class="boton" type="submit">Cerrar sesión</button> </form>
-
+<section class="perfil"> 
+  <article class="A">
+    <div class="img">
+      <img class="avatar" src="../img/usuarios/<%= locals.userLogin.image %>" alt="">
+    </div> 
   
-  <a href="/users/editarUser/<%= locals.userLogin.id %>">
-    <button class="boton">Editar Usuario</button>
-  </a>
-</div>
+    <div class="datos"> 
+      <h2>Mis datos:</h2>
+      <ul class="lista"> <h3>
+          <li>
+            Nombre: <%= `${locals.userLogin.nombre} ${locals.userLogin.apellido}`%>
+          </li>
+          <li>
+            Apellido: <%= locals.userLogin.apellido%>
+          </li>
+          <li>
+            Rol: <%= locals.userLogin.rol === 1? 'Usuario' : 'Administrador' %>
+          </li>  
+      </ul>
+    </div>
+  </article>
+
+  <div class="botones" >
+    <form action="/users/logout?_method=DELETE" method="post"> 
+      <button class="boton" type="submit">Cerrar sesión</button> 
+    </form>
+  
+    <a href="/users/editarUser/<%= locals.userLogin.id %>">
+      <button class="boton">Editar Usuario</button>
+    </a>
+  </div>
+</section>
+
 </main>
     
     <%- include('../partials/footer') %>

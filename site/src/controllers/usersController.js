@@ -194,9 +194,11 @@ module.exports = {
         db.users.findOne({
             where: {
                 id: id
-            }
+            },
+            include: ['rol','imagenesAvatar']
         })
         .then(usuario => {
+            // return res.status(200).json(usuario)
             return res.render('users/editarUser',{
             usuario
         })
