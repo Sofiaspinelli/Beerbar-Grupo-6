@@ -3,13 +3,17 @@
         <div class="logo">
             <a href="/"><img src="/img/logo/logo-beerbar.png" alt="logo"></a>
         </div> 
+        <form action="/busqueda" method="get">
         <div class="buscar">
-            <input type="text" placeholder="Birras, comida y más..." required>
-            <div class="btn">
-                <i class="fa-solid fa-magnifying-glass icon"></i>
-            </div>
-        </div>
 
+            <input type="text" placeholder="Birras, comida y más..." required>
+
+            <button type="submit" class="btn">
+                <i class="fa-solid fa-magnifying-glass icon"></i>
+            </button>
+        </div>
+</form>
+        
         <div class="icons">
             <button class="carrito">
                 <% if (locals.userLogin) { %>

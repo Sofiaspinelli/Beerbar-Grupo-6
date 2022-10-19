@@ -26,12 +26,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <% productos.forEach(producto => { %>
+                    <% products.forEach(producto=> { %>
                         
                         <tr>        
                             <th scope="row"><a href="/admin/editar/<%= producto.id %>"><%= producto.id %> </a></th>
-                            <td><a href="/admin/editar/<%= producto.id %>"><%= producto.producto %></a></td>
-                            <td><a href="/products/detail/<%= producto.id %>"><%= producto.marca %></a></td>
+                            <td><a href="/admin/editar/<%= producto.id %>"><%= producto.tipos.name %></a></td>
+                            <td><a href="/products/detail/<%= producto.id %>"><%= producto.nombre %></a></td>
                             <td><a href="/admin/editar/<%= producto.id %> "><%= producto.stock - producto.vendidos %></a></td>
                             <td><a href="/admin/editar/<%= producto.id %> "><%= producto.precio %></a></td>
                             <td><a href="/admin/editar/<%= producto.id %> "><%= producto.descuento %></a></td>

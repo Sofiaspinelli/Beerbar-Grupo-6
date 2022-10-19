@@ -9,9 +9,16 @@ const guardar = (dato) => fs.writeFileSync(path.join(__dirname, '../data/product
 
 module.exports = {
     list: (req,res) => {
-        return res.render('admin/listaProductos',{
-            productos
+        db.products.findAll({
+            include: ['category','imagenes','tipos']
         })
+        .then(products => {
+            // return res.status(200).json(products)
+            return res.render ('admin/listaProductos', {
+                products
+            })
+        })
+        .catch(error => console.log('Se produjo un error', error))
 
     },
     crear: (req, res) => {
@@ -132,18 +139,39 @@ module.exports = {
         // return res.redirect(`/products/detail/${productos.id}`)
     },
     destroy: (req, res) => {
-        const id = +req.params.id;
-        let producto = productos.find(producto => producto.id === id);
+        const id = +req.params.id; 
+       /*  let producto = productos.find(producto => producto.id === id); */ 
         
-        let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', 'productos', dato));
-
-        if (ruta(producto.imagen) && (producto.imagen !== "default-img.png")) {
-            fs.unlinkSync(path.join(__dirname, '../../public/img/productos', producto.imagen));
-        };
-
-        let eliminarProducto = productos.filter(producto => producto.id !== id);
-        guardar(eliminarProducto);
-
-        res.redirect('/admin/list');
-    }
-}
+        db.products.findOne({
+            where: {
+                id: id
+            },
+            include : [{
+                all:true
+            }]
+        })
+        .then(producto => {
+                const img = req.file
+            
+                let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', 'productos', dato));
+                
+                if (img) {
+                    if (ruta(img.filename) && (img.filename !== "default-img.png")) {
+                        fs.unlinkSync(path.join(__dirname, '../../public/img/productos', img.filename));
+                    }
+                }
+        })
+        db.products.destroy({
+            where : {
+                id : id
+            }
+        })
+        .then(eliminar => {
+                    return res.redirect('/admin/list')
+                })
+            
+        .catch(errors => {
+                    return res.status(500).send(errors) 
+            })
+        }
+        }

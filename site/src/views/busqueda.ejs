@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head', {title: 'Busqueda'}) %>
+<body>
+    <body class="busqueda">
+        <%- include('./partials/header') %>
+        <main>
+        <% if (resultados.length != 0) { %>
+        <h1>Resultado de la busqueda: <%= busqueda %></h1>
+        <section class="resultados">
+            <% resultados.forEach(producto => { %>
+                <article>
+                    <img src="/img/productos/<%= producto.imagenes[0].name %>" alt="">
+                    <div class="contenedor">
+                        <h3><%= producto.nombre %></h3>
+                        <% if (producto.descuento > 0) { %>
+                        <p class="old">$<%= producto.precio %> </p>
+                        <p class="precio">$<%= producto.precio - (producto.precio * producto.descuento / 100) %> <small class="descuento"><%= producto.descuento %>%</small>
+                        <p>
+                        <% }else { %>
+                        <p class="precio">$<%= producto.precio %> </p>
+                        <% } %>
+                    </div>
+                    <button><a href="/products/detail/<%= producto.id %>">Comprar</a></button>
+                </article>
+                <% }) %>
+            
+        </section>
+    
+
+        <% }else { %>
+        <h1>
+            No se encontraron coincidencias con la busqueda de: <%= busqueda %>
+        </h1>
+        <section class="resultados">
+            <div class="card">
+            <div class="card-img">
+                <img src="/images/productos/searchNotFound.png" alt="producto no encontrado" />
+            </div>
+            <div class="card-text-box">
+                <h3 class="card-name">No se entraron productos</h3>
+            </div>
+            </div>
+        </section>
+        
+        <% } %>
+        </main>
+        <%- include('./partials/footer') %>
+</body>
+</html>
