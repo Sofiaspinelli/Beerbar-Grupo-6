@@ -2,12 +2,12 @@
 <html lang="en">
     <%- include('./partials/head', {title: 'Busqueda'}) %>
 <body>
-    <body class="busqueda">
+    <body class="products">
         <%- include('./partials/header') %>
         <main>
         <% if (resultados.length != 0) { %>
         <h1>Resultado de la busqueda: <%= busqueda %></h1>
-        <section class="resultados">
+        <section class="productos">
             <% resultados.forEach(producto => { %>
                 <article>
                     <img src="/img/productos/<%= producto.imagenes[0].name %>" alt="">

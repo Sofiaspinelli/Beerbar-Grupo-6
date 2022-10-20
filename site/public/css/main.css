@@ -98,6 +98,7 @@ main{
         width: 48%;
         height: 400px;
         margin: 10px 0;
+        min-width: 300px;
         /* padding: 20px; */
     }
     .home main  .productos article img{
