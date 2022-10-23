@@ -3,6 +3,7 @@ const path = require('path')
 const productos = require('../data/productos.json');
 const db = require('../../database/models');
 const {validationResult} = require('express-validator');
+const { resolveSoa } = require('dns');
 
 const guardar = (dato) => fs.writeFileSync(path.join(__dirname, '../data/productos.json')
 ,JSON.stringify(dato,null,4),'utf-8');
@@ -105,42 +106,74 @@ module.exports = {
             guardar(productos); */ 
        
     },
-    editar:(req,res) => {  /* (editProduct(req, res))  */
-        let type = ["birra", "comida"];
-        let id = +req.params.id;  
-        let producto = productos.find(producto => producto.id == id);
-
-        // res.send(producto)
-        if (producto.id === id) {
-            res.render('admin/editar',{producto, type}); 
-        }else { 
-            res.send('Producto no encontrado')
-        };
-    },
-    update: (req, res) => {
-        let id = +req.params.id;
-        let {selectType,marca,descripcion,precio,descuento,stock} = req.body
-        const img = req.file
-
-        productos.forEach(producto => {
-            if (producto.id === id) {
-                producto.producto = selectType
-                producto.marca = marca
-                producto.detalle = descripcion
-                producto.precio = +precio
-                producto.descuento = +descuento
-                producto.stock = +stock
-                producto.imagen = img? img.filename : "default-img.png"
-            }
+    editar:(req,res) => {
+       
+        let idParams = +req.params.id 
+        let categoria = db.categoria.findAll()
+        let producto = db.producto.findOne({
+            where: {
+                id : idParams
+            },
+            include :[{
+                all: true
+            }]
+        })
+        Promise.all([categoria,producto])
+        .then(([categoria,producto]) => {
+            let categoriaP = categoria.find(categoria => categoria.id === producto.categoria_id)
+            return res.render('editarProducto',{
+                producto,
+                categoria,
+                categoriaP
+            })
+        })
+        .catch(errors => {
+            return res.status(500).send(errors)
         });
-        guardar(productos);
-        /* Redirecciona a la lista */
-        return res.redirect('/admin/list');
-        // return res.redirect(`/products/detail/${productos.id}`)
-    },
+},
+    update: (req, res) => {
+        const idParams = +req.params.id;
+        let errors = validationResult(req)
+        
+        if (req.fileValidationError){
+            let imagen ={
+                param : 'imagen',
+                msg : req.fileValidationError,
+            }
+            errors.errors.update(imagen)}
+
+            if(errors.isEmpty()){
+                let {selectType,nombre,marca,descripcion,precio,descuento,stock, } = req.body
+
+                db.productos.update({
+                producto : selectType,
+                marca : marca,
+                detalle : descripcion,
+                precio : +precio,
+                descuento : +descuento,
+                stock : +stock,
+                imagen : img? img.filename : "",
+                updated_at: new Date
+            },{
+                    where : {
+                        id : idParams
+                    }
+                })
+                .then(productos => {
+                    return res.redirect('/admin/list')
+                        })
+                    }
+                },
+              /*   .then((result) => {
+                    return res.redirect('/admin/list')
+                }) .catch .catch(errors => {
+                    return res.status(500).send(errors)
+                });},*/ 
+
+
     destroy: (req, res) => {
         const id = +req.params.id; 
-       /*  let producto = productos.find(producto => producto.id === id); */ 
+   let producto = productos.find(producto => producto.id === id); 
         
         db.products.findOne({
             where: {
@@ -172,6 +205,11 @@ module.exports = {
             
         .catch(errors => {
                     return res.status(500).send(errors) 
-            })
-        }
-        }
+            });
+        
+        },
+
+           guardar(productos){ 
+        /* Redirecciona a la lista */
+        return res.redirect('/admin/list') },
+           }// return res.redirect(`/products/detail/${productos.id}`)
