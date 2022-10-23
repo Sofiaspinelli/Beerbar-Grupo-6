@@ -107,29 +107,16 @@ module.exports = {
        
     },
     editar:(req,res) => {
+     let  idParams = req.params.id
+     db.products.findByPk(idParams,{
+        include: [{all:true}]
+     }).then(producto=> {
+        return res.render('editar',{producto})
+     }).catch(error=>res.status(500).send(error))
+
+
        
-        let idParams = +req.params.id 
-        let categoria = db.categoria.findAll()
-        let producto = db.producto.findOne({
-            where: {
-                id : idParams
-            },
-            include :[{
-                all: true
-            }]
-        })
-        Promise.all([categoria,producto])
-        .then(([categoria,producto]) => {
-            let categoriaP = categoria.find(categoria => categoria.id === producto.categoria_id)
-            return res.render('editarProducto',{
-                producto,
-                categoria,
-                categoriaP
-            })
-        })
-        .catch(errors => {
-            return res.status(500).send(errors)
-        });
+  
 },
     update: (req, res) => {
         const idParams = +req.params.id;

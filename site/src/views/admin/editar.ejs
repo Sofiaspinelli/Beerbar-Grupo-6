@@ -35,9 +35,8 @@
             </div>
             <div>
                 <label for="selectType">Tipo de producto</label>
-               <select name="selectType">
-                <% type.forEach(select => { %>
-                <option value="<%= select %>" ><%= select %></option>
+               <select name="selectType" id="selectType">  
+                <option value"<%= type"<% type.forEach(select => { %>
                 <% }) %>
                </select>
                <% if (locals.errors && errors.selectType) { %>
