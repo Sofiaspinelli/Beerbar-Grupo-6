@@ -109,8 +109,9 @@ module.exports = {
     editar:(req,res) => {
        
         let idParams = +req.params.id 
-        let categoria = db.categoria.findAll()
-        let producto = db.producto.findOne({
+        let categoria = db.categories.findAll()
+        let types = db.types.findAll()
+        let producto = db.products.findOne({
             where: {
                 id : idParams
             },
@@ -118,13 +119,14 @@ module.exports = {
                 all: true
             }]
         })
-        Promise.all([categoria,producto])
-        .then(([categoria,producto]) => {
+        Promise.all([categoria, types, producto])
+        .then(([categoria, types, producto]) => {
             let categoriaP = categoria.find(categoria => categoria.id === producto.categoria_id)
-            return res.render('editarProducto',{
+            return res.render('admin/editar',{
                 producto,
                 categoria,
-                categoriaP
+                types,
+                // categoriaP
             })
         })
         .catch(errors => {
