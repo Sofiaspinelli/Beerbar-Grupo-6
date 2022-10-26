@@ -20,28 +20,50 @@
         <h1>Editar producto</h1>
         <form action="/admin/editar/<%= producto.id %>?_method=PUT" method="post" class="form" enctype="multipart/form-data">
             <div>
-                <label for="marca">Producto</label>
-                <input type="text" name="marca" id="marca" placeholder="Editar producto" value="<%= producto.marca%>" >
-                <% if (locals.errors && errors.marca) { %>
-                    <small><%= errors.marca.msg %> </small>
-                  <% } %>
+                <label for="selectType">Tipo de producto</label>
+                <select name="selectType" id="S">
+                    <!-- <option value="null" hidden> aa</option> -->
+                    <option value="1" <%=locals.old && old.selectType === "1" || producto.type_id === 1 ? "selected" : null %> >Comida</option>
+                    <option value="2" <%=locals.old && old.selectType === "2" || producto.type_id === 2 ? "selected" : null %> >Bebidas</option>
+                    <option value="3" <%=locals.old && old.selectType === "3" || producto.type_id === 3 ? "selected" : null %> >Aperitivos</option>
+                </select>
+                <% if (locals.errors && errors.selectType) { %>
+                    <small><%= errors.selectType.msg %> </small>
+                <% } %>
+            </div>
+            <div>
+                <label for="nombre">Nombre de Producto</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Ingresar nombre" value="<%- locals.old && old.nombre ? old.nombre : producto.nombre %>">
+                <% if (locals.errors && errors.nombre) { %>
+                 <small><%= errors.nombre.msg %> </small>
+                <% } %>
+            </div>
+            <div>
+                <label for="marca">Marca de Producto</label>
+                <input type="text" name="marca" placeholder="Ingresar marca" value="<%- locals.old && old.marca ? old.marca : producto.marca %>">
+                <!-- <% if (locals.errors && errors.marca) { %>
+                 <small><%= errors.marca.msg %> </small>
+                <% } %> -->
+                <small>**Solo para productos con Marca**</small>
             </div>
             <div>
                 <label for="descripcion">Descripción de producto</label>
-               <textarea name="descripcion" id="descripcion" cols="30" rows="4" placeholder="Ingresar descripción de producto"><%= producto.detalle%></textarea>
+               <textarea name="descripcion" id="descripcion" cols="30" rows="4" placeholder="Ingresar descripción de producto"><%= producto.detalle %></textarea>
                 <% if (locals.errors && errors.descripcion) { %>
                     <small><%= errors.descripcion.msg %> </small>
                   <% } %>
             </div>
             <div>
-                <label for="selectType">Tipo de producto</label>
-               <select name="selectType" id="selectType">  
-                <option value"<%= type"<% type.forEach(select => { %>
-                <% }) %>
-               </select>
-               <% if (locals.errors && errors.selectType) { %>
-                <small><%= errors.selectType.msg %> </small>
-              <% } %>
+                <label for="categoria">Categoria</label>
+                <select name="categoria" id="categoria">
+                    <option value="undefined" hidden>seleccionar una opcion</option>
+                    <option value="1" <%=locals.old && old.categoria === "1" || producto.categoria_id === 1 ? "selected" : null %> >Nuevo</option>
+                    <option value="2" <%=locals.old && old.categoria === "2" || producto.categoria_id === 2 ? "selected" : null %> >Especial</option>
+                    <option value="3" <%=locals.old && old.categoria === "3" || producto.categoria_id === 3 ? "selected" : null %>>Ninguna</option>
+                </select>
+                <% if (locals.errors && errors.categoria) { %>
+                 <small><%= errors.categoria.msg %> </small>
+                <% } %>
             </div>
 
             <div>
@@ -68,7 +90,7 @@
           
             <div>
                 <label for="img">Cargar imagen de producto</label>
-                <input class="file" type="file" name="img" accept="image/png, .jpeg, .jpg" width="200%" height="200%" multiple>
+                <input class="file" type="file" name="img" accept="image/png, .jpeg, .jpg" value="<%=producto.imagenes.name%>" width="200%" height="200%" multiple>
                 <!-- <input type="submit" value="Enviar imagen"> -->
                 <% if (locals.errors && errors.img) { %>
                     <small><%= errors.img.msg %> </small>

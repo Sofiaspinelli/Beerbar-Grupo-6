@@ -107,16 +107,39 @@ module.exports = {
        
     },
     editar:(req,res) => {
-     let  idParams = req.params.id
+/*      let  idParams = req.params.id
      db.products.findByPk(idParams,{
         include: [{all:true}]
      }).then(producto=> {
         return res.render('editar',{producto})
-     }).catch(error=>res.status(500).send(error))
+     }).catch(error=>res.status(500).send(error)) */
 
 
        
-  
+        let idParams = +req.params.id 
+        let categoria = db.categories.findAll()
+        let types = db.types.findAll()
+        let producto = db.products.findOne({
+            where: {
+                id : idParams
+            },
+            include :[{
+                all: true
+            }]
+        })
+        Promise.all([categoria, types, producto])
+        .then(([categoria, types, producto]) => {
+            let categoriaP = categoria.find(categoria => categoria.id === producto.categoria_id)
+            return res.render('admin/editar',{
+                producto,
+                categoria,
+                types,
+                // categoriaP
+            })
+        })
+        .catch(errors => {
+            return res.status(500).send(errors)
+        });
 },
     update: (req, res) => {
         const idParams = +req.params.id;
@@ -133,20 +156,21 @@ module.exports = {
                 let {selectType,nombre,marca,descripcion,precio,descuento,stock, } = req.body
 
                 db.productos.update({
+                nombre: nombre,
                 producto : selectType,
                 marca : marca,
                 detalle : descripcion,
                 precio : +precio,
                 descuento : +descuento,
                 stock : +stock,
+                categoria_id: +categoria,
                 imagen : img? img.filename : "",
                 updated_at: new Date
-            },{
-                    where : {
+            },{     where : {
                         id : idParams
                     }
                 })
-                .then(productos => {
+                .then(products => {
                     return res.redirect('/admin/list')
                         })
                     }
