@@ -90,8 +90,7 @@
           
             <div>
                 <label for="img">Cargar imagen de producto</label>
-                <input class="file" type="file" name="img" accept="image/png, .jpeg, .jpg" value="<%=producto.imagenes.name%>" width="200%" height="200%" multiple>
-                <!-- <input type="submit" value="Enviar imagen"> -->
+                <input class="file" type="file" name="img" width="200%" height="200%" multiple>
                 <% if (locals.errors && errors.img) { %>
                     <small><%= errors.img.msg %> </small>
                   <% } %>

@@ -144,37 +144,87 @@ module.exports = {
     update: (req, res) => {
         const idParams = +req.params.id;
         let errors = validationResult(req)
+        const img = req.file
         
         if (req.fileValidationError){
             let imagen ={
-                param : 'imagen',
+                param : 'img',
                 msg : req.fileValidationError,
             }
-            errors.errors.update(imagen)}
+            errors.errors.push(imagen)}
 
             if(errors.isEmpty()){
-                let {selectType,nombre,marca,descripcion,precio,descuento,stock, } = req.body
+                let {selectType,nombre,marca,descripcion,precio,descuento,stock, categoria} = req.body
 
-                db.productos.update({
-                nombre: nombre,
-                producto : selectType,
-                marca : marca,
-                detalle : descripcion,
-                precio : +precio,
-                descuento : +descuento,
-                stock : +stock,
-                categoria_id: +categoria,
-                imagen : img? img.filename : "",
-                updated_at: new Date
-            },{     where : {
+                let producto = db.products.findOne({
+                    where: {
                         id : idParams
-                    }
+                    },
+                    include: [{
+                        all:true
+                    }]
                 })
-                .then(products => {
-                    return res.redirect('/admin/list')
+            let actualizar = db.products.update({
+                type_id: +selectType,
+                nombre: nombre,
+                marca: marca,
+                detalle: descripcion,
+                precio: +precio,
+                descuento: +descuento,
+                stock: +stock,
+                categoria_id: +categoria,
+            },{
+                where: {id: idParams}
+            })
+            
+            Promise.all([producto, actualizar])
+                .then(([producto, actualizar]) => {
+
+                    
+
+                    if (img) {
+
+                        let image = producto.imagenes[0].name
+
+                        if (fs.existsSync(path.join(__dirname,'../../public/img/productos', image))) {
+                            fs.unlinkSync(path.join(__dirname, '../../public/img/productos', image)) 
+                        }
+                        // return res.status(200).json(image)
+                        
+                        db.images.update({
+                            name: img.filename,
+                        }, {
+                            where: {products_id: idParams}
+                        })
+                        .then(img => {
+                            return res.redirect('/')
+                        })
+
+                    }
+                    else {
+                        
+                        let image = producto.imagenes[0].name
+
+                        db.images.update({
+                            name: image,
+                        }, {
+                            where: {products_id: idParams}
+                        })
+                        .then(img => {
+                            return res.redirect('/')
                         })
                     }
-                },
+                    
+                })
+                .catch(errors => res.status(500).send(errors))
+            } else {
+                return res.redirect({
+                    errors: errors.mapped(),
+                    old: req.body  
+                }, '/admin/editar')
+                        
+            }
+    },
               /*   .then((result) => {
                     return res.redirect('/admin/list')
                 }) .catch .catch(errors => {
