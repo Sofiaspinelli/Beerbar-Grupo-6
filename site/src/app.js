@@ -14,6 +14,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 const adminRouter = require('./routes/admin');
+const apisRouter = require('./routes/api/apis');
 /* const remindMiddleware = require('./middlewares/remindMiddleware');
  */ /* No hacia falta el requerir ni el uso de app.use, de eso se encarga el cookie.cookieParser */
 const app = express();
@@ -49,6 +50,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/admin', adminRouter);
+app.use('/api', apisRouter);
 
 
 
