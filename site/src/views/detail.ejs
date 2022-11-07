@@ -38,18 +38,14 @@
         <button><a href="/products">SEGUIR COMPRANDO</a></button>
         <section class="suggestion">
             <div><h3>ACOMPAÑAR CON:</h3></div>
-            <article>
-                <div><img src="/img/pansito.jpg" alt="pansito"></div>
-                <h4>pan</h4>
-            </article>
-            <article>
-                <div><img src="/img/papitas.jpg" alt="papitas"></div>
-                <h4>papitas</h4>
-            </article>
-            <article>
-                <div><img src="/img/milanga.jpg" alt="milanga"></div>
-                <h4>milanga</h4>
-            </article>
+            <% randon.forEach(element => { %>
+                <a href="/products/detail/<%= element.id %>">
+                  <article>
+                    <div><img src="/img/productos/<%= element.imagenes[0].name %>" alt="pansito"></div>
+                    <h4><%= element.nombre %> </h4>
+                  </article>  
+                </a>
+            <% }) %>
             <div>
                 <button><a href="">ver mas</a></button>
             </div>
