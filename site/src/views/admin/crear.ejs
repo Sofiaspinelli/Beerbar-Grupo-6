@@ -11,7 +11,7 @@
             <section>
                 <div>
                     <label for="selectType">Tipo de producto</label>
-                    <select name="selectType" id="S">
+                    <select name="selectType" id="selectType">
                         <option value="null" hidden>seleccionar una opcion</option>
                         <option value="1" <%=locals.old && old.selectType === "1" ? "selected" : null %> >Comida</option>
                         <option value="2" <%=locals.old && old.selectType === "2" ? "selected" : null %> >Bebidas</option>
@@ -23,14 +23,14 @@
                 </div>
                 <div>
                     <label for="nombre">Nombre de Producto</label>
-                    <input type="text" name="nombre" placeholder="Ingresar nombre" value="<%- locals.old && old.nombre ? old.nombre : null %>">
+                    <input type="text" name="nombre" id="nombre" placeholder="Ingresar nombre" value="<%- locals.old && old.nombre ? old.nombre : null %>">
                     <% if (locals.errors && errors.nombre) { %>
                      <small><%= errors.nombre.msg %> </small>
                     <% } %>
                 </div>
                 <div>
                     <label for="marca">Marca de Producto</label>
-                    <input type="text" name="marca" placeholder="Ingresar marca" value="<%- locals.old && old.marca ? old.marca : null %>">
+                    <input type="text" name="marca" id="marca" placeholder="Ingresar marca" value="<%- locals.old && old.marca ? old.marca : null %>">
                     <!-- <% if (locals.errors && errors.marca) { %>
                      <small><%= errors.marca.msg %> </small>
                     <% } %> -->
@@ -95,5 +95,6 @@
             </section>
         </form>
     </main>
+    <script src="/js/validacionProductos.js"></script>
 </body>
 </html>
