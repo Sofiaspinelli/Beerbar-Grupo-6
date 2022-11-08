@@ -28,7 +28,7 @@ router.get('/list',adminCheck, list);
 
 // get/post crear
 router.get('/crear',adminCheck, crear);
-router.post('/crear', upload.single('img'), Validacion, newProducts);
+router.post('/crear', upload.single('img'), /* Validacion, */ newProducts);
 
 // get/put editar
 router.get('/editar/:id',adminCheck, editar)

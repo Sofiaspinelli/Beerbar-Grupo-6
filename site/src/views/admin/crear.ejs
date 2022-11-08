@@ -17,16 +17,18 @@
                         <option value="2" <%=locals.old && old.selectType === "2" ? "selected" : null %> >Bebidas</option>
                         <option value="3" <%=locals.old && old.selectType === "3" ? "selected" : null %> >Aperitivos</option>
                     </select>
-                    <% if (locals.errors && errors.selectType) { %>
+                    <!-- <% if (locals.errors && errors.selectType) { %>
                         <small><%= errors.selectType.msg %> </small>
-                    <% } %>
+                    <% } %> -->
+                    <small id="typeError"><%= locals.errors && errors.selectType ? errors.selectType.msg : null %> </small>
                 </div>
                 <div>
                     <label for="nombre">Nombre de Producto</label>
                     <input type="text" name="nombre" id="nombre" placeholder="Ingresar nombre" value="<%- locals.old && old.nombre ? old.nombre : null %>">
-                    <% if (locals.errors && errors.nombre) { %>
+                    <!-- <% if (locals.errors && errors.nombre) { %>
                      <small><%= errors.nombre.msg %> </small>
-                    <% } %>
+                    <% } %> -->
+                    <small id="nameError"><%= locals.errors && errors.nombre ? errors.nombre.msg : null %> </small>
                 </div>
                 <div>
                     <label for="marca">Marca de Producto</label>
@@ -89,7 +91,7 @@
                     <% } %>
                 </div>
                 <div class="botton">
-                    <button type="submit">Añadir Producto</button>
+                    <button id="btn-valid" type="submit">Añadir Producto</button>
                     <a href="/admin/list"><button type="button">Cancelar</button></a>
                 </div>
             </section>
