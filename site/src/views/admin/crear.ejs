@@ -36,14 +36,15 @@
                     <!-- <% if (locals.errors && errors.marca) { %>
                      <small><%= errors.marca.msg %> </small>
                     <% } %> -->
-                    <small>**Solo para productos con Marca**</small>
+                    <small id="marcaError"><%= locals.errors && errors.marca ? errors.marca.msg : null %> </small>
                 </div>
                 <div>
                     <label for="descripcion">Detalle del producto</label>
                     <textarea name="descripcion" id="descripcion" cols="30" rows="4" placeholder="Agregar descripcion"><%- locals.old && old.descripcion ? old.descripcion : null %></textarea>
-                    <% if (locals.errors && errors.descripcion) { %>
+                    <!-- <% if (locals.errors && errors.descripcion) { %>
                         <small><%= errors.descripcion.msg %> </small>
-                    <% } %>
+                    <% } %> -->
+                    <small id="detalleError"><%= locals.errors && errors.detalle ? errors.detalle.msg : null %> </small>
                 </div>
                 <div class="file">
                     <label for="img">Imagen del producto</label>
@@ -58,23 +59,26 @@
                     <div>
                         <label for="precio">Precio</label>
                         <input type="number" name="precio" id="precio" placeholder="precio" value="<%- locals.old && old.precio ? old.precio : null %>">
-                        <% if (locals.errors && errors.precio) { %>
+                       <!--  <% if (locals.errors && errors.precio) { %>
                           <small><%= errors.precio.msg %> </small>
-                        <% } %>
+                        <% } %> -->
+                        <small id="precioError"><%= locals.errors && errors.precio ? errors.precio.msg : null %> </small>
                     </div>
                     <div>
                         <label for="descuento">Descuento</label>
                         <input type="number" name="descuento" id="descuento" placeholder="descuento" value="<%- locals.old && old.descuento ? old.descuento : null %>">
-                        <% if (locals.errors && errors.descuento) { %>
+                        <!-- <% if (locals.errors && errors.descuento) { %>
                           <small><%= errors.descuento.msg %> </small>
-                        <% } %>
+                        <% } %> -->
+                        <small id="descuentoError"><%= locals.errors && errors.descuento ? errors.descuento.msg : null %> </small>
                     </div>
                     <div class="stock">
                         <label for="stock">Stock</label>
                         <input type="number" name="stock" id="stock" placeholder="stock" value="<%- locals.old && old.stock ? old.stock : null %>">
-                        <% if (locals.errors && errors.stock) { %>
+                        <!-- <% if (locals.errors && errors.stock) { %>
                           <small><%= errors.stock.msg %> </small>
-                        <% } %>
+                        <% } %> -->
+                        <small id="stockError"><%= locals.errors && errors.stock ? errors.stock.msg : null %> </small>
                     </div>
                 </div>
                 
@@ -86,9 +90,10 @@
                         <option value="2" <%=locals.old && old.categoria === "2" ? "selected" : null %> >Especial</option>
                         <option value="3" <%=locals.old && old.categoria === "3" ? "selected" : null %>>Ninguna</option>
                     </select>
-                    <% if (locals.errors && errors.categoria) { %>
+                    <!-- <% if (locals.errors && errors.categoria) { %>
                      <small><%= errors.categoria.msg %> </small>
-                    <% } %>
+                    <% } %> -->
+                    <small id="categoriaError"><%= locals.errors && errors.categoria ? errors.categoria.msg : null %> </small>
                 </div>
                 <div class="botton">
                     <button id="btn-valid" type="submit">Añadir Producto</button>
