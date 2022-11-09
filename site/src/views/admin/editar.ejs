@@ -21,37 +21,29 @@
         <form action="/admin/editar/<%= producto.id %>?_method=PUT" method="post" class="form" enctype="multipart/form-data">
             <div>
                 <label for="selectType">Tipo de producto</label>
-                <select name="selectType" id="S">
+                <select name="selectType" id="selectType">
                     <!-- <option value="null" hidden> aa</option> -->
                     <option value="1" <%=locals.old && old.selectType === "1" || producto.type_id === 1 ? "selected" : null %> >Comida</option>
                     <option value="2" <%=locals.old && old.selectType === "2" || producto.type_id === 2 ? "selected" : null %> >Bebidas</option>
                     <option value="3" <%=locals.old && old.selectType === "3" || producto.type_id === 3 ? "selected" : null %> >Aperitivos</option>
                 </select>
-                <% if (locals.errors && errors.selectType) { %>
-                    <small><%= errors.selectType.msg %> </small>
-                <% } %>
+                <small id="typeError"><%= locals.errors && errors.selectType ? errors.selectType.msg : null %> </small>
             </div>
             <div>
                 <label for="nombre">Nombre de Producto</label>
                 <input type="text" name="nombre" id="nombre" placeholder="Ingresar nombre" value="<%- locals.old && old.nombre ? old.nombre : producto.nombre %>">
-                <% if (locals.errors && errors.nombre) { %>
-                 <small><%= errors.nombre.msg %> </small>
-                <% } %>
+                <small id="nameError"><%= locals.errors && errors.nombre ? errors.nombre.msg : null %> </small>
             </div>
             <div>
                 <label for="marca">Marca de Producto</label>
-                <input type="text" name="marca" placeholder="Ingresar marca" value="<%- locals.old && old.marca ? old.marca : producto.marca %>">
-                <!-- <% if (locals.errors && errors.marca) { %>
-                 <small><%= errors.marca.msg %> </small>
-                <% } %> -->
+                <input type="text" name="marca" id="marca" placeholder="Ingresar marca" value="<%- locals.old && old.marca ? old.marca : producto.marca %>">
+                <!-- <small id="marcaError"><%= locals.errors && errors.marca ? errors.marca.msg : null %> </small> -->
                 <small>**Solo para productos con Marca**</small>
             </div>
             <div>
                 <label for="descripcion">Descripción de producto</label>
-               <textarea name="descripcion" id="descripcion" cols="30" rows="4" placeholder="Ingresar descripción de producto"><%= producto.detalle %></textarea>
-                <% if (locals.errors && errors.descripcion) { %>
-                    <small><%= errors.descripcion.msg %> </small>
-                  <% } %>
+               <textarea name="detalle" id="descripcion" cols="30" rows="4" placeholder="Ingresar descripción de producto"><%= producto.detalle %></textarea>
+               <small id="detalleError"><%= locals.errors && errors.detalle ? errors.detalle.msg : null %> </small>
             </div>
             <div>
                 <label for="categoria">Categoria</label>
@@ -61,9 +53,7 @@
                     <option value="2" <%=locals.old && old.categoria === "2" || producto.categoria_id === 2 ? "selected" : null %> >Especial</option>
                     <option value="3" <%=locals.old && old.categoria === "3" || producto.categoria_id === 3 ? "selected" : null %>>Ninguna</option>
                 </select>
-                <% if (locals.errors && errors.categoria) { %>
-                 <small><%= errors.categoria.msg %> </small>
-                <% } %>
+                <small id="categoriaError"><%= locals.errors && errors.categoria ? errors.categoria.msg : null %> </small>
             </div>
 
             <div>
@@ -76,33 +66,28 @@
             <div>
                 <label for="precio">Precio</label>
                 <input type="number" name="precio" id="precio" placeholder="Ingresar precio de producto" value="<%=producto.precio%>" >
-                <% if (locals.errors && errors.precio) { %>
-                    <small><%= errors.precio.msg %> </small>
-                <% } %>
+                <small id="precioError"><%= locals.errors && errors.precio ? errors.precio.msg : null %> </small>
             </div>
             <div>
                 <label for="descuento">Descuento</label>
                 <input type="number" name="descuento" id="descuento" placeholder="0" value="<%=producto.descuento%>" >
-                <% if (locals.errors && errors.descuento) { %>
-                    <small><%= errors.descuento.msg %> </small>
-                <% } %>
+                <small id="descuentoError"><%= locals.errors && errors.descuento ? errors.descuento.msg : null %> </small>
             </div>
           
             <div>
                 <label for="img">Cargar imagen de producto</label>
-                <input class="file" type="file" name="img" width="200%" height="200%" multiple>
-                <% if (locals.errors && errors.img) { %>
-                    <small><%= errors.img.msg %> </small>
-                  <% } %>
+                <input class="file" type="file" name="img" id="img" width="200%" height="200%" multiple>
+                <small id="stockError"><%= locals.errors && errors.stock ? errors.stock.msg : null %> </small>
             </div>
           
                 <div>
-                  <button type="submit">Editar Producto </button>
+                  <button id="btn-valid" type="submit">Editar Producto </button>
             </div>  
         </form>
     </main>
  
     <%-include('../partials/footer') %> 
+    <script src="/js/validacionEditarPro.js"></script>
  
 </body>
 </html>

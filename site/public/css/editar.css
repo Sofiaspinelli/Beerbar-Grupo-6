@@ -57,6 +57,9 @@
     background-color: var(--colorButtom);
     border: 1px solid  var(--colorButtom);
 } 
+.editar main .form div small{
+    color: red;
+}
 .editar main .form div button{
     width: 45%;
     border-radius: 10px;

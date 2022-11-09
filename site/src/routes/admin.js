@@ -32,7 +32,7 @@ router.post('/crear', upload.single('img'), /* Validacion, */ newProducts);
 
 // get/put editar
 router.get('/editar/:id',adminCheck, editar)
-router.put('/editar/:id', upload.single('img'), Validacion, update);
+router.put('/editar/:id', upload.single('img'),/*  Validacion, */ update);
 
 // delete
 router.delete('/eliminar/:id', destroy)

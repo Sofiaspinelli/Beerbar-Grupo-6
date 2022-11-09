@@ -66,7 +66,7 @@ window.addEventListener('load', () => {
                 break;
         
             default:
-                $('#typeError').innerHTML = null
+                $('#typeError').innerHTML = ""
                 this.classList.remove('is-invalid')
                 this.classList.add('is-valid')
                 validate.type = true
@@ -90,7 +90,7 @@ window.addEventListener('load', () => {
                 break;
         
             default:
-                $('#nameError').innerHTML = null
+                $('#nameError').innerHTML = ""
                 this.classList.remove('is-invalid')
                 this.classList.add('is-valid')
                 validate.nombre = true
@@ -107,7 +107,7 @@ window.addEventListener('load', () => {
                 break;
 
                 default:
-                $('#marcaError').innerHTML = null
+                $('#marcaError').innerHTML = ""
                 this.classList.remove('is-invalid')
                 this.classList.add('is-valid')
                 validate.marca = true
@@ -131,7 +131,7 @@ window.addEventListener('load', () => {
                     break;
 
                 default:
-                    $('#detalleError').innerHTML = null
+                    $('#detalleError').innerHTML = ""
                     this.classList.remove('is-invalid')
                     this.classList.add('is-valid')
                     validate.detalle = true
@@ -152,7 +152,7 @@ window.addEventListener('load', () => {
                 validate.precio = false
                 break;
             default:
-                $('#precioError').innerHTML = null
+                $('#precioError').innerHTML = ""
                 this.classList.remove('is-invalid')
                 this.classList.add('is-valid')
                 validate.precio = true
@@ -168,7 +168,7 @@ window.addEventListener('load', () => {
                 validate.descuento = false
                 break;
             default:
-                $('#descuentoError').innerHTML = null
+                $('#descuentoError').innerHTML = ""
                 this.classList.remove('is-invalid')
                 this.classList.add('is-valid')
                 validate.descuento = true
@@ -197,7 +197,7 @@ window.addEventListener('load', () => {
                 break;    
 
             default:
-                $('#stockError').innerHTML = null
+                $('#stockError').innerHTML = ""
                 this.classList.remove('is-invalid')
                 this.classList.add('is-valid')
                 validate.stock = true
@@ -219,7 +219,7 @@ window.addEventListener('load', () => {
                 break;
             
             default:
-                $('#categoriaError').innerHTML = null
+                $('#categoriaError').innerHTML = ""
                 this.classList.remove('is-invalid')
                 this.classList.add('is-valid')
                 validate.categoria = true
@@ -234,7 +234,7 @@ window.addEventListener('load', () => {
                 validate.img = false
                 break;
             default:
-                $('#imgError').innerHTML = null
+                $('#imgError').innerHTML = ""
                 validate.img = true
                 break;
         }
