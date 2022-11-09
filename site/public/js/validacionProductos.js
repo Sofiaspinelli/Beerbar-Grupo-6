@@ -22,19 +22,37 @@ window.addEventListener('load', () => {
     const stock = $('#stock')
     const categoria = $('#categoria')
     const img = $('#img')
+    const form = $('#form')
 
     const btn = document.getElementById('btn-valid')
-    console.log(btn)
+    console.log(form)
 
     /* Expresiones regulares para utilizar */
     let regExLetter = /^[a-zA-Z\sñáéíóúü]*$/
     let regExNumber = /^[+]?([0-9][0-9]?|150)$/
     const regExExt = /\.(jpg|jpeg|png|jfif|gif|webp)$/
 
+    /* validando campos */
+
+    if ((type.value === "") || (nombre.value === "") || (detalle.value === "") || (precio.value == "")) {
+    //   comprueba campos vacios
+    btn.onclick = () => {
+        btn.disabled = true
+        btn.style.backgroundColor = 'red'
+        alert("Los campos no pueden quedar vacios");
+       return true;
+    }
+    }
+
     type.addEventListener('blur', function() {
         switch (true) {
+            case this.value === "null":
+                $('#typeError').innerHTML = 'Debes seleccionar una opcion'
+                this.classList.add('is-invalid')
+                validate.type = false
+                break;
             case !this.value.trim():
-                $('#typeError').innerHTML = 'funciona el error validation'
+                $('#typeError').innerHTML = 'Debes seleccionar una opcion'
                 this.classList.add('is-invalid')
                 validate.type = false
                 break;
@@ -181,6 +199,11 @@ window.addEventListener('load', () => {
     })
     categoria.addEventListener('blur', function() {
         switch (true) {
+            case this.value === "undefined":
+                $('#typeError').innerHTML = 'Debes seleccionar una opcion'
+                this.classList.add('is-invalid')
+                validate.type = false
+                break;
             case !this.value.trim():
                 $('#categoriaError').innerHTML = "Debes ingresar una de las categoria"
                 this.classList.add('is-invalid')
