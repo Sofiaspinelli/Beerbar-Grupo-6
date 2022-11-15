@@ -42,15 +42,15 @@ window.addEventListener('load', () => {
 
     /* validando campos */
 
-    if ((type.value === "") || (nombre.value === "") || (detalle.value === "") || (precio.value == "")) {
-    //   comprueba campos vacios
-    btn.onclick = () => {
-        btn.disabled = true
-        btn.style.backgroundColor = 'red'
-        alert("Los campos no pueden quedar vacios");
-       return true;
-    }
-    }
+    // if () {
+    // //   comprueba campos vacios
+    // btn.onclick = () => {
+    //     btn.disabled = true
+    //     btn.style.backgroundColor = 'red'
+    //     alert("Los campos no pueden quedar vacios");
+    //    return true;
+    // }
+    // }
 
     type.addEventListener('blur', function() {
         switch (true) {
@@ -66,7 +66,7 @@ window.addEventListener('load', () => {
                 break;
         
             default:
-                $('#typeError').innerHTML = ""
+                $('#typeError').innerHTML = null
                 this.classList.remove('is-invalid')
                 this.classList.add('is-valid')
                 validate.type = true
@@ -90,7 +90,7 @@ window.addEventListener('load', () => {
                 break;
         
             default:
-                $('#nameError').innerHTML = ""
+                $('#nameError').innerHTML = null
                 this.classList.remove('is-invalid')
                 this.classList.add('is-valid')
                 validate.nombre = true
@@ -107,7 +107,7 @@ window.addEventListener('load', () => {
                 break;
 
                 default:
-                $('#marcaError').innerHTML = ""
+                $('#marcaError').innerHTML = null
                 this.classList.remove('is-invalid')
                 this.classList.add('is-valid')
                 validate.marca = true
@@ -131,7 +131,7 @@ window.addEventListener('load', () => {
                     break;
 
                 default:
-                    $('#detalleError').innerHTML = ""
+                    $('#detalleError').innerHTML = null
                     this.classList.remove('is-invalid')
                     this.classList.add('is-valid')
                     validate.detalle = true
@@ -152,7 +152,7 @@ window.addEventListener('load', () => {
                 validate.precio = false
                 break;
             default:
-                $('#precioError').innerHTML = ""
+                $('#precioError').innerHTML = null
                 this.classList.remove('is-invalid')
                 this.classList.add('is-valid')
                 validate.precio = true
@@ -168,7 +168,7 @@ window.addEventListener('load', () => {
                 validate.descuento = false
                 break;
             default:
-                $('#descuentoError').innerHTML = ""
+                $('#descuentoError').innerHTML = null
                 this.classList.remove('is-invalid')
                 this.classList.add('is-valid')
                 validate.descuento = true
@@ -197,7 +197,7 @@ window.addEventListener('load', () => {
                 break;    
 
             default:
-                $('#stockError').innerHTML = ""
+                $('#stockError').innerHTML = null
                 this.classList.remove('is-invalid')
                 this.classList.add('is-valid')
                 validate.stock = true
@@ -219,7 +219,7 @@ window.addEventListener('load', () => {
                 break;
             
             default:
-                $('#categoriaError').innerHTML = ""
+                $('#categoriaError').innerHTML = null
                 this.classList.remove('is-invalid')
                 this.classList.add('is-valid')
                 validate.categoria = true
@@ -234,7 +234,7 @@ window.addEventListener('load', () => {
                 validate.img = false
                 break;
             default:
-                $('#imgError').innerHTML = ""
+                $('#imgError').innerHTML = null
                 validate.img = true
                 break;
         }
@@ -253,4 +253,6 @@ window.addEventListener('load', () => {
         categoria : true ,
         img : true 
     }
+
+    funcValidate(validate)
 });

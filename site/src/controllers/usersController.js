@@ -3,7 +3,7 @@ const path = require('path')
 const { validationResult } = require('express-validator')
 const bcrypt = require('bcryptjs')
 // const usuarios = require('../data/users.json')
-const db = require('../../database/models');
+const db = require('../database/models');
 
 const { emitWarning } = require('process')
 const guardar = (dato) => fs.writeFileSync(path.join(__dirname, '../data/users.json')
@@ -111,7 +111,7 @@ module.exports = {
             email: email,
             pass: bcrypt.hashSync(pass, 12),
             contacto: +contacto,
-            roles_id: 1,
+            roles_id: 2,
             // avatars_id: 1,
             // createdAt: "2022-10-13 00:01:08",
             // updatedAt: "2022-10-13 00:01:08"
@@ -125,13 +125,14 @@ module.exports = {
                 }
                 db.avatars.create(imagen)
                 .then(img => {
+                    /* 
                     req.session.userLogin = {
                         id: usuarioNuevo.id,
                         nombre: usuarioNuevo.nombre,
                         apellido: usuarioNuevo.apellido,
                         rol: usuarioNuevo.roles_id,
-                        imagen: img.name
-                        }
+                        imagen: usuarioNuevo.imagenesAvatar[0].name
+                        } */
                     return res.redirect('/')
                 })
             }else{
@@ -140,13 +141,13 @@ module.exports = {
                     users_id: usuarioNuevo.id
                 })
                 .then(img => {  
-                    req.session.userLogin = {
+                   /*  req.session.userLogin = {
                         id: usuarioNuevo.id,
                         nombre: usuarioNuevo.nombre,
                         apellido: usuarioNuevo.apellido,
                         rol: usuarioNuevo.roles_id,
                         imagen: img.name
-                        }  
+                        }   */
                     return res.redirect('/')
                 })
             }

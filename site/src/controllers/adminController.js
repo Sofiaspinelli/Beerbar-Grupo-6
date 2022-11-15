@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 // const productos = require('../data/productos.json');
-const db = require('../../database/models');
+const db = require('../database/models');
 const {validationResult} = require('express-validator');
 const { resolveSoa } = require('dns');
 
@@ -234,7 +234,7 @@ module.exports = {
 
     destroy: (req, res) => {
         const id = +req.params.id; 
-   let producto = productos.find(producto => producto.id === id); 
+//    let producto = productos.find(producto => producto.id === id); 
         
         db.products.findOne({
             where: {

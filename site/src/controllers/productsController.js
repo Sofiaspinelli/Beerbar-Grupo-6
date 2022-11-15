@@ -1,6 +1,6 @@
 // const productos = require('../data/productos.json');
 const usuarios = require('../data/users.json');
-const db = require('../../database/models');
+const db = require('../database/models');
 const { fn, Op, literal } = require('sequelize')
 const Sequelize = require('sequelize')
 

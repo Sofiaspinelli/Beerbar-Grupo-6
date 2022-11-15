@@ -42,15 +42,23 @@ window.addEventListener('load', () => {
 
     /* validando campos */
 
-    if ((type.value === "") || (nombre.value === "") || (detalle.value === "") || (precio.value == "")) {
-    //   comprueba campos vacios
-    btn.onclick = () => {
-        btn.disabled = true
-        btn.style.backgroundColor = 'red'
-        alert("Los campos no pueden quedar vacios");
-       return true;
-    }
-    }
+
+    console.log(form.length)
+    console.log(form[2])
+
+//     document.formularios.nombre.focus();
+//     document.formularioContacto.addEventListener('submit', validarFormulario);
+// }
+
+    // if ((type.value === null) || (nombre.value === null) || (detalle.value === null) || (precio.value == null)) {
+    // //   comprueba campos vacios
+    // btn.onclick = () => {
+    //     btn.disabled = true
+    //     btn.style.backgroundColor = 'red'
+    //     alert("Los campos no pueden quedar vacios");
+    //    return true;
+    // }
+    // }
 
     type.addEventListener('blur', function() {
         switch (true) {
@@ -253,4 +261,6 @@ window.addEventListener('load', () => {
         categoria : true ,
         img : true 
     }
+
+    funcValidate(validate)
 });

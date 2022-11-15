@@ -1,4 +1,4 @@
-const {sequalize, sequelize} = require("../database/models");
+const {sequalize, sequelize} = require("../src/database/models");
 
 const dbConnectionTest = async () => {
     try {
