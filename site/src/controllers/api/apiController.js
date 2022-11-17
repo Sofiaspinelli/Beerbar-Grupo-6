@@ -63,6 +63,58 @@ module.exports = {
             }
             return res.status(200).json(user)
         })
-    }
-    
+    },
+    productos: (req, res) => {
+        
+        db.products.findAll()
+        .then(productos => {
+         // return res.status(200).send(productos)
+ 
+         let list = {
+             status: 200,
+             meta: {
+                 product: 'LISTA DE PRODUCTOS',
+                 count: productos.length,
+                 url: `${req.protocol}://${req.get('host')}${req.originalUrl}`
+             },
+             data: productos,
+         }
+         return res.status(200).json(list)
+        })
+        .catch(error => res.status(500).send(error))
+     
+     },
+     productosPorId: (req, res) => {
+        const id = req.params.id;
+        db.products.findByPk(id, {
+            include: [{all: true}]
+        })
+        .then(productos => {
+
+            let user = {
+                status: 200,
+                meta: {
+                    product: 'PRODUCTO ESPECIFICO',
+                    
+                    imgProduct: "www.rutagenerica.com",
+                    url: `${req.protocol}://${req.get('host')}${req.originalUrl}`,
+                    volverAListaDePrductos: `http://localhost:3000/api/productos/`
+                },
+                data: {
+                    id: productos.id,
+                    nombre: productos.nombre,
+                    marca:productos.marca,
+                    detalle: productos.detalle,
+                    precio: productos.precio,
+                    descuento: productos.descuento,
+                    stock: productos.stock,
+                    tipo: productos.tipos.name,
+                    categoria: productos.category.name,
+                    vendidos: productos.vendidos
+                
+                }
+            }
+            return res.status(200).json(user)
+        })
+    },
 }
