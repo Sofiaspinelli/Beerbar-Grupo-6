@@ -45,7 +45,7 @@ function Main() {
 
         <h1>PROMOCIONES</h1>
 
-        <section class="productos">
+        <section className="productos">
           {productos.map((producto, index) => 
 
             <Article

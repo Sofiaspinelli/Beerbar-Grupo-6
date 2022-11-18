@@ -6,14 +6,14 @@ function Article(id, nombre, imagen, detalle, precio, descuento) {
     
         <div>
         <img src={`/img/productos/${imagen}`} alt="" />
-        <div class="contenedor">
+        <div className="contenedor">
             <h3>{nombre}</h3>
 
-            <p class="old">{precio}</p>
-            <p class="precio">${precio - (precio * descuento / 100)}<small class="descuento">{descuento}</small></p>
+            <p className="old">{precio}</p>
+            <p className="precio">${precio - (precio * descuento / 100)}<small className="descuento">{descuento}</small></p>
             
             
-            <p class="precio">${precio}</p>
+            <p className="precio">${precio}</p>
         
         </div>
         <button><a href={`/products/detail/${id}`}>Comprar</a></button>

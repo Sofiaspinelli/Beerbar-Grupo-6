@@ -1,0 +1,118 @@
+/* header */
+.login header{
+    /* background-color: black; */
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+}
+.login header .logo img{
+    width: 65%;
+    margin-left: 10px;
+}
+.login header nav ul{
+    display: flex;
+    font-size: 40px;
+    margin: 10px;
+    padding: 0;
+    color: var(--colorBlanco);
+}
+
+.login header nav ul li{
+    margin-right: 10px;
+}
+
+/* main */
+.login main{
+    background-color: rgba(255, 255, 255, 0.178);
+    padding: 20px 20px 199px;
+    border: 2px double black;
+    border-radius: 20px;
+    width: 335px;
+    margin: 0 auto;
+}
+.login main h1{
+    text-align: center;
+    text-decoration:underline;
+}
+.login main .container{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    font-size: 18px;
+}
+.login main .container label{
+    font-size: 20px;
+}
+.login main .container input{
+    padding: 10px;
+    border-radius: 10px;
+}
+.login main .container small{
+    font-size: 16px;
+    color: red;
+}
+.login main .login_button{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15px;
+}
+.login main .login_button button{
+    background-color: var(--colorButtom);
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding: 0px 98px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 291px;
+}
+.login main .login_button .one{
+    padding: 0px 120px;
+}
+.login main .login_button button a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+.login main .login_button button i{
+    font-size: 40px;
+    margin-right: 10px;
+}
+.login main .login_button button:hover{
+    background-color: var(--colorNaranja);
+    color: var(--colorBlanco);
+    transition: all 0.6s;
+}
+.login main .extra{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+/* tablet */
+
+/* desktop */
+@media (min-width:769px){
+    .login header{
+        /* background-color: white; */
+        display: block;
+        text-align: center;
+    }
+    .login header .logo img{
+        width: 250px;
+        margin: 5px 0 0;
+    }
+    .login header nav{
+        width: 120px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+}

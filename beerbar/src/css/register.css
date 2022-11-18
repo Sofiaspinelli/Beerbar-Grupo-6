@@ -1,0 +1,155 @@
+/* header */
+.register header{
+    /* background-color: orange; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+.register header .logo img{
+    width: 65%;
+    margin-left: 10px;
+}
+
+.register header nav ul{
+    display: flex;
+    font-size: 40px;
+    margin: 10px;
+    padding: 0;
+    color: var(--colorBlanco);
+}
+.register header ul li{
+    margin-right: 10px;
+}
+.register nav ul li a{
+    color: var(--colorBlanco);
+}
+
+/* main */
+
+.register main{
+   width: 335px;
+   margin: 0 auto;
+   background-color: rgba(255, 255, 255, 0.178);
+   padding: 20px 20px;
+   border: 2px double black;
+   border-radius: 20px;
+}
+.register main h1{
+    text-align: center;
+    text-decoration:underline;
+}
+.register main .container{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    font-size: 18px;
+}
+.register main .container label, .container-img label{
+    font-size: 20px;
+}
+.register main .container label p{
+    width: 120px;
+    font-size: 16px;
+    margin: 0;
+    color: rgb(2 52 2);
+}
+.register main .container input{
+    padding: 10px;
+    border-radius: 10px;
+}
+.register main .container small, .register main .bottom small{
+    margin-top: 5px;
+    font-size: 16px;
+    color: red;
+}
+.register main .bottom{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.register main .bottom input{
+    font-size: 20px;
+}
+.container-img {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    font-size: 18px;
+    margin: 20px 0;
+}
+.container-img input{
+    border: 2px solid black;
+    background-color: var(--colorBlanco);
+    padding: 10px;
+    border-radius: 10px;
+}
+    
+.register main .registrarse button{
+    background-color: var(--colorButtom);
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    padding: 0px 98px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 291px;
+    margin: 0;
+}
+.register main .registrarse button i{
+    font-size: 40px;
+    margin-right: 10px;
+}
+.register main .registrarse button:hover{
+    background-color: var(--colorNaranja);
+    color: var(--colorBlanco);
+    transition: all 0.6s;
+}
+.register main div h4{
+    font-size: 18px;
+}
+.register main .G{
+    display: flex;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.register main .G button{
+    background-color: var(--colorButtom);
+    font-size: 30px;
+    margin: 0 10px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 8px;
+    display: flex;
+}
+.register main .G button:hover{
+    background-color: blue;
+    color: var(--colorBlanco);
+    transition: all 0.6s;
+}
+
+/* tablet */
+
+/* desktop */
+@media (min-width:769px){
+    .register header{
+        /* background-color: white; */
+        display: block;
+        text-align: center;
+    }
+    .register header .logo img{
+        width: 250px;
+        margin: 5px 0 0;
+    }
+    .register header nav{
+        width: 120px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import  logo  from "../../assets/logo/logo-beerbar.png";
 
 function Head() {
   return (
@@ -7,7 +8,7 @@ function Head() {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    
-    <link href="/img/logo/logo-beerbar.png" type="image/x-icon" rel="shortcut icon" />
+    <link href={logo} type="image/x-icon" rel="shortcut icon" />
     
     <script src="https://kit.fontawesome.com/e41faadd8e.js" crossorigin="anonymous"></script>
     

@@ -1,31 +1,32 @@
 import React from 'react'
+import  logo  from "../../assets/logo/logo-beerbar.png";
 
 function Header() {
   return (
-    <header class="header">
-    <div class="flex">
-        <div class="logo">
-            <a href="/"><img src="/img/logo/logo-beerbar.png" alt="logo" /></a>
+    <header className="header">
+    <div className="flex">
+        <div className="logo">
+            <a href="/"><img src={logo} alt="logo" /></a>
         </div> 
         <form action="/busqueda" method="get">
-        <div class="buscar">
+        <div className="buscar">
             <input type="text" name="search" id="search" placeholder="Birras, comida y más..." required />
-            <button type="submit" class="btn">
-                <i class="fa-solid fa-magnifying-glass icon"></i>
+            <button type="submit" className="btn">
+                <i className="fa-solid fa-magnifying-glass icon"></i>
             </button>
         </div>
         </form>
         
-        <div class="icons">
-            <button class="carrito">
-               
-                <a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+        <div className="icons">
+            <button className="carrito">
+            
+                <a href="/products/cart"><i className="fa-solid fa-cart-shopping"></i></a>
                 
-                <a href="/users/login"><i class="fa-solid fa-cart-shopping"></i></a> 
-                 
+                <a href="/users/login"><i className="fa-solid fa-cart-shopping"></i></a> 
+
             </button>
-            <button class="burger">
-                <i class="fa-solid fa-bars"></i>
+            <button className="burger">
+                <i className="fa-solid fa-bars"></i>
             </button>
         </div>
     </div>
@@ -33,8 +34,8 @@ function Header() {
     <nav>
         <ul>
             <li><a href="/products">Productos</a></li>
-            <li><a href="#">Empresa</a></li>
-            <li><a href="#">Ayuda</a></li>
+            <li><a href="/empresa">Empresa</a></li>
+            <li><a href="/ayuda">Ayuda</a></li>
           
             <li><a href="/admin/list">Admin</a></li>
           

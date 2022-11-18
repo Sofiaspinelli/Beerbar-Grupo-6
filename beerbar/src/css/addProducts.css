@@ -1,0 +1,137 @@
+.add main{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.add main form {
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(120, 120, 120, 0.6);
+    border: 2px double var(--colorNaranja);
+    border-radius: 30px;
+}
+.add main form section div{
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+.add main form section div input{
+    width: 80%;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 4px;
+}
+.add main form section .file input{
+    background-color: var(--colorButtom);
+    border: 1px solid  var(--colorButtom);
+}
+.add main form section div select{
+    width: 60%;
+    font-size: 24px;
+    border-radius: 10px;
+    padding: 6px;
+    background-color: var(--colorButtom);
+}
+.add main form section div select option{
+    width: 100%;
+}
+.add main form section div textarea{
+    width: 80%;
+    border-radius: 10px;
+    font-size: 20px;
+}
+.add main form section .file input{
+    width: 70%;
+    min-width: 270px;
+}
+
+ /*file style  */
+ .add main form section .file .file-select {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0 0;
+  }
+  
+  .add main form section .file .file-select::before {
+    background-color: var(--colorButtom);
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    content: 'Seleccionar'; /* testo por defecto */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
+  .add main form section .file .file-select input[type="file"] {
+    opacity: 0;
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+  }
+  
+  #src-file1::before {
+    content: 'Seleccionar Archivo';
+  }
+ /* --- */
+
+.add main form section .p-s{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+.add main form section .p-s div{
+    width: 100%;
+}
+.add main form section div small{
+    color: red;
+    font-size: 18px;
+    margin-top: 10px;
+}
+.add main form section .botton{
+    display: block;
+    margin: 10px 0;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 2px solid var(--colorNaranja);
+}
+.add main form section .botton button{
+    width: 45%;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 6px;
+    background-color: var(--colorButtom);
+}
+
+.add main form section .file .file-select:hover::before, .add main form section .botton button:hover, .add main form section .botton button a:hover, .add main form section .file input:hover, .add main form section div select:hover{
+    background-color: var(--colorNaranja);
+    color: var(--colorBlanco);
+    transition: 0.6s;
+}
+.add main form section div input:hover, .add main form section div textarea:hover{
+    border: 1px solid var(--colorNaranja);
+}
+@media (min-width: 460px){
+    .add main form section .p-s div{
+        width: 33%;
+    }
+}
