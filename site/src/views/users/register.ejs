@@ -30,67 +30,67 @@
                 
                 <label for="name">Nombre</label>
                 <input type="text" name="name" id="name" placeholder="Ingresar nombre" value="<%= locals.old && old.name ? old.name : null%>">
-                <% if (locals.errors && errors.name) { %>
-                    <small><%= errors.name.msg %></small>
-                <% } %>
+                
+                    <small id="nombreError"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
+                
             </div>
             <div class="container">
                 <label for="apellido">Apellido</label>
                 <input type="text" name="apellido" id="apellido" placeholder="Ingresar su apellido" value="<%= locals.old && old.apellido ? old.apellido : null%>">
-                <% if (locals.errors && errors.users) { %>
-                    <small><%= errors.users.msg %></small>
-                <% } %>
+                
+                    <small id="apellidoError"><%= locals.errors && errors.apellido ? errors.apellido.msg : null %></small>
+                
             </div>
             
                 <div class="container">
                     <label for="email">E-mail</label>
                 <input type="email" name="email" id="email" placeholder="Ingresar e-mail" value="<%= locals.old && old.email ? old.email : null%>">
-                <% if (locals.errors && errors.email) { %>
-                    <small><%= errors.email.msg %></small>
-                <% } %>
+                
+                    <small id="emailError"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
+                
                 </div>
                 
                 <div class="container">
                 <label for="pass">Contraseña</label>
                 <input type="password" name="pass" id="pass" placeholder="Ingresar Contraseña" >
-                <% if (locals.errors && errors.pass) { %>
-                    <small><%= errors.pass.msg %></small>
-                <% } %>
+                
+                    <small id="passError"><%= locals.errors && errors.pass ? errors.pass.msg : null %></small>
+                
             </div>
             <div class="container">
                 <input type="password" name="pass2" id="pass2" placeholder="Repetir Contraseña" >
-                <% if (locals.errors && errors.pass2) { %>
-                    <small><%= errors.pass2.msg %></small>
-                <% } %>
+                
+                    <small id="pass2Error"><%= locals.errors && errors.pass2 ? errors.pass2.msg : null %></small>
+                
             </div>
             <div class="container">
                 <label for="contact">Nro de Contacto <p>("No es obligatorio")</p></label>
                 <input type="number" name="contacto" id="contacto" placeholder="Ingresar Nro">
-                <% if (locals.errors && errors.contacto) { %>
-                    <small><%= errors.contacto.msg %></small>
-                <% } %>
+                
+                    <small id="contactoError"><%= locals.errors && errors.contacto ? errors.contacto.msg : null %></small>
+                
             </div>
             <h2 class="bottom">Genero</h2>
             <div class="bottom">
-                <input type="radio" name="genero" id="F" value="F" <%= locals.old && old.genero==='F' ? "checked" : null%> >
+                <input type="radio" class="genero" name="genero" id="F" value="F" <%= locals.old && old.genero==='F' ? "checked" : null%> >
                 <label for="F">Femenino</label>
                 
-                <input type="radio" name="genero" id="M" value="M" <%= locals.old && old.genero==='M' ? "checked" : null%>>
+                <input type="radio" class="genero" name="genero" id="M" value="M" <%= locals.old && old.genero==='M' ? "checked" : null%>>
                 <label for="M">Masculino</label>
                 
-                <input type="radio" name="genero" id="SN" value="SN" <%= locals.old && old.genero==='SN' ? "checked" : null%> >
+                <input type="radio" class="genero" name="genero" id="SN" value="SN" <%= locals.old && old.genero==='SN' ? "checked" : null%> >
                 <label for="SN">Prefiero no decirlo</label> 
                 <br>
-                <% if (locals.errors && errors.genero) { %>
-                    <small><%= errors.genero.msg %></small>
-                <% } %>
+                
+                    <small id="generoError"><%= locals.errors && errors.genero ? errors.genero.msg : null %></small>
+                
             </div>
             <div class="container-img">
                 <label for="ima">Subi tu imagen aqui</label>
                 <input type="file" name="image" id="image">
-                <% if (locals.errors && errors.image) { %>
-                    <small><%= errors.image.msg %></small>
-                <% } %>
+                
+                    <small id="imgError"><%= locals.errors && errors.image ? errors.image.msg : null %></small>
+                
             </div>
 
             <div class="bottom">
@@ -98,13 +98,13 @@
                     <input type="checkbox" name="terminos" id="terminos">
                     <label for="terminos">Acepto los terminos y condiciones</label>
                 </div>
-                <% if (locals.errors && errors.terminos) { %>
-                    <small><%= errors.terminos.msg %></small>
-                <% } %>
+                
+                    <small id="terminosError"><%= locals.errors && errors.terminos ? errors.terminos.msg : null %></small>
+                
             </div>
 
             <div class="registrarse">
-                <button type="submit"><i class="fa-solid fa-user"></i> sign-up</button>
+                <button type="submit" id="btn_submit"><i class="fa-solid fa-user"></i> sign-up</button>
             </div>
             <div class="G">
                 <h4>Registrarse con:</h4>
@@ -112,5 +112,6 @@
             </div>
         </form>
     </main>
+    <script src="/js/validacionUsuarios.js"></script>
 </body>
 </html>
