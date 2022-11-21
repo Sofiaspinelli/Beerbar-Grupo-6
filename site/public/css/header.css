@@ -104,6 +104,9 @@
     width: 89%;
     margin: 0 auto;
 }
+.header .desaparecer{
+    display: flex;
+}
 .header nav ul li {
     margin: 5px;
     

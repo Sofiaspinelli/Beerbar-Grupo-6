@@ -9,6 +9,8 @@
     <script src="https://kit.fontawesome.com/e41faadd8e.js" crossorigin="anonymous"></script>
     <!--  Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <script src="/js/menu.js"></script>
     <title>Detalle</title>
 </head>
 <body class="detail">
@@ -30,7 +32,12 @@
                     <% }else { %>
                     <p class="precio">$<%= products.precio %> </p>
                     <% } %>
-                    <div class="cantidad"><button class="button">+</button><input type="text" placeholder="0"><button class="button">-</button></div>
+                    <div class="cantidad">
+                        <button class="button" id="increase">+</button>
+                        <input type="number" id="count" value="1" placeholder="0">
+                        <button class="button" id="decrease">-</button>
+                        <input type="number" id="stock" value="<%= products.stock %>">
+                    </div>
                     <button>añadir al carrito</button>
                 </div>
             </article>
@@ -53,6 +60,6 @@
     </main>
 
     <%- include('./partials/footer') %>
-    
+    <script src="/js/increase.js"></script>
 </body>
 </html>
