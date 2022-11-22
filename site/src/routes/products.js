@@ -6,6 +6,6 @@ const middleUser = require('../middlewares/middleUser');
 /* GET products page. */
 router.get('/', products);
 router.get('/detail/:id', detail);
-router.get('/cart', middleUser, cart);
+router.get('/cart', /* middleUser, */ cart);
 
 module.exports = router;

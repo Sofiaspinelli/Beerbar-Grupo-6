@@ -106,6 +106,10 @@
 }
 .header .desaparecer{
     display: flex;
+    align-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 .header nav ul li {
     margin: 5px;

@@ -11,10 +11,10 @@ const middleUser = require('../middlewares/middleUser');
 
 
 /* GET users listing. */
-router.get('/register', middleUser, register);
+router.get('/register', /* middleUser, */ register);
 router.post('/register' ,upload.single('image'),/* registerValidator, */ processRegister);
 
-router.get('/login', middleUser, login);
+router.get('/login', /* middleUser, */ login);
 router.post('/login', loginValidator, processLogin);
 
 // router.get('/register', register);
