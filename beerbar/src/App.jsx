@@ -3,16 +3,15 @@ import Footer from "./components/partials/Footer"
 import Main from "./components/Main"
 
 import './css/styles.css'
+
 function App() {
   return (
     <div className="home">
-     <Header></Header>
+      <Header/>
      
-     <Main>
-      
-      </Main>
+      <Main/>
      
-     <Footer></Footer>
+      <Footer/>
     </div>
   );
 }

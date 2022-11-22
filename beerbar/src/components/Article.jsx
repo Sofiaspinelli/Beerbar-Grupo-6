@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function Article(id, nombre, imagen, detalle, precio, descuento) {
+function Article({id, nombre, imagen, detalle, precio, descuento}) {
     return (
     
-        <div>
+    <div>
         <img src={`/img/productos/${imagen}`} alt="" />
         <div className="contenedor">
             <h3>{nombre}</h3>

@@ -52,13 +52,8 @@ function Main() {
             key = {index}
             id = {producto.id}
             nombre = {producto.nombre}
-            marca = {producto.marca}
-            detalle = {producto.detalle}
             precio = {producto.precio}
             descuento = {producto.descuento}
-            stock = {producto.stock}
-            categoria = {producto.categoria}
-            tipo = {producto.tipo}
             imagen = {producto.imagen}
             />
 

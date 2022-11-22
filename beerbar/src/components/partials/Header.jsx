@@ -40,7 +40,7 @@ function Header() {
             <li><a href="/admin/list">Admin</a></li>
           
         </ul>
-        <ul class="user">
+        <ul className="user">
             
           
             <li><a href="/users/profile">Bienvenido </a></li>
