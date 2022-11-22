@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+
 function Article({id, nombre, imagen, detalle, precio, descuento}) {
     return (
     
-    <div>
-        <img src={`/img/productos/${imagen}`} alt="" />
+    <article>
+           <img src={`/productos/${imagen}`} alt="" /> 
         <div className="contenedor">
             <h3>{nombre}</h3>
 
@@ -17,7 +18,7 @@ function Article({id, nombre, imagen, detalle, precio, descuento}) {
         
         </div>
         <button><a href={`/products/detail/${id}`}>Comprar</a></button>
-    </div> 
+    </article> 
     
     )
 }

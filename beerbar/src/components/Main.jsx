@@ -25,7 +25,7 @@ function Main() {
       stock:20,
       categoria:"ninguno",
       tipo: "comida",
-      imagen: "img-1662398149075.png"
+      imagen: "img-1666815888352.jpg"
     },
     {
       id:1,
@@ -37,7 +37,7 @@ function Main() {
       stock:20,
       categoria:"ninguno",
       tipo: "comida",
-      imagen: "img-1662398149075.png"
+      imagen: "img-1662397902237.png"
     }
   ] 
   return (
