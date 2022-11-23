@@ -210,7 +210,7 @@ module.exports = {
     editar: (req, res) => {
 
         let id = +req.params.id
-        let {name,apellido,email,pass,genero, contact, rol} = req.body
+        let {name,apellido,email,pass,genero, contact, rol,image} = req.body
 
          let errors = validationResult(req)
         if (req.fileValidationError) {
@@ -229,13 +229,29 @@ module.exports = {
                 nombre : name,
                 apellido : apellido,
                 genero : genero,
-                image : req.file ? req.file.filename : 'usuario.png'
+            
             },{ where: {id: id}})
 
             Promise.all([user, userUpdate])
             .then(([user, userUpdate]) => { 
-                return res.redirect('/')
+                
+            
+                if (req.file) {
+                   
+                    db.avatars.update({
+                        name: req.file.filename,
+                        users_id: user.id
+                    }, {
+                        where: {id: id}
+                    })
+                    .then(img => {
+                        return res.redirect('/')
+                    })
+                }
             })
+        
+        
+
             .catch(errors => {
                 return res.status(500).send(errors)
             })  

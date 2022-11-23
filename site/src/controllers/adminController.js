@@ -60,6 +60,7 @@ module.exports = {
                     db.images.create(imagen)
                     .then(img => {
                         res.redirect(`/products/detail/${product.id}`);
+                        
                     })
                 } else {
                     db.images.create({

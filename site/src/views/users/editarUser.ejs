@@ -22,8 +22,8 @@
 
               <div class="img">
                 <label> foto de perfil</label>
-                <img class="avatar" src="../img/usuarios/<%= locals.userLogin.image === usuario.imagenesAvatar[0].name ? usuario.imagenesAvatar[0].name : null %>" alt="">
-                <input type="file" name="image" id="file" accept="/image" value="<%= locals.old && old.image ? old.name: locals.userLogin.image %>" >
+                <img class="avatar" src="/img/usuarios/<%= locals.userLogin.image === usuario.imagenesAvatar[0].name ? usuario.imagenesAvatar[0].name : null %>" alt="">
+                <input type="file" name="image" id="file" value="<%= locals.userLogin ? locals.userLogin.image : null %>" >
               </div>
 
               <div>
