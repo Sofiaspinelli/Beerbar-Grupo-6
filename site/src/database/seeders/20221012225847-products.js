@@ -1,5 +1,5 @@
 'use strict';
-const productos = require('../../src/data/productos.json')
+const productos = require('../../data/productos.json')
 
 let producto = productos.map( element => {
   let type = {

@@ -1,5 +1,5 @@
 'use strict';
-let x = require('../../src/data/productos.json')
+let x = require('../../data/productos.json')
 
 let img = x.map( element => {
   let type = {
