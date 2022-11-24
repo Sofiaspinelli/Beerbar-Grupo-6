@@ -73,6 +73,11 @@ footer .copyright {
 }
 
 @media (min-width:769px) {
+    /* footer{
+        position: absolute;
+        top: 100vh;
+        right: 250px;
+    } */
     footer section p {
         font-size: 30px;
         justify-content: space-around;

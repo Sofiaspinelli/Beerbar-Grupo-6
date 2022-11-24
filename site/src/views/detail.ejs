@@ -33,9 +33,9 @@
                     <p class="precio">$<%= products.precio %> </p>
                     <% } %>
                     <div class="cantidad">
-                        <button class="button" id="increase">+</button>
-                        <input type="number" id="count" value="1" placeholder="0">
                         <button class="button" id="decrease">-</button>
+                        <input type="number" id="count" value="1" placeholder="0">
+                        <button class="button button2" id="increase">+</button>
                         <input type="number" id="stock" value="<%= products.stock %>">
                     </div>
                     <button>añadir al carrito</button>
@@ -57,6 +57,10 @@
                 <button><a href="">ver mas</a></button>
             </div>
         </section>
+<!-- banner -->
+        <div class="ban">
+            <img src="/img/productos/banner.jpg" alt="banner">
+        </div>
     </main>
 
     <%- include('./partials/footer') %>

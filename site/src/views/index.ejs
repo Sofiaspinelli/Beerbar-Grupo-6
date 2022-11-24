@@ -10,10 +10,14 @@
 
         <h1>PROMOCIONES</h1>
 
-        <section class="productos">
+        <section class="productos carrouselProductos" >
+
+        <div class="glider-contain">
+            <div class="glider">
+
         <% products.forEach(producto => { %>
             <% if ((producto.descuento > 10 || producto.category.name === "especial") && (producto.stock - producto.vendidos) >= 1) { %>
-                <article>
+                <div class="article">
                     <img src="/img/productos/<%= producto.imagenes[0].name %> " alt="">
                     <div class="contenedor">
                         <h3><%= producto.nombre %> </h3>
@@ -26,17 +30,30 @@
                         <% } %>
                     </div>
                     <button><a href="/products/detail/<%= producto.id %>">Comprar</a></button>
-                </article> 
+                </div> 
             <% } %>       
         <% }) %>
+            </div>
+
+            <button aria-label="Previous" class="glider-prev">«</button>
+            <button aria-label="Next" class="glider-next">»</button>
+            <div role="tablist" class="dots"></div>
+        </div>
+
+
         </section>
+        
 
         <h1>PRODUCTOS DESTACADOS</h1>
 
-        <section class="productos">
+        <section class="productos carrouselProductos">
+
+        <div class="glider-contain">
+            <div class="glider gli2">
+
             <% products.forEach(producto => { %>
             <% if (((producto.category.name === "nuevo") || ((producto.vendidos * 100) / producto.stock)  > 70 && producto.vendidos >= 10 ) && (producto.stock - producto.vendidos) >= 1 ) { %>
-            <article>
+            <div class="article">
                 <img src="/img/productos/<%= producto.imagenes[0].name %> " alt="imagen del producto">
                 <div class="contenedor">
                     <h3><%= producto.nombre %> </h3>
@@ -50,12 +67,24 @@
                 </div>
 
                 <button><a href="/products/detail/<%= producto.id %>">Comprar</a></button>
-            </article>
+            </div>
             <% } %>
             <% }) %>
 
+            </div>
+
+            <button aria-label="Previous" class="glider-prev2">«</button>
+            <button aria-label="Next" class="glider-next2">»</button>
+            <div role="tablist" class="dots2"></div>
+        </div>
+        
+        </section>
+        
     </main>
     <%- include('./partials/footer') %>
+    <script src="/js/glider.js"></script>
+    <script src="/js/carrousel1.js"></script>
+    <script src="/js/carrousel2.js"></script>
 </body>
 
 </html>
