@@ -17,7 +17,7 @@ module.exports = {
         //    console.log(updateQuery);
 
             for (const key in updateQuery) {
-                if (key === 'nombre' || key === 'categoria_id' || key === 'type_id') {
+                if (key === 'nombre' || key === 'categoria_id' || key === 'type_id' || key === 'marca') {
                     
                     if (updateQuery[key] === null || updateQuery[key].trim().length === 0) {
                         delete updateQuery[key];

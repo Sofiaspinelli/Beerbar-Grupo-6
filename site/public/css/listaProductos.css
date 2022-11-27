@@ -1,6 +1,7 @@
 .listaProductos main {
     width: 90%;
     margin-top: 50px;
+    display: list-item;
 }
 .listaProductos th, a{
 
@@ -11,7 +12,10 @@
 .listaProductos main section button a{
     color: black;
 }
-
+.listaProductos main .search{
+    margin: 10px auto 20px;
+    max-width: 1330px;
+}
 .listaProductos main section button a:hover {
     background-color: var(--colorNaranja);
     color: white;
@@ -31,17 +35,18 @@
 }
 .listaProductos td a button .icon {
     border-radius: 50%;
-    color: white;
+    color: black;
     padding: 10px;
-    background-color: var(--colorNaranja);
+    background-color: var(--colorGris);
 }
 
 .listaProductos main section {
-    width: 90%;
+    width: 94%;
     position: relative;
     max-width: 1250px;
     display: flex;
     justify-content: end;
+    margin: 0 auto;
     /* align-items: end; */
     
 }
@@ -54,27 +59,36 @@
     background-color: var(--colorBlanco);
 
 }
-.listaProductos .btn-crear:hover, div table tbody tr td .edit:hover{
+.td-buttom{
+    display: inline-block;
+}
+.listaProductos .btn-crear:hover, div table tbody tr td .edit:hover, .listaProductos div table tr td .trashForm .trash:hover {
     background-color: var(--colorNaranja);
     transition: all 0.6s;
 }
 .listaProductos div table tr td .trashForm{
     width: 50px;
 }
-.listaProductos div table tr td .trashForm .trash i{
-    background-color: var(--colorGris);
-    color: black;
-}
-div table tbody tr td .edit {
+.listaProductos div table tr td .trashForm .trash {
     background-color: var(--colorGris);
     padding: 7px;
     border-radius: 50%;
 }
-div table tbody tr td .edit a{
+.listaProductos div table tr td .trashForm .trash i{
+    color: black;
+    font-size: 28px;
+}
+div table tbody tr td .edit{
+    background-color: var(--colorGris);
+    padding: 0;
+    border-radius: 50%;
+}
+div table tbody tr td #btn-editar{
     color: black;
 }
-div table tbody tr td .edit a:hover{
+.listaProductos td a button .icon:hover{
     color: var(--colorBlanco);
+    background-color: var(--colorNaranja);
     transition: all 0.6s;
 }
 .listaProductos div table tr td .trashForm .trash i:hover{
@@ -85,5 +99,26 @@ div table tbody tr td .edit a:hover{
 
 .listaProductos  .btn-crear:hover {
     background-color: var(--colorNaranja);
+}
+.listaProductos main .col-12{
+    width: 90%;
+    min-width: 330px;
+    max-width: 1330px;
+    margin: 20px auto;
+}
+.listaProductos main div nav ul{
+    margin: auto;
+}
+.listaProductos main div nav ul .nextItem, .listaProductos main div nav ul .previousItem{
+    width: 60px;
+}
+.listaProductos main div nav ul .nextItem a, .listaProductos main div nav ul .previousItem a{
+    width: 60px;
+}
+.listaProductos main div nav ul li{
+    width: 20px;
+}
+.listaProductos main div nav ul li a{
+    width: 10px;
 }
 
