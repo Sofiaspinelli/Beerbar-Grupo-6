@@ -10,12 +10,18 @@ const { resolveSoa } = require('dns');
 
 module.exports = {
     list: (req,res) => {
-        db.products.findAll({
+        let categorias = db.categories.findAll()
+        let tiposDeProductos = db.types.findAll()
+
+        let productos = db.products.findAll({
             include: ['category','imagenes','tipos']
         })
-        .then(products => {
+        Promise.all([categorias, tiposDeProductos, productos])
+        .then(([categorias, tiposDeProductos, products]) => {
             // return res.status(200).json(products)
-            return res.render ('admin/listaProductos', {
+            return res.render ('admin/listaProductosNew', {
+                categorias,
+                tiposDeProductos,
                 products
             })
         })

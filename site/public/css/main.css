@@ -9,13 +9,14 @@ main{
     min-width: 350px;
 }
 .home main .productos {
+    width: 90%;
     color: var(--colorBlanco);
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-.home main  .productos article {
+.home main  .productos .article {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,15 +28,15 @@ main{
     border: 1px;
     border-radius: 10px;
 }
-.home main .productos article{
+.home main .productos .article{
     box-shadow: inset 0px 1px 20px 14px rgb(90, 90, 90)
 }
-.home main .productos article:hover{
+.home main .productos .article:hover{
     box-shadow: inset 0px 1px 20px 14px var(--colorNaranja);
     /* box-shadow: inset 0px 1px 20px 14px #e1dede; */
     transition: all 0.6s;
 }
-.home main  .productos article img {
+.home main  .productos .article img {
     display: flex;
     justify-content: center;
     width: 80%;
@@ -43,7 +44,7 @@ main{
     margin: 15px 0 0;
     border-radius: 10px;
 }
-.home main .productos article button{
+.home main .productos .article button{
     display: flex;
     justify-content: center;
     margin: 0 auto;
@@ -54,7 +55,7 @@ main{
     background-color: rgb(54, 49, 49);
     font-size: 16px;
 }
-.home main .productos article button a{
+.home main .productos .article button a{
     color: var(--colorBlanco);
     width: 100%;
     height: 17px;
@@ -63,12 +64,12 @@ main{
     align-items: center;
     justify-content: center;
 }
-.home main .productos article button:hover, .home main .productos article button a:hover{
+.home main .productos .article button:hover, .home main .productos .article button a:hover{
     background-color: var(--colorNaranja);
     color: var(--colorBlanco);
     transition: all 0.6s;
 }
-.home main .productos article .old{
+.home main .productos .article .old{
     text-decoration:line-through;
     font-size: 16px;
     color: rgb(182, 181, 181);
@@ -76,15 +77,15 @@ main{
     justify-items: start;
     margin-bottom: 0;
 }
-.home main .productos article .precio {
+.home main .productos .article .precio {
    font-size: 34px;
    margin-bottom: 0;
 }
-.home main .productos article .descuento {
+.home main .productos .article .descuento {
     color: var(--descuentos);
     font-size: 24px;
 }
-.home main .productos article .contenedor {
+.home main .productos .article .contenedor {
     display: flex;
     justify-content: start;
     flex-direction: column;
@@ -94,17 +95,17 @@ main{
 
 /* Tablet  */
 @media (min-width:460px) {
-    .home main  .productos article {
+    .home main  .productos .article {
         width: 48%;
         height: 400px;
-        margin: 10px 0;
+        margin: 10px;
         min-width: 270px;
         /* padding: 20px; */
     }
-    .home main  .productos article img{
+    .home main  .productos .article img{
         min-width: 180px;
     }
-    .home main .productos article button a{
+    .home main .productos .article button a{
         color: black;
         display: flex;
         align-items: center;
@@ -114,26 +115,27 @@ main{
 
 @media (min-width:769px) {
     .home main {
-        width: 83%;
+        /* width: 83%; */
         max-width: 1024px;
     }
-    .home main  .productos article {
+    .home main  .productos .article {
         max-width: 300px;
         height: 490px;
         /* padding: 10px; */
 
     }
-    .home main  .productos article img{
+    .home main  .productos .article img{
         width: 80%;
+        height: 200px;
     }
-    .home main .productos article .old {
+    .home main .productos .article .old {
         font-size: 16px;
     }
-    .home main .productos article .precio{
+    .home main .productos .article .precio{
         font-size: 36px;
  
     }
-    .home main .productos article .descuento {
+    .home main .productos .article .descuento {
         font-size: 24px;
         
     }

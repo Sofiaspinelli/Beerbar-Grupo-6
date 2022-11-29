@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Administrador'}) %>
+</head>
+<body class="listaProductos">
+    <%- include('../partials/header') %>
+
+    <main>
+        <section>
+            <button  class="btn-crear"><a href="/admin/crear">Crear Producto</a></button>
+        </section> 
+        
+    <div class="table-responsive search">
+        <div class="filtros col-12 d-flex flex-wrap" id="filter">
+        <div class="col-12 my-1">
+            <input class="form-control" name="nombre" type="text" placeholder="Name">
+        </div>
+        <div class="col-3 my-1">
+            <select class="form-select" name="categoria_id" aria-label="Default select example">
+                <option value="0" selected >Categorias</option>
+                <% categorias.forEach(categoria => { %>
+                <option value="<%= categoria.id %>"><%= categoria.name === 'null'? 'ninguno' : categoria.name %> </option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="col-3 my-1">
+            <select class="form-select" name="type_id" aria-label="Default select example">
+                <option value="0" selected >Tipos</option>
+                <% tiposDeProductos.forEach(dato => { %>
+                <option value="<%= dato.id %>"><%= dato.name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="col-3 my-1">
+            <select class="form-select" name="marca" aria-label="Default select example">
+                <option value="0" selected >Marcas</option>
+                <% products.forEach(dato => { %>
+                    <% if (dato.marca !== 'nada' && dato.marca !== '' && dato.marca !== 'marca') { %>
+                     <option value="<%= dato.marca %>"><%= dato.marca %></option>
+                    <% } %>
+                <% }) %>
+            </select>
+        </div>
+        <div class="col-3 my-1">
+            <select class="form-select" name="orderDirect" aria-label="Default select example">
+                <option value="0" selected >Order By</option>
+                <option value="ASC">Ascendente</option>
+                <option value="DESC">Descendente</option>
+            </select>
+        </div>
+        </div>
+    </div>
+
+        <div class="table-responsive container margin">
+            <table class="table">
+                <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Producto</th>
+                <th scope="col"></th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Des</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Accion</th>
+                </tr>
+                </thead>
+                <tbody id="tbody">
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div id="msgResult"></div>
+
+        <div class="col-12 d-flex justify-content-between align-items-center">
+
+            <div class="col-2 size " id="size">
+              <select class="form-select" name="size" aria-label="Default select example">
+                <!-- <option value="" hidden selected>Size</option> -->
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="15">15</option>
+              </select>
+            </div>
+  
+            
+            <nav aria-label="Page navigation example" class="navPages">
+              <ul class="pagination justify-content-end" class="pages" id="pages-links">
+              </ul>
+            </nav>
+            
+        </div>
+
+        <template id="tempale-tbody">
+            <tr>        
+                <th id="id" scope="row"></th>
+                <td id="nombre" colspan="2"><a href=""></a></td>
+                <td id="tipo" ><a href=""></a></td>
+                <td id="marca" ><a href=""></a></td>
+                <td id="precio" ><a href=""></a></td>
+                <td id="descuento" ><a href=""></a></td>
+                <td id="stock" ><a href=""></a></td>
+                <td class="td-buttom">
+                    <form id="btn-eliminar" class="trashForm" action="" method="post" >
+                        <button type="submit" id="eliminar" class="trash"><i class="fa-solid fa-trash-can icon"></i></button>
+                    </form> 
+                    <a id="btn-editar" href=""> 
+                      <button class="edit">
+                        <i class="fa-solid fa-pen-to-square icon"></i>
+                      </button>
+                    </a>
+                </td>
+    
+            </tr>
+        </template>
+
+    </main>
+    
+    <%- include('../partials/footer') %>
+    <script src="/js/paginacionLista.js"></script>
+</body>
+</html>
