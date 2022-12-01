@@ -31,6 +31,7 @@ window.addEventListener('load', () => {
     const pass2 = $('#pass2');
     const contacto = $('#contacto');
     const genero = x('.genero');
+    const iconEye = $('.icon-eye')
     
     const img = $('#image');
 
@@ -174,6 +175,20 @@ window.addEventListener('load', () => {
         }
         funcValidate(validate)
     })
+    iconEye.addEventListener("click",function() {
+        const icon = this.querySelector("i");
+        
+        if (this.nextElementSibling.type === "password"){
+            this.nextElementSibling.type = "text";
+            icon.classList.remove("fa-solid fa-eye-slash")
+            icon.classList.add("fa-sharp fa-solid fa-eye")
+        }else {
+            this.nextElementSibling.type = "password"
+            icon.classList.remove("fa-sharp fa-solid fa-eye")
+            icon.classList.add("fa-solid fa-eye-slash")
+        }
+    })
+
     contacto.addEventListener('blur', function() {
         switch (true) {
             case !this.value:
@@ -258,6 +273,7 @@ window.addEventListener('load', () => {
         genero : false ,
         img : true ,
         terminos : false 
+        
     }
 
     funcValidate(validate)

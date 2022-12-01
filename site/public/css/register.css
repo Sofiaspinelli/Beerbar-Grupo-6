@@ -45,6 +45,7 @@
     flex-direction: column;
     margin: 10px 0;
     font-size: 18px;
+    
 }
 .register main .container label, .container-img label{
     font-size: 20px;
@@ -59,10 +60,16 @@
     padding: 10px;
     border-radius: 10px;
 }
+.register main .container .icon-eye {
+    position: relative;
+    left: 275px;
+    top: -35px;
+    cursor: pointer;
+}
 .register main .container small, .register main .bottom small{
     margin-top: 5px;
     font-size: 16px;
-    color: red;
+    color: rgb(4, 2, 2);
 }
 .register main .bottom{
     display: flex;
@@ -86,6 +93,7 @@
     padding: 10px;
     border-radius: 10px;
 }
+
     
 .register main .registrarse button{
     background-color: var(--colorButtom);

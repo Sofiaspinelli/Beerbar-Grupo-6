@@ -52,14 +52,16 @@
                 
                 <div class="container">
                 <label for="pass">Contraseña</label>
-                <input type="password" name="pass" id="pass" placeholder="Ingresar Contraseña" >
+
+                <input type="password" name="pass" id="pass" placeholder="Ingresar Contraseña">
+                <small class="icon-eye" ><i class="fa-sharp fa-solid fa-eye-slash text-dark"></i></small>
                 
                     <small id="passError"><%= locals.errors && errors.pass ? errors.pass.msg : null %></small>
                 
             </div>
             <div class="container">
                 <input type="password" name="pass2" id="pass2" placeholder="Repetir Contraseña" >
-                
+                <small class="icon-eye" ><i class="fa-sharp fa-solid fa-eye-slash text-dark"></i></small>
                     <small id="pass2Error"><%= locals.errors && errors.pass2 ? errors.pass2.msg : null %></small>
                 
             </div>
