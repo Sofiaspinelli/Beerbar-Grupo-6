@@ -93,6 +93,9 @@ main{
     height: 90px;
 }
 
+.home main .banner {
+    width: 100%;
+}
 /* Tablet  */
 @media (min-width:460px) {
     .home main  .productos .article {
