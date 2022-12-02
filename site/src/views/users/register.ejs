@@ -60,6 +60,7 @@
                 
             </div>
             <div class="container">
+                <label for="pass">Repetir Contraseña</label>
                 <input type="password" name="pass2" id="pass2" placeholder="Repetir Contraseña" >
                 <small class="icon-eye" ><i class="fa-sharp fa-solid fa-eye-slash text-dark"></i></small>
                     <small id="pass2Error"><%= locals.errors && errors.pass2 ? errors.pass2.msg : null %></small>
@@ -114,6 +115,6 @@
             </div>
         </form>
     </main>
-    <script src="/js/validacionUsuarios.js"></script>
+    <script src="/js/validacionRegister.js"></script>
 </body>
 </html>

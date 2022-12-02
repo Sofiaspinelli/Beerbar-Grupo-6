@@ -45,7 +45,7 @@
     flex-direction: column;
     margin: 10px 0;
     font-size: 18px;
-    
+    position: relative;
 }
 .register main .container label, .container-img label{
     font-size: 20px;
@@ -61,15 +61,18 @@
     border-radius: 10px;
 }
 .register main .container .icon-eye {
-    position: relative;
-    left: 275px;
-    top: -35px;
+    position: absolute;
+    left: 266px;
+    top: 24px;
     cursor: pointer;
+    width: 30px;
+    padding: 8px;
+    color: black;
 }
 .register main .container small, .register main .bottom small{
     margin-top: 5px;
     font-size: 16px;
-    color: rgb(4, 2, 2);
+    color: rgb(156, 4, 4);
 }
 .register main .bottom{
     display: flex;
