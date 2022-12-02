@@ -19,18 +19,25 @@ module.exports = [
     check('email').trim()
     .notEmpty().withMessage('Debe ingresar su email').bail()
     .isEmail().withMessage('Debe ingresar un email valido').bail()
-    /* .custom((value) => {
+    .custom((value) => {
         return db.users.findAll()
         .then(user => {
-            // return console.log(user.dataValues.email);
-            if (!(user.dataValues.email !== value)) {
+            // return console.log(user[0].dataValues.email);
+            for (let i = 0; i < user.length; i++) {
+                const element = user[i].dataValues;
+            //    console.log(element)
+               if (element.email === value) {
+                console.log(element)
                 return Promise.reject()
+               }
+
             }
+            
         })
         .catch(() => {
-            return Promise.reject('email ya existente')
+            return Promise.reject('EL email ingresado ya esta en uso')
         })
-    }) *//* .withMessage('nope') */,
+    })/* .withMessage('nope') */,
 
     /* Contraseña */
     check('pass').trim()

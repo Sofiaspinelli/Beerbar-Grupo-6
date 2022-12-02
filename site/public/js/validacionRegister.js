@@ -108,11 +108,6 @@ window.addEventListener('load', () => {
                 this.classList.add('is-invalid')
                 validate.email = false
                 break;
-            case this.value:
-                $('#emailError').innerHTML = 'El mail que ingreso ya existe'
-                this.classList.add('is-invalid')
-                validate.email = false
-                break;
         
             default:
                 $('#emailError').innerHTML = null
@@ -275,8 +270,8 @@ window.addEventListener('load', () => {
         pass2 : false ,
         contacto : false ,
         genero : false ,
-        img : true ,
-        terminos : false 
+        terminos : false,
+        img : true,
         
     }
 

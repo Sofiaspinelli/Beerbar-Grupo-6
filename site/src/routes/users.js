@@ -32,7 +32,7 @@ router.delete('/logout', logout);
 
 router.get('/editarUser/:id',editUser);
 router.put('/editarUser/:id',upload.single('image'),editar);
-router.post('/login',loginValidator, processLogin)
+// router.post('/login',/* loginValidator, */ processLogin)
 
 
 
