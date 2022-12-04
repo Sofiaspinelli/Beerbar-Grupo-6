@@ -9,7 +9,7 @@ body{
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("../assets/productos/fondo-textura-carrito.jpg");
+    background-image: url("../../public/productos/fondo-textura-carrito.jpg");
 }
 li {
     list-style: none;
