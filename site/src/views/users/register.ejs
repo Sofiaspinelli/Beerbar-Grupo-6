@@ -47,16 +47,16 @@
                 <input type="email" name="email" id="email" placeholder="Ingresar e-mail" value="<%= locals.old && old.email ? old.email : null%>">
                 
                     <small id="emailError"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
-                
                 </div>
-                
-                
-
+            </div>
+            <div class="container">
+                <small class="icon-eye" ><i id="i" class="fa-sharp fa-solid fa-eye-slash text-dark"></i></small>
+                <label for="pass">Contraseña</label>
+                <input type="password" name="pass" id="pass" placeholder="Contraseña" >
                     <small id="passError"><%= locals.errors && errors.pass ? errors.pass.msg : null %></small>
                 
             </div>
             <div class="container">
-                <label for="pass">Repetir contraseña</label>
                 <small class="icon-eye" ><i id="i" class="fa-sharp fa-solid fa-eye-slash text-dark"></i></small>
                 <label for="pass">Repetir Contraseña</label>
                 <input type="password" name="pass2" id="pass2" placeholder="Repetir Contraseña" >
