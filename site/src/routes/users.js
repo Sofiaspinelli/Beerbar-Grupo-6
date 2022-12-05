@@ -12,7 +12,7 @@ const middleUser = require('../middlewares/middleUser');
 
 /* GET users listing. */
 router.get('/register', /* middleUser, */ register);
-router.post('/register' ,upload.single('image'),/* registerValidator, */ processRegister);
+router.post('/register' ,upload.single('image'),registerValidator, processRegister);
 
 router.get('/login', /* middleUser, */ login);
 router.post('/login', loginValidator, processLogin);
@@ -32,7 +32,7 @@ router.delete('/logout', logout);
 
 router.get('/editarUser/:id',editUser);
 router.put('/editarUser/:id',upload.single('image'),editar);
-router.post('/login',loginValidator, processLogin)
+// router.post('/login',/* loginValidator, */ processLogin)
 
 
 

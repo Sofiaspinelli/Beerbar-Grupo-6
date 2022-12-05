@@ -3,8 +3,6 @@ window.addEventListener('load', () => {
     // console.log("conectado")
     const $ = (element) => document.querySelector(element);
     const x = (element) => document.querySelectorAll(element);
-    // const db = require('../../src/database/models');
-    
     
     const funcValidate = (obj) => {
         let arr = Object.values(obj)
@@ -17,12 +15,6 @@ window.addEventListener('load', () => {
             btn.style.backgroundColor = 'red'
         }
     }
-   
-//    let usuarios = ( db.users.findall()
-//     .then(usuario => usuario.email)
-//     .cath(error => res.status(500).sent(error)))
-
-//     console.log(usuarios)
 
     const nombre = $('#name');
     const apellido = $('#apellido');
@@ -116,11 +108,6 @@ window.addEventListener('load', () => {
                 this.classList.add('is-invalid')
                 validate.email = false
                 break;
-            case this.value:
-                $('#emailError').innerHTML = 'El mail que ingreso ya existe'
-                this.classList.add('is-invalid')
-                validate.email = false
-                break;
         
             default:
                 $('#emailError').innerHTML = null
@@ -129,6 +116,18 @@ window.addEventListener('load', () => {
                 validate.email = true
                 break;
         }
+        fetch('http://localhost:3005/api/users')
+        .then(response => response.json())
+        .then(dato => {
+            dato.data.forEach(users => {
+                console.log(users.email)
+                if (this.value.trim() === users.email) {
+                    $('#emailError').innerHTML = 'EL email ingresado ya esta en uso'
+                    this.classList.add('is-invalid')
+                    validate.email = false
+                }
+            })
+        })
         funcValidate(validate)
     })
     pass.addEventListener('blur', function() {
@@ -273,8 +272,8 @@ window.addEventListener('load', () => {
         pass2 : false ,
         contacto : false ,
         genero : false ,
-        img : true ,
-        terminos : false 
+        terminos : false,
+        img : true,
         
     }
 

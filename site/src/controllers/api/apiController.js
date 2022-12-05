@@ -14,6 +14,7 @@ module.exports = {
                 first_name: element.nombre,
                 last_name: element.apellido,
                 email: element.email,
+                pass: element.pass,
                 detail: `http://localhost:3000/api/users/${element.id}`,
             }
             return usuario

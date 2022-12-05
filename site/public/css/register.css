@@ -45,7 +45,7 @@
     flex-direction: column;
     margin: 10px 0;
     font-size: 18px;
-    
+    position: relative;
 }
 .register main .container label, .container-img label{
     font-size: 20px;
@@ -76,7 +76,7 @@
 .register main .container small, .register main .bottom small{
     margin-top: 5px;
     font-size: 16px;
-    color: rgb(4, 2, 2);
+    color: rgb(156, 4, 4);
 }
 .register main .bottom{
     display: flex;
