@@ -176,23 +176,25 @@ window.addEventListener('load', () => {
         funcValidate(validate)
     })
     iconEye.addEventListener("click",function() {
-        const icon = this.querySelector("i");
+        const icon = $("#i");
         
         if (this.nextElementSibling.type === "password"){
             this.nextElementSibling.type = "text";
-            icon.classList.remove("fa-solid fa-eye-slash")
-            icon.classList.add("fa-sharp fa-solid fa-eye")
+            icon.classList.remove('fa-eye-slash')
+            icon.classList.add('fa-eye')
         }else {
-            this.nextElementSibling.type = "password"
-            icon.classList.remove("fa-sharp fa-solid fa-eye")
-            icon.classList.add("fa-solid fa-eye-slash")
+            this.nextElementSibling.type = 'password'
+            icon.classList.remove('fa-eye')
+            icon.classList.add('fa-eye-slash')
         }
     })
+
 
     contacto.addEventListener('blur', function() {
         switch (true) {
             case !this.value:
                 $('#contactoError').innerHTML = 'Debe ingresar su nro de contacto'
+                
                 this.classList.add('is-invalid')
                 validate.contacto = false
                 

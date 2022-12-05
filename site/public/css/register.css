@@ -54,7 +54,10 @@
     width: 120px;
     font-size: 16px;
     margin: 0;
-    color: rgb(2 52 2);
+    color: rgb(239, 85, 8);
+}
+.register main .container small p {
+    color: rebeccapurple;
 }
 .register main .container input{
     padding: 10px;
@@ -63,8 +66,12 @@
 .register main .container .icon-eye {
     position: relative;
     left: 275px;
-    top: -35px;
+    top: 35px;
     cursor: pointer;
+    color: black;
+}
+.register main .container .icon-eye:hover {
+    color: var(--colorNaranja);
 }
 .register main .container small, .register main .bottom small{
     margin-top: 5px;
