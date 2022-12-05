@@ -64,12 +64,15 @@
     border-radius: 10px;
 }
 .register main .container .icon-eye {
-    position: relative;
-    left: 275px;
-    top: 55px;
+    position: absolute;
     cursor: pointer;
     color: black;
+    left: 261px;
+    top: 27px;
+    margin: 0;
+    padding: 10px;
 }
+
 .register main .container .icon-eye:hover {
     color: var(--colorNaranja);
 }

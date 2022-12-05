@@ -23,7 +23,8 @@ window.addEventListener('load', () => {
     const pass2 = $('#pass2');
     const contacto = $('#contacto');
     const genero = x('.genero');
-    const iconEye = $('.icon-eye')
+    const iconEye = $('#icon-eye')
+    const iconEye2 = $('#icon-eye2')
     
     const img = $('#image');
 
@@ -175,16 +176,33 @@ window.addEventListener('load', () => {
         funcValidate(validate)
     })
     iconEye.addEventListener("click",function() {
-        const icon = $("#i");
+        const icon = $("#icon");
         
-        if (this.nextElementSibling.type === 'password'){
-            this.nextElementSibling.type = 'text';
+        if (pass.type === 'password'){
+            pass.type = 'text';
+            console.log('click')
             icon.classList.remove('fa-eye-slash')
             icon.classList.add('fa-eye')
         }else {
-            this.nextElementSibling.type = 'password'
+            pass.type = 'password'
             icon.classList.remove('fa-eye')
             icon.classList.add('fa-eye-slash')
+            console.log('click2')
+        }
+    })
+    iconEye2.addEventListener("click",function() {
+        const icon = $("#icon2");
+        
+        if (pass2.type === 'password'){
+            pass2.type = 'text';
+            console.log('click')
+            icon.classList.remove('fa-eye-slash')
+            icon.classList.add('fa-eye')
+        }else {
+            pass2.type = 'password'
+            icon.classList.remove('fa-eye')
+            icon.classList.add('fa-eye-slash')
+            console.log('click2')
         }
     })
 
