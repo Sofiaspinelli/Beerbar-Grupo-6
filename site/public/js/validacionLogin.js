@@ -23,10 +23,26 @@ window.addEventListener('load', () => {
     const pass = $('#pass');
 
     const btn = $('#btn-login');
+    const iconEyeL = $('#icon-eye')
 
     const regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/;
     const regExEmail =  /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
 
+    iconEyeL.addEventListener("click",function() {
+        const icon = $("#icon-l");
+        
+        if (pass.type === 'password'){
+            pass.type = 'text';
+            console.log('click')
+            icon.classList.remove('fa-eye-slash')
+            icon.classList.add('fa-eye')
+        }else {
+            pass.type = 'password'
+            icon.classList.remove('fa-eye')
+            icon.classList.add('fa-eye-slash')
+            console.log('click2')
+        }
+    })
     email.addEventListener('blur', function() {
 
         fetch('http://localhost:3005/api/users')
@@ -116,4 +132,5 @@ window.addEventListener('load', () => {
 
     funcValidate(validate)
 
+   
 })

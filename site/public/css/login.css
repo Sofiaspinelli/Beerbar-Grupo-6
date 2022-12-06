@@ -49,10 +49,26 @@
     padding: 10px;
     border-radius: 10px;
 }
+
 .login main .container small{
     font-size: 16px;
     color: red;
 }
+.login main .container .icon-eye {
+    
+    position: relative;
+    cursor: pointer;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    top: 54px;
+    left: -7px;
+}
+.login main .container .icon-eye:hover {
+    color: var(--colorNaranja);
+}
+
 .login main .login_button{
     display: flex;
     flex-wrap: wrap;
