@@ -1,7 +1,6 @@
 
 window.addEventListener('load', () => {
     console.log('login script');
-
     const $ = (e) => document.querySelector(e);
 
     const funcValidate = (obj) => {
@@ -15,6 +14,7 @@ window.addEventListener('load', () => {
             btn.style.backgroundColor = 'red'
         }
     }
+    
 
     const form = $('form');
 
@@ -27,54 +27,61 @@ window.addEventListener('load', () => {
     const regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/;
     const regExEmail =  /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
 
-    email.addEventListener('blur', function() {
+    let user = []
+    const traerUsuario = async () => {
+        let response = await fetch('http://localhost:3000/api/users')
+        result = await response.json();
+        user = result.data
+        console.log(user);
+    }
+    traerUsuario()
+    
+    let userID = 0
+    email.addEventListener('blur', async function() {
 
-        fetch('http://localhost:3005/api/users')
-        .then(response => response.json())
-        .then(dato => {
-            dato.data.forEach(users => {
-                // console.log(users)
-                switch (true) {
-                    case !this.value.trim():
-                        $('#emailError').innerHTML = 'Debe ingresar su email'
+        // user.forEach(dato => {})
+        let usuario = user.filter(dato => dato.email == email.value? dato : null)
+            console.log(usuario[0]);
+            if (usuario[0] !== undefined) {
+                userID = usuario[0].id
+                console.log(userID);
+            }else {
+                userID = 0
+            }
+            switch (true) {
+                case !this.value.trim():
+                    $('#emailError').innerHTML = 'Debe ingresar su email'
+                    this.classList.add('is-invalid')
+                    validate.email = false
+                    break;
+                case !regExEmail.test(email.value):
+                    $('#emailError').innerHTML = 'Debe ingresar un mail valido'
+                    this.classList.add('is-invalid')
+                    validate.email = false
+                    break;
+                case usuario[0] === undefined:
+                         $('#emailError').innerHTML = 'El email ingresado no existe'
                         this.classList.add('is-invalid')
-                        validate.email = false
-                        break;
-                    case !regExEmail.test(email.value):
-                        $('#emailError').innerHTML = 'Debe ingresar un mail valido'
-                        this.classList.add('is-invalid')
-                        validate.email = false
-                        break;
-                    case this.value.trim() != users.email:
-
-                            console.log(users.email)
-                             $('#emailError').innerHTML = 'El email ingresado no existe'
-                            this.classList.add('is-invalid')
-                            validate.email = false       
-                        break;
+                        validate.email = false       
+                    break;
                 
-                    default:
-                        $('#emailError').innerHTML = null
-                        this.classList.remove('is-invalid')
-                        this.classList.add('is-valid')
-                        validate.email = true
-                        break;
-                }
-                    
-                
-            })
-        })
-        .catch((err) => console.log(err))
+                default:
+                    $('#emailError').innerHTML = null
+                    this.classList.remove('is-invalid')
+                    this.classList.add('is-valid')
+                    validate.email = true
+                    break;
+            }
         
         funcValidate(validate)
     })
     pass.addEventListener('blur', function() {
-
-        fetch('http://localhost:3005/api/users')
-        .then(response => response.json())
-        .then(dato => {
-            dato.data.forEach(users => {
-                // console.log(users.email)
+            
+        // fetch(`http://localhost:3000/api/users/login/${userID}`)
+        // .then(response => response.json())
+        // .then(dato => {
+        //     console.log(dato);
+                // console.log(check(this.value, dato.data.pass));
 
                 switch (true) {
                     case !this.value.trim():
@@ -82,17 +89,12 @@ window.addEventListener('load', () => {
                         this.classList.add('is-invalid')
                         validate.pass = false
                         break;
-                    // case !bcryptjs.compareSync(this.value, users.pass) && (email.value === users.email):
-                    //     $('#passError').innerHTML = 'La contraseña es incorrecta'
-                    //     this.classList.add('is-invalid')
-                    //     validate.pass = false
-                    //     break;
-                        case !regExPass.test(pass.value):
-                            $('#passError').innerHTML = 'La contraseña debe tener entre 6 y 12 caracteres y debe contener una mayuscula, una minuscula y un numero'
-                            this.classList.add('is-invalid')
-                            validate.pass = false
-                            break;
-                
+                    case !regExPass.test(pass.value):
+                        $('#passError').innerHTML = 'La contraseña debe tener entre 6 y 12 caracteres y debe contener una mayuscula, una minuscula y un numero'
+                        this.classList.add('is-invalid')
+                        validate.pass = false
+                        break;
+                    
                     default:
                         $('#passError').innerHTML = null
                         this.classList.remove('is-invalid')
@@ -100,10 +102,9 @@ window.addEventListener('load', () => {
                         validate.pass = true
                         break;
                 }
-            })
-        })
+            // console.log(pass.value);
+        // })
 
-        
         funcValidate(validate)
     })
 
@@ -114,6 +115,7 @@ window.addEventListener('load', () => {
         pass : false ,
     }
 
+    
     funcValidate(validate)
 
 })

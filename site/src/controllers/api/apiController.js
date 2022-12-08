@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const db = require('../../database/models');
+const bcryptjs = require('bcryptjs')
 
 module.exports = {
     usuarios: (req, res) => {
@@ -14,7 +15,6 @@ module.exports = {
                 first_name: element.nombre,
                 last_name: element.apellido,
                 email: element.email,
-                pass: element.pass,
                 detail: `http://localhost:3000/api/users/${element.id}`,
             }
             return usuario
@@ -59,12 +59,40 @@ module.exports = {
                     contact: usuario.contacto,
                     roles_id: usuario.roles_id,
                     createdAt: usuario.createdAt,
-                
                 }
             }
+
             return res.status(200).json(user)
         })
     },
+    login: (req, res) => {
+        db.users.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [{
+                all: true
+            }]
+        })
+        .then((result) => {
+        
+            let user = {
+                status: 200,
+                meta: {
+                    user: result.nombre,
+                    rol: result.rol.title,
+                    imgAvatar: "www.rutagenerica.com",
+                    url: `${req.protocol}://${req.get('host')}${req.originalUrl}`,
+                },
+                data: result
+            }
+            return res.status(200).json(user) 
+         
+        })
+        
+    },
+
+    /* productos apis */
     productos: (req, res) => {
         
         db.products.findAll()
@@ -119,3 +147,4 @@ module.exports = {
         })
     },
 }
+

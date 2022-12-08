@@ -117,7 +117,7 @@ window.addEventListener('load', () => {
                 validate.email = true
                 break;
         }
-        fetch('http://localhost:3005/api/users')
+        fetch('http://localhost:3000/api/users')
         .then(response => response.json())
         .then(dato => {
             dato.data.forEach(users => {
