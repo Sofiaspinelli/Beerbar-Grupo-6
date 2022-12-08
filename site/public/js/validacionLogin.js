@@ -23,25 +23,43 @@ window.addEventListener('load', () => {
     const pass = $('#pass');
 
     const btn = $('#btn-login');
+    const iconEyeL = $('#icon-eye')
 
     const regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/;
     const regExEmail =  /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
 
     let user = []
     const traerUsuario = async () => {
-        let response = await fetch('http://localhost:3000/api/users')
+        let response = await fetch('http://localhost:3005/api/users')
         result = await response.json();
         user = result.data
-        console.log(user);
+        // console.log(user);
     }
     traerUsuario()
     
+ 
+    iconEyeL.addEventListener("click",function() {
+        const icon = $("#icon-l");
+        
+        if (pass.type === 'password'){
+            pass.type = 'text';
+            console.log('click')
+            icon.classList.remove('fa-eye-slash')
+            icon.classList.add('fa-eye')
+        }else {
+            pass.type = 'password'
+            icon.classList.remove('fa-eye')
+            icon.classList.add('fa-eye-slash')
+            console.log('click2')
+        }
+    })
+
     let userID = 0
-    email.addEventListener('blur', async function() {
+    email.addEventListener('blur', function() {
 
         // user.forEach(dato => {})
         let usuario = user.filter(dato => dato.email == email.value? dato : null)
-            console.log(usuario[0]);
+            // console.log(usuario[0]);
             if (usuario[0] !== undefined) {
                 userID = usuario[0].id
                 console.log(userID);
@@ -118,4 +136,5 @@ window.addEventListener('load', () => {
     
     funcValidate(validate)
 
+   
 })

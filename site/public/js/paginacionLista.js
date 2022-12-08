@@ -3,7 +3,7 @@ window.addEventListener('load', () => {
 
     const $ = (e) => document.querySelector(e);
 
-    const url = new URL('http://localhost:3006/api/productos?page=1&size=10');
+    const url = new URL('http://localhost:3005/api/productos?page=1&size=10');
 
     const filter = $('#filter');
     const sizes = $('#size');

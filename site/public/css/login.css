@@ -41,6 +41,7 @@
     flex-direction: column;
     margin: 10px 0;
     font-size: 18px;
+    position: relative;
 }
 .login main .container label{
     font-size: 20px;
@@ -49,10 +50,27 @@
     padding: 10px;
     border-radius: 10px;
 }
+
 .login main .container small{
     font-size: 16px;
     color: red;
 }
+.login main .container .icon-eye {
+    
+    position: absolute;
+    cursor: pointer;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    top: 25px;
+    left: 255px;
+    padding: 12px 6px;
+}
+.login main .container .icon-eye:hover {
+    color: var(--colorNaranja);
+}
+
 .login main .login_button{
     display: flex;
     flex-wrap: wrap;

@@ -117,11 +117,11 @@ window.addEventListener('load', () => {
                 validate.email = true
                 break;
         }
-        fetch('http://localhost:3000/api/users')
+        fetch('http://localhost:3005/api/users')
         .then(response => response.json())
         .then(dato => {
             dato.data.forEach(users => {
-                console.log(users.email)
+                // console.log(users.email)
                 if (this.value.trim() === users.email) {
                     $('#emailError').innerHTML = 'EL email ingresado ya esta en uso'
                     this.classList.add('is-invalid')
