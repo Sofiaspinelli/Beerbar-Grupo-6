@@ -66,7 +66,7 @@ module.exports = {
                             include: [
                                 {
                                     association : 'carritoProduct',
-                                    attributes: ['id', 'nombre', 'precio', 'descuento', 'stock'],
+                                    attributes: ['id', 'nombre', 'detalle', 'precio', 'descuento', 'stock'],
                                     include: [
                                         {
                                             association : 'imagenes',
@@ -93,6 +93,7 @@ module.exports = {
                                 descuento: item.carritoProduct.descuento,
                                 imagen: item.carritoProduct.imagenes[0].name,
                                 stock: item.carritoProduct.stock,
+                                detalle: item.carritoProduct.detalle,
                                 cantidad: +item.cantidad,
                                 subtotal: ( +item.carritoProduct.precio - ( +item.carritoProduct.precio * +item.carritoProduct.descuento / 100 )) * item.cantidad,
                                 orden_id: orden.id ,

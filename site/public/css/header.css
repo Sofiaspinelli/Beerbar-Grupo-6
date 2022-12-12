@@ -22,6 +22,20 @@
     border: 1px  /* var(--colorNaranja) */;
     background-color: rgba(255, 255, 255, 0);
 }
+.header .carrito div {
+    position: relative;
+}
+.header .carrito div .count {
+    border: 2px solid orange;
+    background-color: black;
+    border-radius: 50%;
+    width: 30px;
+    font-size: large;
+    position: absolute;
+    top: -14px;
+    right: -8px;
+    padding: 3px;
+}
 .header .burger {
     font-size: 30px;
     display: flex;

@@ -96,6 +96,7 @@ module.exports = {
             descuento: producto.descuento,
             stock: producto.stock,
             imagen:producto.imagenes[0].name,
+            detalle: producto.detalle,
             cantidad: 1,
             subtotal: +producto.precio - (+producto.precio * +producto.descuento / 100),
         }

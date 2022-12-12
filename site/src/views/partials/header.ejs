@@ -15,7 +15,10 @@
         <div class="icons">
             <button class="carrito">
                 <% if (locals.userLogin) { %>
-                <div id="cart-btn"><i class="fa-solid fa-cart-shopping"></i></div>
+                <div id="cart-btn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    
+                </div>
                 <% } else { %>
                 <a href="/users/login"><i class="fa-solid fa-cart-shopping"></i></a> 
                 <% } %>

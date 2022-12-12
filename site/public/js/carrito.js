@@ -5,7 +5,9 @@ const iconCart = $('#cart-btn')
 const cart = $('.cart-container')
 
 const carrito = $('#carrito')
-const alertAdd = $('#addAlert')
+const h2 = $('#titulo')
+const iconoCarrito = $('#cart-btn')
+
 
 
 const getVentanaCart = async () => {
@@ -119,6 +121,7 @@ const cargarCarrito = (data) => {
     if (data.length > 0) {
 
         let totalCarrito = 0
+        let cantidad = 0
 
         data.forEach(producto => {
             let item = `
@@ -131,12 +134,16 @@ const cargarCarrito = (data) => {
                         </div>
                         <div class="contenido">
                             <h2>${producto.nombre}</h2>
-                            <p>-cerveza lupulada de bajo amargor. 4%alc-</p>
+                            <p>${producto.detalle}</p>
                         </div>
                     </div>
                         <div class="info">
-                            <p class="precio">$${producto.precio}</p>
-                            
+                        ${ producto.descuento > 0 ? 
+                            `<p class="precio">$ ${toThousand(Math.round(producto.precio - (producto.precio * producto.descuento / 100)))}</p>
+                            <h3>${producto.descuento}% OFF</h3>`
+                            :
+                            `<p class="precio">$ ${producto.precio}</p>`
+                        }
                             <div class="cantidad">
                                 <button class="button" id="decrease" onClick="modifyItem('${producto.id}')">-</button>
                                 <span>${producto.cantidad}</span>
@@ -150,13 +157,15 @@ const cargarCarrito = (data) => {
             `
             carrito.innerHTML += item
             totalCarrito += producto.subtotal
+            cantidad += producto.cantidad
         });
 
         $('#subTotal').innerHTML = `<h3>SUBTOTAL:</h3> $ ${toThousand(Math.round(totalCarrito))}`
         $('#total').innerHTML = `<h2>TOTAL:</h2> $ ${toThousand(Math.round(totalCarrito))}`
-
+        h2.innerHTML = `Carrito (${cantidad})`
     } else {
         $('.end').classList.add('none')
+        h2.innerHTML = `Carrito (0)`
         carrito.innerHTML = `
         <article class="vacio">
             <div>
@@ -176,6 +185,7 @@ const cargarVentanaCarrito = (data) => {
 
     if (data.length > 0) {
         let totalCarrito = 0
+        let cantidad = []
 
         data.forEach(producto => {
            
@@ -196,7 +206,10 @@ const cargarVentanaCarrito = (data) => {
             `
             cart.innerHTML += item
             totalCarrito += producto.subtotal
+            cantidad.push(producto.cantidad)
         })
+        
+        iconoCarrito.innerHTML += `<span class="count">${cantidad.reduce((a, b) => a + b)}</span>`
         cart.innerHTML += `
         <div class="cart-puy">
             <span>Subtotal:</span>
@@ -208,7 +221,7 @@ const cargarVentanaCarrito = (data) => {
         
         cart.innerHTML = `
             <h3 class="title">Mi carrito</h3>
-            <p>Mensaje bonito para el usuario, con link para ver producto</p>
+            <p>Carrito vacio</p>
         `
 
     }
