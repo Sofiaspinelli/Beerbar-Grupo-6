@@ -38,7 +38,11 @@
                         <button class="button button2" id="increase">+</button>
                         <input type="number" id="stock" value="<%= products.stock %>">
                     </div>
-                    <button>añadir al carrito</button>
+                    <% if (locals.userLogin) { %>
+                        <button onclick="Añadir('<%= products.id %>')" id="addAlert">añadir al carrito</button>
+                    <% } else {%>
+                        <button onclick="alert('Debe logearse para poder añadir al carrito')" id="addAlert">añadir al carrito</button>
+                    <% } %>
                 </div>
             </article>
         </section>

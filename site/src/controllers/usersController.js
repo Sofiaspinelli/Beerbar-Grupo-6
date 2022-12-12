@@ -24,21 +24,20 @@ module.exports = {
     }, 
     processLogin: (req,res) => {
        
-        
-            let errors = validationResult(req)
-            if (errors.isEmpty()) {
+        let errors = validationResult(req)
+        if (errors.isEmpty()) {
             
-                const {email, recordarme} = req.body
-                // let usuario = usuarios.find(user => user.email === email)
-                db.users.findOne({
-                    where: {
-                        email: email
-                    },
-                    include: [{
-                        all: true
-                    }]
-                })
-                .then(usuario => {
+            const {email, recordarme} = req.body
+            // let usuario = usuarios.find(user => user.email === email)
+            db.users.findOne({
+                where: {
+                    email: email
+                },
+                include: [{
+                    all: true
+                }]
+            })
+            .then(usuario => {
                 //    return res.status(200).json(usuario)
                     req.session.userLogin = {
                     id : usuario.id,
@@ -53,17 +52,70 @@ module.exports = {
                     res.cookie('Beerbar', /* usuarios.email, */req.session.userLogin, { maxAge: 3600000})
                 }
 
-                return res.redirect('/')
+                req.session.carrito = []
+
+                db.ordenes.findOne({
+                    where: {
+                        users_id: req.session.userLogin.id,
+                        status: 'pendiente'
+                    },
+                    include: [
+                        {
+                            association : 'carrito',
+                            attributes: ['products_id', 'cantidad'],
+                            include: [
+                                {
+                                    association : 'carritoProduct',
+                                    attributes: ['id', 'nombre', 'precio', 'descuento', 'stock'],
+                                    include: [
+                                        {
+                                            association : 'imagenes',
+                                            attributes: ['name']
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                })
+                .then(orden => {
+                    if (!orden) {
+                        console.log('el usuario logeano no tiene una orden pendiente');
+                        return res.redirect('/')
+                    } else {
+                        console.log('el usuario logeano tiene una orden pendiente');
+                        orden.carrito.forEach(item => {
+
+                            let producto = {
+                                id: item.carritoProduct.id,
+                                nombre: item.carritoProduct.nombre,
+                                precio: item.carritoProduct.precio,
+                                descuento: item.carritoProduct.descuento,
+                                imagen: item.carritoProduct.imagenes[0].name,
+                                stock: item.carritoProduct.stock,
+                                cantidad: +item.cantidad,
+                                subtotal: ( +item.carritoProduct.precio - ( +item.carritoProduct.precio * +item.carritoProduct.descuento / 100 )) * item.cantidad,
+                                orden_id: orden.id ,
+                            }
+                            req.session.carrito.push(producto)
+
+                        });
+                        console.log(req.session.carrito);
+                        return res.redirect('/')
+                    }
                 })
                 .catch(errors => res.status(500).send(errors))
 
-            } else {
-                /* return res.send(errors.mapped()) */
-                return res.render('users/login', {
-                    errors: errors.mapped(),
-                    old: req.body
-                })
-            }
+            })
+            .catch(errors => res.status(500).send(errors))
+
+        } else {
+            /* return res.send(errors.mapped()) */
+            return res.render('users/login', {
+                errors: errors.mapped(),
+                old: req.body
+            })
+        }
         
     },
     user: (req,res) => {
@@ -110,7 +162,7 @@ module.exports = {
             genero: genero,
             email: email,
             pass: bcrypt.hashSync(pass, 12),
-            contacto: +contacto,
+            contacto: contacto,
             roles_id: 2,
             // avatars_id: 1,
             // createdAt: "2022-10-13 00:01:08",

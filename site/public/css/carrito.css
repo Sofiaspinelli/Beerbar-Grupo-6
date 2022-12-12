@@ -13,6 +13,10 @@
     border-radius: 20px;
     padding: 20px;
     margin: 20px auto;
+    min-height: 500px;
+}
+.main #carrito{
+    width: 90%;
 }
 main h2{
     margin:0px;
@@ -21,7 +25,7 @@ main h2{
 /* rgba(230, 230, 230, 0.5) */
 .main .contGen{
     width: 100%;
-    height: 300px;
+    height: 265px;
     background-color: hsla(0, 0%, 0%, 0.5);
     display: flex;
     border: solid 2px gray;
@@ -38,22 +42,30 @@ main h2{
 }
 .main .contGen .contGrid{
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    /* display: flex;
+    justify-content: space-between; */
 }
 .main .contGrid .producto{
     margin: 0 auto;
     width: 90%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
-.main .contGrid .producto .imgcCont{
-    width: 6%;
-    min-width: 70px;
+.main .contGrid .producto .detalle{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid;
 }
-.main .contGen .contGrid .producto .imgcCont img{
+.main .contGrid .producto .detalle .imgcCont{
+    width: 45%;
+    min-width: 70px;
+    max-width: 161px;
+}
+.main .contGen .contGrid .producto .detalle .imgcCont img{
     display: flex;
     object-fit: cover;
     width: 100%;
@@ -63,17 +75,16 @@ main h2{
 
 }
 .main .contGrid .contenido{
-    width: 68%;
+    width: 55%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }   
-.main .contGrid .contenido strong{
-    position: absolute;
-    top:75px;
-    font-size: 18px;
-    text-align: center;
+.main .contGrid .contenido h2{
+    margin-bottom: 5px;
+    font-size: 25px;
+
 }
 .main .contGrid .contenido p{
     font-size: 17px;
@@ -82,30 +93,38 @@ main h2{
 .main .contGrid .producto .info{
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin: 10px 0 0;
+    align-items: center;
 }
-.main .contGrid .producto .info button{
-    height: 45px;
-    margin-top: 5px;
+/* .main .contGrid .producto .info button{
     cursor: pointer;
-    border: solid 3px rgb(250, 71, 0);
     padding: 5px;
-    background: rgb(255, 153, 0);
     position: absolute;
     top: 220px;
     right: 150px;
-}
+} */
+
 .main .contGrid .producto .info .trash{
     position: absolute;
-    top: -7px;
-    right: -2px;
+    top: -8px;
+    right: -10px;
     padding: 10px;
-    border-radius: 20px;
-    border: 1px ;
+    border-radius: 50%;
+    display: flex;
+    background-color: var(--colorGris);
 }
+
 .main .end{
     padding: 2px;
     margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 230px;
+}
+.main .none{
+    display: none;
 }
 .main .end button{
     color: var(--colorBlanco);
@@ -115,58 +134,123 @@ main h2{
     cursor: pointer;
     border-radius: 20px;
     border: 1px ;
-    
+    margin-top: 12px;
 }
-.main .end button:hover{
+.main .end button:hover, .main .contGrid .producto .info .trash:hover, .main .contGrid .producto .info .cantidad .button:hover{
     background-color: var(--colorNaranja);
     color: var(--colorBlanco);
 }
-.main .end input{
-    font-size: 18px;
-    padding: 10px;
-    width: 157px;
-    border-radius: 20px;
-    border: 1px ;
+.main .end div{
+    width: 100%;
+    background-color: white;
+    height: 100px;
+    border-radius: 12px;
+    border: 2px double black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+
 }
-.main .precio{
-    position: absolute;
-    top: 190px;
-    right: 150px;
+.main .end div p{
+    color: black;
+    font-size: x-large;
+    height: 20px;
+}
+.main .end div strong{
+    color: black;
+    font-size: xx-large;
+    display: contents;
+}
+.main .end div strong h2{
+    font-size: x-large;
+    color: orange;
+}
+.main .end div span{
+    font-size: 22px;
+    color: rgb(59, 58, 58);
+    height: 15px;
+    display: contents;
+}
+.main .end div span h3{
+    font-size: x-large;
+    color: orange;
 }
 
-.main .btnAñadir {
-    border: 1px ;
+.main .contGrid .producto .info .cantidad{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 33px;
+    margin-top: 5px;
+    border-radius: 10px;
 }
-@media (min-width:615px){
+.main .contGrid .producto .info .cantidad .button{
+    background-color: var(--colorGris);
+    width: 35px;
+    height: 35px;
+    font-size: 41px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    border-radius: 8px 0 0 8px;
+}
+.main .contGrid .producto .info .cantidad .button2{
+    border-radius: 0 8px 8px 0;
+}
+.main .contGrid .producto .info .cantidad .button:last-child{
+    border-radius: 0 8px 8px 0;
+}
+
+.main .contGrid .producto .info .cantidad span{
+    font-size: x-large;
+    color: black;
+    width: 30px;
+    text-align: center;
+}
+.main .contGrid .producto .info .cantidad #stock{
+    display: none;
+}
+.main .vacio{
+    position: absolute;
+    top: 50%;
+}
+.main .vacio div h4{
+    font-size: xxx-large;
+}
+.main .vacio div a{
+    text-decoration: underline;
+    color: orange;
+    font-size: xx-large;
+}
+
+
+@media (min-width:760px){
     .main .contGen{
         height: 200px;
+    }
+    .main .contGrid .producto{
+        width: 100%;
+        justify-content: space-evenly;
     }
     .main .contGrid .producto .info{
         margin: 0;
     }
-    .main .contGrid .producto .info button{
-        height: 45px;
-        margin-top: 5px;
-        cursor: pointer;
-        border: solid 3px rgb(250, 71, 0);
-        padding: 5px;
-        background: rgb(255, 153, 0);
-        position: inherit;
-}
+    .main .contGrid .producto .detalle{
+        border-bottom: none;
+        border-right: 2px solid;
+        width: 75%;
+        justify-content: space-evenly;
+    }
 .main .contGrid .contenido p{
-    font-size: 25px;
-    text-align: center;
-    margin-top: 20px;
-}
-.main .contGrid .contenido strong{
     font-size: 18px;
-    text-align: center;
 }
-.main .precio{
-    text-align: center;
-    position: inherit;
-}
-.main .end button{
+/* .main .end button{
     color: black;
-}
+} */
 }

@@ -9,7 +9,10 @@ body{
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("../img/productos/fondo-textura-carrito.jpg");
+    /* background-image: url("../img/productos/fondo-textura-carrito.jpg"); */
+    /* background-image: url("../img/productos/black-fondo1.jpg"); */
+    /* background-image: url("../img/productos/black-fondo2.jpg"); */
+    background-image: url("../img/productos/brown-wooden-textured-background.jpg");
 }
 li {
     list-style: none;

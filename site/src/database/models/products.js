@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         onDelete:'cascade'
       })
       products.hasMany(models.carts,{
-        as: 'carritoProducts',
+        as: 'producto_carrito',
         foreignKey: 'products_id',
       })
     }

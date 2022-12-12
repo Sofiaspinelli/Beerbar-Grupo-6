@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'users_id'
       }),
       users.hasMany(models.carts,{
-          as: 'carritoUsers',
+          as: 'usuario_carrito',
           foreignKey: 'users_id',
         })
     }
@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     pass: DataTypes.STRING,
     genero: DataTypes.STRING,
-    contacto: DataTypes.INTEGER,
+    contacto: DataTypes.STRING,
     roles_id: DataTypes.INTEGER
   }, {
     sequelize,

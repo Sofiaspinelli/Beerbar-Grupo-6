@@ -25,12 +25,28 @@ window.addEventListener('load', () => {
         return count.value = contador;
     }
 
+    const cantidad = async (id, nro) => {
+        try {
+            let response = await fetch(`http://localhost:3005/api/contador/${id}/${nro}`)
+            let result = await response.json()
+            console.log(result);
+            
+            // return count.value = result.data;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
     increase.addEventListener('click', () => {
-        sumar();
+        sumar()
+        cantidad(1, count.value);
     })
 
     decrease.addEventListener('click', () => {
         restar();
+        cantidad(1, count.value)
     })
 
 })

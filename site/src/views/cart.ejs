@@ -16,7 +16,8 @@
 
     <main class="main">
         <h2>Carrito (8)</h2>
-        <section class="contGen">
+    <section id="carrito">
+        <!-- <article class="contGen">
             <div class="contGrid">
                 <div class="producto">
                     <div class="imgcCont">
@@ -33,8 +34,9 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="contGen">
+        </article> -->
+    </section>
+        <!-- <section class="contGen">
             <div class="contGrid">
                 <div class="producto">
                     <div class="imgcCont">
@@ -87,7 +89,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>  
         <section class="contGen">
             <div class="contGrid">
                 <div class="producto">
@@ -105,14 +107,21 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <div class="end">
+            
+            <div>
+                <span id="subTotal"></span>
+                <p>-----------------------------</p>
+                <strong id="total"></strong>
+            </div>
             <button type="button">Finalizar compra</button>
-            <input type="text" placeholder="$4400">
+
         </div>
     </main>
    
     <%- include('./partials/footer') %>
+    <script src="/js/menu.js"></script>
     
 </body>
 
