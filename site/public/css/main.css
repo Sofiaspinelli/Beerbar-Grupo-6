@@ -39,7 +39,7 @@ main{
 .home main  .productos .article img {
     display: flex;
     justify-content: center;
-    width: 80%;
+    width: auto;
     max-height: 260px;
     margin: 15px 0 0;
     border-radius: 10px;
@@ -106,7 +106,8 @@ main{
         /* padding: 20px; */
     }
     .home main  .productos .article img{
-        min-width: 180px;
+        width: auto;
+        max-width: 100%;
     }
     .home main .productos .article button a{
         color: black;
@@ -128,7 +129,8 @@ main{
 
     }
     .home main  .productos .article img{
-        width: 80%;
+        width: auto;
+        max-width: 100%;
         height: 200px;
     }
     .home main .productos .article .old {

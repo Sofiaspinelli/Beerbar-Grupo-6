@@ -36,7 +36,8 @@
 .products main .productos article img {
     display: flex;
     justify-content: center;
-    width: 80%;
+    width: auto;
+    max-width: 80%;
     max-height: 260px;
     border-radius: 10px;
 }
@@ -98,7 +99,8 @@ font-size: 24px;
         min-width: 270px;
     }
     .products main  .productos article img{
-       min-width: 180px;
+        width: auto;
+        max-width: 80%;
     }
     .products main .productos article button a{
         color: black;
@@ -116,7 +118,8 @@ font-size: 24px;
 
     }
     .products main  .productos article img{
-        width: 80%;
+        width: auto;
+        max-width: 80%;
     }
     .products main .productos article .old {
         font-size: 16px;
