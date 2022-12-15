@@ -1,0 +1,74 @@
+.empresa .contenedor1 {
+    width: 100%;
+    position: relative;
+    background-image: url("../img/productos/fondo-empresa.jpg");
+    margin: 10px;
+    max-width: 1500px;
+    height: 900px;
+    background-position: center;
+
+}
+.empresa .contenedor1 div {
+    position: absolute;
+    background-color: rgba(128, 128, 128, 0.311);
+    width: 100%;
+    top: 445px;
+}
+
+.texto-encima{
+    font-size: 60px;
+    max-width: 350px;
+    margin-left: 30px;
+    
+    
+}
+.texto{
+    font-size:var(--tamañoFuente);
+    color: white;
+    margin-left: 30px;
+} 
+.empresa .empresa1 {
+    padding: 10px;
+    width: 79%;
+    background-color: rgba(237, 231, 223, 0.693);
+}
+
+.empresa section .comida img {
+    width: 50% ;
+
+    
+}
+.empresa .comida {
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
+
+.texto-c {
+    font-size:var(--tamañoFuente);
+    color: white;
+    margin-left: 30px;
+    margin-top: 30px;
+    text-align: center;
+    align-content: center;
+    width: 50%;
+  
+} 
+.empresa .contenedor2 {
+    width: 100%;
+    position: relative;
+    background-image: url("../img/productos/fondo-empresa-2.jpg");
+    margin: 10px;
+    max-width: 1500px;
+    height: 900px;
+    background-position: center;
+
+}
+.empresa .contenedor2 div {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: rgba(138, 75, 75, 0.311);
+    width: 100%;
+    top: 445px;
+}

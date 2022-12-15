@@ -40,5 +40,9 @@ module.exports = {
         )
         });
         
+    },
+    empresa : (req , res) => {
+        res.render('empresa', {title : 'Empresa'})
     }
+
 }
