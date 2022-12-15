@@ -27,33 +27,29 @@
     color: white;
     margin-left: 30px;
 } 
-.empresa .empresa1 {
-    padding: 10px;
-    width: 79%;
-    background-color: rgba(237, 231, 223, 0.693);
-}
-
-.empresa section .comida img {
-    width: 50% ;
-
-    
-}
-.empresa .comida {
+.empresa .contenedor3 {
+    width: 100%;
+    max-width: 1500px;
+    height: 400px;
     display: flex;
     justify-content: center;
-    width: auto;
+    background-color: rgba(204, 214, 222, 0.45);
 }
-
-.texto-c {
-    font-size:var(--tamañoFuente);
+.empresa .contenedor3 div {
+    display: flex;
+    flex-direction: row;
+}
+.empresa .contenedor3 img {
+    width: 50%
+}
+.empresa .contenedor3 .texto-c {
     color: white;
-    margin-left: 30px;
-    margin-top: 30px;
+    display: flex;
+    align-items: center;
     text-align: center;
-    align-content: center;
+    font-size: 25px;
     width: 50%;
-  
-} 
+}
 .empresa .contenedor2 {
     width: 100%;
     position: relative;
