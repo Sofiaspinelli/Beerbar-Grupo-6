@@ -43,10 +43,10 @@
     background-color: rgba(204, 214, 222, 0.45);
     border-radius: 15px;
 }
-.empresa .contenedor3 div {
-    /* display: flex;
-    flex-direction: row; */
-}
+/* .empresa .contenedor3 div {
+     display: flex;
+    flex-direction: row; 
+} */
 .empresa .contenedor3 img {
     width: 60%;
     height: 160px;
