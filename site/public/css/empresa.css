@@ -1,70 +1,222 @@
+.empresa .mainEmpre{
+    width: 98%;
+}
 .empresa .contenedor1 {
     width: 100%;
     position: relative;
-    background-image: url("../img/productos/fondo-empresa.jpg");
+    background-image: url(../img/productos/fondo-empresa.jpg);
     margin: 10px;
     max-width: 1500px;
-    height: 900px;
+    height: 500px;
     background-position: center;
-
+    background-size: 160% 500px;
+    background-repeat: no-repeat;
+    border-radius: 15px;
 }
 .empresa .contenedor1 div {
     position: absolute;
-    background-color: rgba(128, 128, 128, 0.311);
+    background-color: rgb(128 128 128 / 19%);
     width: 100%;
-    top: 445px;
+    height: 500px;
+    top: 0px;
+    left: 0px;
+    border-radius: 15px;
 }
 
 .texto-encima{
-    font-size: 60px;
-    max-width: 350px;
-    margin-left: 30px;
-    
-    
+    font-size: xx-large;
+    max-width: 350px; 
+    border-bottom: 0;
+    text-decoration: underline;
 }
 .texto{
-    font-size:var(--tamañoFuente);
+    font-size: var(--tamañoFuente);
     color: white;
-    margin-left: 30px;
+    margin: 57px 6px 0;
+    text-align: center;
 } 
 .empresa .contenedor3 {
     width: 100%;
     max-width: 1500px;
-    height: 400px;
     display: flex;
     justify-content: center;
     background-color: rgba(204, 214, 222, 0.45);
+    border-radius: 15px;
 }
 .empresa .contenedor3 div {
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
 }
 .empresa .contenedor3 img {
-    width: 50%
+    width: 60%;
+    height: 160px;
+    float: left;
+    margin-right: 8px;
+    border-radius: 15px 0 0;
 }
 .empresa .contenedor3 .texto-c {
     color: white;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    font-size: 25px;
-    width: 50%;
+    font-size: 18px;
+    margin: 10px auto;
+    width: 98%;
+    padding: 0 5px;
 }
 .empresa .contenedor2 {
     width: 100%;
     position: relative;
-    background-image: url("../img/productos/fondo-empresa-2.jpg");
+    background-image: url(../img/productos/fondo-empresa-2.jpg);
+    background-repeat: no-repeat;
+    background-size: 142% 500px;
     margin: 10px;
     max-width: 1500px;
-    height: 900px;
+    height: 500px;
     background-position: center;
-
+    border-radius: 15px;
 }
 .empresa .contenedor2 div {
     position: absolute;
-    display: flex;
-    flex-direction: row-reverse;
     background-color: rgba(138, 75, 75, 0.311);
     width: 100%;
-    top: 445px;
+    height: 100%;
+    top: 0px;
+    border-radius: 15px;
 }
+
+@media (min-width:460px){
+    .texto{
+        margin: 130px auto 0;
+        max-width: 90%;
+    }
+}
+@media (min-width:560px){
+    .texto-encima {
+        font-size: 40px;
+        max-width: 550px;
+        margin-top: 50px;
+    }
+    .empresa .contenedor3 div {
+        margin: 0 auto;
+        width: 96%;
+    }
+    .empresa .contenedor3 img {
+        width: 50%;
+        height: auto;
+        margin-right: 8px;
+        margin-top: 8px;
+    }
+}
+ @media (min-width:650px){
+    .texto-encima {
+        font-size: xxx-large;
+        max-width: 590px;
+        margin-top: 70px;
+    }
+   
+    .empresa .contenedor1{
+        height: 700px;
+        background-size: cover;
+    }
+    .empresa .contenedor2 {
+        height: 700px;
+        background-size: cover;
+    }
+    .empresa .contenedor3 {
+        height: 260px;
+    }
+    .empresa .contenedor3 div{
+        width: 100%;
+    }
+    .empresa .contenedor3 .texto-c {
+        text-align: center;
+    }
+    .empresa .contenedor3 img{
+        border-radius: 15px 0 0 15px;
+        margin: 0;
+        /* max-width: 440px; */
+        height: 260px;
+        width: 55%;
+    }
+/*  .empresa .contenedor1 {
+        width: 100%;
+        position: relative;
+        background-image: url("../img/productos/fondo-empresa.jpg");
+        margin: 10px;
+        max-width: 1500px;
+        height: 900px;
+        background-position: center;
+    
+    }
+    .empresa .contenedor1 div {
+        position: absolute;
+        background-color: rgba(128, 128, 128, 0.311);
+        width: 100%;
+        top: 445px;
+    }
+    
+    .texto-encima{
+        font-size: 60px;
+        max-width: 350px;
+        margin-left: 30px;
+        
+        
+    }
+    .texto{
+        font-size:var(--tamañoFuente);
+        color: white;
+        margin-left: 30px;
+    } 
+    .empresa .contenedor3 {
+        width: 100%;
+        max-width: 1500px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        background-color: rgba(204, 214, 222, 0.45);
+    }
+    .empresa .contenedor3 div {
+        display: flex;
+        flex-direction: row;
+    }
+    .empresa .contenedor3 img {
+        width: 50%
+    }
+    .empresa .contenedor3 .texto-c {
+        color: white;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-size: 25px;
+        width: 50%;
+    }
+    .empresa .contenedor2 {
+        width: 100%;
+        position: relative;
+        background-image: url("../img/productos/fondo-empresa-2.jpg");
+        margin: 10px;
+        max-width: 1500px;
+        height: 900px;
+        background-position: center;
+    
+    }
+    .empresa .contenedor2 div {
+        position: absolute;
+        display: flex;
+        flex-direction: row-reverse;
+        background-color: rgba(138, 75, 75, 0.311);
+        width: 100%;
+        top: 445px;
+    }*/
+}
+@media (min-width:778px){
+    .empresa .mainEmpre{
+        width: 90%;
+    }
+    .empresa .contenedor3{
+        height: auto;
+    }
+    .empresa .contenedor3 img{
+        height: auto;
+        max-width: none;
+    }
+}
+ 

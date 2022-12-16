@@ -18,26 +18,162 @@ const productVerify = (carrito, id) => {
 }
 
 module.exports = {
-    contador: async (req, res) => {
+    addItemcount: async (req, res) => {
        try {
-        let cantidad = 1
+
+        let count = +req.params.nro
         let producto = await db.products.findOne({
-            where: {id : +req.params.id}
+            where: {
+                id: +req.params.id
+            },
+            include: [
+                {
+                    association: 'imagenes',
+                    attributes: ['name']
+                }
+            ]
         })
         
-        if (cantidad < producto.stock && req.params.nro) {
-            cantidad = +req.params.nro
+        // if (cantidad < producto.stock && req.params.nro) {
+        //     count = 
+        // }
+
+        
+        // crear objeto item que se agregara y se pasara a la session 
+        let item = {
+            id: producto.id,
+            nombre: producto.nombre,
+            precio: producto.precio, 
+            descuento: producto.descuento,
+            stock: producto.stock,
+            imagen:producto.imagenes[0].name,
+            detalle: producto.detalle,
+            cantidad: 1,
+            subtotal: +producto.precio - (+producto.precio * +producto.descuento / 100),
         }
 
+        return res.status(200).json(count)
+
+        if (req.session.carrito.length === 0) {
+            
+            let orden = await db.ordenes.findOne({
+                where: {
+                    users_id: req.session.userLogin.id,
+                    status: 'pendiente'
+                },
+                include: [
+                    {
+                        association: 'carrito',
+                        attributes: ['products_id', 'cantidad'],
+                    }
+                ]
+            })
+
+            if (!orden) {
+                let nuevaOrden = await db.ordenes.create({
+                    users_id: req.session.userLogin.id,
+                    status: 'pendiente'
+                })
+
+                // agregar dato que falta al item
+                item = {
+                    ...item,
+                    orden_id: nuevaOrden.id
+                }
+
+                // sctualizar datos de la session
+                req.session.carrito.push(item)
+
+                // crear nuevo registro de carrito asociado a la orden de compra
+                await db.carts.create({
+                    users_id: req.session.userLogin.id,
+                    products_id: item.id,
+                    ordenes_id: nuevaOrden.id,
+                    cantidad: count,
+                })
+            }else {
+                // en caso de que tenga una orden pendiente y el carrito vacio
+                item = {
+                    ...item,
+                    orden_id: orden.id
+                }
+                req.session.carrito.push(item)
+
+                await db.carts.create({
+                    users_id: req.session.userLogin.id,
+                    products_id: item.id,
+                    ordenes_id: orden.id,
+                    cantidad: count,
+                })
+
+            }
+
+        } else {
+            console.log("Ingreso correctamente")
+            // en caso de tener productos en su carrito
+
+            let index = productVerify(req.session.carrito, req.params.id);
+
+            let orden = await db.ordenes.findOne({
+                where: {
+                    users_id: req.session.userLogin.id,
+                    status: 'pendiente'
+                }
+            })
+            
+            if (index === -1) {
+                
+                item = {
+                    ...item,
+                    orden_id: orden.id
+                }
+                req.session.carrito.push(item)
+
+                await db.carts.create({
+                    users_id: req.session.userLogin.id,
+                    products_id: item.id,
+                    ordenes_id: orden.id,
+                    cantidad: count,
+                })
+                console.log("Aca muestro el carrito")
+                console.log(req.session.carrito)
+
+            } else {
+                // si el producto existe en el carrito
+                let producto = req.session.carrito[index]
+                producto.cantidad = producto.cantidad + count
+                producto.subtotal = (+producto.precio - (+producto.precio * +producto.descuento / 100)) * producto.cantidad
+
+                req.session.carrito[index] = producto
+                console.log(req.session.carrito)
+
+                await db.carts.update(
+                    {
+                        cantidad: producto.cantidad
+                    },
+                    {
+                        where: {
+                            ordenes_id: producto.orden_id,
+                            products_id: producto.id
+                        }
+                    }
+                )
+            }
+        }
+
+        console.log("Aca mostramos la session que se pasa nuevamente")
+        console.log(req.session.carrito)
         let response = {
             status: 200,
             meta: {
-                count: cantidad,
+                length: req.session.carrito.length,
                 path: `${req.protocol}://${req.get('host')}${req.originalUrl}`
             },
-            data: cantidad
+            data: req.session.carrito
         }
+        console.log(response)
         return res.status(200).json(response)
+        
 
        } catch (error) {
         res.status(500).send(error)
@@ -97,9 +233,11 @@ module.exports = {
             stock: producto.stock,
             imagen:producto.imagenes[0].name,
             detalle: producto.detalle,
-            cantidad: 1,
+            cantidad: req.body.cantidad ? +req.body.cantidad : 1,
             subtotal: +producto.precio - (+producto.precio * +producto.descuento / 100),
         }
+
+        console.log(req.body.cantidad ? 'XXXX------: ' + req.body.cantidad : -1);
 
         // verificar  si esta vacio el carrito
         if (req.session.carrito.length === 0) {
@@ -129,7 +267,7 @@ module.exports = {
                     orden_id: nuevaOrden.id
                 }
 
-                // sctualizar datos de la session
+                // actualizar datos de la session
                 req.session.carrito.push(item)
 
                 // crear nuevo registro de carrito asociado a la orden de compra
@@ -137,7 +275,7 @@ module.exports = {
                     users_id: req.session.userLogin.id,
                     products_id: item.id,
                     ordenes_id: nuevaOrden.id,
-                    cantidad: 1,
+                    cantidad: req.body.cantidad ? +req.body.cantidad : 1,
                 })
             } else {
                 // en caso de que tenga una orden pendiente y el carrito vacio
@@ -151,7 +289,7 @@ module.exports = {
                     users_id: req.session.userLogin.id,
                     products_id: item.id,
                     ordenes_id: orden.id,
-                    cantidad: 1,
+                    cantidad: req.body.cantidad ? +req.body.cantidad : 1,
                 })
 
             }
@@ -180,7 +318,7 @@ module.exports = {
                     users_id: req.session.userLogin.id,
                     products_id: item.id,
                     ordenes_id: orden.id,
-                    cantidad: 1,
+                    cantidad: req.body.cantidad ? +req.body.cantidad : 1,
                 })
                 console.log("Aca muestro el carrito")
                 console.log(req.session.carrito)
@@ -188,7 +326,11 @@ module.exports = {
             } else {
                 // si el producto existe en el carrito
                 let producto = req.session.carrito[index]
-                producto.cantidad++
+                if (req.body.cantidad) {
+                    producto.cantidad += +req.body.cantidad
+                } else {
+                    producto.cantidad++
+                }
                 producto.subtotal = (+producto.precio - (+producto.precio * +producto.descuento / 100)) * producto.cantidad
 
                 req.session.carrito[index] = producto

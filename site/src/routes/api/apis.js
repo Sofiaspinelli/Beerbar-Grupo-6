@@ -3,7 +3,7 @@ const router = express.Router();
 
 const {usuarios, usuarioPorId, productos, productosPorId, login} = require('../../controllers/api/apiController')
 const {paginacion} = require('../../controllers/api/paginacion');
-const {listaCarrito, addItem, modifyItem, removeItem, empty, contador} = require('../../controllers/api/carrito');
+const {listaCarrito, addItem, modifyItem, removeItem, empty, addItemcount} = require('../../controllers/api/carrito');
 
 // rutas
 router.get('/users', usuarios);
@@ -16,7 +16,7 @@ router.get('/productos', /* productos */ paginacion);
 router.get('/productos/:id', productosPorId);
 
 /* suma, resta de cantidad de producto */
-router.get('/contador/:id/:nro', contador);
+router.post('/contador/:id/:nro', addItemcount);
 // router.get('/resta/:id/:nro', );
 
 /* carrito de compra */

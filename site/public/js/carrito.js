@@ -41,11 +41,21 @@ const getCart = async () => {
     }
 }
 
+
 const addItem = async (id) => {
     try {
+
+        // let numero = {
+        //     cantidad: count !== undefined ? count.value : 1
+        // }
+
         console.log('ingreso');
         const response = await fetch(`http://localhost:3005/api/carrito/${id}`, {
-            method: 'POST'
+            method: 'POST',
+            // body: JSON.stringify(numero),
+            headers: {
+                "Content-Type": "application/json"
+            }
         })
         const result = await response.json()
         console.log(result.data);
@@ -60,10 +70,6 @@ const addItem = async (id) => {
     }
 }
 
-const Añadir = (dato) => {
-    addItem(dato)
-    alert('Producto añadido al carrito')
-}
 
 
 const removeItem = async (id) => {
@@ -183,9 +189,10 @@ const cargarVentanaCarrito = (data) => {
     //console.log(data)
     cart.innerHTML = ""
 
+    let cantidad = []
+
     if (data.length > 0) {
         let totalCarrito = 0
-        let cantidad = []
 
         data.forEach(producto => {
            
@@ -210,6 +217,7 @@ const cargarVentanaCarrito = (data) => {
         })
         
         iconoCarrito.innerHTML += `<span class="count">${cantidad.reduce((a, b) => a + b)}</span>`
+        
         cart.innerHTML += `
         <div class="cart-puy">
             <span>Subtotal:</span>
@@ -218,7 +226,8 @@ const cargarVentanaCarrito = (data) => {
         </div>
         `
     } else {
-        
+        cantidad = []
+        iconoCarrito.innerHTML += ``
         cart.innerHTML = `
             <h3 class="title">Mi carrito</h3>
             <p>Carrito vacio</p>
