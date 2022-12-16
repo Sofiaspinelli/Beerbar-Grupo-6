@@ -72,7 +72,7 @@ main h2{
 .main .contGen .contGrid .producto .detalle .imgcCont img{
     display: flex;
     object-fit: cover;
-    width: 100%;
+    width: 50%;
     height: 100%;
     align-items: center;
     justify-content: center;

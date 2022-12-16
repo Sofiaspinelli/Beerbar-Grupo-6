@@ -200,7 +200,7 @@ header .cart-container .cart-item .fa-times:hover {
     color: var(--main-color);
 }
 header .cart-container .cart-item img {
-    width: 95px;
+    width: 45px;
     object-fit: cover;
     padding: 5px;
 }
