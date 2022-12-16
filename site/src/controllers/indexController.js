@@ -43,6 +43,9 @@ module.exports = {
     },
     empresa : (req , res) => {
         res.render('empresa', {title : 'Empresa'})
+    },
+    contacto : (req , res) => {
+        res.render('contacto', {title : 'Contacto'})
     }
 
 }
