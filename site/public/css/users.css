@@ -52,7 +52,7 @@
     font-size: 24px;
     margin: 3px;
     padding: 2px;
-    width: 100%;
+    width: 200px;
     background-color: var(--colorButtom);
     border-radius: 10px;
 }

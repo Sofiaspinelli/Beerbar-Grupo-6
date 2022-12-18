@@ -14,6 +14,9 @@
     width: 50%;
     max-width: 200px;
 }
+.header .logo a{
+    font-size: 0px;
+}
 
 .header img{
     width: 100%;
@@ -120,6 +123,7 @@
     display: none;
     width: 89%;
     margin: 0 auto;
+    position: relative;
 }
 .header .desaparecer{
     display: flex;
@@ -128,19 +132,97 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+.header nav ul {
+    position: relative;
+    padding-left: 10px;
+}
 .header nav ul li {
     margin: 5px;
-    
+    color: black;
+    text-transform: uppercase;
+    font-size: var(--tamañoFuente); 
+    cursor: pointer;
+}
+.header nav .user {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-left: 2px black solid;
+    padding-left: 8px;
+}
+.header nav .user li {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center
 }
 .header nav li a {
     color: black;
     text-transform: uppercase;
     font-size: var(--tamañoFuente);   
 }
-.header nav li a:hover{
+.header nav .user li img {
+    width: 126px;
+    border-radius: 20%; 
+}
+.header nav li a:hover, .header nav li:hover{
     color: var(--colorBlanco);
     transition: all 0.6s;
 }
+.perfilFunciones {
+    display: none;
+    position: absolute;
+    width: 150px;
+    top: 153px;
+    padding-top: 10px;
+    background-color: white;
+    right: 10px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1;
+}
+.perfilFunciones::before{
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    /* border-bottom: 8px solid #ff7600; */
+    border-bottom: 8px solid black;
+    content: "";
+    height: 0;
+    left: 70px;
+    position: absolute;
+    width: 0;
+    top: -8px;
+}
+.perfilFunciones a{
+    color: black;
+    border-radius: 10px;
+}
+.perfilFunciones form{
+    width: 90%;
+    margin: 15px auto;
+}
+.perfilFunciones button{
+    margin: 0;
+    background-color: transparent;
+    border: 0;
+    border-radius: 10px;
+    font-size: 24px;
+}
+.perfilFunciones button:hover{
+    color: white;
+    background-color: var(--colorNaranja);
+    transition: 0.3s;
+}
+.perfilFunciones a:hover{
+    background-color: var(--colorNaranja);
+    color: white;
+    padding: 0 25px;
+    transition: 0.3s;
+}
+.blockOption{
+    display: block;
+}
+
 /* ventana carrito */
 header .cart-container {
     position: absolute;
@@ -269,9 +351,20 @@ header .cart-container .cart-puy a:hover{
     transition: 0.4s;
 }
 
+@media (min-width:530px) {
+    .perfilFunciones{  
+        top: 32px;
+        left: -158px;
+    }
+    .perfilFunciones::before{  
+        transform: rotate(90deg);
+        left: 145px;
+        top: 45px;
+    }
+}
 @media (min-width:668px) {
     .header{
-        height: 155px;
+        height: 160px;
     }
     .header img  {
         justify-content: center;
@@ -291,14 +384,37 @@ header .cart-container .cart-puy a:hover{
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        padding: 0;
     }
     .header nav ul li {
         margin: 0 5px;
     }
     .header nav ul.user {
+        border: 0;  
+    }
+    .header nav .user {
+    position: relative;
+    right: 0;
+    top: 0;
+}
+    .header nav .user li {
+        /* display: block; */
         display: flex;
-        justify-content: end;
-        
+        flex-direction: row;
+    }
+    .perfilFunciones {
+        top: 45px;
+        left: 79px;
+    }
+    .perfilFunciones::before {
+        transform: rotate(0deg);
+        left: 107px;
+        top: -8px;
+    }
+    .header nav .user li img {
+    width: 40px;
+    border-radius: 20%;
+    margin-left: 5px
     }
     .header .t-f{
         display: none;
