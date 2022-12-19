@@ -7,8 +7,8 @@
     <%- include('./partials/header') %>
     <main>
         <h1>Productos</h1>
-        <section class="productos">
-            <% products.forEach(producto => { %>
+        <section class="productos" id="productos">
+            <!-- <% products.forEach(producto => { %>
             <article>
                 <img src="/img/productos/<%= producto.imagenes[0].name %>" alt="">
                 <div class="contenedor">
@@ -23,12 +23,36 @@
                 </div>
                 <button><a href="/products/detail/<%= producto.id %>">Comprar</a></button>
             </article>
-            <% }) %>
+            <% }) %> -->
         </section>
-            
+
+        <div class="col-12 d-flex justify-content-between align-items-center">
+            <nav aria-label="Page navigation example" class="navPages">
+                <ul class="pagination justify-content-end" class="pages" id="pages-links">
+
+                </ul>
+            </nav>
+        </div>
+     
+        <template id="template-products">
+
+            <article>
+                <div class="img-Product">
+                    <img id="imgPoducts" src="" alt="">
+                </div>
+                <div class="infoContent">
+                    <div class="contenedor">
+                        <h3 id="nombre"></h3>
+                        <p class="old" id="oldprecio"></p>
+                        <p class="precio" id="precio"><p>  
+                    </div>
+                    <button><a href="" id="id"></a></button>
+                </div>
+            </article>
+
+        </template>
     </main>
-
     <%- include('./partials/footer') %>
-
+    <script src="/js/paginacionProductos.js"></script>
 </body>
 </html>

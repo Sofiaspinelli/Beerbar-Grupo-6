@@ -3,63 +3,63 @@ window.addEventListener('load', () => {
 
     const $ = (e) => document.querySelector(e);
 
-    const url = new URL('http://localhost:3005/api/productos?page=1&size=10');
+    const url = new URL('http://localhost:3005/api/productos?page=1&size=6');
 
-    const filter = $('#filter');
-    const sizes = $('#size');
+    // const filter = $('#filter');
+    // const sizes = $('#size');
     const ulPages = $('#pages-links');
-    const tbody = $('#tbody');
-    const template = document.querySelector('#tempale-tbody').content;
+    const section = $('#productos');
+    const template = document.querySelector('#template-products').content;
     const fragment = document.createDocumentFragment();
 
-    const errorMsg = $('#msgResult');
+    // const errorMsg = $('#msgResult');
 
-    filter.addEventListener('change', (e) => {
-        if (e.target.value.trim().length != 0) {
-            console.log('Ingreso 1');
-            console.log(url.href);
+    // filter.addEventListener('change', (e) => {
+    //     if (e.target.value.trim().length != 0) {
+    //         console.log('Ingreso 1');
+    //         console.log(url.href);
 
-            if (url.searchParams.has(e.target.name)) {
+    //         if (url.searchParams.has(e.target.name)) {
 
-                if (e.target.name != 'nombre' && e.target.value == 0) {
-                    url.searchParams.delete(e.target.name);
+    //             if (e.target.name != 'nombre' && e.target.value == 0) {
+    //                 url.searchParams.delete(e.target.name);
 
-                } else {
-                    url.searchParams.set(e.target.name, e.target.value);
-                };
+    //             } else {
+    //                 url.searchParams.set(e.target.name, e.target.value);
+    //             };
 
-            } else {
-                url.searchParams.append(e.target.name, e.target.value);
-            };
+    //         } else {
+    //             url.searchParams.append(e.target.name, e.target.value);
+    //         };
 
-            tbody.innerHTML = "";
-            traerDatos(url.href);
+    //         tbody.innerHTML = "";
+    //         traerDatos(url.href);
 
-        } else {
-            console.log('Ingreso 2');
-            console.log(url.href);
+    //     } else {
+    //         console.log('Ingreso 2');
+    //         console.log(url.href);
 
-            if (url.searchParams.has(e.target.name)) {
-                url.searchParams.delete(e.target.name);
-                tbody.innerHTML = "";
-                traerDatos(url.href);
-            }
-            url.searchParams.delete(e.target.name);
-        };
-    });
+    //         if (url.searchParams.has(e.target.name)) {
+    //             url.searchParams.delete(e.target.name);
+    //             tbody.innerHTML = "";
+    //             traerDatos(url.href);
+    //         }
+    //         url.searchParams.delete(e.target.name);
+    //     };
+    // });
 
-    sizes.addEventListener('change', (e) => {
-        url.searchParams.set(e.target.name, e.target.value);
-        tbody.innerHTML = "";
-        traerDatos(url.href);  
-    });
+    // sizes.addEventListener('change', (e) => {
+    //     url.searchParams.set(e.target.name, e.target.value);
+    //     tbody.innerHTML = "";
+    //     traerDatos(url.href);  
+    // });
 
     ulPages.addEventListener('click', (e) => {
 
         e.preventDefault();
 
         if (!e.target.classList.contains('disabled')) {
-            tbody.innerHTML = "";
+            section.innerHTML = "";
             traerDatos(e.target.href); 
         }
     });
@@ -74,27 +74,24 @@ window.addEventListener('load', () => {
 
             if (result.count > 0) {
 
-                errorMsg.innerHTML = "";
+                // errorMsg.innerHTML = "";
 
                 console.log('tus resultados');
                 console.log(result.result);
 
                 result.result.forEach(producto => {
-                    template.querySelector('#id').innerHTML = `<a href="/products/detail/${producto.id}">${producto.id}</a>`;
-                    template.querySelector('#nombre').innerHTML = `<a href="/products/detail/${producto.id}">${producto.nombre}</a>`;
-                    template.querySelector('#tipo').innerHTML = `<a href="/products/detail/${producto.id}">${producto.tipos.name}</a>`;
-                    template.querySelector('#marca').innerHTML = `<a href="/products/detail/${producto.id}">${producto.marca == 'nada' || producto.marca == '' || producto.marca == 'marca' ? '-----' : producto.marca}</a>`;
-                    template.querySelector('#precio').innerHTML = `<a href="/products/detail/${producto.id}">${producto.precio}</a>`;
-                    template.querySelector('#descuento').innerHTML = `<a href="/products/detail/${producto.id}">${producto.descuento}</a>`;
-                    template.querySelector('#stock').innerHTML = `<a href="/products/detail/${producto.id}">${producto.stock - producto.vendidos}</a>`;
-                    template.querySelector('#btn-eliminar').action = `/admin/eliminar/${producto.id}?_method=DELETE`;
-                    template.querySelector('#btn-editar').href = `/admin/editar/${producto.id}`;
+                    template.querySelector('#id').innerHTML = `<a href="/products/detail/${producto.id}">Comprar</a>`;
+                    template.querySelector('#imgPoducts').src = `/img/productos/${producto.imagenes[0].name}`
+                    template.querySelector('#nombre').innerHTML = `${producto.nombre}`;
+                    template.querySelector('#precio').innerHTML = `$ ${producto.precio - (producto.precio * producto.descuento / 100)} ${producto.descuento > 0 ? `<small class="descuento" id="descuento">${producto.descuento}%</small>` : ''}`;
+                    // template.querySelector('#descuento').innerHTML = `${producto.descuento}`;
+                    template.querySelector('#oldprecio').innerHTML = `${producto.descuento > 0? producto.precio : '' }`;
 
                     const clone = template.cloneNode(true);
                     fragment.appendChild(clone);
                 });
                 console.log(fragment);
-                tbody.appendChild(fragment);
+                section.appendChild(fragment);
 
                 ulPages.innerHTML = "";
 
@@ -141,23 +138,20 @@ window.addEventListener('load', () => {
 
 
 /* 
-<% products.forEach(producto=> { %>
-    <tr>        
-        <th scope="row"><a href="/products/detail/<%= producto.id %>"><%= producto.id %> </a></th>
-        <td><a href="/products/detail/<%= producto.id %>"><%= producto.nombre %></a></td>
-        <td><a href="/products/detail/<%= producto.id %>"><%= producto.tipos.name %></a></td>
-        <td><a href="/products/detail/<%= producto.id %>"><%= producto.marca == 'nada' || producto.marca == '' || producto.marca == 'marca' ? '-----' : producto.marca %></a></td>
-        <td><a href="/products/detail/<%= producto.id %> "><%= producto.stock - producto.vendidos %></a></td>
-        <td><a href="/products/detail/<%= producto.id %> "><%= producto.precio %></a></td>
-        <td><a href="/products/detail/<%= producto.id %> "><%= producto.descuento %></a></td>
-        <td class="td-buttom">
-        <form class="trashForm" action="/admin/eliminar/<%= producto.id %>?_method=DELETE" method="post" >
-        <button type="submit" class="trash"><i class="fa-solid fa-trash-can icon"></i></button>
-        </form> 
-
-        <button class="edit"> 
-        <a href="/admin/editar/<%= producto.id %> "><i class="fa-solid fa-pen-to-square icon"></i> </a>
-        </button></a></td>
-    </tr>
+<% products.forEach(producto => { %>
+    <article>
+        <img src="/img/productos/<%= producto.imagenes[0].name %>" alt="">
+          <div class="contenedor">
+            <h3><%= producto.nombre %></h3>
+            <% if (producto.descuento > 0) { %>
+            <p class="old">$<%= producto.precio %> </p>
+            <p class="precio">$<%= producto.precio - (producto.precio * producto.descuento / 100) %> <small class="descuento"><%= producto.descuento %>%</small>
+            <p>
+            <% }else { %>
+            <p class="precio">$<%= producto.precio %> </p>
+            <% } %>
+          </div>
+        <button><a href="/products/detail/<%= producto.id %>">Comprar</a></button>
+    </article>
 <% }) %>
 */

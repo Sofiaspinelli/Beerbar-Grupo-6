@@ -30,7 +30,7 @@
     border: 2px double black;
     border-radius: 20px;
     width: 335px;
-    margin: 0 auto;
+    margin: 25px auto;
 }
 .login main h1{
     text-align: center;

@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding-top: 10px;
     width: 300px;
     height: 430px;
@@ -26,20 +26,35 @@
     border-radius: 10px;
 }
 .products main .productos article{
-    box-shadow: inset 0px 1px 20px 14px rgb(90, 90, 90)
+    /* box-shadow: inset 0px 1px 20px 14px rgb(90, 90, 90) */
+    box-shadow: inset 0px 1px 20px 14px rgb(66 30 8);
 }
 .products main .productos article:hover{
-    box-shadow: inset 0px 1px 20px 14px var(--colorNaranja);
-    /* box-shadow: inset 0px 1px 20px 14px #e1dede; */
+    /* box-shadow: inset 0px 1px 20px 14px var(--colorNaranja); */
+    box-shadow: 0px 0px 20px 10px hsl(28deg 100% 50%);
     transition: all 0.6s;
 }
-.products main .productos article img {
+.products main .productos article .img-Product {
+    height: 200px;
     display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
     justify-content: center;
+}
+.products main .productos article .img-Product img {
     width: auto;
-    max-width: 80%;
-    max-height: 260px;
+    max-width: 75%;
     border-radius: 10px;
+    margin: 0 auto;
+}
+.products main .productos article .infoContent{
+    width: 100%;
+    margin: 10px 0 0;
+    height: 170px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .products main .productos article div h3 {
     margin-bottom: 0.5rem;
@@ -71,30 +86,74 @@
 }
 .products main .productos article .old{
     text-decoration:line-through;
-    font-size: 16px;
+    font-size: 18px;
     color: rgb(182, 181, 181);
     display: flex;
     justify-items: start;
+    margin: 0;
 }
 .products main .productos article .precio {
-font-size: 24px;
+    font-size: 24px;
+    margin: 0;
 }
 .products main .productos article .descuento {
     color: var(--descuentos);
     font-size: 20px;
 }
-.products main .productos article .contenedor {
+.products main .productos article .infoContent .contenedor {
     display: flex;
     justify-content: start;
     flex-direction: column;
     width: 80%;
+    margin: 0 auto;
+}
+
+.products main .col-12{
+    width: 90%;
+    min-width: 330px;
+    max-width: 1330px;
+    margin: 20px auto;
+}
+.products main .d-flex{
+    display: contents!important;
+}
+.products main .col-12 nav{
+    margin-top: 20px;
+}
+.products main div nav ul{
+    margin: auto;
+}
+.products main div nav ul .nextItem, .products main div nav ul .previousItem{
+    width: 80px;
+}
+.products main div nav ul .nextItem{
+    margin-left: 1px;
+}
+.products main div nav ul .nextItem a, .products main div nav ul .previousItem a{
+    width: 80px;
+    font-size: 24px;
+    padding: 5px 0;
+    text-align: center;
+}
+.products main div nav ul .page-item{
+    margin-left: 1px
+}
+.products main div nav ul li{
+    width: 40px;
+}
+.products main div nav ul li a{
+    width: 39px;
+    font-size: 22px
+}
+.page-item:not(:first-child) .page-link {
+    margin-left: 2px;
 }
 
 /* Tablet  */
 @media (min-width:460px) {
     .products main  .productos article {
-        width: 48%;
-        height: 400px;
+        width: 300px;
+        height: 430px;
         margin: 10px 0;
         min-width: 270px;
     }
@@ -106,23 +165,41 @@ font-size: 24px;
         color: black;
     }
 }
-
-@media (min-width:769px) {
-    .products main {
-        width: 83%;
-        max-width: 1024px;
+@media (min-width:614px) {
+    .products main  .productos{
+        justify-content: space-evenly;
+    }
+    .products main  .productos article {
+        width: 48%;
+        min-width: 300px;
     }
     .products main  .productos article {
         max-width: 300px;
         height: 490px;
-
     }
+}
+
+
+@media (min-width:769px) {
+    .products main {
+        width: 94%;
+        max-width: 1184px;
+    }
+    .products main  .productos article {
+        max-width: 300px;
+        height: 490px;
+        margin: 16px 4px;
+    }
+
     .products main  .productos article img{
         width: auto;
         max-width: 80%;
     }
+    .products main .productos article .infoContent{
+        height: 200px;
+    }
     .products main .productos article .old {
-        font-size: 16px;
+        font-size: 20px;
     }
     .products main .productos article .precio{
         font-size: 36px;
@@ -131,3 +208,6 @@ font-size: 24px;
         font-size: 24px;
     }
 }
+/* @media (min-width:1190px) {
+    
+} */

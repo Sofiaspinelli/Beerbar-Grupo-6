@@ -14,7 +14,7 @@
 .glider-track {
   transform: translateZ(0);
   width: 100%;
-  height: 430px;
+  height: 490px;
   margin: 0;
   padding: 0;
   display: flex;
@@ -155,6 +155,11 @@
   background: #a89cc8;
 }
 
+@media(min-width: 760px){
+  .glider-track{
+    height: 490px;
+  }
+}
 @media(max-width: 36em){
   .glider::-webkit-scrollbar {
     opacity: 1;

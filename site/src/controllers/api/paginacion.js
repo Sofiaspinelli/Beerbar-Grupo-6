@@ -91,6 +91,10 @@ module.exports = {
                     {
                         association: 'category',
                         attributes: ['name']
+                    },
+                    {
+                        association: 'imagenes',
+                        attributes: ['name']
                     }
                 ],
                 limit,

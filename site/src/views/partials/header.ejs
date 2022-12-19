@@ -17,7 +17,6 @@
                 <% if (locals.userLogin) { %>
                 <div id="cart-btn">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    
                 </div>
                 <% } else { %>
                 <a href="/users/login"><i class="fa-solid fa-cart-shopping"></i></a> 
@@ -49,8 +48,8 @@
                 </form>
             </div>
             <% } else { %>
-            <li><a href="/users/login">Login</a></li>
-            <li><a href="/users/register">Registro</a></li>
+            <li class="login"><a href="/users/login">Login</a></li>
+            <li class="login"><a href="/users/register">Registro</a></li>
             <% } %>
             
         </ul>

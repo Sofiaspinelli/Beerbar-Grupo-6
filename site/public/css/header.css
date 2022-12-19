@@ -1,5 +1,7 @@
 .header {
-    background-color: #d6651fd1; 
+    /* background-color: #d6651fd1;  */
+    background-color: rgb(110 43 4);
+    box-shadow: inset 0px -10px 35px 8px rgb(255 118 0);
     width: 98%; 
     margin: 0 auto;
     border-radius: 0 0 40px 40px;
@@ -20,6 +22,8 @@
 
 .header img{
     width: 100%;
+    box-shadow: 0px 0px 10px 4px hsl(28deg 82% 48%);
+    border-radius: 53px;
 }
 .header .carrito {
     color: var(--colorBlanco);
@@ -51,6 +55,9 @@
 .header .carrito{
     font-size: 40px;
     cursor: pointer;
+}
+.header .carrito a{
+    font-size: 40px;
 }
 .header .carrito a:hover{
     color: var(--colorBlanco);
@@ -156,6 +163,9 @@
     flex-direction: column;
     align-items: center
 }
+.header nav .user .login {
+    display: block;
+}
 .header nav li a {
     color: black;
     text-transform: uppercase;
@@ -163,7 +173,7 @@
 }
 .header nav .user li img {
     width: 126px;
-    border-radius: 20%; 
+    border-radius: 50%; 
 }
 .header nav li a:hover, .header nav li:hover{
     color: var(--colorBlanco);
@@ -179,7 +189,7 @@
     right: 10px;
     border-radius: 10px;
     text-align: center;
-    z-index: 1;
+    z-index: 10;
 }
 .perfilFunciones::before{
     border-left: 8px solid transparent;
@@ -285,6 +295,7 @@ header .cart-container .cart-item img {
     width: 45px;
     object-fit: cover;
     padding: 5px;
+    box-shadow: none;
 }
 header .cart-container .cart-item .content {
     width: 200px;
@@ -413,7 +424,7 @@ header .cart-container .cart-puy a:hover{
     }
     .header nav .user li img {
     width: 40px;
-    border-radius: 20%;
+    border-radius: 50%;
     margin-left: 5px
     }
     .header .t-f{
