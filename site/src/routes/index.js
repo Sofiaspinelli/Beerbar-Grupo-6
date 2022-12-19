@@ -1,4 +1,4 @@
-const {home, search, empresa,contacto} = require ('../controllers/indexController')
+const {home, search, empresa} = require ('../controllers/indexController')
 const express = require('express');
 const router = express.Router();
 
@@ -6,5 +6,5 @@ const router = express.Router();
 router.get('/', home);
 router.get('/busqueda', search);
 router.get('/empresa', empresa)
-router.get('/contacto', contacto)
+
 module.exports = router;
