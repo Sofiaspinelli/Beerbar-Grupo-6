@@ -279,6 +279,11 @@ module.exports = {
         let id = +req.params.id
         let {name,apellido,email,pass,genero, contact, rol,image} = req.body
 
+        /* req.session.destroy();
+         if(req.cookies.Beerbar){
+             res.cookie('Beerbar', "",{maxAge: -1 })
+         } */
+
          let errors = validationResult(req)
         if (req.fileValidationError) {
             let image = {
@@ -304,7 +309,6 @@ module.exports = {
                 
             
                 if (req.file) {
-                   
                     db.avatars.update({
                         name: req.file.filename,
                         users_id: user.id
@@ -312,7 +316,34 @@ module.exports = {
                         where: {id: id}
                     })
                     .then(img => {
-                        return res.redirect('/')
+                        db.users.findOne({
+                            where: {
+                                id: id
+                            },
+                            include : [{
+                                all: true
+                            }]
+                        })
+                        .then(usuarioNuevo =>{
+                            
+                            req.session.userLogin = {
+        
+                                id: usuarioNuevo.id,
+                                nombre: usuarioNuevo.nombre,
+                                apellido: usuarioNuevo.apellido,
+                                rol: usuarioNuevo.roles_id,
+                                imagen: usuarioNuevo.imagenesAvatar[0].name
+
+                                }
+                                req.session.save((err) => {
+                                    req.session.reload((err) => {
+                                        res.locals.userLogin = req.session.userLogin
+                                        return res.redirect('/')
+                                    });
+                                });
+    
+                            })
+                        
                     })
                 }
             })

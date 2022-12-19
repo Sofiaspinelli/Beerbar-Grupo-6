@@ -26,7 +26,7 @@
                     <label for="nombre">Nombre de Producto</label>
                     <input type="text" name="nombre" id="nombre" placeholder="Ingresar nombre" value="<%- locals.old && old.nombre ? old.nombre : null %>">
                     <!-- <% if (locals.errors && errors.nombre) { %>
-                     <small><%= errors.nombre.msg %> </small>
+                    <small><%= errors.nombre.msg %> </small>
                     <% } %> -->
                     <small id="nameError"><%= locals.errors && errors.nombre ? errors.nombre.msg : null %> </small>
                 </div>
@@ -34,7 +34,7 @@
                     <label for="marca">Marca de Producto</label>
                     <input type="text" name="marca" id="marca" placeholder="Ingresar marca" value="<%- locals.old && old.marca ? old.marca : null %>">
                     <!-- <% if (locals.errors && errors.marca) { %>
-                     <small><%= errors.marca.msg %> </small>
+                    <small><%= errors.marca.msg %> </small>
                     <% } %> -->
                     <small id="marcaError"><%= locals.errors && errors.marca ? errors.marca.msg : null %> </small>
                 </div>
@@ -49,10 +49,10 @@
                 <div class="file">
                     <label for="img">Imagen del producto</label>
                     <div class="file-select" id="src-file1" >
-                       <input name="img" type="file" id="img" multiple> 
+                    <input name="img" type="file" id="img" multiple> 
                     </div>
                     <% if (locals.errors && errors.img) { %>
-                     <small><%= errors.img.msg %> </small>
+                    <small><%= errors.img.msg %> </small>
                     <% } %>
                 </div>
                 <div class="p-s">
