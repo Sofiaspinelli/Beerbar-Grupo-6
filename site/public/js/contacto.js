@@ -1,4 +1,5 @@
-const openModal = document.querySelector('.boton-contacto')
+window.addEventListener('load', () => {
+const openModal = document.querySelector('.boton-contactoHead')
 const openModalPie = document.querySelector('.boton-contactoPie')
 const modal = document.querySelector('.modal')
 const closeModal = document.querySelector('.modal__close')
@@ -18,4 +19,5 @@ closeModal.addEventListener('click', (e) => {
     e.preventDefault()
     modal.classList.remove('modal--show')
     
+})
 })
