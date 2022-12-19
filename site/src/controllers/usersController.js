@@ -178,15 +178,22 @@ module.exports = {
                 }
                 db.avatars.create(imagen)
                 .then(img => {
-                    /* 
-                    req.session.userLogin = {
-                        id: usuarioNuevo.id,
-                        nombre: usuarioNuevo.nombre,
-                        apellido: usuarioNuevo.apellido,
-                        rol: usuarioNuevo.roles_id,
-                        imagen: usuarioNuevo.imagenesAvatar[0].name
-                        } */
-                    return res.redirect('/')
+                    
+                    db.users.findOne({
+                        where: {id: usuarioNuevo.id},
+                        include: [{all: true}]
+                    })
+                    .then(nuevo => {
+                    
+                        req.session.userLogin = {
+                            id: nuevo.id,
+                            nombre: nuevo.nombre,
+                            apellido: nuevo.apellido,
+                            rol: nuevo.roles_id,
+                            image: nuevo.imagenesAvatar[0].name
+                            }  
+                        return res.redirect('/')
+                    })
                 })
             }else{
                 db.avatars.create({
@@ -194,14 +201,21 @@ module.exports = {
                     users_id: usuarioNuevo.id
                 })
                 .then(img => {  
-                   /*  req.session.userLogin = {
-                        id: usuarioNuevo.id,
-                        nombre: usuarioNuevo.nombre,
-                        apellido: usuarioNuevo.apellido,
-                        rol: usuarioNuevo.roles_id,
-                        imagen: img.name
-                        }   */
-                    return res.redirect('/')
+                    db.users.findOne({
+                        where: {id: usuarioNuevo.id},
+                        include: [{all: true}]
+                    })
+                    .then(nuevo => {
+                    
+                        req.session.userLogin = {
+                            id: nuevo.id,
+                            nombre: nuevo.nombre,
+                            apellido: nuevo.apellido,
+                            rol: nuevo.roles_id,
+                            image: nuevo.imagenesAvatar[0].name
+                            }  
+                        return res.redirect('/')
+                    })
                 })
             }
                            
@@ -212,7 +226,7 @@ module.exports = {
         let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', 'usuarios', dato))
         if(req.file){
             if (ruta(req.file.filename) && (req.file.filename !== "usuario.png")) {
-                fs.unlinkSync(path.join(__dirname, '..', '..', 'public', 'img', req.file.filename))
+                fs.unlinkSync(path.join(__dirname, '..', '..', 'public', 'img', 'usuarios', req.file.filename))
             }
         }
             
