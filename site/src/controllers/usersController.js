@@ -325,14 +325,14 @@ module.exports = {
                             }]
                         })
                         .then(usuarioNuevo =>{
-                            
+                            // return res.status(200).json(usuarioNuevo)
                             req.session.userLogin = {
         
                                 id: usuarioNuevo.id,
                                 nombre: usuarioNuevo.nombre,
                                 apellido: usuarioNuevo.apellido,
                                 rol: usuarioNuevo.roles_id,
-                                imagen: usuarioNuevo.imagenesAvatar[0].name
+                                image: usuarioNuevo.imagenesAvatar[0].name
 
                                 }
                                 req.session.save((err) => {
