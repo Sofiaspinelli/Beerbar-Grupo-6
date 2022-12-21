@@ -32,7 +32,7 @@
     border-radius: 10px solid;
 }
 .texto{
-    font-size: 30px;
+    font-size: 22px;
     color: rgb(0, 0, 0);
     background-color: rgba(106, 102, 97, 0.49); 
     margin: 57px 6px 0;
@@ -115,7 +115,10 @@
     .texto-encima {
         font-size: xxx-large;
         max-width: 590px;
-        margin-top: 300px;
+        margin-top: 100px;
+    }
+    .texto{
+        font-size: 30px;
     }
    
     .empresa .contenedor1{
@@ -144,7 +147,20 @@
         height: 260px;
         width: 55%;
     }
-    @media (min-width: 800px) {
+}
+@media (min-width:778px){
+    .empresa .mainEmpre{
+        width: 90%;
+    }
+    .empresa .contenedor3{
+        height: auto;
+    }
+    .empresa .contenedor3 img{
+        height: auto;
+        max-width: none;
+    }
+}
+@media (min-width: 800px) {
     .empresa .contenedor3 .texto-c {
         text-align: center;
         font-size: 22px;
@@ -221,17 +237,6 @@
         width: 100%;
         top: 445px;
     }*/
-}
-@media (min-width:778px){
-    .empresa .mainEmpre{
-        width: 90%;
-    }
-    .empresa .contenedor3{
-        height: auto;
-    }
-    .empresa .contenedor3 img{
-        height: auto;
-        max-width: none;
-    }
-}
+
+
  
