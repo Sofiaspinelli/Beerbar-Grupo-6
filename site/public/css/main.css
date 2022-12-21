@@ -104,6 +104,11 @@ main{
     top: 0px;
     right: 0px;
 }
+.btn:hover{
+    color: rgba(255, 119, 0, 0.674);
+    background-color: aliceblue;
+}
+
 /* Tablet  */
 @media (min-width:460px) {
     .home main  .productos .article {
