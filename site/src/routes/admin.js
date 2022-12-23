@@ -1,4 +1,4 @@
-const {list, crear, newProducts, editar, update, destroy} = require('../controllers/adminController')
+const {list, crear, newProducts, editar, update, destroy, destroyUser, updateUserAdmin} = require('../controllers/adminController')
 const express = require('express');
 
 const adminCheck = require('../middlewares/multerAdmin')
@@ -33,9 +33,11 @@ router.post('/crear', upload.single('img'), /* Validacion, */ newProducts);
 // get/put editar
 router.get('/editar/:id',adminCheck, editar)
 router.put('/editar/:id', upload.single('img'),/*  Validacion, */ update);
+router.put('/user/editar/:id', updateUserAdmin);
 
 // delete
 router.delete('/eliminar/:id', destroy)
+router.delete('/user/eliminar/:id', destroyUser)
 
 module.exports = router;
 

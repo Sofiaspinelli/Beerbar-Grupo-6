@@ -1,4 +1,9 @@
-
+*{
+    font-family: var(--fuentePrincipal);
+}
+a{
+    text-decoration: none;
+}
 .avatar{
     height: 200px;
     width: 200px;
@@ -6,12 +11,12 @@
     border-radius: 50%;
     border: 3px double var(--colorButtom);
 }
-.user main{ 
-    /*  */
-}
+/* .user main{ 
+    
+} */
 .perfil{
     background-color: rgba(0, 0, 0, 0.5);
-    margin: 10px auto;
+    margin: 50px auto;
     border-radius: 10px;
     width: 90%;
     max-width: 345px;
@@ -22,12 +27,14 @@
     align-content: center;
     justify-content: space-between;
     border: 2px double var(--colorNaranja);
+    position: relative;
 }
 .perfil .A {
     background-color: var(--colorGrisClaro);
     background-color: var(--colorGrisClaro);
     border-radius: 10px;
     margin-top: 10px;
+    width: 300px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -38,6 +45,7 @@
 .lista{
     background-color: var(--colorNaranja) ;
     padding: 20px;
+    width: 300px;
     /* border-radius: 10%; */
 }
 .user .botones form {
@@ -50,9 +58,9 @@
 }
 .boton{
     font-size: 24px;
-    margin: 3px;
+    margin: 5px 10px 10px ;
     padding: 2px;
-    width: 200px;
+    width: 280px;
     background-color: var(--colorButtom);
     border-radius: 10px;
 }
@@ -65,15 +73,143 @@
     display: flex;
     text-align: center;
     justify-content: space-between;
-    margin: 5px;
-    margin-bottom: 10px;
+    /* margin: 5px; */
+    /* margin-bottom: 10px; */
 }
 .datos{
     margin: 0
 }
+.perfil .table{
+    color: white;
+}
+.perfil .usersList{
+    background-color: rgb(0 0 0 / 85%);
+    position: absolute;
+    width: 200%;
+    top: -3px;
+    left: -172px;
+    border: 2px solid;
+    min-height: 550px;
+    display: none;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+}
+.perfil .usersList .search{
+    width: 84%;
+    margin-bottom: 20px;
+}
+.perfil .usersList .container {
+    width: 90%
+}
+.perfil .usersList .container .table{
+   width: 100%;
+}
+.perfil .usersList .container .table thead{
+   color: var(--colorNaranja);
+}
+.perfil .navPages{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+/* .perfil .navPages ul{
+    width: 50%;
+} */
+.perfil .navPages ul .previousItem{
+    width: 85px;
+}
+.perfil .navPages ul .previousItem a{
+    width: 100%;
+}
+.perfil .navPages ul .nextItem{
+    width: 85px;
+}
+.perfil .navPages ul .nextItem a{
+    width: 100%;
+}
+.perfil .navPages ul li {
+    width: 30px;
+}
+.perfil .navPages ul li a{
+    width: 100%;
+}
+.perfil div table tbody tr .td-buttom{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.perfil div table tbody tr td .trash{
+    background-color: var(--colorGris);
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+}
+.perfil div table tbody tr td .trash i{
+    font-size: 24px;
+    padding: 6px;
+}
+.perfil div table tbody tr td .edit {
+    background-color: var(--colorGris);
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+}
+.perfil div table tbody tr td .edit i{
+    font-size: 20px;
+    padding: 4px;
+}
+.perfil div table tbody tr td #btn-editar {
+    color: black;
+    width: 32px;
+}
+.perfil div table tbody tr td .editarform {
+    width: 120px;
+    position: relative;
+}
 
+.perfil article form .userRols{
+    /* position: absolute; */
+    /* background-color: white; */
+    display: flex;
+    flex-direction: row;
+    /* width: 126px; */
+    flex-wrap: wrap;
+    justify-content: center;
+    top: 30px;
+    left: -23px;
+    z-index: 10;
+}
+.perfil article form .userRols select{
+    width: 100%;
+    border-radius: 10px;
+}
+.perfil article form .userRols button{
+    width: 100%;
+    background-color: var(--colorGris);
+    border-radius: 10px;
+}
+.perfil article .displayClass{
+    display: flex;
+}
+#btn-cerrar{
+    font-size: 22px;
+    padding: 0 10px;
+    border-radius: 50%;
+    background-color: orange;
+    position: absolute;
+    top: -12px;
+    right: -11px;
+}
 @media (min-width:700px){
-    .perfil{
+    /* .perfil{
 
-    }
+    } */
 }

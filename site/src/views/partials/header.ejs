@@ -33,7 +33,7 @@
             <li><a href="/products">Productos</a></li>
             <li><a href="/empresa">Empresa</a></li>
             <li><a href="/" class="boton-contactoHead">Contacto</a></li>
-            <% if (locals.userLogin && locals.userLogin.rol == 2) { %>
+            <% if (locals.userLogin && (locals.userLogin.rol == 2 || locals.userLogin.rol == 3)) { %>
             <li><a href="/admin/list">Admin</a></li>
             <% } %>
         </ul>

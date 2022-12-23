@@ -1,5 +1,5 @@
 'use strict';
-let x = ["Usuario", "Administrador"]
+let x = ["Usuario", "Administrador", "superAdmin"]
 
 let rol = x.map( element => {
   let type = {

@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const {usuarios, usuarioPorId, productos, productosPorId, login} = require('../../controllers/api/apiController')
+const {usuarios, usuarioPorId, productos, productosPorId, login, usuariosPag} = require('../../controllers/api/apiController')
 const {paginacion} = require('../../controllers/api/paginacion');
 const {listaCarrito, addItem, modifyItem, removeItem, empty, addItemcount} = require('../../controllers/api/carrito');
 
 // rutas
 router.get('/users', usuarios);
+router.get('/users/paginado', usuariosPag);
 router.get('/users/:id', usuarioPorId);
 router.get('/users/login/:id', login);
 

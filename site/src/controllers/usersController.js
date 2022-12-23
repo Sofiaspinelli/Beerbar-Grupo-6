@@ -120,12 +120,17 @@ module.exports = {
         
     },
     user: (req,res) => {
-        db.users.findAll({
+        let roles = db.roles.findAll()
+
+        let usuarios = db.users.findAll({
             include: ['rol','imagenesAvatar']
         })
-        .then(usuarios => {
+
+        Promise.all([roles, usuarios])
+        .then(([roles, usuarios]) => {
             res.render ('users/user', {
-            usuarios
+            usuarios,
+            roles
         })
         })
         .catch(errors => console.log('Se produjo un error', errors))
@@ -164,7 +169,7 @@ module.exports = {
             email: email,
             pass: bcrypt.hashSync(pass, 12),
             contacto: contacto,
-            roles_id: 2,
+            roles_id: 1,
             // avatars_id: 1,
             // createdAt: "2022-10-13 00:01:08",
             // updatedAt: "2022-10-13 00:01:08"

@@ -4,6 +4,7 @@ const path = require('path')
 const db = require('../database/models');
 const {validationResult} = require('express-validator');
 const { resolveSoa } = require('dns');
+const { usuarios } = require('./api/apiController');
 
 // const guardar = (dato) => fs.writeFileSync(path.join(__dirname, '../data/productos.json')
 // ,JSON.stringify(dato,null,4),'utf-8');
@@ -276,8 +277,68 @@ module.exports = {
             });
         
         },
+    destroyUser: (req, res) => {
+        const id = +req.params.id; 
+//    let producto = productos.find(producto => producto.id === id); 
+        
+        db.users.findOne({
+            where: {
+                id: id
+            },
+            include : [{
+                all:true
+            }]
+        })
+        .then(usuario => {
+                const img = req.file
+            
+                let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', 'usuarios', dato));
+                
+                if (img) {
+                    if (ruta(img.filename) && (img.filename !== "default-img.png")) {
+                        fs.unlinkSync(path.join(__dirname, '../../public/img/usuarios', img.filename));
+                    }
+                }
+        })
+        db.users.destroy({
+            where : {
+                id : id
+            }
+        })
+        .then(eliminar => {
+            return res.redirect('/users/profile')
+        })
+        .catch(errors => {
+            return res.status(500).send(errors) 
+        });
+    },
 
-           guardar(productos){ 
+    guardar(productos){ 
         /* Redirecciona a la lista */
-        return res.redirect('/admin/list') },
-           }// return res.redirect(`/products/detail/${productos.id}`)
+        return res.redirect('/admin/list') 
+    },
+    updateUserAdmin: (req, res) => {
+
+        const idParams = +req.params.id;
+        let {rolSelect} = req.body
+        console.log(rolSelect);
+
+        db.users.findOne({
+            where: {
+                id : idParams
+            },
+            })
+        .then((usuario) => {
+        //    return res.status(200).json(usuario)
+           db.users.update({
+               roles_id: +rolSelect,
+            },{
+            where: {id: usuario.id}
+            })
+            .then(actualizar => {
+                res.redirect('/users/profile')
+            })
+        })
+        .catch(errors => res.status(500).send(errors))
+    },
+}// return res.redirect(`/products/detail/${productos.id}`)
