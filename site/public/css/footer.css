@@ -23,6 +23,7 @@ footer section a {
     text-align: center;
     font-size: 20px;
     width: auto;
+    text-decoration: none;
 }
 footer section p i {
     padding: 0 10px;

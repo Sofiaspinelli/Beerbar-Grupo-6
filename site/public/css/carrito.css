@@ -51,7 +51,7 @@ main h2{
 }
 .main .contGrid .producto{
     margin: 0 auto;
-    width: 90%;
+    width: 88%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -60,9 +60,10 @@ main h2{
 .main .contGrid .producto .detalle{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid;
+    width: 100%;
 }
 .main .contGrid .producto .detalle .imgcCont{
     width: 45%;
@@ -72,10 +73,11 @@ main h2{
 .main .contGen .contGrid .producto .detalle .imgcCont img{
     display: flex;
     object-fit: cover;
-    width: 50%;
+    width: 100%;
     height: 100%;
     align-items: center;
     justify-content: center;
+    border-radius: 15px;
 
 }
 .main .contGrid .contenido{
@@ -99,10 +101,17 @@ main h2{
     flex-direction: column;
     margin: 10px 0 0;
     align-items: center;
+    height: 111px;
 }
 .main .contGrid .producto .info h3{
     color: orange;
     font-size: larger;
+    margin: 0 0 3px;
+}
+.main .contGrid .producto .info .precio {
+    font-size: 34px;
+    margin: 0;
+    height: 42px;
 }
 
 .main .contGrid .producto .info .trash{
@@ -159,6 +168,7 @@ main h2{
     color: black;
     font-size: x-large;
     height: 20px;
+    margin: 0;
 }
 .main .end div strong{
     color: black;
@@ -172,12 +182,20 @@ main h2{
 .main .end div span{
     font-size: 22px;
     color: rgb(59, 58, 58);
-    height: 15px;
-    display: contents;
+    height: 25px;
+    display: flex;
+    width: 174px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+    align-items: center;
 }
 .main .end div span h3{
     font-size: x-large;
     color: orange;
+    margin: 0;
+    height: 27px;
 }
 
 .main .contGrid .producto .info .cantidad{
@@ -238,6 +256,10 @@ main h2{
     .main .contGrid .producto{
         width: 95%;
         justify-content: space-between;
+    }
+    .main .contGen .contGrid .producto .detalle .imgcCont img{
+        width: 90%;
+        margin: 0 AUTO;
     }
     .main .contGrid .producto .info{
         margin: 0;
