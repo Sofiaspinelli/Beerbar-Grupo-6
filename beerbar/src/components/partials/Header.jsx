@@ -20,7 +20,7 @@ function Header() {
         <div className="icons">
             <button className="carrito">
             
-                <a href="/products/cart"><i className="fa-solid fa-cart-shopping"></i></a>
+                {/* <a href="/products/cart"><i className="fa-solid fa-cart-shopping"></i></a> */}
                 
                 <a href="/users/login"><i className="fa-solid fa-cart-shopping"></i></a> 
 
@@ -43,7 +43,7 @@ function Header() {
         <ul className="user">
             
           
-            <li><a href="/users/profile">Bienvenido </a></li>
+            {/* <li><a href="/users/profile">Bienvenido </a></li> */}
            
             <li><a href="/users/login">Login</a></li>
             <li><a href="/users/register">Registro</a></li>
