@@ -169,7 +169,7 @@ module.exports = {
             email: email,
             pass: bcrypt.hashSync(pass, 12),
             contacto: contacto,
-            roles_id: 1,
+            roles_id: 2,
             // avatars_id: 1,
             // createdAt: "2022-10-13 00:01:08",
             // updatedAt: "2022-10-13 00:01:08"

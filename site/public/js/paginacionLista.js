@@ -78,7 +78,7 @@ window.addEventListener('load', () => {
 
                 console.log('tus resultados');
                 console.log(result.result);
-
+                
                 result.result.forEach(producto => {
                     template.querySelector('#id').innerHTML = `<a href="/products/detail/${producto.id}">${producto.id}</a>`;
                     template.querySelector('#nombre').innerHTML = `<a href="/products/detail/${producto.id}">${producto.nombre}</a>`;
@@ -93,6 +93,7 @@ window.addEventListener('load', () => {
                     const clone = template.cloneNode(true);
                     fragment.appendChild(clone);
                 });
+                
                 console.log(fragment);
                 tbody.appendChild(fragment);
 

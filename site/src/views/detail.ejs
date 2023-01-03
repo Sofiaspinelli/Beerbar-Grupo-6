@@ -31,7 +31,7 @@
                     <% if (locals.userLogin) { %>
                         <button onclick="Añadir('<%= products.id %>')" id="addAlert">añadir al carrito</button>
                     <% } else {%>
-                        <button onclick="alert('Debe logearse para poder añadir al carrito')" id="addAlert">añadir al carrito</button>
+                        <button onclick="Swal.fire('Debe loguearse para añadir al carrito')">añadir al carrito</button>
                     <% } %>
                 </div>
             </article>
@@ -59,5 +59,6 @@
 
     <%- include('./partials/footer') %>
     <script src="/js/increase.js"></script>
+
 </body>
 </html>

@@ -63,6 +63,13 @@
 
     const Añadir = (dato) => {
         addItem2(dato)
-        alert('Producto añadido al carrito')
-    }
+        Swal.fire({
+
+            icon: 'success',
+            title: 'Producto añadido al carrito',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+    
 
