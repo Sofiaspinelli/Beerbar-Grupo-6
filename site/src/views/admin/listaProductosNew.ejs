@@ -87,8 +87,8 @@
   
             
             <nav aria-label="Page navigation example" class="navPages">
-              <ul class="pagination justify-content-end" class="pages" id="pages-links">
-              </ul>
+            <ul class="pagination justify-content-end" class="pages" id="pages-links">
+            </ul>
             </nav>
             
         </div>
@@ -103,13 +103,17 @@
                 <td id="descuento" ><a href=""></a></td>
                 <td id="stock" ><a href=""></a></td>
                 <td class="td-buttom">
-                    <form id="btn-eliminar"  class="trashForm" action="" method="post" >
-                        <button type="submit"  class="trash"><i class="fa-solid fa-trash-can icon"></i></button>
+
+                    <form id="btn-delete" class="trashForm" action="" method="post" >
+
+                        <button type="submit" class="trash"><i class="fa-solid fa-trash-can icon"></i></button>
+
                     </form> 
+
                     <a id="btn-editar" href=""> 
-                      <button class="edit">
+                    <button class="edit">
                         <i class="fa-solid fa-pen-to-square icon"></i>
-                      </button>
+                    </button>
                     </a>
                 </td>
     
@@ -120,7 +124,9 @@
     
     <%- include('../partials/footer') %>
     <script src="/js/paginacionLista.js"></script>
-    <script src="/js/alertEliminar.js"></script>
+    <script src="/js/sweetAlert.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </body>
 </html>
