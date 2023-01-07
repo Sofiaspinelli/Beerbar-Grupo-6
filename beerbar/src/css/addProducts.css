@@ -1,4 +1,4 @@
-.add main{
+.add{
     width: 90%;
     display: flex;
     flex-wrap: wrap;
@@ -8,14 +8,14 @@
     margin: 20px auto;
 }
 
-.add main form {
+.add form {
     width: 100%;
     max-width: 600px;
     background-color: rgba(120, 120, 120, 0.6);
     border: 2px double var(--colorNaranja);
     border-radius: 30px;
 }
-.add main form section div{
+.add form div{
     width: 100%;
     margin: 20px 0;
     display: flex;
@@ -23,38 +23,38 @@
     flex-direction: column;
     align-items: center;
 }
-.add main form section div input{
+.add form div input{
     width: 80%;
     border-radius: 10px;
     font-size: 24px;
     padding: 4px;
 }
-.add main form section .file input{
+.add form .file input{
     background-color: var(--colorButtom);
     border: 1px solid  var(--colorButtom);
 }
-.add main form section div select{
+.add form div select{
     width: 60%;
     font-size: 24px;
     border-radius: 10px;
     padding: 6px;
     background-color: var(--colorButtom);
 }
-.add main form section div select option{
+.add form div select option{
     width: 100%;
 }
-.add main form section div textarea{
+.add form div textarea{
     width: 80%;
     border-radius: 10px;
     font-size: 20px;
 }
-.add main form section .file input{
+.add form .file input{
     width: 70%;
     min-width: 270px;
 }
 
  /*file style  */
- .add main form section .file .file-select {
+ .add form .file .file-select {
     position: relative;
     display: inline-block;
     width: 80%;
@@ -62,7 +62,7 @@
     margin: 10px 0 0;
   }
   
-  .add main form section .file .file-select::before {
+  .add form .file .file-select::before {
     background-color: var(--colorButtom);
     color: black;
     display: flex;
@@ -77,7 +77,7 @@
     bottom: 0;
   }
   
-  .add main form section .file .file-select input[type="file"] {
+  .add form .file .file-select input[type="file"] {
     opacity: 0;
     width: 100%;
     height: 50px;
@@ -89,7 +89,7 @@
   }
  /* --- */
 
-.add main form section .p-s{
+.add form .p-s{
     display: flex;
     flex-wrap: wrap;
     width: 80%;
@@ -98,40 +98,58 @@
     flex-direction: row;
     align-items: center;
 }
-.add main form section .p-s div{
+.add form .p-s div{
     width: 100%;
 }
-.add main form section div small{
+.add form div small{
     color: red;
     font-size: 18px;
     margin-top: 10px;
 }
-.add main form section .botton{
-    display: block;
+.add form .botton{
+    display: flex;
     margin: 10px 0;
     width: 100%;
     margin-top: 20px;
     padding: 10px;
     border-top: 2px solid var(--colorNaranja);
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
-.add main form section .botton button{
-    width: 45%;
+.add form .botton button{
+    width: 90%;
     border-radius: 10px;
     font-size: 24px;
     padding: 6px;
     background-color: var(--colorButtom);
 }
+.add form .botton a button{
+    width: 100%; 
+}
+.add form .botton a{
+    width: 90%;
+}
 
-.add main form section .file .file-select:hover::before, .add main form section .botton button:hover, .add main form section .botton button a:hover, .add main form section .file input:hover, .add main form section div select:hover{
+.add form .file .file-select:hover::before, .add form .botton button:hover, .add form .botton button a:hover, .add form .file input:hover, .add form div select:hover{
     background-color: var(--colorNaranja);
     color: var(--colorBlanco);
     transition: 0.6s;
 }
-.add main form section div input:hover, .add main form section div textarea:hover{
+.add form div input:hover, .add form div textarea:hover{
     border: 1px solid var(--colorNaranja);
 }
 @media (min-width: 460px){
-    .add main form section .p-s div{
+    .add form .p-s div{
         width: 33%;
+    }
+    .add form .botton button{
+        width: 90%;
+        max-width: 270px;
+    }
+    .add form .botton a{
+        max-width: 270px;
     }
 }

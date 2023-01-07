@@ -1,5 +1,6 @@
 import React from 'react'
 import  logo  from "../../assets/logo/logo-beerbar.png";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
@@ -35,9 +36,12 @@ function Header() {
         <ul>
             <li><a href="/products">Productos</a></li>
             <li><a href="/empresa">Empresa</a></li>
-            <li><a href="/ayuda">Ayuda</a></li>
+            <li><a href="/contacto">Contacto</a></li>
           
-            <li><a href="/admin/list">Admin</a></li>
+            <li>
+                {/* <a href="/admin/list">Admin</a> */}
+                <NavLink to="/admin">Admin</NavLink>
+            </li>
           
         </ul>
         <ul className="user">

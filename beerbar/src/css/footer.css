@@ -1,6 +1,6 @@
-
 footer {
-    background-color: #d6651fd1;
+    /* background-color: #d6651fd1; */
+    background-color: var(--colorNaranja);
     margin: 0px auto 0;
     border-radius: 40px 40px 0 0;
     width: 98%;
@@ -22,6 +22,7 @@ footer section a {
     text-align: center;
     font-size: 20px;
     width: auto;
+    text-decoration: none;
 }
 footer section p i {
     padding: 0 10px;
@@ -69,10 +70,15 @@ footer .copyright {
     font-weight: 100;
     padding: 20px 0;
     display: flex;
-    justify-content: flex-start;
+    justify-content: start;
 }
 
 @media (min-width:769px) {
+    /* footer{
+        position: absolute;
+        top: 100vh;
+        right: 250px;
+    } */
     footer section p {
         font-size: 30px;
         justify-content: space-around;
@@ -83,4 +89,4 @@ footer .copyright {
     footer .contenedor_2 {
         justify-items: center;
     }
-    }
+}

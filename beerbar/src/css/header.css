@@ -1,5 +1,9 @@
+*{
+    font-family: 'Bebas Neue', cursive;
+}
 .header {
-    background-color: #d6651fd1; 
+    /* background-color: #d6651fd1;  */
+    background-color: var(--colorNaranja);
     width: 98%; 
     margin: 0 auto;
     border-radius: 0 0 40px 40px;
@@ -101,8 +105,12 @@
 }
 .header nav {
     display: none;
-    width: 89%;
+    width: 90%;
     margin: 0 auto;
+}
+.header nav ul{
+    margin: 5px;
+    padding: 0;
 }
 .header nav ul li {
     margin: 5px;
@@ -111,7 +119,8 @@
 .header nav li a {
     color: black;
     text-transform: uppercase;
-    font-size: var(--tamañoFuente);   
+    font-size: var(--tamañoFuente);  
+    font-family: 'Bebas Neue', cursive; 
 }
 .header nav li a:hover{
     color: var(--colorBlanco);

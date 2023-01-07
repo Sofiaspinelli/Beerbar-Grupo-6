@@ -11,17 +11,14 @@ function Footer() {
         </p>
     </section>
     <section className="contenedor">
-        <article><a href="/productos">Nuestros Productos</a> </article>
+        <article><a href="/products">Nuestros Productos</a> </article>
         <article><a href="/empresa">Empresa</a> </article>
-        <article><a href="/terminos"> Terminos y condiciones</a></article>
-        <article><a href="/politicas">Politicas de privacidad</a></article>
-        
+        <article><a href="http://patagoniaar20220118.abinbev.acsitefactory.com/sites/g/files/wnfebl3746/files/2022-01/TyC%20-%20Patagonia.pdf" target="_blank"> Terminos y condiciones</a></article>
+        <article><a href="http://patagoniaar20220118.abinbev.acsitefactory.com/sites/g/files/wnfebl3746/files/2022-01/Pol%C3%ADtica%20de%20Privacidad%20-%20Patagonia.pdf" target="_blank">Politicas de privacidad</a></article>
     </section>
     <section className="contenedor_2">
-        <article><a href="/ayuda">ayuda</a></article>
-        <article><a href="/contacto">Contacto</a></article>
-        <article><a href="/franquicias">Franquicias</a></article>
-        <article><a href="/happyhours">Happyhours</a></article> 
+        <article><a href="">ayuda</a></article>
+        <article><a href="/" className="boton-contactoPie">Contacto</a></article>
     </section>
     <section>
         <article>Beber con moderacion. Prohibida su venta a menores de 18 años. No comparta el contenido con
