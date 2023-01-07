@@ -1,5 +1,5 @@
-window.addEventListener('load', () => {
-    console.log('conection on');
+window.onload = function () {
+        console.log('conection on');
 
     const $ = (e) => document.querySelector(e);
 
@@ -87,7 +87,7 @@ window.addEventListener('load', () => {
                     template.querySelector('#precio').innerHTML = `<a href="/products/detail/${producto.id}">${producto.precio}</a>`;
                     template.querySelector('#descuento').innerHTML = `<a href="/products/detail/${producto.id}">${producto.descuento}</a>`;
                     template.querySelector('#stock').innerHTML = `<a href="/products/detail/${producto.id}">${producto.stock - producto.vendidos}</a>`;
-                    template.querySelector('#btn-eliminar').action = `/admin/eliminar/${producto.id}?_method=DELETE`;
+                    template.querySelector('#btn-delete').action = `/admin/eliminar/${producto.id}?_method=DELETE` ;
                     template.querySelector('#btn-editar').href = `/admin/editar/${producto.id}`;
 
                     const clone = template.cloneNode(true);
@@ -137,8 +137,11 @@ window.addEventListener('load', () => {
             console.log(error);
         };
     };
+
+
+    
     traerDatos(url.href);
-})
+}
 
 
 /* 
