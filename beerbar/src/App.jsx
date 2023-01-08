@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 
 import Header from "./components/partials/Header"
@@ -16,7 +16,7 @@ import Lista from './components/admin/List'
 
 function App() {
 
-  const {main, setMain} = useState(false)
+  // const {main, setMain} = useState(false)
   
   return (
     <div className="home">
@@ -29,7 +29,7 @@ function App() {
           <Route path="/admin" element={<Admin/>}/>
           <Route path="/admin/productos" element={<Lista/>}/>
           <Route path="/admin/producto/crear" element={<Crear/>}/>
-          <Route path="/admin/producto/editar" element={<Editar/>}/>
+          <Route path="/admin/producto/editar/:id" element={<Editar/>}/>
           
         </Routes>
 

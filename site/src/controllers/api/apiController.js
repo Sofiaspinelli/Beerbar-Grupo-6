@@ -226,11 +226,15 @@ module.exports = {
     },
     productosPorId: (req, res) => {
         const id = req.params.id;
-        db.products.findByPk(id, {
+        db.products.findOne({
+            where: {
+                id:id
+            },
             include: [{ all: true }]
         })
             .then(productos => {
-
+                let array = []
+                array.push(productos)
                 let user = {
                     status: 200,
                     meta: {
@@ -240,19 +244,7 @@ module.exports = {
                         url: `${req.protocol}://${req.get('host')}${req.originalUrl}`,
                         volverAListaDePrductos: `http://localhost:3000/api/productos/`
                     },
-                    data: {
-                        id: productos.id,
-                        nombre: productos.nombre,
-                        marca: productos.marca,
-                        detalle: productos.detalle,
-                        precio: productos.precio,
-                        descuento: productos.descuento,
-                        stock: productos.stock,
-                        tipo: productos.tipos.name,
-                        categoria: productos.category.name,
-                        vendidos: productos.vendidos
-
-                    }
+                    data: array
                 }
                 return res.status(200).json(user)
             })

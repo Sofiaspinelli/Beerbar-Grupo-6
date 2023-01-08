@@ -2,7 +2,7 @@
     color: orange;
     
 }
-.editar main{
+.editar{
     width: 90%;
     display: flex;
     flex-wrap: wrap;
@@ -12,7 +12,7 @@
     margin: 20px auto;
 }
 
-.editar main .form{
+.editar .form{
     /* text-align: center;
     margin: auto;
     width: 80%; */
@@ -22,7 +22,7 @@
     border: 2px double var(--colorNaranja);
     border-radius: 30px;
 }
-.editar main .form div{
+.editar .form div{
     width: 100%;
     margin: 20px 0;
     display: flex;
@@ -30,47 +30,59 @@
     flex-direction: column;
     align-items: center;
 }
-.editar main .form div label{
+.editar .form div label{
     font-size: 20px;
 }
-.editar main .form div input{
+.editar .form div input{
     width: 80%;
     border-radius: 10px;
     font-size: 24px;
     padding: 4px;
 }
-.editar main .form div select{
+.editar .form div select{
     width: 60%;
     font-size: 24px;
     border-radius: 10px;
     padding: 6px;
     background-color: var(--colorButtom);
 }
-.editar main .form div textarea{
+.editar .form div textarea{
     width: 70%;
     border-radius: 10px;
     font-size: 20px;
 }
-.editar main .form div .file{
+.editar .form div .file{
     width: 60%;
     min-width: 270px;
     background-color: var(--colorButtom);
     border: 1px solid  var(--colorButtom);
 } 
-.editar main .form div small{
+.editar .form div small{
     color: red;
 }
-.editar main .form div button{
+.editar .form div button{
     width: 45%;
     border-radius: 10px;
     font-size: 24px;
     padding: 6px;
     background-color: var(--colorButtom);
 }
-.editar main .form div input:hover, .editar main .form div textarea:hover{
+.editar .form div a{
+    margin-top: 5px;
+    width: 45%;
+    font-size: 24px;
+}
+.editar .form div a button{
+    width: 100%;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 6px;
+    background-color: var(--colorButtom);
+}
+.editar .form div input:hover, .editar .form div textarea:hover{
     border: 2px solid var(--colorNaranja);
 }
-.editar main .form div button:hover, .editar main .form div button a:hover, .editar main .form div .file:hover, .editar main .form div select:hover{
+.editar .form div button:hover, .editar .form div button a:hover, .editar .form div .file:hover, .editar .form div select:hover{
     background-color: var(--colorNaranja);
     color: var(--colorBlanco);
     transition: 0.6s;

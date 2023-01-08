@@ -46,7 +46,7 @@ export default function InteractiveList(props) {
                 <IconButton edge="end" aria-label="delete" onClick={handleDelete}>
                     <DeleteIcon />
                 </IconButton>
-                <NavLink>
+                <NavLink to={props.to}>
                 <IconButton edge="end" aria-label="delete" >
                     <BorderColorIcon />
                 </IconButton>

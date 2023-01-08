@@ -93,6 +93,7 @@ export default function InteractiveList({props, nombre}) {
               <ListaProductos
               id={value.id}
               link={`/admin/produco/detail/${value.id}`}
+              to={`/admin/producto/editar/${value.id}`}
               nombre={value.nombre}
               detalle={value.detalle}
               secondary={secondary}
