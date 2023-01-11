@@ -17,10 +17,12 @@ function admin() {
                 </div>
 
                  <div className="box">
-                 <i className="fa-solid fa-users icon"></i>
+                    <NavLink to="/admin/usuarios">
+                    <i className="fa-solid fa-users icon"></i>
                     <h4>Usuarios</h4>
                     <p>Lista de todos los usuarios</p>
                     <div className="background_hover"> </div>
+                    </NavLink>
                 </div>
 
                 <div className="box">

@@ -37,7 +37,7 @@ export default function InteractiveList({props, nombre}) {
   const [loading, setLoading] = React.useState(true)
 
   React.useEffect(() => {
-    fetch("http://localhost:3005/api/productos")
+    fetch("http://localhost:3005/api/productos?page=1&size=15")
       .then((response) => response.json())
       .then((valores) => {
         setcarta(valores.result);

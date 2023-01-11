@@ -190,7 +190,7 @@ module.exports = {
 
                     
 
-                    if (img) {
+                    if (img && img.filename !== "default-img.png") {
 
                         let image = producto.imagenes[0].name
 
@@ -257,7 +257,7 @@ module.exports = {
             
                 let ruta = (dato) => fs.existsSync(path.join(__dirname, '..', '..', 'public', 'img', 'productos', dato));
                 
-                if (img) {
+                if (img && img.filename !== "default-img.png") {
                     if (ruta(img.filename) && (img.filename !== "default-img.png")) {
                         fs.unlinkSync(path.join(__dirname, '../../public/img/productos', img.filename));
                     }

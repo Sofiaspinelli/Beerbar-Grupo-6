@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import Article from './Article'
 
-function Main() {
-
-  const [carta, setcarta] = useState([])
+function Productos() {
+    const [carta, setcarta] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -28,13 +27,11 @@ function Main() {
     }
 
   return (
-    
     <div>
-        <h1>PROMOCIONES</h1>
-    <section className="productos">
+        <h1>Productos</h1>
+        <section className="productos">
     {
         carta.map((values, index) => (
-          values.descuento > 0 ?     
             <Article
             key = {index}
             id = {values.id}
@@ -43,26 +40,6 @@ function Main() {
             descuento = {values.descuento}
             imagen = {values.imagenes[0].name}
             />
-          : 
-          null
-        ))
-    }
-    </section>
-    <h1>PRODUCTOS DESTACADOS</h1>
-    <section className="productos">
-    {
-        carta.map((values, index) => (
-          values.categoria_id === 1 || values.categoria_id === 2 ?
-            <Article
-            key = {index}
-            id = {values.id}
-            nombre = {values.nombre}
-            precio = {values.precio}
-            descuento = {values.descuento}
-            imagen = {values.imagenes[0].name}
-            />
-            :
-            null
         ))
     }
     </section>
@@ -70,4 +47,4 @@ function Main() {
   )
 }
 
-export default Main
+export default Productos

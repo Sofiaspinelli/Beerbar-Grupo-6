@@ -4,12 +4,14 @@ import { Route, BrowserRouter, Routes } from "react-router-dom";
 import Header from "./components/partials/Header"
 import Footer from "./components/partials/Footer"
 import Main from "./components/Main"
+import Productos from "./components/Productos"
 
 // admin
 import Admin from "./components/admin/Admin"
 // import ListaProductos from "./components/admin/ListaProductos";
 import Crear from "./components/admin/Crear"
 import Editar from "./components/admin/Editar"
+import ListaUsuarios from "./components/admin/ListaUsuarios"
 
 import './css/styles.css'
 import Lista from './components/admin/List'
@@ -22,17 +24,19 @@ function App() {
     <div className="home">
     <BrowserRouter>
       <Header/>
-
+      <main>
         <Routes>
 
           <Route path="/" element={<Main/>}/>
+          <Route path="/products" element={<Productos/>}/>
           <Route path="/admin" element={<Admin/>}/>
           <Route path="/admin/productos" element={<Lista/>}/>
           <Route path="/admin/producto/crear" element={<Crear/>}/>
           <Route path="/admin/producto/editar/:id" element={<Editar/>}/>
+          <Route path="/admin/usuarios" element={<ListaUsuarios/>}/>
           
         </Routes>
-
+      </main>
       <Footer/>
     </BrowserRouter>
     </div>

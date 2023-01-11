@@ -9,12 +9,14 @@ function Article({id, nombre, imagen, detalle, precio, descuento}) {
            <img src={`/productos/${imagen}`} alt="" /> 
         <div className="contenedor">
             <h3>{nombre}</h3>
-
+            { descuento > 0 ?
             <p className="old">{precio}</p>
-            <p className="precio">${precio - (precio * descuento / 100)}<small className="descuento">{descuento}</small></p>
+            :
+            null
+            }
+            <p className="precio">${precio - (precio * descuento / 100)}{descuento > 0? <small className="descuento">{descuento}%</small> : null}</p>
             
-            
-            <p className="precio">${precio}</p>
+            {/* <p className="precio">${precio}</p> */}
         
         </div>
         <button><a href={`/products/detail/${id}`}>Comprar</a></button>

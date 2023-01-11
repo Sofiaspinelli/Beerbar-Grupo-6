@@ -9,6 +9,7 @@ function Crear() {
   const navigate = useNavigate();
   const [categorias, setCategorias] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [file, setFile] = useState()
 
   const [values, setValues] = useState({
     selectType: '',
@@ -48,6 +49,21 @@ function Crear() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const formData = new FormData();
+    formData.append('img', file);
+    formData.append('selectType', values.selectType);
+    formData.append('nombre', values.nombre);
+    formData.append('marca', values.marca);
+    formData.append('detalle', values.detalle);
+    formData.append('precio', values.precio);
+    formData.append('descuento', values.descuento);
+    formData.append('stock', values.stock);
+    formData.append('categoria', values.categoria);
+    const config = {
+      headers: {
+        'content-type': 'multipart/form-data'
+      }
+    };
 
     /* let response = await fetch("http://localhost:3005/api/crear",
     {
@@ -59,7 +75,7 @@ function Crear() {
         body: JSON.stringify(values)
     }) */
 
-    let response = await axios.post(`http://localhost:3005/api/crear`, values)
+    let response = await axios.post(`http://localhost:3005/api/crear`,formData ,config)
     console.log(response);
     if (response.status === 200) {
       return navigate('/admin/productos')
@@ -107,29 +123,40 @@ function Crear() {
 
           <small id="detalleError"><small id="precioError">mensaje de error</small></small>
         </div>
+        {/* carga de imagenes----- */}
+        {/* <div className="file">
+          <label for="img">Imagen del producto</label>
+          <div className="file-select" id="src-file1" >
+            <input type="file" name="img" id="img" onChange={handleChange} />
+          </div>
+          <small id="imgError">mensaje de error</small>
+        </div> */}
         <div className="file">
           <label for="img">Imagen del producto</label>
           <div className="file-select" id="src-file1" >
-            <input name="img" type="file" id="img" multiple onChange={handleChange}/>
+            <input name="img" type="file" id="img" onChange={event => {
+              const file = event.target.files[0]
+              setFile(file)
+            }} />
           </div>
           <small id="imgError">mensaje de error</small>
         </div>
         <div className="p-s">
           <div>
             <label for="precio">Precio</label>
-            <input type="number" name="precio" id="precio" placeholder="precio" onChange={handleChange}/>
+            <input type="number" name="precio" id="precio" placeholder="precio" onChange={handleChange} />
 
             <small id="precioError">mensaje de error</small>
           </div>
           <div>
             <label for="descuento">Descuento</label>
-            <input type="number" name="descuento" id="descuento" placeholder="descuento" onChange={handleChange}/>
+            <input type="number" name="descuento" id="descuento" placeholder="descuento" onChange={handleChange} />
 
             <small id="descuentoError">mensaje de error</small>
           </div>
           <div className="stock">
             <label for="stock">Stock</label>
-            <input type="number" name="stock" id="stock" placeholder="stock" onChange={handleChange}/>
+            <input type="number" name="stock" id="stock" placeholder="stock" onChange={handleChange} />
 
             <small id="stockError">mensaje de error</small>
           </div>
